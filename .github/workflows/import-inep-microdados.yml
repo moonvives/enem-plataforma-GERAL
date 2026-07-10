@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: inep-enem-microdados-2020-2025
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   RELEASE_TAG: inep-enem-microdados-2020-2025
@@ -57,7 +57,7 @@ jobs:
           mkdir -p pacote extraido release
           url="https://download.inep.gov.br/microdados/microdados_enem_${ANO}.zip"
           arquivo="pacote/microdados_enem_${ANO}.zip"
-          curl --fail --location \
+          curl --fail --location --insecure \
             --retry 10 --retry-delay 15 --retry-all-errors \
             --connect-timeout 60 \
             --output "$arquivo" "$url"
