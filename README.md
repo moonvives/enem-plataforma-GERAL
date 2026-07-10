@@ -35,22 +35,49 @@ A régua de dificuldade segue o material-fonte: ❶ muito fácil (`b < 560`),
 e ❺ muito difícil (`b ≥ 740`). As estatísticas do painel são calculadas diretamente
 dos valores de `b` publicados por item.
 
+## Fontes de dados
+
+A plataforma combina três fontes:
+
+1. **eBook PPL (540 questões)** — edições não regulares, com enunciado, gabarito e
+   dificuldade TRI. Base das páginas de busca e do painel.
+2. **Microdados oficiais do INEP (2009–2025)** — arquivos `ITENS_PROVA` com os
+   parâmetros reais da TRI (`a`, `b`, `c`) de todos os itens das provas regulares.
+   Base do painel "Microdados" (foco em Ciências da Natureza, 672 itens 2020–2025).
+3. **Biblioteca de estudos (Naturezas)** — teoria, apostilas, manuais e simulados
+   por disciplina. PDFs versionados no repositório; videoaulas catalogadas com link.
+
 ## Estrutura
 
 ```
 data/
   source/           Material-fonte em Markdown (eBook e resumo da TRI)
-  questions.json    Dataset canônico gerado (metadados + questões)
+  questions.json    Dataset canônico das 540 questões (metadados + questões)
+  microdados/       ITENS_PROVA_2009..2025.csv (microdados oficiais do INEP)
+  microdados.json   Todos os itens oficiais deduplicados (todas as áreas/anos)
+  naturezas/        Biblioteca de CN: PDFs por disciplina + MANIFEST.md/manifest.json
 scripts/
-  build_dataset.py  Extrai o dataset da fonte e gera os JSON e o data.js
+  build_dataset.py     Gera o dataset das 540 questões (JSON + data.js)
+  build_microdados.py  Gera os itens oficiais da TRI (microdados_*.json + microdados.js)
+  fetch_naturezas.py   Baixa os PDFs da biblioteca e gera o manifesto/catálogo
 docs/               Site estático (pronto para GitHub Pages)
-  index.html        Busca e filtragem
+  index.html        Busca e filtragem (540 questões)
   questao.html      Detalhe da questão
-  painel.html       Painel analítico
+  painel.html       Painel analítico (eBook)
+  painel-oficial.html  Painel dos microdados oficiais (CN)
+  materiais.html    Biblioteca de materiais por disciplina
   sobre.html        Metodologia (Matriz de Referência e TRI)
-  assets/           styles.css, app.js e data.js (dataset embutido)
-  api/              questions.json, stats.json, meta.json
+  assets/           styles.css, app.js e *.js (datasets embutidos p/ offline)
+  api/              questions.json, stats.json, meta.json, microdados_*.json, materiais.json
 ```
+
+### Vídeos e arquivos grandes
+
+As videoaulas da biblioteca (~13 GB, arquivos de até ~940 MB) **não são
+versionadas**: o GitHub rejeita arquivos acima de 100 MB. Elas ficam catalogadas
+em `data/naturezas/MANIFEST.md` e em `docs/api/materiais.json`, com link direto de
+download do Drive, e aparecem na página **Materiais**. O mesmo vale para o único
+PDF acima de 100 MB (o manual de Física de 120 MB).
 
 ## Como gerar os dados
 

@@ -294,10 +294,53 @@
     render();
   }
 
+  // ===== PÁGINA: MATERIAIS (BIBLIOTECA) ==================================
+  function initMateriais() {
+    var D = window.ENEM_MATERIAIS;
+    var root = el("#mat-root");
+    if (!D) { root.innerHTML = '<div class="empty">Catálogo não carregado.</div>'; return; }
+    var r = D.resumo;
+    el("#mat-kpis").innerHTML = [
+      kpi(r.total, "Arquivos"),
+      kpi(r.pdfs, "PDFs"),
+      kpi(r.videos, "Vídeos"),
+      kpi(r.versionados, "No repositório")
+    ].join("");
+
+    function icon(t) { return t === "video" ? "🎬" : "📄"; }
+    function linkFor(m) {
+      if (m.no_repositorio && m.caminho) return "../" + m.caminho;
+      return m.download_url;
+    }
+    var discs = ["Geral", "Biologia", "Fisica", "Quimica"];
+    var nome = { Geral: "Geral", Biologia: "Biologia", Fisica: "Física", Quimica: "Química" };
+    var html = "";
+    discs.forEach(function (d) {
+      var itens = D.itens.filter(function (m) { return m.disciplina === d; });
+      if (!itens.length) return;
+      itens.sort(function (a, b) { return (a.tipo + a.titulo).localeCompare(b.tipo + b.titulo); });
+      html += '<div class="panel" style="margin-bottom:1.25rem"><h3>' + nome[d] +
+        ' <span style="color:var(--muted);font-weight:400">· ' + itens.length + ' arquivos</span></h3>' +
+        '<ul class="meta-list">';
+      itens.forEach(function (m) {
+        var tag = m.no_repositorio
+          ? '<span class="badge area-biologia">no repo</span>'
+          : '<span class="badge hab">Drive</span>';
+        html += '<li><span class="k">' + icon(m.tipo) + " " +
+          '<a href="' + linkFor(m) + '"' + (m.no_repositorio ? "" : ' target="_blank" rel="noopener"') + ">" +
+          m.titulo + "</a>" + (m.subpasta ? ' <span style="color:var(--muted);font-size:.8rem">· ' + m.subpasta + "</span>" : "") +
+          '</span><span class="v">' + m.tamanho_mb + " MB " + tag + "</span></li>";
+      });
+      html += "</ul></div>";
+    });
+    root.innerHTML = html;
+  }
+
   // ---- router ------------------------------------------------------------
   var page = document.body.getAttribute("data-page");
   if (page === "busca") initBusca();
   else if (page === "detalhe") initDetalhe();
   else if (page === "painel") initPainel();
   else if (page === "painel-oficial") initPainelOficial();
+  else if (page === "materiais") initMateriais();
 })();
