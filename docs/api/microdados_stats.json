@@ -1,0 +1,556 @@
+{
+  "padrao": {
+    "anos": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "total": 672,
+    "com_parametro": 660,
+    "dificuldade_media": 628.5,
+    "desvio_padrao": 76.6,
+    "discriminacao_media": 2.33,
+    "acaso_medio": 0.18,
+    "b_min": 358.1,
+    "b_max": 881.5,
+    "por_ano": [
+      {
+        "ano": 2020,
+        "total": 150
+      },
+      {
+        "ano": 2021,
+        "total": 105
+      },
+      {
+        "ano": 2022,
+        "total": 91
+      },
+      {
+        "ano": 2023,
+        "total": 94
+      },
+      {
+        "ano": 2024,
+        "total": 95
+      },
+      {
+        "ano": 2025,
+        "total": 137
+      }
+    ],
+    "por_tier": [
+      {
+        "rotulo": "Muito fácil",
+        "total": 115
+      },
+      {
+        "rotulo": "Fácil",
+        "total": 154
+      },
+      {
+        "rotulo": "Mediana",
+        "total": 229
+      },
+      {
+        "rotulo": "Difícil",
+        "total": 124
+      },
+      {
+        "rotulo": "Muito difícil",
+        "total": 38
+      }
+    ],
+    "por_habilidade": [
+      {
+        "habilidade": 1,
+        "total": 26,
+        "dificuldade_media": 647.3
+      },
+      {
+        "habilidade": 2,
+        "total": 23,
+        "dificuldade_media": 639.6
+      },
+      {
+        "habilidade": 3,
+        "total": 24,
+        "dificuldade_media": 584.1
+      },
+      {
+        "habilidade": 4,
+        "total": 24,
+        "dificuldade_media": 568.8
+      },
+      {
+        "habilidade": 5,
+        "total": 29,
+        "dificuldade_media": 690.7
+      },
+      {
+        "habilidade": 6,
+        "total": 22,
+        "dificuldade_media": 686.8
+      },
+      {
+        "habilidade": 7,
+        "total": 22,
+        "dificuldade_media": 652.4
+      },
+      {
+        "habilidade": 8,
+        "total": 24,
+        "dificuldade_media": 627.3
+      },
+      {
+        "habilidade": 9,
+        "total": 21,
+        "dificuldade_media": 634.5
+      },
+      {
+        "habilidade": 10,
+        "total": 28,
+        "dificuldade_media": 606.6
+      },
+      {
+        "habilidade": 11,
+        "total": 20,
+        "dificuldade_media": 594.2
+      },
+      {
+        "habilidade": 12,
+        "total": 23,
+        "dificuldade_media": 610.1
+      },
+      {
+        "habilidade": 13,
+        "total": 16,
+        "dificuldade_media": 613.3
+      },
+      {
+        "habilidade": 14,
+        "total": 22,
+        "dificuldade_media": 626.2
+      },
+      {
+        "habilidade": 15,
+        "total": 18,
+        "dificuldade_media": 583.9
+      },
+      {
+        "habilidade": 16,
+        "total": 24,
+        "dificuldade_media": 605.1
+      },
+      {
+        "habilidade": 17,
+        "total": 26,
+        "dificuldade_media": 609.2
+      },
+      {
+        "habilidade": 18,
+        "total": 25,
+        "dificuldade_media": 633.0
+      },
+      {
+        "habilidade": 19,
+        "total": 23,
+        "dificuldade_media": 641.0
+      },
+      {
+        "habilidade": 20,
+        "total": 23,
+        "dificuldade_media": 676.9
+      },
+      {
+        "habilidade": 21,
+        "total": 20,
+        "dificuldade_media": 633.4
+      },
+      {
+        "habilidade": 22,
+        "total": 20,
+        "dificuldade_media": 631.5
+      },
+      {
+        "habilidade": 23,
+        "total": 24,
+        "dificuldade_media": 656.4
+      },
+      {
+        "habilidade": 24,
+        "total": 24,
+        "dificuldade_media": 659.0
+      },
+      {
+        "habilidade": 25,
+        "total": 22,
+        "dificuldade_media": 654.4
+      },
+      {
+        "habilidade": 26,
+        "total": 18,
+        "dificuldade_media": 636.3
+      },
+      {
+        "habilidade": 27,
+        "total": 18,
+        "dificuldade_media": 646.0
+      },
+      {
+        "habilidade": 28,
+        "total": 21,
+        "dificuldade_media": 605.2
+      },
+      {
+        "habilidade": 29,
+        "total": 19,
+        "dificuldade_media": 631.5
+      },
+      {
+        "habilidade": 30,
+        "total": 23,
+        "dificuldade_media": 560.2
+      }
+    ],
+    "por_gabarito": [
+      {
+        "letra": "A",
+        "total": 124
+      },
+      {
+        "letra": "B",
+        "total": 134
+      },
+      {
+        "letra": "C",
+        "total": 152
+      },
+      {
+        "letra": "D",
+        "total": 145
+      },
+      {
+        "letra": "E",
+        "total": 112
+      }
+    ]
+  },
+  "todos_anos": {
+    "anos": [
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "total": 1822,
+    "com_parametro": 1792,
+    "dificuldade_media": 1128.4,
+    "desvio_padrao": 3278.2,
+    "discriminacao_media": 9.42,
+    "acaso_medio": 0.18,
+    "b_min": -16567.7,
+    "b_max": 34050.7,
+    "por_ano": [
+      {
+        "ano": 2009,
+        "total": 90
+      },
+      {
+        "ano": 2010,
+        "total": 90
+      },
+      {
+        "ano": 2011,
+        "total": 90
+      },
+      {
+        "ano": 2012,
+        "total": 90
+      },
+      {
+        "ano": 2013,
+        "total": 101
+      },
+      {
+        "ano": 2014,
+        "total": 143
+      },
+      {
+        "ano": 2015,
+        "total": 103
+      },
+      {
+        "ano": 2016,
+        "total": 108
+      },
+      {
+        "ano": 2017,
+        "total": 143
+      },
+      {
+        "ano": 2018,
+        "total": 100
+      },
+      {
+        "ano": 2019,
+        "total": 92
+      },
+      {
+        "ano": 2020,
+        "total": 150
+      },
+      {
+        "ano": 2021,
+        "total": 105
+      },
+      {
+        "ano": 2022,
+        "total": 91
+      },
+      {
+        "ano": 2023,
+        "total": 94
+      },
+      {
+        "ano": 2024,
+        "total": 95
+      },
+      {
+        "ano": 2025,
+        "total": 137
+      }
+    ],
+    "por_tier": [
+      {
+        "rotulo": "Muito fácil",
+        "total": 349
+      },
+      {
+        "rotulo": "Fácil",
+        "total": 456
+      },
+      {
+        "rotulo": "Mediana",
+        "total": 543
+      },
+      {
+        "rotulo": "Difícil",
+        "total": 282
+      },
+      {
+        "rotulo": "Muito difícil",
+        "total": 162
+      }
+    ],
+    "por_habilidade": [
+      {
+        "habilidade": 1,
+        "total": 63,
+        "dificuldade_media": 648.9
+      },
+      {
+        "habilidade": 2,
+        "total": 54,
+        "dificuldade_media": 631.9
+      },
+      {
+        "habilidade": 3,
+        "total": 56,
+        "dificuldade_media": 603.0
+      },
+      {
+        "habilidade": 4,
+        "total": 43,
+        "dificuldade_media": 579.6
+      },
+      {
+        "habilidade": 5,
+        "total": 56,
+        "dificuldade_media": 679.6
+      },
+      {
+        "habilidade": 6,
+        "total": 45,
+        "dificuldade_media": 798.0
+      },
+      {
+        "habilidade": 7,
+        "total": 48,
+        "dificuldade_media": 656.8
+      },
+      {
+        "habilidade": 8,
+        "total": 56,
+        "dificuldade_media": 618.9
+      },
+      {
+        "habilidade": 9,
+        "total": 45,
+        "dificuldade_media": 634.6
+      },
+      {
+        "habilidade": 10,
+        "total": 49,
+        "dificuldade_media": 598.4
+      },
+      {
+        "habilidade": 11,
+        "total": 40,
+        "dificuldade_media": 598.4
+      },
+      {
+        "habilidade": 12,
+        "total": 44,
+        "dificuldade_media": 601.2
+      },
+      {
+        "habilidade": 13,
+        "total": 37,
+        "dificuldade_media": 617.7
+      },
+      {
+        "habilidade": 14,
+        "total": 57,
+        "dificuldade_media": 611.2
+      },
+      {
+        "habilidade": 15,
+        "total": 43,
+        "dificuldade_media": 603.7
+      },
+      {
+        "habilidade": 16,
+        "total": 44,
+        "dificuldade_media": 607.5
+      },
+      {
+        "habilidade": 17,
+        "total": 61,
+        "dificuldade_media": 622.0
+      },
+      {
+        "habilidade": 18,
+        "total": 64,
+        "dificuldade_media": 633.8
+      },
+      {
+        "habilidade": 19,
+        "total": 51,
+        "dificuldade_media": 633.9
+      },
+      {
+        "habilidade": 20,
+        "total": 58,
+        "dificuldade_media": 658.4
+      },
+      {
+        "habilidade": 21,
+        "total": 52,
+        "dificuldade_media": 635.9
+      },
+      {
+        "habilidade": 22,
+        "total": 46,
+        "dificuldade_media": 636.5
+      },
+      {
+        "habilidade": 23,
+        "total": 49,
+        "dificuldade_media": 634.9
+      },
+      {
+        "habilidade": 24,
+        "total": 60,
+        "dificuldade_media": 647.8
+      },
+      {
+        "habilidade": 25,
+        "total": 56,
+        "dificuldade_media": 677.7
+      },
+      {
+        "habilidade": 26,
+        "total": 48,
+        "dificuldade_media": 627.7
+      },
+      {
+        "habilidade": 27,
+        "total": 44,
+        "dificuldade_media": 638.4
+      },
+      {
+        "habilidade": 28,
+        "total": 44,
+        "dificuldade_media": 604.6
+      },
+      {
+        "habilidade": 29,
+        "total": 40,
+        "dificuldade_media": 614.8
+      },
+      {
+        "habilidade": 30,
+        "total": 42,
+        "dificuldade_media": 553.5
+      }
+    ],
+    "por_gabarito": [
+      {
+        "letra": "A",
+        "total": 336
+      },
+      {
+        "letra": "B",
+        "total": 373
+      },
+      {
+        "letra": "C",
+        "total": 398
+      },
+      {
+        "letra": "D",
+        "total": 380
+      },
+      {
+        "letra": "E",
+        "total": 329
+      }
+    ]
+  },
+  "anos_disponiveis": [
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ]
+}

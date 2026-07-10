@@ -4,14 +4,10 @@
 (function () {
   "use strict";
 
-  var DATA = window.ENEM_DATA;
-  if (!DATA) {
-    console.error("Dataset não carregado (data.js ausente).");
-    return;
-  }
-  var QUESTOES = DATA.questoes;
-  var META = DATA.meta;
-  var STATS = DATA.stats;
+  var DATA = window.ENEM_DATA || null;
+  var QUESTOES = DATA ? DATA.questoes : [];
+  var META = DATA ? DATA.meta : null;
+  var STATS = DATA ? DATA.stats : null;
 
   // ---- helpers -----------------------------------------------------------
   function el(sel, root) { return (root || document).querySelector(sel); }
@@ -219,9 +215,89 @@
     }).join("");
   }
 
+  // ===== PÁGINA: PAINEL OFICIAL (MICRODADOS) =============================
+  function initPainelOficial() {
+    var M = window.ENEM_MICRO;
+    if (!M) { el("#mic-root").innerHTML = '<div class="empty">Microdados não carregados.</div>'; return; }
+    var ITENS = M.itens;
+    var anos = M.meta.anos;
+    var tierColors = { "Muito fácil": "var(--t1)", "Fácil": "var(--t2)", "Mediana": "var(--t3)", "Difícil": "var(--t4)", "Muito difícil": "var(--t5)" };
+
+    // filtro de anos (chips) — padrão: 2020–2025
+    var padrao = anos.filter(function (a) { return a >= 2020; });
+    var chips = el("#mic-anos");
+    var sel = {};
+    anos.forEach(function (a) {
+      sel[a] = padrao.indexOf(a) !== -1;
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "chip" + (sel[a] ? " on" : "");
+      b.textContent = a;
+      b.addEventListener("click", function () { sel[a] = !sel[a]; b.classList.toggle("on"); render(); });
+      chips.appendChild(b);
+    });
+
+    function media(arr) { return arr.length ? arr.reduce(function (s, x) { return s + x; }, 0) / arr.length : 0; }
+    function br(n, d) { return d == null ? n : n.toFixed(d).replace(".", ","); }
+
+    function render() {
+      var anosSel = anos.filter(function (a) { return sel[a]; });
+      var itens = ITENS.filter(function (x) { return sel[x.ano]; });
+      var comB = itens.filter(function (x) { return x.b_enem != null; });
+      var bs = comB.map(function (x) { return x.b_enem; });
+      var as_ = itens.filter(function (x) { return x.a != null; }).map(function (x) { return x.a; });
+      var cs = itens.filter(function (x) { return x.c != null; }).map(function (x) { return x.c; });
+      var m = media(bs);
+      var dp = Math.sqrt(media(bs.map(function (b) { return (b - m) * (b - m); })));
+
+      el("#mic-scope").textContent = anosSel.length
+        ? "Baseado nos " + itens.length + " itens de CN dos microdados do ENEM (" +
+          (anosSel.length === 1 ? anosSel[0] : Math.min.apply(null, anosSel) + "–" + Math.max.apply(null, anosSel)) +
+          "), com parâmetros oficiais da TRI."
+        : "Selecione ao menos um ano.";
+
+      el("#mic-kpis").innerHTML = [
+        kpi(itens.length, "Itens oficiais"),
+        kpi(bs.length ? Math.round(m) : "—", "Dificuldade média (ENEM)"),
+        kpi(as_.length ? br(media(as_), 2) : "—", "Discriminação a média"),
+        kpi(cs.length ? br(media(cs), 2) : "—", "Acerto ao acaso c médio")
+      ].join("");
+
+      // por ano
+      var porAno = {};
+      itens.forEach(function (x) { porAno[x.ano] = (porAno[x.ano] || 0) + 1; });
+      barPanel("#mic-ano", anosSel.map(function (a) { return { lab: a, val: porAno[a] || 0 }; }));
+
+      // faixa de dificuldade
+      var ordem = ["Muito fácil", "Fácil", "Mediana", "Difícil", "Muito difícil"];
+      var porTier = {};
+      comB.forEach(function (x) { porTier[x.tier.rotulo] = (porTier[x.tier.rotulo] || 0) + 1; });
+      barPanel("#mic-tier", ordem.map(function (t) { return { lab: t, val: porTier[t] || 0, color: tierColors[t] }; }));
+
+      // gabarito
+      var porGab = {};
+      itens.forEach(function (x) { if ("ABCDE".indexOf(x.gabarito) !== -1) porGab[x.gabarito] = (porGab[x.gabarito] || 0) + 1; });
+      barPanel("#mic-gab", "ABCDE".split("").map(function (g) { return { lab: g, val: porGab[g] || 0 }; }));
+
+      // por habilidade (contagem) + dificuldade média por habilidade
+      var cont = {}, bhab = {};
+      itens.forEach(function (x) { if (x.habilidade) cont[x.habilidade] = (cont[x.habilidade] || 0) + 1; });
+      comB.forEach(function (x) { if (x.habilidade) { (bhab[x.habilidade] = bhab[x.habilidade] || []).push(x.b_enem); } });
+      var habs = [];
+      for (var h = 1; h <= 30; h++) habs.push(h);
+      barPanel("#mic-hab", habs.map(function (h) { return { lab: "Habilidade " + h, val: cont[h] || 0 }; }));
+      var maxDif = Math.max.apply(null, habs.map(function (h) { return bhab[h] ? media(bhab[h]) : 0; }));
+      barPanel("#mic-hab-dif", habs.map(function (h) {
+        var v = bhab[h] ? Math.round(media(bhab[h])) : 0;
+        return { lab: "Habilidade " + h, val: v, display: v || "—", max: maxDif };
+      }));
+    }
+    render();
+  }
+
   // ---- router ------------------------------------------------------------
   var page = document.body.getAttribute("data-page");
   if (page === "busca") initBusca();
   else if (page === "detalhe") initDetalhe();
   else if (page === "painel") initPainel();
+  else if (page === "painel-oficial") initPainelOficial();
 })();
