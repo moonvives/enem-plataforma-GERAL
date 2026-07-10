@@ -1,22 +1,24 @@
-# Microdados de participantes do ENEM — 2020 a 2025
+# Microdados de participantes do ENEM — 2018 a 2025
 
 Importação integral dos pacotes anuais publicados pelo INEP/MEC.
 
 ## Estado da importação
 
-**Concluída em 10 de julho de 2026.** Os seis pacotes passaram por validação do ZIP, extração integral, manifesto por arquivo, recompressão e publicação.
+**Concluída em 10 de julho de 2026.** Os oito pacotes passaram por validação do ZIP, extração integral, manifesto por arquivo, recompressão e publicação.
 
-[Abrir a Release `inep-enem-microdados-2020-2025`](https://github.com/moonvives/enem-plataforma-GERAL/releases/tag/inep-enem-microdados-2020-2025)
+[Abrir a Release 2018–2019](https://github.com/moonvives/enem-plataforma-GERAL/releases/tag/inep-enem-microdados-2018-2019) · [Abrir a Release 2020–2025](https://github.com/moonvives/enem-plataforma-GERAL/releases/tag/inep-enem-microdados-2020-2025)
 
 | Ano | Arquivos extraídos | Tamanho extraído | Pacote publicado |
 |---:|---:|---:|---:|
+| 2018 | 62 | 2.659.233.264 bytes | 563,4 MB |
+| 2019 | 76 | 2.534.745.337 bytes | 565,0 MB |
 | 2020 | 99 | 2.218.965.196 bytes | 516,9 MB |
 | 2021 | 109 | 1.673.795.307 bytes | 434,2 MB |
 | 2022 | 113 | 2.139.001.910 bytes | 553,0 MB |
 | 2023 | 83 | 1.923.184.307 bytes | 461,7 MB |
 | 2024 | 20 | 2.169.497.664 bytes | 426,8 MB |
 | 2025 | 21 | 2.659.002.728 bytes | 504,4 MB |
-| **Total** | **445** | **12.783.447.112 bytes** | **2,897 GB** |
+| **Total** | **583** | **17.977.425.713 bytes** | **4,025 GB** |
 
 Cada ano possui exatamente estes quatro ativos na Release:
 
@@ -29,6 +31,8 @@ Cada ano possui exatamente estes quatro ativos na Release:
 
 | Ano | Arquivo oficial |
 |---:|---|
+| 2018 | `https://download.inep.gov.br/microdados/microdados_enem_2018.zip` |
+| 2019 | `https://download.inep.gov.br/microdados/microdados_enem_2019.zip` |
 | 2020 | `https://download.inep.gov.br/microdados/microdados_enem_2020.zip` |
 | 2021 | `https://download.inep.gov.br/microdados/microdados_enem_2021.zip` |
 | 2022 | `https://download.inep.gov.br/microdados/microdados_enem_2022.zip` |
@@ -42,7 +46,7 @@ Documentação complementar: <https://brazilvisible.org/docs/apis/educacao/enem/
 
 Os CSVs principais têm milhões de linhas e ultrapassam o limite de 100 MB por arquivo do GitHub. Por isso, a importação não coloca os CSVs gigantes no histórico Git do repositório.
 
-O workflow `Importar microdados oficiais do ENEM`:
+Os workflows `Importar microdados oficiais do ENEM`:
 
 1. baixa cada ZIP diretamente do domínio oficial do INEP;
 2. registra o SHA-256 do pacote original;
@@ -51,7 +55,7 @@ O workflow `Importar microdados oficiais do ENEM`:
 5. produz um manifesto JSON com caminho, tamanho e SHA-256 de cada arquivo extraído;
 6. cria um arquivo `tar.zst` reproduzível com todo o conteúdo extraído;
 7. divide arquivos maiores em partes de até 1.900 MiB;
-8. publica as partes e os manifestos na Release `inep-enem-microdados-2020-2025`.
+8. publica as partes e os manifestos nas Releases correspondentes.
 
 ## Reconstrução de um ano
 
