@@ -7,7 +7,7 @@ var CORE = [
   "assets/styles.css", "assets/app.js", "assets/boot.js",
   "assets/auth.js", "assets/tracker.js",
   "assets/data.js", "assets/microdados.js", "assets/materiais.js",
-  "assets/estudar.js", "assets/meu-painel.js"
+  "assets/provas.js", "assets/estudar.js", "assets/meu-painel.js"
 ];
 
 self.addEventListener("install", function (e) {
