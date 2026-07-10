@@ -1,0 +1,387 @@
+{
+  "total": 540,
+  "validas_tri": 536,
+  "anuladas": 2,
+  "dificuldade_media": 615.0,
+  "desvio_padrao": 75.0,
+  "b_min": 358.1,
+  "b_max": 813.7,
+  "por_tier": [
+    {
+      "rotulo": "Muito fácil",
+      "total": 116
+    },
+    {
+      "rotulo": "Fácil",
+      "total": 161
+    },
+    {
+      "rotulo": "Mediana",
+      "total": 155
+    },
+    {
+      "rotulo": "Difícil",
+      "total": 78
+    },
+    {
+      "rotulo": "Muito difícil",
+      "total": 26
+    }
+  ],
+  "por_habilidade": [
+    {
+      "habilidade": 1,
+      "total": 16,
+      "competencia": 1,
+      "area": "Física",
+      "dificuldade_media": 629.9
+    },
+    {
+      "habilidade": 2,
+      "total": 18,
+      "competencia": 1,
+      "area": "Física",
+      "dificuldade_media": 635.0
+    },
+    {
+      "habilidade": 3,
+      "total": 17,
+      "competencia": 1,
+      "area": "Interdisciplinar",
+      "dificuldade_media": 598.9
+    },
+    {
+      "habilidade": 4,
+      "total": 16,
+      "competencia": 1,
+      "area": "Biologia",
+      "dificuldade_media": 567.1
+    },
+    {
+      "habilidade": 5,
+      "total": 20,
+      "competencia": 2,
+      "area": "Física",
+      "dificuldade_media": 676.2
+    },
+    {
+      "habilidade": 6,
+      "total": 17,
+      "competencia": 2,
+      "area": "Física",
+      "dificuldade_media": 636.2
+    },
+    {
+      "habilidade": 7,
+      "total": 18,
+      "competencia": 2,
+      "area": "Química",
+      "dificuldade_media": 647.4
+    },
+    {
+      "habilidade": 8,
+      "total": 23,
+      "competencia": 3,
+      "area": "Química",
+      "dificuldade_media": 598.2
+    },
+    {
+      "habilidade": 9,
+      "total": 14,
+      "competencia": 3,
+      "area": "Biologia",
+      "dificuldade_media": 601.1
+    },
+    {
+      "habilidade": 10,
+      "total": 20,
+      "competencia": 3,
+      "area": "Química",
+      "dificuldade_media": 596.2
+    },
+    {
+      "habilidade": 11,
+      "total": 14,
+      "competencia": 3,
+      "area": "Biologia",
+      "dificuldade_media": 586.6
+    },
+    {
+      "habilidade": 12,
+      "total": 14,
+      "competencia": 3,
+      "area": "Biologia",
+      "dificuldade_media": 587.7
+    },
+    {
+      "habilidade": 13,
+      "total": 13,
+      "competencia": 4,
+      "area": "Biologia",
+      "dificuldade_media": 600.8
+    },
+    {
+      "habilidade": 14,
+      "total": 19,
+      "competencia": 4,
+      "area": "Biologia",
+      "dificuldade_media": 599.5
+    },
+    {
+      "habilidade": 15,
+      "total": 15,
+      "competencia": 4,
+      "area": "Biologia",
+      "dificuldade_media": 571.1
+    },
+    {
+      "habilidade": 16,
+      "total": 18,
+      "competencia": 4,
+      "area": "Biologia",
+      "dificuldade_media": 619.0
+    },
+    {
+      "habilidade": 17,
+      "total": 23,
+      "competencia": 5,
+      "area": "Interdisciplinar",
+      "dificuldade_media": 601.4
+    },
+    {
+      "habilidade": 18,
+      "total": 25,
+      "competencia": 5,
+      "area": "Interdisciplinar",
+      "dificuldade_media": 626.0
+    },
+    {
+      "habilidade": 19,
+      "total": 21,
+      "competencia": 5,
+      "area": "Interdisciplinar",
+      "dificuldade_media": 624.2
+    },
+    {
+      "habilidade": 20,
+      "total": 23,
+      "competencia": 6,
+      "area": "Física",
+      "dificuldade_media": 631.4
+    },
+    {
+      "habilidade": 21,
+      "total": 18,
+      "competencia": 6,
+      "area": "Física",
+      "dificuldade_media": 636.4
+    },
+    {
+      "habilidade": 22,
+      "total": 16,
+      "competencia": 6,
+      "area": "Física",
+      "dificuldade_media": 654.8
+    },
+    {
+      "habilidade": 23,
+      "total": 18,
+      "competencia": 6,
+      "area": "Física",
+      "dificuldade_media": 667.1
+    },
+    {
+      "habilidade": 24,
+      "total": 21,
+      "competencia": 7,
+      "area": "Química",
+      "dificuldade_media": 640.8
+    },
+    {
+      "habilidade": 25,
+      "total": 20,
+      "competencia": 7,
+      "area": "Química",
+      "dificuldade_media": 630.8
+    },
+    {
+      "habilidade": 26,
+      "total": 19,
+      "competencia": 7,
+      "area": "Química",
+      "dificuldade_media": 580.9
+    },
+    {
+      "habilidade": 27,
+      "total": 17,
+      "competencia": 7,
+      "area": "Química",
+      "dificuldade_media": 621.3
+    },
+    {
+      "habilidade": 28,
+      "total": 15,
+      "competencia": 8,
+      "area": "Biologia",
+      "dificuldade_media": 596.0
+    },
+    {
+      "habilidade": 29,
+      "total": 15,
+      "competencia": 8,
+      "area": "Biologia",
+      "dificuldade_media": 589.1
+    },
+    {
+      "habilidade": 30,
+      "total": 17,
+      "competencia": 8,
+      "area": "Biologia",
+      "dificuldade_media": 558.3
+    }
+  ],
+  "por_competencia": [
+    {
+      "competencia": 1,
+      "total": 67
+    },
+    {
+      "competencia": 2,
+      "total": 55
+    },
+    {
+      "competencia": 3,
+      "total": 85
+    },
+    {
+      "competencia": 4,
+      "total": 65
+    },
+    {
+      "competencia": 5,
+      "total": 69
+    },
+    {
+      "competencia": 6,
+      "total": 75
+    },
+    {
+      "competencia": 7,
+      "total": 77
+    },
+    {
+      "competencia": 8,
+      "total": 47
+    }
+  ],
+  "por_area": [
+    {
+      "area": "Biologia",
+      "total": 170
+    },
+    {
+      "area": "Física",
+      "total": 146
+    },
+    {
+      "area": "Química",
+      "total": 138
+    },
+    {
+      "area": "Interdisciplinar",
+      "total": 86
+    }
+  ],
+  "por_edicao": [
+    {
+      "aplicacao": "2ª Aplicação 2016",
+      "total": 45
+    },
+    {
+      "aplicacao": "Digital 2020",
+      "total": 45
+    },
+    {
+      "aplicacao": "Libras 2017",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2012",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2017",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2018",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2019",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2020",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2021",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2022",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2023",
+      "total": 45
+    },
+    {
+      "aplicacao": "PPL 2024",
+      "total": 45
+    }
+  ],
+  "por_ano": [
+    {
+      "ano": 2012,
+      "total": 45
+    },
+    {
+      "ano": 2016,
+      "total": 45
+    },
+    {
+      "ano": 2017,
+      "total": 90
+    },
+    {
+      "ano": 2018,
+      "total": 45
+    },
+    {
+      "ano": 2019,
+      "total": 45
+    },
+    {
+      "ano": 2020,
+      "total": 90
+    },
+    {
+      "ano": 2021,
+      "total": 45
+    },
+    {
+      "ano": 2022,
+      "total": 45
+    },
+    {
+      "ano": 2023,
+      "total": 45
+    },
+    {
+      "ano": 2024,
+      "total": 45
+    }
+  ]
+}
