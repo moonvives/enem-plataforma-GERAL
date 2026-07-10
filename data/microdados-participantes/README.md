@@ -2,6 +2,29 @@
 
 Importação integral dos pacotes anuais publicados pelo INEP/MEC.
 
+## Estado da importação
+
+**Concluída em 10 de julho de 2026.** Os seis pacotes passaram por validação do ZIP, extração integral, manifesto por arquivo, recompressão e publicação.
+
+[Abrir a Release `inep-enem-microdados-2020-2025`](https://github.com/moonvives/enem-plataforma-GERAL/releases/tag/inep-enem-microdados-2020-2025)
+
+| Ano | Arquivos extraídos | Tamanho extraído | Pacote publicado |
+|---:|---:|---:|---:|
+| 2020 | 99 | 2.218.965.196 bytes | 516,9 MB |
+| 2021 | 109 | 1.673.795.307 bytes | 434,2 MB |
+| 2022 | 113 | 2.139.001.910 bytes | 553,0 MB |
+| 2023 | 83 | 1.923.184.307 bytes | 461,7 MB |
+| 2024 | 20 | 2.169.497.664 bytes | 426,8 MB |
+| 2025 | 21 | 2.659.002.728 bytes | 504,4 MB |
+| **Total** | **445** | **12.783.447.112 bytes** | **2,897 GB** |
+
+Cada ano possui exatamente estes quatro ativos na Release:
+
+- `enem-AAAA-extraido.tar.zst.000.part`;
+- `enem-AAAA-extraido.tar.zst.sha256`;
+- `manifest-AAAA.json`;
+- `original-AAAA.zip.sha256`.
+
 ## Fonte oficial
 
 | Ano | Arquivo oficial |
