@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2b">
+  <title>Estudar · CN Estratégia</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .modes{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+    .modes button{font:inherit;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:.5rem .85rem;border-radius:999px}
+    .modes button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+    .studycard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem}
+    .qhead{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:.75rem}
+    .qhead .tags{display:flex;gap:.4rem;flex-wrap:wrap}
+    .enun{font-size:1.05rem;line-height:1.7;margin:.5rem 0 1.25rem}
+    .alts{display:grid;gap:.5rem}
+    .alt{display:flex;align-items:center;gap:.75rem;text-align:left;font:inherit;cursor:pointer;border:1px solid var(--border);background:var(--surface-2);color:var(--text);padding:.7rem .9rem;border-radius:10px}
+    .alt .l{font-weight:800;width:1.7rem;height:1.7rem;display:grid;place-items:center;border-radius:7px;background:var(--surface);border:1px solid var(--border)}
+    .alt:hover{border-color:var(--brand)}
+    .alt.correct{border-color:var(--t1);background:rgba(58,125,68,.14)}
+    .alt.correct .l{background:var(--t1);color:#fff;border-color:var(--t1)}
+    .alt.wrong{border-color:var(--t5);background:rgba(192,69,59,.12)}
+    .alt.wrong .l{background:var(--t5);color:#fff;border-color:var(--t5)}
+    .alt[disabled]{cursor:default}
+    .feedback{margin-top:1.1rem;padding:.85rem 1rem;border-radius:10px;font-weight:600;display:none}
+    .feedback.ok{display:block;background:rgba(58,125,68,.14);color:var(--t1)}
+    .feedback.no{display:block;background:rgba(192,69,59,.12);color:var(--t5)}
+    .studybar{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.25rem;flex-wrap:wrap}
+    .miniprog{font-size:.85rem;color:var(--muted)}
+    .miniprog b{color:var(--text)}
+  </style>
+</head>
+<body data-page="estudar">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><strong>CN <span class="dot">•</span> Estratégia</strong><span>Estudo pessoal · TRI · microdados</span></a>
+      <nav class="main">
+        <a href="index.html">Banco</a>
+        <a href="estudar.html" class="active">Estudar</a>
+        <a href="meu-painel.html">Meu painel</a>
+        <a href="painel-oficial.html">Microdados</a>
+        <a href="materiais.html">Materiais</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-title">
+      <h1>Estudar</h1>
+      <p>Responda questões e acompanhe seu desempenho. A correção usa o gabarito oficial e cada resposta entra no seu <a href="meu-painel.html">painel pessoal</a>.</p>
+    </div>
+
+    <div class="modes" id="modes">
+      <button data-mode="sequencia" class="on">Sequência (fácil → difícil)</button>
+      <button data-mode="fracas">Focar nas minhas fraquezas</button>
+      <button data-mode="revisar">Revisar meus erros</button>
+      <button data-mode="aleatorio">Aleatório</button>
+    </div>
+    <div class="filters" style="margin-top:0">
+      <div class="grid">
+        <div class="field"><label for="s-hab">Habilidade</label><select id="s-hab"><option value="">Todas</option></select></div>
+        <div class="field"><label for="s-nivel">Nível (TRI)</label><select id="s-nivel"><option value="">Todos</option></select></div>
+        <div class="field"><label for="s-inedito">Só inéditas</label><select id="s-inedito"><option value="">Não</option><option value="1">Sim (que ainda não acertei)</option></select></div>
+      </div>
+    </div>
+
+    <div id="stage"></div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>Correção pelo gabarito oficial (microdados INEP). Seu histórico fica salvo apenas neste aparelho.</span>
+      <span><a href="meu-painel.html">Meu painel →</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/auth.js"></script>
+  <script src="assets/tracker.js"></script>
+  <script src="assets/estudar.js"></script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>
