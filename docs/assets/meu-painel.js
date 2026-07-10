@@ -7,7 +7,7 @@
   function init() {
     var META = window.ENEM_DATA ? window.ENEM_DATA.meta : null;
     var nome = window.Auth ? window.Auth.name() : "";
-    document.getElementById("ola").textContent = nome ? "Olá, " + nome + " 👋" : "Meu painel";
+    document.getElementById("ola").textContent = nome ? "Olá, " + nome : "Meu painel";
 
     wireActions();
     render();
@@ -22,7 +22,7 @@
     var root = document.getElementById("conteudo");
     var s = Tracker.summary();
     if (!s.total) {
-      root.innerHTML = '<div class="card empty-cta"><div style="font-size:2.6rem">📊</div>' +
+      root.innerHTML = '<div class="card empty-cta">' +
         "<h2>Seu painel está pronto para começar</h2>" +
         '<p style="color:var(--muted)">Responda algumas questões no modo Estudar e seu desempenho aparece aqui: acertos, taxa por habilidade, pontos fracos e itens para revisar.</p>' +
         '<a class="btn" href="estudar.html" style="background:var(--brand);color:#fff;border-color:var(--brand)">Começar a estudar</a></div>';
@@ -82,7 +82,7 @@
     // revisar
     var revHtml;
     if (!erros.length) {
-      revHtml = "<p class='sub'>Nenhum erro pendente — mandou bem! 🎯</p>";
+      revHtml = "<p class='sub'>Nenhum erro pendente. Continue praticando para manter o desempenho.</p>";
     } else {
       var qById = {}; if (window.ENEM_DATA) window.ENEM_DATA.questoes.forEach(function (q) { qById[q.codigo] = q; });
       revHtml = '<div class="revlist">' + erros.map(function (e) {

@@ -18,8 +18,8 @@
   }
   function tierHtml(q) {
     if (!q.tier) return '<span class="tier" style="color:var(--muted)">—</span>';
-    return '<span class="tier t' + q.tier.nivel + '"><span class="dot"></span>' +
-      q.tier.icone + " " + q.tier.rotulo + "</span>";
+    return '<span class="tier t' + q.tier.nivel + '"><span class="lvl l' + q.tier.nivel + '">' +
+      q.tier.nivel + "</span>" + q.tier.rotulo + "</span>";
   }
   function fmtB(q) { return q.b === null ? q.b_texto : q.b_texto; }
 
@@ -36,7 +36,7 @@
     META.habilidades.forEach(function (h) { f.hab.appendChild(opt(h.id, "H" + h.id)); });
     META.edicoes.forEach(function (e) { f.edicao.appendChild(opt(e, e)); });
     META.anos.forEach(function (y) { f.ano.appendChild(opt(y, y)); });
-    META.regua.forEach(function (r) { f.nivel.appendChild(opt(r.nivel, r.icone + " " + r.rotulo)); });
+    META.regua.forEach(function (r) { f.nivel.appendChild(opt(r.nivel, "Nível " + r.nivel + " · " + r.rotulo)); });
 
     var tbody = el("#resultados");
     var countEl = el("#count");
@@ -159,7 +159,7 @@
               li("Competência", "C" + q.competencia) +
               li("Habilidade", "H" + q.habilidade) +
               li("Dificuldade (b)", fmtB(q)) +
-              li("Nível", q.tier ? q.tier.icone + " " + q.tier.rotulo : "—") +
+              li("Nível", q.tier ? '<span class="lvl l' + q.tier.nivel + '">' + q.tier.nivel + "</span> " + q.tier.rotulo : "—") +
               li("Na habilidade", (idx + 1) + " de " + mesmaHab.length) +
             "</ul>" +
           "</div>" +
@@ -307,7 +307,11 @@
       kpi(r.versionados, "No repositório")
     ].join("");
 
-    function icon(t) { return t === "video" ? "🎬" : "📄"; }
+    function icon(t) {
+      return t === "video"
+        ? '<svg class="ico" viewBox="0 0 24 24" style="color:var(--accent)"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg>'
+        : '<svg class="ico" viewBox="0 0 24 24" style="color:var(--brand)"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>';
+    }
     function linkFor(m) {
       if (m.no_repositorio && m.caminho) return "../" + m.caminho;
       return m.download_url;

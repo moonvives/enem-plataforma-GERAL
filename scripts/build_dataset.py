@@ -104,11 +104,11 @@ def tier_de(b: float | None) -> dict | None:
     if b is None:
         return None
     faixas = [
-        (float("-inf"), 560.0, 1, "Muito fácil", "❶"),
-        (560.0, 620.0, 2, "Fácil", "❷"),
-        (620.0, 680.0, 3, "Mediana", "❸"),
-        (680.0, 740.0, 4, "Difícil", "❹"),
-        (740.0, float("inf"), 5, "Muito difícil", "❺"),
+        (float("-inf"), 560.0, 1, "Muito fácil", "1"),
+        (560.0, 620.0, 2, "Fácil", "2"),
+        (620.0, 680.0, 3, "Mediana", "3"),
+        (680.0, 740.0, 4, "Difícil", "4"),
+        (740.0, float("inf"), 5, "Muito difícil", "5"),
     ]
     for lo, hi, nivel, rotulo, icone in faixas:
         if lo <= b < hi:
@@ -290,11 +290,11 @@ def main() -> None:
         "edicoes": sorted({q["edicao"] for q in questoes}),
         "anos": sorted({q["ano"] for q in questoes}),
         "regua": [
-            {"nivel": 1, "rotulo": "Muito fácil", "icone": "❶", "intervalo": "b < 560,0"},
-            {"nivel": 2, "rotulo": "Fácil", "icone": "❷", "intervalo": "560,0 ≤ b < 620,0"},
-            {"nivel": 3, "rotulo": "Mediana", "icone": "❸", "intervalo": "620,0 ≤ b < 680,0"},
-            {"nivel": 4, "rotulo": "Difícil", "icone": "❹", "intervalo": "680,0 ≤ b < 740,0"},
-            {"nivel": 5, "rotulo": "Muito difícil", "icone": "❺", "intervalo": "b ≥ 740,0"},
+            {"nivel": 1, "rotulo": "Muito fácil", "icone": "1", "intervalo": "b < 560,0"},
+            {"nivel": 2, "rotulo": "Fácil", "icone": "2", "intervalo": "560,0 ≤ b < 620,0"},
+            {"nivel": 3, "rotulo": "Mediana", "icone": "3", "intervalo": "620,0 ≤ b < 680,0"},
+            {"nivel": 4, "rotulo": "Difícil", "icone": "4", "intervalo": "680,0 ≤ b < 740,0"},
+            {"nivel": 5, "rotulo": "Muito difícil", "icone": "5", "intervalo": "b ≥ 740,0"},
         ],
     }
 

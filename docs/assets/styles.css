@@ -164,3 +164,38 @@ footer.site .wrap { padding: 1.5rem 1.25rem; display: flex; justify-content: spa
 .chip.on { background: var(--brand); border-color: var(--brand); color: #fff; }
 .empty { text-align: center; color: var(--muted); padding: 3rem 1rem; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* ===================== Refinamento profissional ===================== */
+:root{
+  --brand:#15503a; --brand-ink:#0f3d2c; --accent:#8a6d33;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --brand:#4f9a72; --brand-ink:#83c9a4; }
+}
+
+/* Marca / monograma */
+.brand strong{font-weight:800}
+.brand .mono{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(150deg,var(--brand),var(--brand-ink));color:#fff;font-weight:800;
+  font-size:.82rem;letter-spacing:.02em;margin-right:.6rem;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.brand{align-items:center}
+
+/* Chip numérico de nível (substitui os ícones de nível) */
+.lvl{display:inline-flex;align-items:center;justify-content:center;min-width:1.35rem;height:1.35rem;
+  padding:0 .32rem;border-radius:6px;font-size:.72rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.lvl.l1{background:var(--t1)} .lvl.l2{background:var(--t2)} .lvl.l3{background:var(--t3)}
+.lvl.l4{background:var(--t4)} .lvl.l5{background:var(--t5)}
+.tier .lvl{margin-right:.1rem}
+
+/* Ícones SVG inline */
+.ico{width:1.05em;height:1.05em;vertical-align:-.16em;flex:0 0 auto}
+svg.ico{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Estados de correção mais sóbrios */
+.feedback{display:flex;align-items:center;gap:.5rem}
+.feedback.ok{background:rgba(21,80,58,.10);color:var(--brand-ink)}
+@media (prefers-color-scheme: dark){ .feedback.ok{color:var(--brand)} }
+
+/* Tabelas e cartões um pouco mais densos/corporativos */
+.kpi .n{letter-spacing:-.03em}
+.page-title h1{font-weight:800}

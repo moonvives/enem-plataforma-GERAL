@@ -55,13 +55,13 @@
     function render() {
       if (!queue.length) {
         stage.innerHTML = '<div class="studycard"><div class="empty">' +
-          (mode === "revisar" ? "Você ainda não tem erros registrados para revisar. 🎉" : "Nenhuma questão para os filtros escolhidos.") +
+          (mode === "revisar" ? "Você ainda não tem erros registrados para revisar." : "Nenhuma questão para os filtros escolhidos.") +
           "</div></div>";
         return;
       }
       if (pos >= queue.length) {
         stage.innerHTML = '<div class="studycard" style="text-align:center">' +
-          '<div style="font-size:2.4rem">🏁</div><h2>Sessão concluída</h2>' +
+          "<h2>Sessão concluída</h2>" +
           '<p style="color:var(--muted)">Você respondeu <b>' + answered + '</b> questões nesta sessão, com <b>' + correct + '</b> acertos' +
           (answered ? " (" + Math.round(correct / answered * 100) + "%)" : "") + ".</p>" +
           '<div class="studybar" style="justify-content:center"><button class="btn" id="again">Nova sessão</button>' +
@@ -71,7 +71,7 @@
       }
       var q = queue[pos];
       var letters = ["A", "B", "C", "D", "E"];
-      var tier = q.tier ? '<span class="tier t' + q.tier.nivel + '"><span class="dot"></span>' + q.tier.icone + " " + q.tier.rotulo + "</span>" : "";
+      var tier = q.tier ? '<span class="tier t' + q.tier.nivel + '"><span class="lvl l' + q.tier.nivel + '">' + q.tier.nivel + "</span>" + q.tier.rotulo + "</span>" : "";
       stage.innerHTML =
         '<div class="studycard">' +
           '<div class="qhead"><div class="tags">' +
@@ -107,9 +107,11 @@
           });
           var fb = document.getElementById("fb");
           fb.className = "feedback " + (ok ? "ok" : "no");
+          var svgOk = '<svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>';
+          var svgNo = '<svg class="ico" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>';
           fb.innerHTML = ok
-            ? "✓ Acertou! Gabarito <b>" + q.gabarito + "</b>."
-            : "✗ Resposta correta: <b>" + q.gabarito + "</b>. Item registrado para revisão.";
+            ? svgOk + "<span>Correto. Gabarito <b>" + q.gabarito + "</b>.</span>"
+            : svgNo + "<span>Incorreto. Resposta correta: <b>" + q.gabarito + "</b>. Item registrado para revisão.</span>";
           Tracker.record({
             id: q.codigo, fonte: "ppl", area: q.area, habilidade: q.habilidade,
             ano: q.ano, b: q.b, tier: q.tier, escolha: chosen, correta: ok

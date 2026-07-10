@@ -42,11 +42,11 @@ AREAS = {
 
 # Régua de dificuldade na escala ENEM (idêntica à do restante da plataforma).
 REGUA = [
-    (float("-inf"), 560.0, 1, "Muito fácil", "❶"),
-    (560.0, 620.0, 2, "Fácil", "❷"),
-    (620.0, 680.0, 3, "Mediana", "❸"),
-    (680.0, 740.0, 4, "Difícil", "❹"),
-    (740.0, float("inf"), 5, "Muito difícil", "❺"),
+    (float("-inf"), 560.0, 1, "Muito fácil", "1"),
+    (560.0, 620.0, 2, "Fácil", "2"),
+    (620.0, 680.0, 3, "Mediana", "3"),
+    (680.0, 740.0, 4, "Difícil", "4"),
+    (740.0, float("inf"), 5, "Muito difícil", "5"),
 ]
 
 

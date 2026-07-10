@@ -245,31 +245,31 @@
     {
       "nivel": 1,
       "rotulo": "Muito fácil",
-      "icone": "❶",
+      "icone": "1",
       "intervalo": "b < 560,0"
     },
     {
       "nivel": 2,
       "rotulo": "Fácil",
-      "icone": "❷",
+      "icone": "2",
       "intervalo": "560,0 ≤ b < 620,0"
     },
     {
       "nivel": 3,
       "rotulo": "Mediana",
-      "icone": "❸",
+      "icone": "3",
       "intervalo": "620,0 ≤ b < 680,0"
     },
     {
       "nivel": 4,
       "rotulo": "Difícil",
-      "icone": "❹",
+      "icone": "4",
       "intervalo": "680,0 ≤ b < 740,0"
     },
     {
       "nivel": 5,
       "rotulo": "Muito difícil",
-      "icone": "❺",
+      "icone": "5",
       "intervalo": "b ≥ 740,0"
     }
   ]
