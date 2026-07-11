@@ -13,9 +13,6 @@ edição em Libras de 2017 e a edição Digital de 2020), de 2012 a 2024. Cada i
 classificado por uma das 30 habilidades da Matriz de Referência e ordenável pelo
 parâmetro `b` da Teoria de Resposta ao Item (TRI).
 
-A fonte é a *Coleção ENEM PPL por Habilidades e Dificuldades — Ciências da Natureza*
-(Prof. Fredão); os valores de dificuldade e gabarito provêm dos microdados do INEP.
-
 ## O que a plataforma oferece
 
 - **Busca e filtragem** (`docs/index.html`): busca livre por texto e filtros por
@@ -37,15 +34,11 @@ dos valores de `b` publicados por item.
 
 ## Fontes de dados
 
-A plataforma combina três fontes:
-
-1. **eBook PPL (540 questões)** — edições não regulares, com enunciado, gabarito e
-   dificuldade TRI. Base das páginas de busca e do painel.
+A plataforma combina 
 2. **Microdados oficiais do INEP (2009–2025)** — arquivos `ITENS_PROVA` com os
    parâmetros reais da TRI (`a`, `b`, `c`) de todos os itens das provas regulares.
+
    Base do painel "Microdados" (foco em Ciências da Natureza, 672 itens 2020–2025).
-3. **Biblioteca de estudos (Naturezas)** — teoria, apostilas, manuais e simulados
-   por disciplina. PDFs versionados no repositório; videoaulas catalogadas com link.
 
 ## Estrutura
 
@@ -71,13 +64,7 @@ docs/               Site estático (pronto para GitHub Pages)
   api/              questions.json, stats.json, meta.json, microdados_*.json, materiais.json
 ```
 
-### Vídeos e arquivos grandes
 
-As videoaulas da biblioteca (~13 GB, arquivos de até ~940 MB) **não são
-versionadas**: o GitHub rejeita arquivos acima de 100 MB. Elas ficam catalogadas
-em `data/naturezas/MANIFEST.md` e em `docs/api/materiais.json`, com link direto de
-download do Drive, e aparecem na página **Materiais**. O mesmo vale para o único
-PDF acima de 100 MB (o manual de Física de 120 MB).
 
 ## Como gerar os dados
 
