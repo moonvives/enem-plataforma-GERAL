@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materiais · ENEM CN — Biblioteca</title>
+  <meta name="description" content="Biblioteca de materiais de Ciências da Natureza: PDFs de teoria, apostilas e simulados versionados no repositório, e videoaulas catalogadas com link.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <meta name="theme-color" content="#123b2b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+<body data-page="materiais">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <strong>ENEM CN <span class="dot">•</span> Não Regulares</strong>
+        <span>540 questões · PPL, 2ª Aplicação, Libras e Digital · TRI</span>
+      </a>
+      <nav class="main">
+        <a href="index.html">Busca</a>
+        <a href="estudar.html">Estudar</a>
+        <a href="meu-painel.html">Meu painel</a>
+        <a href="painel.html">Painel</a>
+        <a href="painel-oficial.html">Microdados</a>
+        <a href="materiais.html" class="active">Materiais</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-title">
+      <h1>Biblioteca de Ciências da Natureza</h1>
+      <p>Teoria, apostilas, manuais e simulados por disciplina. Os PDFs estão versionados no repositório; as videoaulas (acima do limite de 100 MB do GitHub) são catalogadas com link direto de download.</p>
+    </div>
+
+    <section class="kpis" id="mat-kpis" aria-label="Resumo"></section>
+    <div id="mat-root"></div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>Catálogo completo em <code>data/naturezas/MANIFEST.md</code>. Fonte: biblioteca de estudos do Drive.</span>
+      <span><a href="api/materiais.json">materiais.json</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/materiais.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/auth.js"></script>
+  <script src="assets/tracker.js"></script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>

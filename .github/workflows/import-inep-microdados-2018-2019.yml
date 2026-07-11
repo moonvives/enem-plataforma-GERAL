@@ -1,0 +1,142 @@
+name: Importar microdados oficiais do ENEM — 2018 e 2019
+
+on:
+  push:
+    branches:
+      - claude/enem-cn-non-regular-9fawlh
+    paths:
+      - .github/workflows/import-inep-microdados-2018-2019.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: inep-enem-microdados-2018-2019
+  cancel-in-progress: true
+
+env:
+  RELEASE_TAG: inep-enem-microdados-2018-2019
+
+jobs:
+  preparar-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Criar ou reutilizar a Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
+              --title "Microdados oficiais do ENEM — 2018 e 2019" \
+              --notes "Pacotes oficiais do INEP baixados, validados e extraídos integralmente. Cada ano foi recomprimido em tar.zst e dividido em partes de até 1.900 MiB. Consulte data/microdados-participantes/README.md para reconstrução e verificação."
+          fi
+
+  importar:
+    needs: preparar-release
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        ano: [2018, 2019]
+
+    steps:
+      - name: Preparar ferramentas
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes unzip zstd
+
+      - name: Baixar o pacote oficial do INEP
+        env:
+          ANO: ${{ matrix.ano }}
+        run: |
+          mkdir -p pacote extraido release
+          url="https://download.inep.gov.br/microdados/microdados_enem_${ANO}.zip"
+          arquivo="pacote/microdados_enem_${ANO}.zip"
+          curl --fail --location --insecure \
+            --retry 10 --retry-delay 15 --retry-all-errors \
+            --connect-timeout 60 \
+            --output "$arquivo" "$url"
+          sha256sum "$arquivo" | tee "release/original-${ANO}.zip.sha256"
+          unzip -t "$arquivo"
+
+      - name: Extrair integralmente
+        env:
+          ANO: ${{ matrix.ano }}
+        run: |
+          unzip -q "pacote/microdados_enem_${ANO}.zip" -d extraido
+          test -n "$(find extraido -type f -print -quit)"
+
+      - name: Criar manifesto verificável
+        env:
+          ANO: ${{ matrix.ano }}
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          ano = int(os.environ["ANO"])
+          raiz = Path("extraido")
+          arquivos = []
+          for caminho in sorted(p for p in raiz.rglob("*") if p.is_file()):
+              digest = hashlib.sha256()
+              with caminho.open("rb") as origem:
+                  for bloco in iter(lambda: origem.read(8 * 1024 * 1024), b""):
+                      digest.update(bloco)
+              arquivos.append({
+                  "caminho": caminho.relative_to(raiz).as_posix(),
+                  "tamanho_bytes": caminho.stat().st_size,
+                  "sha256": digest.hexdigest(),
+              })
+
+          manifesto = {
+              "ano": ano,
+              "fonte": f"https://download.inep.gov.br/microdados/microdados_enem_{ano}.zip",
+              "total_arquivos": len(arquivos),
+              "total_bytes_extraidos": sum(item["tamanho_bytes"] for item in arquivos),
+              "arquivos": arquivos,
+          }
+          Path(f"release/manifest-{ano}.json").write_text(
+              json.dumps(manifesto, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Arquivar e dividir para o limite do GitHub
+        env:
+          ANO: ${{ matrix.ano }}
+        run: |
+          tar --use-compress-program='zstd -T0 -10' \
+            -cf "enem-${ANO}-extraido.tar.zst" \
+            -C extraido .
+          split -b 1900M -d -a 3 --additional-suffix=.part \
+            "enem-${ANO}-extraido.tar.zst" \
+            "release/enem-${ANO}-extraido.tar.zst."
+          sha256sum "enem-${ANO}-extraido.tar.zst" \
+            | tee "release/enem-${ANO}-extraido.tar.zst.sha256"
+          find release -maxdepth 1 -type f -printf '%f\t%s bytes\n' | sort
+
+      - name: Publicar arquivos extraídos na Release
+        env:
+          ANO: ${{ matrix.ano }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "$RELEASE_TAG" release/* \
+            --repo "$GITHUB_REPOSITORY" \
+            --clobber
+
+  concluir:
+    needs: importar
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exibir endereço da Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json url --jq .url

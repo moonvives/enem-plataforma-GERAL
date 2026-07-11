@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel oficial · ENEM CN — Microdados</title>
+  <meta name="description" content="Indicadores reais de Ciências da Natureza a partir dos microdados oficiais do ENEM (INEP), com parâmetros da TRI (a, b, c) na escala de proficiência.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <meta name="theme-color" content="#123b2b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+<body data-page="painel-oficial">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <strong>ENEM CN <span class="dot">•</span> Não Regulares</strong>
+        <span>540 questões · PPL, 2ª Aplicação, Libras e Digital · TRI</span>
+      </a>
+      <nav class="main">
+        <a href="index.html">Busca</a>
+        <a href="estudar.html">Estudar</a>
+        <a href="meu-painel.html">Meu painel</a>
+        <a href="painel.html">Painel</a>
+        <a href="painel-oficial.html" class="active">Microdados</a>
+        <a href="materiais.html">Materiais</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-title">
+      <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-ink);margin:0 0 .2rem">Painel analítico · Microdados oficiais</p>
+      <h1>Indicadores reais de Ciências da Natureza</h1>
+      <p id="mic-scope">Baseado nos itens de CN dos microdados do ENEM, com parâmetros oficiais da TRI.</p>
+    </div>
+
+    <div class="chips" id="mic-anos" aria-label="Filtro de anos"></div>
+
+    <section class="kpis" id="mic-kpis" aria-label="Indicadores"></section>
+
+    <section class="panels">
+      <div class="panel">
+        <h3>Itens por ano</h3>
+        <p class="sub">Itens oficiais de CN por edição regular</p>
+        <div id="mic-ano"></div>
+      </div>
+      <div class="panel">
+        <h3>Itens por faixa de dificuldade</h3>
+        <p class="sub">Régua TRI na escala ENEM (nível 1 &lt; 560 … nível 5 ≥ 740)</p>
+        <div id="mic-tier"></div>
+      </div>
+      <div class="panel">
+        <h3>Itens por habilidade</h3>
+        <p class="sub">H1 a H30 da Matriz de Referência</p>
+        <div id="mic-hab"></div>
+      </div>
+      <div class="panel">
+        <h3>Gabarito (frequência das respostas)</h3>
+        <p class="sub">Distribuição das alternativas corretas</p>
+        <div id="mic-gab"></div>
+      </div>
+      <div class="panel" style="grid-column: 1 / -1;">
+        <h3>Dificuldade média por habilidade (escala ENEM)</h3>
+        <p class="sub">Média do parâmetro <em>b</em> convertido para a escala de proficiência</p>
+        <div id="mic-hab-dif"></div>
+      </div>
+    </section>
+    <div id="mic-root"></div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>Fonte: microdados do ENEM (INEP), arquivos ITENS_PROVA. Conversão: <em>b</em> na escala ENEM = 500 + 100 × parâmetro padronizado.</span>
+      <span><a href="api/microdados_cn.json">microdados_cn.json</a> · <a href="api/microdados_stats.json">stats</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/microdados.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/auth.js"></script>
+  <script src="assets/tracker.js"></script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>

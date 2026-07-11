@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2b">
+  <title>Meu painel · CN Estratégia</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .hello{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    .hello .actions{display:flex;gap:.5rem;flex-wrap:wrap}
+    .rate-good{color:var(--t1)} .rate-mid{color:var(--t3)} .rate-bad{color:var(--t5)}
+    .revlist{display:grid;gap:.5rem}
+    .revitem{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:.6rem .8rem;border:1px solid var(--border);border-radius:10px;background:var(--surface-2);text-decoration:none;color:var(--text)}
+    .revitem:hover{border-color:var(--brand)}
+    .empty-cta{text-align:center;padding:2.5rem 1rem}
+    .empty-cta a{display:inline-block;margin-top:.8rem}
+  </style>
+</head>
+<body data-page="meu-painel">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><strong>CN <span class="dot">•</span> Estratégia</strong><span>Estudo pessoal · TRI · microdados</span></a>
+      <nav class="main">
+        <a href="index.html">Banco</a>
+        <a href="estudar.html">Estudar</a>
+        <a href="meu-painel.html" class="active">Meu painel</a>
+        <a href="painel-oficial.html">Microdados</a>
+        <a href="materiais.html">Materiais</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-title hello">
+      <div>
+        <h1 id="ola">Meu painel</h1>
+        <p>Seu desempenho pessoal, calculado a partir das questões que você respondeu no modo Estudar.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="estudar.html">Estudar agora</a>
+        <button class="btn" id="btn-export">Exportar</button>
+        <button class="btn" id="btn-import">Importar</button>
+        <button class="btn" id="btn-clear">Limpar histórico</button>
+        <button class="btn" id="btn-logout">Sair</button>
+      </div>
+    </div>
+
+    <div id="conteudo"></div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>Dados salvos apenas neste aparelho (localStorage). Use “Exportar” para levar seu progresso para outro dispositivo.</span>
+      <span><a href="estudar.html">Estudar →</a></span>
+    </div>
+  </footer>
+
+  <input type="file" id="file-import" accept="application/json" style="display:none">
+
+  <script src="assets/data.js"></script>
+  <script src="assets/auth.js"></script>
+  <script src="assets/tracker.js"></script>
+  <script src="assets/meu-painel.js"></script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>

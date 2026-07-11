@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre · ENEM CN — Edições Não Regulares</title>
+  <meta name="description" content="Metodologia da plataforma: Matriz de Referência, Teoria de Resposta ao Item (TRI) e a régua de dificuldade usada para classificar as questões.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <meta name="theme-color" content="#123b2b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+<body data-page="sobre">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <strong>ENEM CN <span class="dot">•</span> Não Regulares</strong>
+        <span>540 questões · PPL, 2ª Aplicação, Libras e Digital · TRI</span>
+      </a>
+      <nav class="main">
+        <a href="index.html">Busca</a>
+        <a href="estudar.html">Estudar</a>
+        <a href="meu-painel.html">Meu painel</a>
+        <a href="painel.html">Painel</a>
+        <a href="painel-oficial.html">Microdados</a>
+        <a href="materiais.html">Materiais</a>
+        <a href="sobre.html" class="active">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-title">
+      <h1>Sobre a plataforma</h1>
+      <p>Consulta, filtragem e análise das 540 questões de Ciências da Natureza das edições não regulares do ENEM, organizadas pela Matriz de Referência e pela dificuldade estimada pela TRI.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:1.25rem">
+      <h2>O que é este material</h2>
+      <p>Reúne <strong>540 questões</strong> de <strong>12 aplicações não regulares</strong> do ENEM: nove edições PPL (Prova para Pessoas Privadas de Liberdade), a 2ª Aplicação de 2016, a edição em Libras de 2017 e a edição Digital de 2020. Cada item é classificado por uma das <strong>30 habilidades</strong> da Matriz de Referência de Ciências da Natureza e ordenável pelo <strong>parâmetro <em>b</em></strong> da Teoria de Resposta ao Item (da mais fácil à mais difícil).</p>
+    </div>
+
+    <div class="card" style="margin-bottom:1.25rem">
+      <h2>A régua de dificuldade (TRI)</h2>
+      <p>O ENEM usa o Modelo Logístico Unidimensional de 3 Parâmetros. O parâmetro <em>b</em> (dificuldade) posiciona cada item na escala de proficiência; é ele que define a régua abaixo, idêntica à do material-fonte:</p>
+      <div class="table-wrap" style="margin-top:1rem">
+        <table class="q">
+          <thead><tr><th>Nível</th><th>Ícone</th><th>Intervalo de b</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier t1"><span class="dot"></span>Muito fácil</span></td><td><span class="lvl l1">1</span></td><td>b &lt; 560,0</td></tr>
+            <tr><td><span class="tier t2"><span class="dot"></span>Fácil</span></td><td><span class="lvl l2">2</span></td><td>560,0 ≤ b &lt; 620,0</td></tr>
+            <tr><td><span class="tier t3"><span class="dot"></span>Mediana</span></td><td><span class="lvl l3">3</span></td><td>620,0 ≤ b &lt; 680,0</td></tr>
+            <tr><td><span class="tier t4"><span class="dot"></span>Difícil</span></td><td><span class="lvl l4">4</span></td><td>680,0 ≤ b &lt; 740,0</td></tr>
+            <tr><td><span class="tier t5"><span class="dot"></span>Muito difícil</span></td><td><span class="lvl l5">5</span></td><td>b ≥ 740,0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pill-note">Cada questão é classificada aplicando esta régua ao valor de <em>b</em> publicado para o item nos microdados do INEP. As estatísticas do painel (média, desvio-padrão e faixa) são calculadas diretamente desses valores.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:1.25rem">
+      <h2>Coerência pedagógica</h2>
+      <p>A TRI avalia a coerência do padrão de respostas, não apenas o número de acertos. Espera-se que quem tem maior proficiência acerte, com alta probabilidade, os itens fáceis, e tenha desempenho progressivamente menos garantido conforme a dificuldade aumenta. Por isso, duas pessoas com a mesma quantidade de acertos podem obter proficiências diferentes — acertar itens difíceis errando muitos fáceis é um padrão considerado incoerente com alta proficiência.</p>
+    </div>
+
+    <div class="card">
+      <h2>Endpoints JSON</h2>
+      <p>Os dados são servidos como arquivos JSON estáticos, consumíveis por outras aplicações:</p>
+      <ul class="meta-list">
+        <li><span class="k"><a href="api/questions.json">api/questions.json</a></span><span class="v">540 questões estruturadas</span></li>
+        <li><span class="k"><a href="api/stats.json">api/stats.json</a></span><span class="v">Agregações do painel</span></li>
+        <li><span class="k"><a href="api/meta.json">api/meta.json</a></span><span class="v">Habilidades, competências e régua</span></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>Material-fonte: Coleção ENEM PPL por Habilidades e Dificuldades — Ciências da Natureza (Prof. Fredão). Dados: microdados do ENEM (INEP).</span>
+      <span><a href="index.html">Início</a></span>
+    </div>
+  </footer>
+  <script src="assets/auth.js"></script>
+  <script src="assets/tracker.js"></script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>

@@ -1,0 +1,1568 @@
+[
+  {
+    "ano": 2025,
+    "co_item": 117652,
+    "numero": 91,
+    "codigo": "E2025-91",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 7,
+    "gabarito": "D",
+    "a": 2.67,
+    "b": 0.81134,
+    "c": 0.11,
+    "b_enem": 581.1,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "A filtração em carvão é uma das mais antigas formas de purificação de água. O carvão ativado, diferentemente do carvão comum, é útil para ser empregado na remoção de material orgânico, cloro e outros contaminantes. Essa capacidade decorre de suas propriedades de adsorção. A origem do material utilizado para produzir o carvão ativado pode influenciar sua porosidade e, consequentemente, interferir na capacidade do material de remover impurezas. Na figura, é ilustrada esquematicamente a diferença entre as estruturas físicas do carvão comum e do carvão ativado. CORRÊA, M. A. Cosmetologia: ciência e técnica. São Paulo: Medfarma, 2012 (adaptado). Qual característica do carvão ativado explica a sua maior eficiência nesse processo?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "Massa."
+      },
+      {
+        "letra": "B",
+        "texto": "Dureza."
+      },
+      {
+        "letra": "C",
+        "texto": "Densidade."
+      },
+      {
+        "letra": "D",
+        "texto": "Superfície."
+      },
+      {
+        "letra": "E",
+        "texto": "Condutividade."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 88062,
+    "numero": 92,
+    "codigo": "E2025-92",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 29,
+    "gabarito": "D",
+    "a": 2.73,
+    "b": 0.53409,
+    "c": 0.23,
+    "b_enem": 553.4,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "A maioria dos seres vivos tem um relógio biológico (ciclo circadiano), que regula as mudanças metabólicas e comportamentais de acordo com o ciclo de 24 horas de rotação da Terra. Em 2015, um artigo publicado na revista *Science Advantage* mostrou ser possível a transferência dos genes do relógio circadiano da cianobactéria *Synechococcus* *elongatus* para o genoma da bactéria *Escherichia coli*, um organismo não circadiano. CHEN, A. H. et al. Transplantability of a Circardian Lock to Noncircardian Organism. Science Advantage, n. 1, 2015 (adaptado). Estarão presentes no organismo geneticamente modificado os genes do",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "metabolismo de *E. coli*, apenas."
+      },
+      {
+        "letra": "B",
+        "texto": "ciclo circadiano de *E. coli*, apenas."
+      },
+      {
+        "letra": "C",
+        "texto": "metabolismo de *S. elongatus* e do ciclo circadiano de *E. coli.*"
+      },
+      {
+        "letra": "D",
+        "texto": "ciclo circadiano de *S. elongatus* e do metabolismo de *E. coli.*"
+      },
+      {
+        "letra": "E",
+        "texto": "ciclo circadiano de*S.elongatus* e do ciclo circadiano de *E.coli.*"
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 89916,
+    "numero": 93,
+    "codigo": "E2025-93",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 28,
+    "gabarito": "C",
+    "a": 2.62,
+    "b": 1.03514,
+    "c": 0.15,
+    "b_enem": 603.5,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "Os funcionários de um zoológico observaram um aumento na taxa de mortalidade de aves aquáticas por afogamento. Um grupo de biólogos analisou o comportamento das aves por várias semanas e observou que elas apresentavam dificuldade de flutuação, por causa do encharcamento das penas com água. O aumento na taxa de mortalidade dessas aves estava associado a uma redução na",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "dilatação do papo."
+      },
+      {
+        "letra": "B",
+        "texto": "reposição de penas das asas."
+      },
+      {
+        "letra": "C",
+        "texto": "secreção da glândula uropigial."
+      },
+      {
+        "letra": "D",
+        "texto": "formação da membrana natatória."
+      },
+      {
+        "letra": "E",
+        "texto": "largura das cavidades de ossos pneumáticos."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141609,
+    "numero": 94,
+    "codigo": "E2025-94",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 5,
+    "gabarito": "D",
+    "a": 1.94,
+    "b": 1.47354,
+    "c": 0.12,
+    "b_enem": 647.4,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "Réguas elétricas são dispositivos que permitem a ligação segura e simultânea de dois ou mais aparelhos eletroeletrônicos à rede elétrica. Uma estudante comprou uma régua com seis tomadas, conforme a figura. Essa régua suporta uma intensidade máxima de corrente elétrica igual a 20 A. Acima desse valor, o fusível de segurança da régua se rompe, inutilizando-a até que um novo fusível seja instalado. Considere as potências nominais de alguns aparelhos eletroeletrônicos apresentadas no quadro. Aparelho Potência (watt) Luminária de LED 5 Computador 250 Impressora a laser 660 Secador de cabelos 750 Cafeteira 900 Condicionador de ar portátil 1 100 Em um dia quente, a estudante mantém o computador e o condicionador de ar portátil ligados à régua permanentemente. Nessa situação, ela tenta realizar algumas atividades, uma de cada vez, utilizando a mesma régua, na seguinte ordem: 1º – imprimir um trabalho escolar; 2º – fazer um café com a cafeteira; 3º – ligar a luminária; 4º – secar os cabelos. Sabe-se que a régua foi ligada à tensão elétrica de 110 V, adequada para o funcionamento desses aparelhos. Considerando a ordem das tentativas, quantas atividades a estudante conseguiu realizar sem queimar o fusível? A 4 B 3 C 2 D 1 E 0 \\*020325AZ2\\* 3",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 76022,
+    "numero": 95,
+    "codigo": "E2025-95",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 21,
+    "gabarito": "C",
+    "a": 3.42,
+    "b": 0.81157,
+    "c": 0.4,
+    "b_enem": 581.2,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "TEXTO I As mariposas As mariposa, quando chega o frio Fica dando volta em volta da lâmpida pra se esquentá. \\[sic\\] BARBOSA, A. Reviva: Adoniran Barbosa. São Paulo: Som Livre, 2002 (fragmento). TEXTO II As mariposas se aproximam das lâmpadas atraídas pela luz, pois, sendo basicamente criaturas noturnas, estão adaptadas a seguir o brilho da lua, em um processo conhecido como orientação transversal. Assim, o que o sambista Adoniran Barbosa, no Texto I, descreve não é a causa, mas sim uma das consequências possíveis dessa aproximação. De fato, o calor gerado pelas lâmpadas, sobretudo as incandescentes, pode aquecer as mariposas. HERTZBERG, R. Por que as mariposas são tão atraídas por luzes fortes? National Geographic, nov. 2020 (adaptado). Nesse contexto, o processo de transferência de calor para as mariposas que independe da presença de fluidos é a",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "reflexão."
+      },
+      {
+        "letra": "B",
+        "texto": "refração."
+      },
+      {
+        "letra": "C",
+        "texto": "irradiação."
+      },
+      {
+        "letra": "D",
+        "texto": "dispersão."
+      },
+      {
+        "letra": "E",
+        "texto": "convecção."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 117869,
+    "numero": 96,
+    "codigo": "E2025-96",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 16,
+    "gabarito": "B",
+    "a": 1.4,
+    "b": 0.05691,
+    "c": 0.18,
+    "b_enem": 505.7,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "Os sapinhos-ponta-de-flecha constituem um grupo de espécies encontradas na América Central e do Sul. Seus venenos são obtidos por meio do consumo de algumas formigas e cupins que se alimentam de plantas que contêm esses venenos. Esses anfíbios são usados para envenenar as flechas das zarabatanas dos caçadores nativos. Quando capturados e criados em condições artificiais, ou quando nascidos em cativeiro, não são tóxicos. BADIO, B. et al. Epibatidine: Discovery and Definition as a Potent Analgesic and Nicotinic Agonist. Med. Chem. Res., n. 4, 1994 (adaptado). A perda da capacidade de se obter a toxina nos nascidos em cativeiro é causada pela",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "diferença de umidade entre os ambientes."
+      },
+      {
+        "letra": "B",
+        "texto": "ausência de alimentação natural."
+      },
+      {
+        "letra": "C",
+        "texto": "adaptação ao novo ambiente."
+      },
+      {
+        "letra": "D",
+        "texto": "mudança de comportamento."
+      },
+      {
+        "letra": "E",
+        "texto": "variabilidade genética."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141754,
+    "numero": 97,
+    "codigo": "E2025-97",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 11,
+    "gabarito": "D",
+    "a": 2.65,
+    "b": 0.62429,
+    "c": 0.21,
+    "b_enem": 562.4,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "A produção de vacinas exige uma sequência de procedimentos, além do cumprimento estrito de verificações de segurança. No esquema, estão demonstradas as etapas básicas realizadas para a fabricação de uma vacina utilizando a tecnologia tradicional e o efeito dela no organismo. O antígeno utilizado na vacina causa um efeito protetor contra o vírus porque",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "mata o vírus pela ligação."
+      },
+      {
+        "letra": "B",
+        "texto": "aglutina o vírus por associação."
+      },
+      {
+        "letra": "C",
+        "texto": "contém imunoglobulinas de defesa."
+      },
+      {
+        "letra": "D",
+        "texto": "induz a produção de proteínas neutralizadoras."
+      },
+      {
+        "letra": "E",
+        "texto": "mantém a quantidade de anticorpos preexistentes."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 97320,
+    "numero": 98,
+    "codigo": "E2025-98",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 10,
+    "gabarito": "D",
+    "a": 3.0,
+    "b": -0.11059,
+    "c": 0.21,
+    "b_enem": 488.9,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "O bioma Cerrado é caracterizado por apresentar ampla e natural diversidade de espécies vegetais. Nos últimos tempos, o homem vem modificando esse cenário pela inserção de plantas exóticas nesse ambiente. Exemplo disso é o cultivo do capim-gordura, nativo do continente africano e utilizado nesse tipo de ecossistema como forma de pastagem. É importante ressaltar que essa espécie vegetal é capaz de se espalhar por grandes áreas, devido à sua agressividade e poder competitivo. CARLOS JR., L. A.; BARBOSA, N. P. U.; FERNANDES, G. W. O capim-gordura e as invasões no Cerrado brasileiro. Jornal do Biólogo, mar.-jun. 2008 (adaptado). Em longo prazo, essa ação do homem pode gerar qual consequência?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "Diversificar nichos ecológicos."
+      },
+      {
+        "letra": "B",
+        "texto": "Assorear as nascentes do bioma."
+      },
+      {
+        "letra": "C",
+        "texto": "Dificultar a infiltração de água na terra."
+      },
+      {
+        "letra": "D",
+        "texto": "Diminuir as espécies nativas do bioma."
+      },
+      {
+        "letra": "E",
+        "texto": "Contribuir com a redução das queimadas."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 44307,
+    "numero": 99,
+    "codigo": "E2025-99",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 28,
+    "gabarito": "C",
+    "a": 1.28,
+    "b": -0.02368,
+    "c": 0.09,
+    "b_enem": 497.6,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "O monstro de gila, um lagarto encontrado em um deserto dos Estados Unidos, apresenta adaptações à falta de alimento nesse ambiente. Esse lagarto possui um hormônio que controla os níveis de açúcar em seu próprio sangue. Foi observado que esse hormônio também controla os níveis de açúcar no sangue de pessoas diabéticas. RUSSELL, C. Ozempic e outros remédios inspirados em veneno de animais. Disponível em: www.bbc.com. Acesso em: 6 dez. 2024 (adaptado). Considerando que animais de um mesmo grupo taxonômico podem apresentar características adaptativas semelhantes em ambientes similares, onde seria mais provável encontrar lagartos com essas características no território brasileiro?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "Cerrado."
+      },
+      {
+        "letra": "B",
+        "texto": "Pampas."
+      },
+      {
+        "letra": "C",
+        "texto": "Caatinga."
+      },
+      {
+        "letra": "D",
+        "texto": "Restinga."
+      },
+      {
+        "letra": "E",
+        "texto": "Pantanal."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 97650,
+    "numero": 100,
+    "codigo": "E2025-100",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 25,
+    "gabarito": "D",
+    "a": 1.13,
+    "b": -0.22105,
+    "c": 0.21,
+    "b_enem": 477.9,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "Existe um processo de purificação de água em que são removidos os sais dissolvidos. A água que passa por esse processo é muito utilizada em laboratórios de química, em indústrias (como solvente), em baterias de carros etc. Entretanto, esse tipo de água não é adequado para ingestão, pois pode causar problemas de saúde, como carência iônica e diarreia. Essa água é chamada de",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "dura."
+      },
+      {
+        "letra": "B",
+        "texto": "pesada."
+      },
+      {
+        "letra": "C",
+        "texto": "sanitária."
+      },
+      {
+        "letra": "D",
+        "texto": "destilada."
+      },
+      {
+        "letra": "E",
+        "texto": "oxigenada."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 78625,
+    "numero": 101,
+    "codigo": "E2025-101",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 22,
+    "gabarito": "A",
+    "a": 1.54,
+    "b": 0.98844,
+    "c": 0.38,
+    "b_enem": 598.8,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "Por que os olhos ficam vermelhos em algumas fotografias? Em fotos tiradas com câmeras fotográficas antigas, por vezes as pessoas aparecem com os olhos vermelhos. Isso ocorre porque a luz do flash da câmera incide diretamente no globo ocular, sendo refletida por uma região repleta de vasos sanguíneos. Disponível em: www.uol.com.br. Acesso em: 14 jun. 2017 (adaptado). Esse efeito é mais comum à noite ou em lugares pouco iluminados porque, com a pupila",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "dilatada, chega mais luz à retina."
+      },
+      {
+        "letra": "B",
+        "texto": "retraída, chega mais luz vermelha à retina."
+      },
+      {
+        "letra": "C",
+        "texto": "retraída, chega mais luz vermelha aos bastonetes."
+      },
+      {
+        "letra": "D",
+        "texto": "retraída, chegam menos luzes azul e verde aos cones."
+      },
+      {
+        "letra": "E",
+        "texto": "dilatada, chegam menos luzes azul e verde aos bastonetes."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 88181,
+    "numero": 102,
+    "codigo": "E2025-102",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 30,
+    "gabarito": "E",
+    "a": 0.67,
+    "b": -0.13699,
+    "c": 0.01,
+    "b_enem": 486.3,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "O sashimi (filé de peixe cru) de baiacu é uma iguaria muito apreciada no Japão. Entretanto, sua ingestão pode causar a morte por parada respiratória, pois esse peixe contém uma potente neurotoxina termoestável, a tetrodotoxina, que é produzida e armazenada nas gônadas e vísceras. Que ação poderia evitar essa intoxicação?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "Criar os peixes em cativeiro."
+      },
+      {
+        "letra": "B",
+        "texto": "Realizar a pesca com redes."
+      },
+      {
+        "letra": "C",
+        "texto": "Consumir peixes cozidos ou fritos."
+      },
+      {
+        "letra": "D",
+        "texto": "Preparar o peixe em condições adequadas de higiene."
+      },
+      {
+        "letra": "E",
+        "texto": "Manusear o peixe sem provocar o rompimento dos órgãos"
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 111667,
+    "numero": 103,
+    "codigo": "E2025-103",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 14,
+    "gabarito": "A",
+    "a": 0.77,
+    "b": 1.53685,
+    "c": 0.06,
+    "b_enem": 653.7,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "A deficiência da enzima lipase ácida causa uma doença em que o portador apresenta células que não degradam colesterol esterificado nem triglicerídeos, resultando no depósito desses compostos em diversos órgãos, principalmente no fígado. ANDERSON, R. A. et al. In Situ Localization of the Genetic Locus Encoding \\[...\\]. Genomics, n. 1, jan. 1993 (adaptado). Essa doença resulta da insuficiência funcional de qual estrutura celular?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "Lisossomos."
+      },
+      {
+        "letra": "B",
+        "texto": "Ribossomos."
+      },
+      {
+        "letra": "C",
+        "texto": "Mitocôndrias."
+      },
+      {
+        "letra": "D",
+        "texto": "Peroxissomos."
+      },
+      {
+        "letra": "E",
+        "texto": "Retículo endoplasmático liso."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141710,
+    "numero": 104,
+    "codigo": "E2025-104",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 4,
+    "gabarito": "A",
+    "a": 2.41,
+    "b": 0.33454,
+    "c": 0.35,
+    "b_enem": 533.5,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "A quantidade de CO2 na atmosfera da Terra aumentou em 50%, e a temperatura está agora cerca de 1,2 °C mais quente em comparação ao século XIX. O ritmo de aumento da temperatura precisa diminuir se quisermos evitar as piores consequências das mudanças climáticas. Cientistas afirmam que o aquecimento global precisa ser mantido em 1,5 °C até o ano 2100. No entanto, a menos que outras ações sejam tomadas, o planeta ainda pode aquecer mais de 2 °C até o final deste século. Na prática, os países precisam enfrentar as mudanças climáticas com ações mitigadoras, que reduzam tanto as emissões quanto os níveis de CO2 na atmosfera. Um guia rápido para entender as mudanças climáticas. Disponível em: www.bbc.com. Acesso em: 6 dez. 2021 (adaptado). Qual ação mitigadora auxilia na remoção desse gás presente na atmosfera, reduzindo seus níveis?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "Plantar mais árvores."
+      },
+      {
+        "letra": "B",
+        "texto": "Instalar mais usinas eólicas."
+      },
+      {
+        "letra": "C",
+        "texto": "Ampliar o uso de energia solar."
+      },
+      {
+        "letra": "D",
+        "texto": "Manter os combustíveis fósseis no solo."
+      },
+      {
+        "letra": "E",
+        "texto": "Produzir menos resíduos sólidos urbanos."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141577,
+    "numero": 105,
+    "codigo": "E2025-105",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 23,
+    "gabarito": "E",
+    "a": 2.33,
+    "b": 1.10209,
+    "c": 0.14,
+    "b_enem": 610.2,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 86643,
+    "numero": 106,
+    "codigo": "E2025-106",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 3,
+    "gabarito": "A",
+    "a": 2.26,
+    "b": 1.03971,
+    "c": 0.26,
+    "b_enem": 604.0,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 87450,
+    "numero": 107,
+    "codigo": "E2025-107",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 13,
+    "gabarito": "E",
+    "a": 1.67,
+    "b": 0.6282,
+    "c": 0.19,
+    "b_enem": 562.8,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "A figura apresenta a herança genética de uma característica a partir do cruzamento de insetos de uma mesma espécie. Qual alternativa representa a proporção fenotípica da prole resultante do cruzamento entre indivíduos da primeira geração? A B C D E",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 60058,
+    "numero": 108,
+    "codigo": "E2025-108",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 3,
+    "gabarito": "C",
+    "a": 2.43,
+    "b": 2.00446,
+    "c": 0.07,
+    "b_enem": 700.4,
+    "tier": {
+      "nivel": 4,
+      "rotulo": "Difícil"
+    },
+    "enunciado": "Para transportar uma caixa do primeiro para o segundo piso de uma construção, um trabalhador precisará arrasta-lá sobre um plano inclinado. O trabalhador começa a arrastar a caixa no primeiro piso, exercendo sobre ela uma força de grande intensidade, paralela ao seu deslocamento. Na medida em que a caixa sobe o plano inclinado, ele decide reduzir a força sobre ela, arrastando-a lentamente até chegar ao segundo piso. Considere que a caixa permanece em movimento nos encontros dos pisos com o plano inclinado, e que a rugosidade entre as superfícies permanece a mesma durante todo o percurso. O comportamento da força de atrito entre a caixa e o chão no plano inclinado é representado em: A B C D E \\*020325AZ6\\* 7 Questão 109 O fruto do cajueiro é um aquênio repleto de um líquido escuro, quase preto, cáustico e inflamável. Esse líquido da casca da castanha do caju (LCC) representa aproximadamente 25% da massa da castanha e é um subproduto de agronegócio do caju. Quando submetido a altas temperaturas, o ácido anacárdico presente no LCC é convertido a cardanol, que recebe a denominação de LCC técnico, conforme o esquema: MAZZETTO, S. E.; LOMONACO, D.; MELE, G. Óleo da castanha de caju: oportunidades e desafios no contexto do desenvolvimento e sustentabilidade industrial. Química Nova, n. 3, 2009 (adaptado). O LCC técnico é produzido por meio de uma reação orgânica do tipo",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "hidrólise."
+      },
+      {
+        "letra": "B",
+        "texto": "fenilação."
+      },
+      {
+        "letra": "C",
+        "texto": "esterificação."
+      },
+      {
+        "letra": "D",
+        "texto": "hidrogenação."
+      },
+      {
+        "letra": "E",
+        "texto": "descarboxilação."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 111737,
+    "numero": 109,
+    "codigo": "E2025-109",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 27,
+    "gabarito": "E",
+    "a": 2.03,
+    "b": 1.00774,
+    "c": 0.22,
+    "b_enem": 600.8,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 87716,
+    "numero": 110,
+    "codigo": "E2025-110",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 22,
+    "gabarito": "E",
+    "a": 3.12,
+    "b": 1.04345,
+    "c": 0.17,
+    "b_enem": 604.3,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 84440,
+    "numero": 111,
+    "codigo": "E2025-111",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 9,
+    "gabarito": "B",
+    "a": 2.86,
+    "b": 1.41211,
+    "c": 0.11,
+    "b_enem": 641.2,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 85481,
+    "numero": 112,
+    "codigo": "E2025-112",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 19,
+    "gabarito": "D",
+    "a": 3.22,
+    "b": 1.26954,
+    "c": 0.16,
+    "b_enem": 627.0,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 67752,
+    "numero": 113,
+    "codigo": "E2025-113",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 20,
+    "gabarito": "B",
+    "a": 2.88,
+    "b": 1.91093,
+    "c": 0.11,
+    "b_enem": 691.1,
+    "tier": {
+      "nivel": 4,
+      "rotulo": "Difícil"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141590,
+    "numero": 114,
+    "codigo": "E2025-114",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 1,
+    "gabarito": "B",
+    "a": 1.78,
+    "b": 0.59946,
+    "c": 0.16,
+    "b_enem": 559.9,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 83614,
+    "numero": 115,
+    "codigo": "E2025-115",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 24,
+    "gabarito": "C",
+    "a": 0.91,
+    "b": 1.14394,
+    "c": 0.08,
+    "b_enem": 614.4,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 117734,
+    "numero": 116,
+    "codigo": "E2025-116",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 28,
+    "gabarito": "C",
+    "a": 1.97,
+    "b": 1.25206,
+    "c": 0.1,
+    "b_enem": 625.2,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "As cangas são ambientes resultantes da atuação, ao longo de milhões de anos, de chuvas, enxurradas, calor e ventos em rochas ricas em ferro. São compostas por até 90% de óxidos de ferro e contêm solos muito ácidos, rasos, com reduzidos índices de fertilidade e temperaturas que atingem quase 70 °C na superfície. Ao contrário do que se imagina, esse tipo de ambiente abriga comunidades de plantas e animais com elevado número de espécies e distribuição restrita. CARMO, F. F. et al. Ilhas de ferro estratégicas para a conservação. Disponível em: http://cienciahoje.org.br. Acesso em: 2 dez. 2018 (adaptado). A seleção adaptativa nesses ambientes favorece a ocorrência de espécies",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "exóticas."
+      },
+      {
+        "letra": "B",
+        "texto": "migratórias."
+      },
+      {
+        "letra": "C",
+        "texto": "endêmicas."
+      },
+      {
+        "letra": "D",
+        "texto": "dominantes."
+      },
+      {
+        "letra": "E",
+        "texto": "generalistas."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 83213,
+    "numero": 117,
+    "codigo": "E2025-117",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 21,
+    "gabarito": "D",
+    "a": 2.98,
+    "b": 1.92485,
+    "c": 0.19,
+    "b_enem": 692.5,
+    "tier": {
+      "nivel": 4,
+      "rotulo": "Difícil"
+    },
+    "enunciado": "Para a produção de titânio metálico ou dióxido de titânio puros, é necessário fazer a cloração do minério que contém dióxido de titânio, com o objetivo de separar esse óxido de outras substâncias presentes no minério. A principal reação química de cloração é representada por: TiO2 (s) + 2 Cl2 (g) TiCl4 (g) + O2 (g) ΔH = +175 kJ/mol Depois da cloração, o tetracloreto de titânio é condensado e convertido, novamente, a dióxido de titânio. Após o sistema atingir o equilíbrio químico, como a formação do TiCl4 pode ser favorecida?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "Aumentando a pressão total do sistema."
+      },
+      {
+        "letra": "B",
+        "texto": "Diminuindo a temperatura do sistema."
+      },
+      {
+        "letra": "C",
+        "texto": "Aumentando a pressão parcial de O2."
+      },
+      {
+        "letra": "D",
+        "texto": "Aumentando a pressão parcial de Cl2."
+      },
+      {
+        "letra": "E",
+        "texto": "Variando a quantidade de TiO2."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 76686,
+    "numero": 118,
+    "codigo": "E2025-118",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 18,
+    "gabarito": "C",
+    "a": 2.03,
+    "b": 1.75727,
+    "c": 0.2,
+    "b_enem": 675.7,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "A laje de um depósito de bebidas tem 50 m2 de área útil de armazenamento e foi projetada para suportar pressões de até 104 Pa. O gerente do estabelecimento pretende armazenar um produto cuja densidade é 1 250 kg/m3. Considere a aceleração da gravidade igual a 10 m/s2. A altura máxima, em metro, de empilhamento do produto que essa laje é capaz de suportar é",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "0,16 m."
+      },
+      {
+        "letra": "B",
+        "texto": "0,50 m."
+      },
+      {
+        "letra": "C",
+        "texto": "0,80 m."
+      },
+      {
+        "letra": "D",
+        "texto": "1,60 m."
+      },
+      {
+        "letra": "E",
+        "texto": "8,00 m."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141522,
+    "numero": 119,
+    "codigo": "E2025-119",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 2,
+    "gabarito": "B",
+    "a": 1.32,
+    "b": 2.88051,
+    "c": 0.29,
+    "b_enem": 788.1,
+    "tier": {
+      "nivel": 5,
+      "rotulo": "Muito difícil"
+    },
+    "enunciado": "Em uma comunidade rural, os moradores utilizam uma bomba-d’água alimentada por 100 V de tensão contínua, podendo variar em até 5 V. Um eletrotécnico pretende instalar placas fotovoltaicas para alimentar essa bomba. As placas são idênticas e cada uma apresenta tensão de operação igual a 34 V com corrente de 7,5 A. Além disso, cada placa apresenta 40 V de tensão elétrica, quando em circuito aberto. Assim, considerando que a placa descrita é um gerador não ideal, em circuito aberto ela pode ser representada conforme a figura: O eletrotécnico construiu um circuito que permite à bomba-d’água operar corretamente com o menor número possível de placas conectadas. Para isso, desenhou um diagrama no qual todas essas placas são representadas como um único gerador não ideal, com a especificação das correspondentes características elétricas. O diagrama que representa o circuito construído pelo eletrotécnico é: A B C D E \\*020325AZ9\\* 10",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141642,
+    "numero": 120,
+    "codigo": "E2025-120",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 6,
+    "gabarito": "B",
+    "a": 6.0,
+    "b": 2.4444,
+    "c": 0.29,
+    "b_enem": 744.4,
+    "tier": {
+      "nivel": 5,
+      "rotulo": "Muito difícil"
+    },
+    "enunciado": "A figura ilustra as informações contidas no manual de um sistema de alarme que utiliza transmissores e receptores de radiação eletromagnética para a detecção de movimento. O receptor é regulado pelo tempo de resposta, que corresponde ao intervalo de tempo necessário para o corpo do invasor atravessar completamente o feixe, de diâmetro d = 15 cm. Considere que a menor porção do corpo de um invasor é a sua posição de perfil, cuja espessura típica é 20 cm. São indicados cinco possíveis movimentos de um invasor e suas velocidades típicas, que devem ser observadas para a escolha do tempo de resposta. Manual de referência e instalação: sensor de barreira ativo. Disponível em: cs.ind.br. Acesso em: 2 dez. 2021 (adaptado). Nesse sistema, o menor tempo de resposta, em milissegundo, que garante a detecção de um possível invasor é mais próximo de",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "30 ms."
+      },
+      {
+        "letra": "B",
+        "texto": "70 ms."
+      },
+      {
+        "letra": "C",
+        "texto": "300 ms."
+      },
+      {
+        "letra": "D",
+        "texto": "400 ms."
+      },
+      {
+        "letra": "E",
+        "texto": "700 ms."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 77992,
+    "numero": 121,
+    "codigo": "E2025-121",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 7,
+    "gabarito": "B",
+    "a": 3.07,
+    "b": 2.22434,
+    "c": 0.1,
+    "b_enem": 722.4,
+    "tier": {
+      "nivel": 4,
+      "rotulo": "Difícil"
+    },
+    "enunciado": "A dimetilamina é uma substância de elevada toxidez que entra em ebulição a 7 °C. Na madrugada de um dia frio, essa substância se espalhou por uma rodovia após um acidente de trânsito envolvendo um caminhão que transportava esse produto. Para minimizar a agressão ao meio ambiente, bem como evitar a evaporação da dimetilamina com a elevação da temperatura ao longo do dia, um químico considerou o uso de algumas substâncias ou misturas como água, vinagre, óleo de soja, sal de cozinha e bicarbonato de sódio. Dentre as opções apresentadas, o tratamento correto para minimizar esse problema é usar",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "água."
+      },
+      {
+        "letra": "B",
+        "texto": "vinagre."
+      },
+      {
+        "letra": "C",
+        "texto": "óleo de soja."
+      },
+      {
+        "letra": "D",
+        "texto": "sal de cozinha."
+      },
+      {
+        "letra": "E",
+        "texto": "bicarbonato de sódio."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141601,
+    "numero": 122,
+    "codigo": "E2025-122",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 23,
+    "gabarito": "D",
+    "a": 2.3,
+    "b": 1.64956,
+    "c": 0.32,
+    "b_enem": 665.0,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "O aquecimento em fogões por indução utiliza bobinas para produzir um campo magnético variável. Essa bobina se localiza abaixo do vidro cerâmico sobre o qual a panela se apoia. O mecanismo aquece apenas a panela que se encontra na zona de cozimento, o que é uma das principais vantagens em relação ao uso do fogão a gás ou de resistência elétrica. PEREIRA, A. B. et al. Fogões de indução: montagem e testes de um circuito disponível. Disponível em: https://publicacoes.fatecsertaozinho.edu.br. Acesso em: 21 maio 2025 (adaptado). O uso do campo magnético variável tem a finalidade de",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "imantar o material da panela por indução."
+      },
+      {
+        "letra": "B",
+        "texto": "movimentar os átomos de ferro concentrados no fundo da panela."
+      },
+      {
+        "letra": "C",
+        "texto": "emitir radiação eletromagnética, aquecendo a panela através"
+      },
+      {
+        "letra": "D",
+        "texto": "induzir corrente elétrica na parte inferior da panela, aquecendo-a"
+      },
+      {
+        "letra": "E",
+        "texto": "gerar um fluxo de corrente de convecção no ar contido entre"
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141774,
+    "numero": 123,
+    "codigo": "E2025-123",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 9,
+    "gabarito": "X",
+    "a": null,
+    "b": null,
+    "c": null,
+    "b_enem": null,
+    "tier": null,
+    "enunciado": "Plantas e algas realizam fotossíntese oxigênica para síntese de matéria orgânica e, para isso, utilizam trifosfato de adenosina (ATP) e nicotinamida adenina dinucleotídeo fosfato reduzido (NADPH). Já algumas bactérias fotossintetizantes não apresentam cloroplasto e clorofila, mas um pigmento denominado bacterioclorofila. Esses procariotos realizam a fotossíntese anoxigênica, um processo de síntese de matéria orgânica utilizando o gás carbônico (CO2) e o gás sulfídrico (H2S). Na fotossíntese oxigênica, qual composto desempenha função análoga à do H2S?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "ATP."
+      },
+      {
+        "letra": "B",
+        "texto": "NADPH."
+      },
+      {
+        "letra": "C",
+        "texto": "Oxigênio."
+      },
+      {
+        "letra": "D",
+        "texto": "Clorofila."
+      },
+      {
+        "letra": "E",
+        "texto": "Água."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 97091,
+    "numero": 124,
+    "codigo": "E2025-124",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 24,
+    "gabarito": "B",
+    "a": 1.72,
+    "b": 2.18313,
+    "c": 0.18,
+    "b_enem": 718.3,
+    "tier": {
+      "nivel": 4,
+      "rotulo": "Difícil"
+    },
+    "enunciado": "Objetos de prata escurecem em contato com compostos contendo enxofre por causa da formação de uma fina camada de sulfeto de prata. Um método simples para clarear o objeto consiste em forrar um recipiente com papel alumínio, adicionar ao recipiente uma solução aquosa de cloreto de sódio e, enfim, mergulhar o objeto de prata enegrecido. Em cerca de três minutos, a prata volta à coloração original. As seguintes semirreações e os respectivos potenciais-padrão de redução são úteis para a compreensão dos fenômenos ocorridos. Ag2S (s) + 2 e− → 2 Ag (s) + S2− (aq) O2 (g) + 4 H+ (aq) + 4 e− → 2 H2O (l) Al3+ (aq) + 3 e− → Al (s) −0,69 V \\+1,23 V −1,68 V SARTORI, E. R.; BATISTA, E. F.; FATIBELLO-FILHO, O. Escurecimento e limpeza de objetos de prata: um experimento simples e de fácil execução envolvendo reações de oxidação-redução. Química Nova na Escola, n. 30, 2008 (adaptado). Os valores das diferenças de potencial-padrão das reações que representam o escurecimento e o clareamento do objeto de prata são, respectivamente:",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "+0,54 V e +2,37 V."
+      },
+      {
+        "letra": "B",
+        "texto": "+1,92 V e +0,99 V."
+      },
+      {
+        "letra": "C",
+        "texto": "−0,15 V e +5,43 V."
+      },
+      {
+        "letra": "D",
+        "texto": "+2,61 V e +1,29 V."
+      },
+      {
+        "letra": "E",
+        "texto": "+0,15 V e −1,29 V."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 96748,
+    "numero": 125,
+    "codigo": "E2025-125",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 25,
+    "gabarito": "B",
+    "a": null,
+    "b": null,
+    "c": null,
+    "b_enem": null,
+    "tier": null,
+    "enunciado": "Apaixonada por culinária e química, uma chefe de cozinha calculou que, para promover o crescimento adequado da massa durante o cozimento de um bolo a 180 °C (453 K) e 1,00 atm, ela precisaria utilizar uma quantidade de fermento químico suficiente para produzir um volume de gás igual a 4,00 L. Com esse objetivo, ela escolheu utilizar o bicarbonato de amônio, um composto que, sob aquecimento, degrada-se em três gases distintos, que são os responsáveis pelo crescimento da massa. A decomposição do bicarbonato de amônio ocorre conforme a equação química apresentada e, nas condições do cozimento, seu rendimento é de 80%. NH4HCO3 (s) → NH3 (g) + CO2 (g) + H2O (g) Considere que a mistura dos gases se comporta como gás ideal nas condições de cozimento utilizadas pela chefe. Dados: Massa molar do NH4HCO3 = 79 g ⋅ mol−1 e R = 0,082 atm ⋅ L ⋅ mol−1 ⋅ K−1. A massa, em grama, de bicarbonato de amônio que ela deve utilizar é mais próxima de",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "2,3 g."
+      },
+      {
+        "letra": "B",
+        "texto": "3,5 g."
+      },
+      {
+        "letra": "C",
+        "texto": "5,9 g."
+      },
+      {
+        "letra": "D",
+        "texto": "6,8 g."
+      },
+      {
+        "letra": "E",
+        "texto": "8,9 g."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 61018,
+    "numero": 126,
+    "codigo": "E2025-126",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 20,
+    "gabarito": "D",
+    "a": 2.3,
+    "b": 1.62756,
+    "c": 0.16,
+    "b_enem": 662.8,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "Segundo o princípio da independência dos movimentos, de Galileu, sempre que a velocidade resultante de um corpo puder ser decomposta em duas ou mais componentes perpendiculares entre si, cada um desses movimentos poderá ser analisado separadamente como se os outros não existissem. Esse princípio é muito útil para a simplificação de alguns problemas reais, em três dimensões. Considere um avião que, ao decolar, é instruído pela torre a atingir, em 6 minutos, uma posição de 20 km a Leste, 20 km a Norte e 1 km de altitude em relação ao ponto de decolagem, conforme a figura (fora de escala). No entanto, no instante da decolagem, começa a soprar um vento cujo vetor velocidade tem componentes 30 km/h para Leste, 20 km/h para Sul e 1 km/h de cima para baixo. Durante a ação do vento, a velocidade *v* que o piloto deve estabelecer em relação ao ar para que o avião chegue à posição esperada no tempo indicado tem as componentes",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "230 km/h para Leste, 180 km/h para Sul e 9 km/h para baixo."
+      },
+      {
+        "letra": "B",
+        "texto": "230 km/h para Leste, 180 km/h para Norte e 9 km/h para cima."
+      },
+      {
+        "letra": "C",
+        "texto": "200 km/h para Oeste, 200 km/h para Norte e 10 km/h para cima."
+      },
+      {
+        "letra": "D",
+        "texto": "170 km/h para Leste, 220 km/h para Norte e 11 km/h para cima."
+      },
+      {
+        "letra": "E",
+        "texto": "170 km/h para Leste, 180 km/h para Norte e 11 km/h para cima."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 95445,
+    "numero": 127,
+    "codigo": "E2025-127",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 8,
+    "gabarito": "C",
+    "a": 4.86,
+    "b": 1.12172,
+    "c": 0.19,
+    "b_enem": 612.2,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "Nos processos de transformação e reciclagem de recursos naturais, as velocidades das reações químicas são estudadas pela cinética química. Uma reação A → B é realizada na presença e na ausência de uma enzima, com todas as demais condições permanecendo inalteradas. Considere que, no gráfico da variação de energia ao longo dessa reação, a linha contínua representa o avanço da reação na ausência da enzima, e a linha pontilhada, na presença da enzima. O gráfico que representa a situação descrita é: A B C D E",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 97616,
+    "numero": 128,
+    "codigo": "E2025-128",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 17,
+    "gabarito": "E",
+    "a": 2.31,
+    "b": 0.51744,
+    "c": 0.18,
+    "b_enem": 551.7,
+    "tier": {
+      "nivel": 1,
+      "rotulo": "Muito fácil"
+    },
+    "enunciado": "A resistência de um fio de platina pode ser usada para medir temperaturas entre 0 °C e 100°C e já foi utilizada como referência para a escala internacional de temperatura. Para um sensor feito de platina, a relação entre a resistência e a temperatura pode ser descrita por uma equação do tipo *R*(*T*) = A + B*T*, em que *T* é a temperatura e A e B são constantes. O gráfico apresenta a dependência da resistência em função da temperatura para cinco diferentes sensores. Os sensores que apresentam maior sensibilidade são",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "1 e 2."
+      },
+      {
+        "letra": "B",
+        "texto": "1 e 3."
+      },
+      {
+        "letra": "C",
+        "texto": "2 e 3."
+      },
+      {
+        "letra": "D",
+        "texto": "2 e 4."
+      },
+      {
+        "letra": "E",
+        "texto": "2 e 5."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 98246,
+    "numero": 129,
+    "codigo": "E2025-129",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 15,
+    "gabarito": "A",
+    "a": 1.2,
+    "b": 0.63661,
+    "c": 0.13,
+    "b_enem": 563.7,
+    "tier": {
+      "nivel": 2,
+      "rotulo": "Fácil"
+    },
+    "enunciado": "O ácido úsnico é retirado de liquens e foi testado contra diversas espécies, conforme o quadro. Teste Resultado *Aedes aegypti* (larvas) Baixa eficiência Bacilo de Koch Média eficiência Moluscos aquáticos (adultos) Alta eficiência Pernilongo (larvas) Média eficiência Vermes platelmintos Ineficiente O ácido úsnico mostrou-se mais indicado para o controle da",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "esquistossomose."
+      },
+      {
+        "letra": "B",
+        "texto": "febre amarela."
+      },
+      {
+        "letra": "C",
+        "texto": "coqueluche."
+      },
+      {
+        "letra": "D",
+        "texto": "tuberculose."
+      },
+      {
+        "letra": "E",
+        "texto": "dengue."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141529,
+    "numero": 130,
+    "codigo": "E2025-130",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 5,
+    "gabarito": "E",
+    "a": 3.1,
+    "b": 1.79848,
+    "c": 0.26,
+    "b_enem": 679.8,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "Em sua maioria, os equipamentos eletrônicos domésticos demandam baixa potência elétrica em corrente contínua. Para alimentá-los, uma fonte externa ou embutida transforma a corrente alternada em corrente contínua de baixa tensão. Entretanto, cada equipamento tem suas especificidades, e muitas vezes não é possível simplesmente trocar essas fontes sem levar em conta a tensão, a corrente ou a potência elétrica de saída. Considere um equipamento de resistência elétrica RC que funciona corretamente apenas em um dado valor de tensão. Porém, a única fonte de alimentação disponível fornece uma tensão 20% superior à tensão recomendada. Para adaptar essa fonte ao aparelho, a associação de um resistor de proteção RP , de potência adequada, se faz necessária. A configuração adequada do circuito e o valor do resistor de proteção, em relação ao valor da resistência do equipamento, são: A B C D E",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  },
+  {
+    "ano": 2025,
+    "co_item": 96328,
+    "numero": 131,
+    "codigo": "E2025-131",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 26,
+    "gabarito": "E",
+    "a": 3.42,
+    "b": 1.93027,
+    "c": 0.07,
+    "b_enem": 693.0,
+    "tier": {
+      "nivel": 4,
+      "rotulo": "Difícil"
+    },
+    "enunciado": "O Brasil é o maior produtor mundial de nióbio (massa molar = 93 g mol−1), metal utilizado na fabricação de vários tipos de aço: automotivos, estruturais e inoxidáveis. O processo utilizado na produção do nióbio é a redução aluminotérmica de Nb2O5 com excesso de 10% de Al (massa molar = 27 g mol−1), em relação à quantidade estequiométrica da reação, representada pela equação química: 3 Nb2O5 (s) + 10 Al (s) → 6 Nb (s) + 5 Al2O3 (s) Uma engenheira metalúrgica estimou a massa de alumínio necessária para produzir 9,3 kg de nióbio, nas condições descritas, para a produção de um lote de peças de aço encomendado por uma indústria, considerando um rendimento de 100%. Disponível em: www.cbmm.com.br. Acesso em: 17 out. 2015 (adaptado). A massa de alumínio, em quilograma, estimada pela engenheira é mais próxima de",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "2,7 kg."
+      },
+      {
+        "letra": "B",
+        "texto": "3,0 kg."
+      },
+      {
+        "letra": "C",
+        "texto": "4,1 kg."
+      },
+      {
+        "letra": "D",
+        "texto": "4,5 kg."
+      },
+      {
+        "letra": "E",
+        "texto": "5,0 kg."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141557,
+    "numero": 132,
+    "codigo": "E2025-132",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 1,
+    "gabarito": "X",
+    "a": null,
+    "b": null,
+    "c": null,
+    "b_enem": null,
+    "tier": null,
+    "enunciado": "O nível sonoro, em decibel (dB), é calculado pela expressão: *n* *I* *I* 10 10 0 log Uma conversa normal entre duas pessoas gera sons de níveis sonoros entre 50 e 60 dB, enquanto pessoas gritando podem gerar sons de níveis superiores a 100 dB. Supondo que, no centro de um estádio de futebol, foram realizadas medidas para avaliar o ruído médio de uma pessoa gritando a palavra “gol” em diferentes posições das arquibancadas. O valor médio obtido, considerando um grande número de medidas, foi de 100 dB. Com esse dado, estimou-se o ruído sonoro produzido por 10 000 pessoas, distribuídas aleatoriamente nas arquibancadas, enquanto gritavam, simultaneamente, a palavra “gol”. O valor médio estimado para o ruído produzido por essas pessoas, na posição central desse estádio hipotético, foi de",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "60 dB."
+      },
+      {
+        "letra": "B",
+        "texto": "104 dB."
+      },
+      {
+        "letra": "C",
+        "texto": "140 dB."
+      },
+      {
+        "letra": "D",
+        "texto": "400 dB."
+      },
+      {
+        "letra": "E",
+        "texto": "800 dB."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 86958,
+    "numero": 133,
+    "codigo": "E2025-133",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 17,
+    "gabarito": "A",
+    "a": 1.56,
+    "b": 2.09416,
+    "c": 0.14,
+    "b_enem": 709.4,
+    "tier": {
+      "nivel": 4,
+      "rotulo": "Difícil"
+    },
+    "enunciado": "O despejo acidental de óleo nos oceanos tem ocasionado incontáveis prejuízos à vida marinha e à economia de regiões costeiras. Métodos tradicionais de tratamento do despejo geram resíduos de difícil descarte e nem sempre são eficazes. Por isso, pesquisadores desenvolveram um filtro capaz de separar óleo e água. O dispositivo é montado sobre uma malha de aço com uma sequência de camadas. A primeira camada é formada por um polímero de carga positiva, a segunda é composta por nanopartículas de sílica (SiO2), a terceira é formada pelo mesmo polímero e a última é um surfactante, conforme apresentado na figura. Representação esquemática do dispositivo BROWN, P. S.; BHUSHAN, B. Mechanically durable, superoleophobic coatings prepared by layer-by-layer technique for anti-smudge and oil-water separation. Scientific Reports, v. 5, mar. 2015 (adaptado). Na utilização desse dispositivo, a retenção do óleo ocorre",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "no surfactante."
+      },
+      {
+        "letra": "B",
+        "texto": "na camada superior de polímero."
+      },
+      {
+        "letra": "C",
+        "texto": "nas nanopartículas de sílica."
+      },
+      {
+        "letra": "D",
+        "texto": "na camada inferior de polímero."
+      },
+      {
+        "letra": "E",
+        "texto": "na malha de aço."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 141671,
+    "numero": 134,
+    "codigo": "E2025-134",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 12,
+    "gabarito": "B",
+    "a": 3.5,
+    "b": 1.25217,
+    "c": 0.26,
+    "b_enem": 625.2,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "Alguns hormônios sexuais têm ganhado notável atenção nos últimos anos por suas concentrações cada vez maiores no solo e na água em todo o mundo. O motivo da preocupação é porque, em níveis poluentes, eles têm sido associados ao câncer de mama e ao câncer de próstata, além de perturbarem a fisiologia dos peixes, podendo, ainda, afetarem o desenvolvimento reprodutivo de animais domésticos e selvagens. Assim, o descarte inadequado desses hormônios representa uma séria ameaça ao solo, plantas, recursos hídricos e humanos. De baixa polaridade, eles apresentam uma solubilidade pequena e variável em água, dependendo dos grupos presentes em suas estruturas, representando um grande risco para os ambientes aquáticos. As figuras a seguir apresentam as estruturas de alguns desses hormônios. MUHAMMAD, A. et al. Environmental Impact of Estrogens on Human, Animal and Plant Life: a Critical Review. Environment International, n. 99, 2017 (adaptado). Do ponto de vista das interações químicas, qual desses hormônios apresenta maior solubilidade em ambientes aquáticos?",
+    "alternativas": [
+      {
+        "letra": "A",
+        "texto": "Estradiol."
+      },
+      {
+        "letra": "B",
+        "texto": "Estriol."
+      },
+      {
+        "letra": "C",
+        "texto": "Estrona."
+      },
+      {
+        "letra": "D",
+        "texto": "Novestrol."
+      },
+      {
+        "letra": "E",
+        "texto": "Noretindrona."
+      }
+    ],
+    "alternativas_tipo": "texto"
+  },
+  {
+    "ano": 2025,
+    "co_item": 97292,
+    "numero": 135,
+    "codigo": "E2025-135",
+    "cor": "AZUL",
+    "area": "CN",
+    "habilidade": 1,
+    "gabarito": "A",
+    "a": 2.79,
+    "b": 1.62585,
+    "c": 0.11,
+    "b_enem": 662.6,
+    "tier": {
+      "nivel": 3,
+      "rotulo": "Mediana"
+    },
+    "enunciado": "",
+    "alternativas": null,
+    "alternativas_tipo": "imagem"
+  }
+]

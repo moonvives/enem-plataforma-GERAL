@@ -1,0 +1,276 @@
+{
+  "titulo": "ENEM Ciências da Natureza — Edições Não Regulares",
+  "subtitulo": "PPL, 2ª Aplicação, Libras e Digital (2012–2024)",
+  "habilidades": [
+    {
+      "id": 1,
+      "descricao": "Reconhecer características de fenômenos ondulatórios ou oscilatórios, relacionando-os a seus usos.",
+      "competencia": 1,
+      "area": "Física"
+    },
+    {
+      "id": 2,
+      "descricao": "Associar a solução de problemas de comunicação, transporte ou saúde ao desenvolvimento científico e tecnológico.",
+      "competencia": 1,
+      "area": "Física"
+    },
+    {
+      "id": 3,
+      "descricao": "Confrontar interpretações científicas com interpretações do senso comum ao longo do tempo ou entre culturas.",
+      "competencia": 1,
+      "area": "Interdisciplinar"
+    },
+    {
+      "id": 4,
+      "descricao": "Avaliar propostas de intervenção no ambiente, considerando a qualidade de vida e a conservação da biodiversidade.",
+      "competencia": 1,
+      "area": "Biologia"
+    },
+    {
+      "id": 5,
+      "descricao": "Dimensionar circuitos ou dispositivos elétricos de uso cotidiano.",
+      "competencia": 2,
+      "area": "Física"
+    },
+    {
+      "id": 6,
+      "descricao": "Relacionar informações para compreender manuais de instalação ou utilização de aparelhos.",
+      "competencia": 2,
+      "area": "Física"
+    },
+    {
+      "id": 7,
+      "descricao": "Selecionar testes de controle, parâmetros ou critérios para a comparação de materiais e produtos.",
+      "competencia": 2,
+      "area": "Química"
+    },
+    {
+      "id": 8,
+      "descricao": "Identificar etapas em processos de obtenção, transformação, utilização ou reciclagem de recursos.",
+      "competencia": 3,
+      "area": "Química"
+    },
+    {
+      "id": 9,
+      "descricao": "Compreender a importância dos ciclos biogeoquímicos ou do fluxo de energia para a vida.",
+      "competencia": 3,
+      "area": "Biologia"
+    },
+    {
+      "id": 10,
+      "descricao": "Analisar perturbações ambientais, identificando fontes, transporte e destino dos poluentes.",
+      "competencia": 3,
+      "area": "Química"
+    },
+    {
+      "id": 11,
+      "descricao": "Reconhecer benefícios, limitações e aspectos éticos da biotecnologia.",
+      "competencia": 3,
+      "area": "Biologia"
+    },
+    {
+      "id": 12,
+      "descricao": "Avaliar impactos em ambientes naturais decorrentes de atividades sociais ou econômicas.",
+      "competencia": 3,
+      "area": "Biologia"
+    },
+    {
+      "id": 13,
+      "descricao": "Reconhecer mecanismos de transmissão da vida, prevendo ou explicando características dos seres vivos.",
+      "competencia": 4,
+      "area": "Biologia"
+    },
+    {
+      "id": 14,
+      "descricao": "Identificar padrões em fenômenos e processos vitais dos organismos.",
+      "competencia": 4,
+      "area": "Biologia"
+    },
+    {
+      "id": 15,
+      "descricao": "Interpretar modelos e experimentos para explicar fenômenos ou processos biológicos.",
+      "competencia": 4,
+      "area": "Biologia"
+    },
+    {
+      "id": 16,
+      "descricao": "Compreender o papel da evolução na produção de padrões e na organização taxonômica dos seres vivos.",
+      "competencia": 4,
+      "area": "Biologia"
+    },
+    {
+      "id": 17,
+      "descricao": "Relacionar informações apresentadas em diferentes formas de linguagem e representação.",
+      "competencia": 5,
+      "area": "Interdisciplinar"
+    },
+    {
+      "id": 18,
+      "descricao": "Relacionar propriedades físicas, químicas ou biológicas de produtos, sistemas ou procedimentos tecnológicos.",
+      "competencia": 5,
+      "area": "Interdisciplinar"
+    },
+    {
+      "id": 19,
+      "descricao": "Avaliar métodos, processos ou procedimentos das ciências naturais para diagnosticar ou solucionar problemas.",
+      "competencia": 5,
+      "area": "Interdisciplinar"
+    },
+    {
+      "id": 20,
+      "descricao": "Caracterizar causas ou efeitos dos movimentos de partículas, substâncias, objetos ou corpos celestes.",
+      "competencia": 6,
+      "area": "Física"
+    },
+    {
+      "id": 21,
+      "descricao": "Utilizar leis físicas ou químicas para interpretar processos naturais ou tecnológicos.",
+      "competencia": 6,
+      "area": "Física"
+    },
+    {
+      "id": 22,
+      "descricao": "Compreender fenômenos decorrentes da interação entre a radiação e a matéria.",
+      "competencia": 6,
+      "area": "Física"
+    },
+    {
+      "id": 23,
+      "descricao": "Avaliar possibilidades de geração, uso ou transformação de energia em ambientes específicos.",
+      "competencia": 6,
+      "area": "Física"
+    },
+    {
+      "id": 24,
+      "descricao": "Utilizar códigos e nomenclatura da química para caracterizar materiais, substâncias ou transformações.",
+      "competencia": 7,
+      "area": "Química"
+    },
+    {
+      "id": 25,
+      "descricao": "Caracterizar materiais ou substâncias, identificando etapas, rendimentos ou implicações de sua obtenção.",
+      "competencia": 7,
+      "area": "Química"
+    },
+    {
+      "id": 26,
+      "descricao": "Avaliar implicações sociais, ambientais e/ou econômicas na produção ou no consumo de recursos.",
+      "competencia": 7,
+      "area": "Química"
+    },
+    {
+      "id": 27,
+      "descricao": "Avaliar propostas de intervenção no ambiente aplicando conhecimentos químicos.",
+      "competencia": 7,
+      "area": "Química"
+    },
+    {
+      "id": 28,
+      "descricao": "Associar características adaptativas dos organismos ao seu modo de vida ou aos seus limites de distribuição.",
+      "competencia": 8,
+      "area": "Biologia"
+    },
+    {
+      "id": 29,
+      "descricao": "Interpretar experimentos ou técnicas que utilizam seres vivos.",
+      "competencia": 8,
+      "area": "Biologia"
+    },
+    {
+      "id": 30,
+      "descricao": "Avaliar propostas de alcance individual ou coletivo para a manutenção da saúde.",
+      "competencia": 8,
+      "area": "Biologia"
+    }
+  ],
+  "competencias": [
+    {
+      "id": 1,
+      "descricao": "Compreender as ciências naturais e as tecnologias associadas como construções humanas."
+    },
+    {
+      "id": 2,
+      "descricao": "Identificar a presença e aplicar as tecnologias associadas às ciências naturais em diferentes contextos."
+    },
+    {
+      "id": 3,
+      "descricao": "Associar intervenções de degradação ou conservação ambiental a processos produtivos e científico-tecnológicos."
+    },
+    {
+      "id": 4,
+      "descricao": "Compreender interações entre organismos e ambiente, em particular as relacionadas à saúde humana."
+    },
+    {
+      "id": 5,
+      "descricao": "Entender métodos e procedimentos próprios das ciências naturais."
+    },
+    {
+      "id": 6,
+      "descricao": "Apropriar-se de conhecimentos da física para compreender o mundo natural e tecnológico."
+    },
+    {
+      "id": 7,
+      "descricao": "Apropriar-se de conhecimentos da química para compreender o mundo natural e tecnológico."
+    },
+    {
+      "id": 8,
+      "descricao": "Apropriar-se de conhecimentos da biologia para compreender o mundo natural e tecnológico."
+    }
+  ],
+  "areas": [
+    "Biologia",
+    "Física",
+    "Interdisciplinar",
+    "Química"
+  ],
+  "edicoes": [
+    "2ª Aplicação",
+    "Digital",
+    "Libras",
+    "PPL"
+  ],
+  "anos": [
+    2012,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "regua": [
+    {
+      "nivel": 1,
+      "rotulo": "Muito fácil",
+      "icone": "1",
+      "intervalo": "b < 560,0"
+    },
+    {
+      "nivel": 2,
+      "rotulo": "Fácil",
+      "icone": "2",
+      "intervalo": "560,0 ≤ b < 620,0"
+    },
+    {
+      "nivel": 3,
+      "rotulo": "Mediana",
+      "icone": "3",
+      "intervalo": "620,0 ≤ b < 680,0"
+    },
+    {
+      "nivel": 4,
+      "rotulo": "Difícil",
+      "icone": "4",
+      "intervalo": "680,0 ≤ b < 740,0"
+    },
+    {
+      "nivel": 5,
+      "rotulo": "Muito difícil",
+      "icone": "5",
+      "intervalo": "b ≥ 740,0"
+    }
+  ]
+}

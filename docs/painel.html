@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel · ENEM CN — Edições Não Regulares</title>
+  <meta name="description" content="Painel analítico das 540 questões de Ciências da Natureza das edições não regulares do ENEM: distribuição por dificuldade, competência, área, habilidade, edição e ano.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <meta name="theme-color" content="#123b2b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+<body data-page="painel">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <strong>ENEM CN <span class="dot">•</span> Não Regulares</strong>
+        <span>540 questões · PPL, 2ª Aplicação, Libras e Digital · TRI</span>
+      </a>
+      <nav class="main">
+        <a href="index.html">Busca</a>
+        <a href="estudar.html">Estudar</a>
+        <a href="meu-painel.html">Meu painel</a>
+        <a href="painel.html" class="active">Painel</a>
+        <a href="painel-oficial.html">Microdados</a>
+        <a href="materiais.html">Materiais</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-title">
+      <h1>Painel analítico</h1>
+      <p>Distribuição das 540 questões de Ciências da Natureza segundo a dificuldade estimada pela TRI (parâmetro <em>b</em> publicado nos microdados) e a Matriz de Referência do ENEM.</p>
+    </div>
+
+    <section class="kpis" id="kpis" aria-label="Indicadores"></section>
+
+    <section class="panels">
+      <div class="panel">
+        <h3>Distribuição por nível de dificuldade</h3>
+        <p class="sub">Régua TRI (parâmetro b): nível 1 muito fácil &lt; 560 · 2 · 3 · 4 · nível 5 muito difícil ≥ 740</p>
+        <div id="p-tier"></div>
+      </div>
+      <div class="panel">
+        <h3>Questões por competência</h3>
+        <p class="sub">C1 a C8 da Matriz de Referência</p>
+        <div id="p-comp"></div>
+      </div>
+      <div class="panel">
+        <h3>Questões por área</h3>
+        <p class="sub">Área predominante da habilidade</p>
+        <div id="p-area"></div>
+      </div>
+      <div class="panel">
+        <h3>Questões por edição</h3>
+        <p class="sub">Aplicações não regulares (2012–2024)</p>
+        <div id="p-edicao"></div>
+      </div>
+      <div class="panel">
+        <h3>Questões por ano</h3>
+        <p class="sub">Ano de aplicação</p>
+        <div id="p-ano"></div>
+      </div>
+      <div class="panel">
+        <h3>Questões por habilidade</h3>
+        <p class="sub">H1 a H30</p>
+        <div id="p-hab"></div>
+      </div>
+      <div class="panel" style="grid-column: 1 / -1;">
+        <h3>Dificuldade média por habilidade</h3>
+        <p class="sub">Média do parâmetro <em>b</em> (TRI) entre os itens de cada habilidade</p>
+        <div id="p-hab-dif"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>Estatísticas calculadas a partir dos valores de <em>b</em> publicados por item.</span>
+      <span><a href="api/stats.json">stats.json</a> · <a href="api/meta.json">meta.json</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/auth.js"></script>
+  <script src="assets/tracker.js"></script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>
