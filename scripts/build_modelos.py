@@ -103,6 +103,22 @@ def to_webp(src, dst, max_w=1000, quality=82):
     return round(os.path.getsize(dst) / 1024)
 
 
+def keep_image(src, outrel, max_w=1000):
+    """Converte a imagem-fonte para webp; se a fonte não existir mas o webp já
+    estiver presente (build reproduzível a partir dos JSONs versionados), mantém
+    a referência. Retorna o caminho relativo ou None."""
+    dst = os.path.join(IMGDIR, os.path.basename(outrel))
+    if os.path.exists(src):
+        to_webp(src, dst, max_w=max_w)
+        return outrel
+    return outrel if os.path.exists(dst) else None
+
+
+PLACEHOLDER = re.compile(r"alternativa visual|consulte|recorte|ver imagem|ver figura", re.I)
+def is_placeholder(txt):
+    return bool(txt) and bool(PLACEHOLDER.search(txt))
+
+
 def main():
     os.makedirs(API, exist_ok=True)
     os.makedirs(IMGDIR, exist_ok=True)
@@ -124,37 +140,46 @@ def main():
         if gab not in ("A", "B", "C", "D", "E"):
             gab = None
         alts_src = q.get("alternativas") or {}
-        alts = [{"l": l, "t": (alts_src.get(l) or "").strip()} for l in "ABCDE" if l in alts_src]
+        alts = []
+        for l in "ABCDE":
+            if l in alts_src:
+                t = (alts_src.get(l) or "").strip()
+                # texto-marcador de alternativa gráfica vira vazio: a página exibe
+                # o recorte original em vez de um rótulo sem conteúdo real
+                if is_placeholder(t):
+                    t = ""
+                alts.append({"l": l, "t": t})
         enun = re.sub(r"\s+", " ", q.get("enunciado") or "").strip()
 
-        # imagem-fonte da questão (recorte integral de alta fidelidade)
+        # imagem-fonte da questão (recorte integral de alta fidelidade).
+        # Converte se a fonte existir; se ela estiver ausente (checkout limpo,
+        # pacotes-fonte não versionados) mas o webp já estiver gravado, mantém
+        # a referência — o build permanece reprodutível sem reescrever o catálogo
+        # com imagens faltando.
         figs = []
-        fonte_png = os.path.join(NAT, q.get("imagem_fonte", ""))
-        fonte_web = "modelos/q%03d.webp" % num
-        if os.path.exists(fonte_png):
-            to_webp(fonte_png, os.path.join(IMGDIR, os.path.basename(fonte_web)))
-        else:
-            fonte_web = None
+        fonte_web = keep_image(os.path.join(NAT, q.get("imagem_fonte", "")),
+                               "modelos/q%03d.webp" % num)
 
         # figuras isoladas do enunciado vindas do ENEM 360 (quando mapeado)
         er = e360_by_nat.get(num)
         if er:
             for i, rel in enumerate(er.get("imagens_enunciado", [])):
-                srcp = os.path.join(E360, rel)
-                if os.path.exists(srcp):
-                    outrel = "modelos/q%03d_fig%d.webp" % (num, i)
-                    to_webp(srcp, os.path.join(IMGDIR, os.path.basename(outrel)), max_w=900)
+                outrel = keep_image(os.path.join(E360, rel), "modelos/q%03d_fig%d.webp" % (num, i), max_w=900)
+                if outrel:
                     figs.append(outrel)
-            # imagens de alternativas gráficas
+            # imagens de alternativas gráficas: anexa sempre que houver imagem,
+            # mesmo que o texto seja um marcador (ex.: "Alternativa visual A —…").
             for a in er.get("alternativas", []):
-                for j, rel in enumerate(a.get("imagens", [])):
-                    srcp = os.path.join(E360, rel)
-                    if os.path.exists(srcp):
-                        outrel = "modelos/q%03d_alt%s.webp" % (num, a["letra"])
-                        to_webp(srcp, os.path.join(IMGDIR, os.path.basename(outrel)), max_w=600)
-                        for al in alts:
-                            if al["l"] == a["letra"] and not al["t"]:
-                                al["img"] = outrel
+                if not a.get("imagens"):
+                    continue
+                outrel = keep_image(os.path.join(E360, a["imagens"][0]),
+                                    "modelos/q%03d_alt%s.webp" % (num, a["letra"]), max_w=600)
+                if outrel:
+                    for al in alts:
+                        if al["l"] == a["letra"]:
+                            al["img"] = outrel
+                            if is_placeholder(al["t"]):
+                                al["t"] = ""
 
         hab = q.get("habilidade")
         records.append({

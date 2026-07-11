@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2b">
+  <title>Aulas · ENEM Estratégia</title>
+  <meta name="description" content="Conteúdo das videoaulas extraído e estruturado: os modelos de questão que mais se repetem no ENEM, com a ideia central, como o padrão é cobrado e o atalho de resolução.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .aula{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem;margin-top:1.25rem}
+    .aula .ahead{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-start}
+    .aula h2{margin:0}
+    .aula .curso{color:var(--muted);font-size:.9rem}
+    .aula .resumo{line-height:1.65;margin:.8rem 0 0}
+    .mlist{display:flex;flex-direction:column;gap:.7rem;margin-top:1.1rem}
+    .modelo{border:1px solid var(--border);border-radius:12px;background:var(--surface-2);overflow:hidden}
+    .modelo>summary{cursor:pointer;padding:.9rem 1.1rem;font-weight:700;display:flex;align-items:center;gap:.6rem;list-style:none}
+    .modelo>summary::-webkit-details-marker{display:none}
+    .modelo>summary .idx{width:1.7rem;height:1.7rem;flex:none;display:grid;place-items:center;border-radius:8px;background:var(--brand);color:#fff;font-size:.85rem}
+    .modelo>summary .chev{margin-left:auto;color:var(--muted);transition:transform .2s}
+    .modelo[open]>summary .chev{transform:rotate(90deg)}
+    .modelo .body{padding:0 1.1rem 1.1rem;display:flex;flex-direction:column;gap:.8rem}
+    .modelo .conc{display:flex;gap:.35rem;flex-wrap:wrap}
+    .block .l{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:.2rem;font-weight:700}
+    .block p{margin:0;line-height:1.6}
+    .atalho{background:rgba(58,125,68,.12);border:1px solid var(--t1);border-radius:10px;padding:.7rem .9rem}
+    .atalho .l{color:var(--t1)}
+    .fechamento{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--border);line-height:1.65}
+    .aula .cta{display:inline-block;margin-top:.9rem;color:var(--brand);font-weight:700;text-decoration:none}
+    .note{color:var(--muted);font-size:.82rem;margin-top:1rem}
+  </style>
+</head>
+<body data-page="aulas">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="mono">EE</span><span class="txt"><strong>ENEM Estratégia</strong><span>Dados oficiais · TRI · Matriz de Referência</span></span></a>
+      <nav class="main">
+        <a href="banco.html">Banco</a>
+        <a href="estudar.html">Estudar</a>
+        <a href="modelos.html">Modelos</a>
+        <a href="aulas.html" class="active">Aulas</a>
+        <a href="meu-painel.html">Meu painel</a>
+        <a href="tri.html">Mapa TRI</a>
+        <a href="padroes.html">Padrões</a>
+        <a href="materiais.html">Materiais</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-title">
+      <h1>Aulas</h1>
+      <p>O conteúdo das videoaulas, extraído e organizado como material de estudo: cada aula destrincha os <strong>modelos de questão</strong> que mais se repetem no ENEM — a ideia central, como o padrão é cobrado e o atalho de resolução. Ao final, pratique com as questões reais do <a href="modelos.html">banco de modelos</a>.</p>
+    </div>
+
+    <section class="kpis" id="kpis"></section>
+    <div id="aulas"></div>
+
+    <p class="note" id="foot-src"></p>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>Material de estudo pessoal.</span>
+      <span><a href="api/aulas.json">aulas.json</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/aulas.js"></script>
+  <script src="assets/auth.js"></script>
+  <script src="assets/tracker.js"></script>
+  <script src="assets/aulas-page.js"></script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>
