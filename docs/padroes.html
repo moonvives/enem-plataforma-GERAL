@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2b">
+  <title>Padrões de cobrança · ENEM Estratégia</title>
+  <meta name="description" content="Como o ENEM repete cada habilidade de Ciências da Natureza: ranking de recorrência, dificuldade típica e padrão de cobrança, a partir dos microdados oficiais do INEP.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:1.25rem}
+    .hcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.15rem;display:flex;flex-direction:column;gap:.6rem}
+    .hcard .top{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    .hcard .hnum{font-weight:800;font-size:1.05rem}
+    .hcard .desc{color:var(--muted);font-size:.9rem;line-height:1.5}
+    .hcard .metrics{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.25rem}
+    .metric{background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:.5rem .6rem}
+    .metric .l{font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+    .metric .v{font-weight:700;font-variant-numeric:tabular-nums}
+    .yearbars{display:flex;align-items:flex-end;gap:2px;height:34px}
+    .yearbars .yb{flex:1;background:var(--brand);border-radius:2px 2px 0 0;min-height:2px;opacity:.85}
+    .rank-row{display:grid;grid-template-columns:150px 1fr 92px;align-items:center;gap:.6rem;margin:.3rem 0;font-size:.86rem}
+    .rank-row .lab{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+    .rank-row .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  </style>
+</head>
+<body data-page="padroes">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="mono">EE</span><span class="txt"><strong>ENEM Estratégia</strong><span>Dados oficiais · TRI · Matriz de Referência</span></span></a>
+      <nav class="main">
+        <a href="index.html">Banco</a>
+        <a href="estudar.html">Estudar</a>
+        <a href="meu-painel.html">Meu painel</a>
+        <a href="tri.html">Mapa TRI</a>
+        <a href="padroes.html" class="active">Padrões</a>
+        <a href="painel-oficial.html">Microdados</a>
+        <a href="materiais.html">Materiais</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-title">
+      <h1>Padrões de cobrança</h1>
+      <p>Como o ENEM repete cada habilidade de Ciências da Natureza: recorrência, dificuldade típica e faixa observada — calculado sobre os itens oficiais do INEP (2010–2025), recalibrados.</p>
+    </div>
+
+    <section class="kpis" id="kpis"></section>
+
+    <section class="panels">
+      <div class="panel">
+        <h3>Ranking de recorrência por habilidade</h3>
+        <p class="sub" id="rank-sub"></p>
+        <div id="rank"></div>
+      </div>
+      <div class="panel">
+        <h3>Distribuição por dificuldade (régua TRI)</h3>
+        <p class="sub">Itens calibrados por faixa de dificuldade na escala ENEM</p>
+        <div id="regua"></div>
+      </div>
+    </section>
+
+    <h2 style="margin:1.75rem 0 .25rem">Cards por habilidade</h2>
+    <p class="page-title" style="color:var(--muted);margin:0">Ordenados da mais recorrente para a menos recorrente.</p>
+    <section class="cards" id="cards"></section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span id="foot-src"></span>
+      <span><a href="api/padroes_cn.json">padroes_cn.json</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/padroes.js"></script>
+  <script src="assets/auth.js"></script>
+  <script src="assets/tracker.js"></script>
+  <script>
+  document.addEventListener("enem:unlocked", function () {
+    var D = window.ENEM_PADROES; if (!D) return;
+    var m = D.meta, br = function (n) { return String(n).replace(".", ","); };
+    var tierColors = { "Muito fácil":"var(--t1)","Fácil":"var(--t2)","Mediana":"var(--t3)","Difícil":"var(--t4)","Muito difícil":"var(--t5)" };
+    function kpi(n,l){return '<div class="kpi"><div class="n">'+n+'</div><div class="l">'+l+'</div></div>';}
+    document.getElementById("kpis").innerHTML =
+      kpi(m.total_calibracao,"Itens calibrados")+
+      kpi(br(m.media),"Dificuldade média")+
+      kpi(br(m.desvio),"Desvio-padrão")+
+      kpi(br(m.b_min)+"–"+br(m.b_max),"Faixa observada")+
+      kpi(m.total_com_habilidade,"Com habilidade")+
+      kpi("30","Habilidades");
+    document.getElementById("foot-src").textContent = "Fonte: "+m.fonte+". "+m.regras;
+
+    // ranking
+    var ranking = D.ranking.map(function(id){return D.habilidades[String(id)];});
+    var maxT = Math.max.apply(null, ranking.map(function(h){return h.total;}));
+    document.getElementById("rank-sub").textContent = "Base: "+m.total_com_habilidade+" itens com habilidade identificada";
+    document.getElementById("rank").innerHTML = ranking.map(function(h){
+      var pct = Math.round(h.total/maxT*100);
+      return '<div class="rank-row"><span class="lab">H'+h.id+' · '+h.area+'</span>'+
+        '<span class="bar-track"><span class="bar-fill" style="width:'+pct+'%"></span></span>'+
+        '<span class="val">'+h.total+' · '+br(h.freq_pct)+'%</span></div>';
+    }).join("");
+
+    // régua
+    var maxR = Math.max.apply(null, m.regua.map(function(r){return r.total;}));
+    document.getElementById("regua").innerHTML = m.regua.map(function(r){
+      var pct = Math.round(r.total/maxR*100);
+      return '<div class="bar-row"><span class="lab">'+r.rotulo+'</span>'+
+        '<span class="bar-track"><span class="bar-fill" style="width:'+pct+'%;background:'+tierColors[r.rotulo]+'"></span></span>'+
+        '<span class="val">'+r.total+' · '+br(r.pct)+'%</span></div>';
+    }).join("");
+
+    // cards
+    var anos = m.por_ano.map(function(a){return a.ano;});
+    document.getElementById("cards").innerHTML = ranking.map(function(h){
+      var maxY = Math.max.apply(null, h.por_ano.map(function(a){return a.total;}));
+      var yByAno = {}; h.por_ano.forEach(function(a){yByAno[a.ano]=a.total;});
+      var bars = anos.map(function(a){
+        var v=yByAno[a]||0, ht=maxY?Math.round(v/maxY*100):0;
+        return '<span class="yb" title="'+a+': '+v+'" style="height:'+ht+'%'+(v===0?';opacity:.15':'')+'"></span>';
+      }).join("");
+      return '<div class="hcard">'+
+        '<div class="top"><span class="hnum">H'+h.id+'</span>'+
+          '<span class="badge area-'+h.area.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")+'">'+h.area+'</span>'+
+          '<span class="badge hab">C'+h.competencia+'</span>'+
+          '<span class="tier t'+h.tier.nivel+'"><span class="lvl l'+h.tier.nivel+'">'+h.tier.nivel+'</span>'+h.tier.rotulo+'</span></div>'+
+        '<div class="desc">'+h.descricao+'</div>'+
+        '<div class="metrics">'+
+          '<div class="metric"><div class="l">Recorrência</div><div class="v">'+h.total+' itens · '+br(h.freq_pct)+'%</div></div>'+
+          '<div class="metric"><div class="l">Dificuldade típica</div><div class="v">'+br(h.media_b)+'</div></div>'+
+          '<div class="metric"><div class="l">Faixa observada</div><div class="v">'+br(h.b_min)+'–'+br(h.b_max)+'</div></div>'+
+          '<div class="metric"><div class="l">Aparições/ano</div><div class="v">'+(h.total/anos.length).toFixed(1).replace(".",",")+'</div></div>'+
+        '</div>'+
+        '<div><div class="l" style="font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:.2rem">Aparições por ano ('+anos[0]+'–'+anos[anos.length-1]+')</div>'+
+          '<div class="yearbars">'+bars+'</div></div>'+
+        '</div>';
+    }).join("");
+  });
+  </script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>
