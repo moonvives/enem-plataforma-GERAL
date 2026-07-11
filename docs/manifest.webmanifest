@@ -1,7 +1,7 @@
 {
-  "name": "CN Estratégia — ENEM Ciências da Natureza",
-  "short_name": "CN Estratégia",
-  "description": "Plataforma pessoal de estudo estratégico do ENEM (Ciências da Natureza) com TRI, microdados oficiais e acompanhamento de erros e acertos.",
+  "name": "ENEM Estratégia",
+  "short_name": "ENEM Estratégia",
+  "description": "Plataforma pessoal de estudo estratégico do ENEM com TRI, microdados oficiais, Matriz de Referência e acompanhamento de erros e acertos.",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",

@@ -199,3 +199,9 @@ svg.ico{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke
 /* Tabelas e cartões um pouco mais densos/corporativos */
 .kpi .n{letter-spacing:-.03em}
 .page-title h1{font-weight:800}
+
+/* Correção de layout da marca (monograma ao lado do nome) */
+.brand{flex-direction:row;align-items:center;gap:0}
+.brand .txt{display:flex;flex-direction:column;line-height:1.18}
+.brand .txt strong{font-size:1rem}
+.brand .txt span{font-size:.72rem;color:var(--muted)}

@@ -2,12 +2,12 @@
 var CACHE = "enemcn-v1";
 var CORE = [
   "index.html", "questao.html", "painel.html", "painel-oficial.html",
-  "materiais.html", "sobre.html", "estudar.html", "meu-painel.html",
+  "materiais.html", "sobre.html", "estudar.html", "meu-painel.html", "tri.html",
   "manifest.webmanifest",
   "assets/styles.css", "assets/app.js", "assets/boot.js",
   "assets/auth.js", "assets/tracker.js",
   "assets/data.js", "assets/microdados.js", "assets/materiais.js",
-  "assets/provas.js", "assets/estudar.js", "assets/meu-painel.js"
+  "assets/provas.js", "assets/estudar.js", "assets/meu-painel.js", "assets/tri.js"
 ];
 
 self.addEventListener("install", function (e) {
