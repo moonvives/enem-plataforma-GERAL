@@ -91,15 +91,19 @@ python3 scripts/build_dataset.py
 O script (sem dependências externas) grava `data/questions.json`,
 `docs/api/*.json` e `docs/assets/data.js`.
 
-## Como executar
+## Publicação
 
-O site é estático e não requer servidor. Para desenvolvimento local:
+A plataforma é um site real, hospedado e acessível pela internet — não um
+projeto para rodar no desktop. É servida como site estático pelo **GitHub
+Pages** a partir da pasta `docs/`, e instalável como aplicativo (PWA), com
+domínio próprio.
 
-```bash
-python3 -m http.server -d docs 8000
-# abra http://localhost:8000
-```
+- **GitHub Pages:** em _Settings → Pages_, defina _Source_ como a branch de
+  publicação e a pasta `/docs`.
+- **Domínio próprio:** adicione o domínio em _Settings → Pages → Custom domain_
+  (grava um arquivo `CNAME` em `docs/`) e aponte o DNS do domínio para o GitHub
+  Pages. O acesso é protegido por PIN pessoal e o progresso de estudo fica
+  salvo no próprio aparelho.
 
-Também funciona abrindo `docs/index.html` diretamente (`file://`), pois o dataset
-fica embutido em `docs/assets/data.js` para evitar dependência de `fetch`/CORS.
-Para publicação, aponte o GitHub Pages para a pasta `docs/`.
+Todos os dados ficam embutidos em `docs/assets/*.js` (e espelhados em
+`docs/api/*.json`), de modo que o site funciona mesmo instalado e offline.
