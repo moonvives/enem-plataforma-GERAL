@@ -1,4 +1,13 @@
-.vercel
-.DS_Store
-__pycache__/
+# Pacotes-fonte de OCR/IA (grandes; imagens já convertidas para docs/assets/img)
+data/ocr/**
+# exceto os JSONs estruturados pequenos, que tornam o build reproduzível
+!data/ocr/
+!data/ocr/nat720/
+!data/ocr/nat720/questoes.json
+!data/ocr/e360v2/
+!data/ocr/e360v2/questoes.jsonl
+!data/ocr/**/README.md
+
+# temporários
 *.pyc
+__pycache__/

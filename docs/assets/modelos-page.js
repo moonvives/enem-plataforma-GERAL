@@ -29,8 +29,8 @@
     el("kpis").innerHTML =
       kpi(meta.n_modelos, "Modelos de questões") +
       kpi(meta.n_padroes, "Padrões de cobrança") +
-      kpi(meta.gabarito_oficial, "Gabaritos oficiais") +
-      kpi(meta.com_figura, "Com figura") +
+      kpi(meta.com_gabarito, "Com gabarito") +
+      kpi(meta.com_figura, "Com imagem original") +
       kpi(meta.habilidades.length, "Habilidades") +
       kpi(meta.anos[0] + "–" + meta.anos[meta.anos.length - 1], "Período");
     el("foot-src").textContent = "Fonte: " + meta.fonte;
@@ -67,24 +67,39 @@
     el("f-ano").innerHTML += meta.anos.map(function (a) { return '<option value="' + a + '">' + a + "</option>"; }).join("");
 
     function questionCard(m) {
-      var fig = m.fig ? '<figure><img loading="lazy" alt="Figura da questão" src="assets/img/' + esc(m.fig) + '"></figure>' : "";
+      var fig = (m.figs || []).map(function (f) {
+        return '<figure><img loading="lazy" alt="Figura do enunciado" src="assets/img/' + esc(f) + '"></figure>';
+      }).join("");
       var alts = (m.alts || []).map(function (a) {
         var ok = a.l === m.gab;
-        return '<div class="alt' + (ok ? " correct" : "") + '"><span class="l">' + a.l + "</span><span>" + esc(a.t) + "</span></div>";
+        var body = a.img
+          ? '<img loading="lazy" alt="Alternativa ' + a.l + '" src="assets/img/' + esc(a.img) + '" style="max-height:120px">'
+          : (a.t ? esc(a.t) : "<em>alternativa gráfica — ver recorte original abaixo</em>");
+        return '<div class="alt' + (ok ? " correct" : "") + '"><span class="l">' + a.l + "</span><span>" + body + "</span></div>";
       }).join("");
       var gabline = m.gab
         ? "Gabarito: <strong>" + m.gab + "</strong> · " + (m.gab_fonte === "microdados" ? "oficial (microdados INEP)" : "indicado pelo material")
-        : "Gabarito não disponível";
+        : (m.status === "anulada" ? "Questão anulada — sem gabarito" : "Gabarito não disponível");
+      var habBadge = m.hab
+        ? '<span class="badge hab">H' + m.hab + (m.comp ? " · C" + m.comp : "") + "</span>"
+        : '<span class="badge" title="Microdados sem habilidade para esta edição">sem habilidade</span>';
+      var statusBadge = m.status === "anulada" ? '<span class="badge" style="background:rgba(192,69,59,.14);color:var(--t5)">anulada</span>' : "";
+      var src = m.fonte_img
+        ? '<details class="fonte"><summary>Ver questão original (recorte do caderno)</summary>' +
+          '<figure><img loading="lazy" alt="Recorte original da questão ' + m.num + '" src="assets/img/' + esc(m.fonte_img) + '"></figure></details>'
+        : "";
+      var habLine = m.hab_desc ? '<div class="qmeta" style="margin:.5rem 0 0">Habilidade ' + m.hab + ": " + esc(m.hab_desc) + "</div>" : "";
       return '<article class="qmodel">' +
         '<div class="qhead"><div class="qtags">' +
-          '<span class="badge hab">H' + m.hab + "</span>" +
+          habBadge +
           '<span class="badge">' + esc(m.tema) + "</span>" +
           '<span class="badge">' + esc(m.comando) + "</span>" +
-          tierChip(m.tier) +
-        '</div><span class="qmeta" style="margin:0">Enem ' + m.ano + " · " + esc(m.fonte) + " · dificuldade " + br(m.b_enem) + "</span></div>" +
+          tierChip(m.tier) + statusBadge +
+        '</div><span class="qmeta" style="margin:0">Enem ' + m.ano + " · " + esc(m.aplicacao || m.fonte) + " · dificuldade " + br(m.b_enem) + "</span></div>" +
         '<div class="enun">' + esc(m.enun) + "</div>" + fig +
         '<div class="alts">' + alts + "</div>" +
         '<div class="qmeta">' + gabline + " · contexto: " + esc(m.contexto) + "</div>" +
+        habLine + src +
         "</article>";
     }
 
@@ -98,7 +113,7 @@
         if (F.tier.value && String(m.tier) !== F.tier.value) return false;
         if (F.ano.value && String(m.ano) !== F.ano.value) return false;
         if (q) {
-          var hay = (m.enun + " " + m.tema + " " + m.contexto + " " + (m.alts || []).map(function (a) { return a.t; }).join(" ")).toLowerCase();
+          var hay = (m.enun + " " + m.tema + " " + m.contexto + " " + (m.hab_desc || "") + " " + (m.alts || []).map(function (a) { return a.t || ""; }).join(" ")).toLowerCase();
           if (hay.indexOf(q) === -1) return false;
         }
         return true;
