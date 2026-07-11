@@ -1,0 +1,1125 @@
+{
+  "matriz_referencia_enem": {
+    "fonte": "MINISTÉRIO DA EDUCAÇÃO - INSTITUTO NACIONAL DE ESTUDOS E PESQUISAS EDUCACIONAIS ANÍSIO TEIXEIRA",
+    "titulo": "MATRIZ DE REFERÊNCIA ENEM",
+    "eixos_cognitivos": [
+      {
+        "codigo": "DL",
+        "numero": "I",
+        "nome": "Dominar linguagens",
+        "descricao": "Dominar a norma culta da Língua Portuguesa e fazer uso das linguagens matemática, artística e científica e das línguas espanhola e inglesa."
+      },
+      {
+        "codigo": "CF",
+        "numero": "II",
+        "nome": "Compreender fenômenos",
+        "descricao": "Construir e aplicar conceitos das várias áreas do conhecimento para a compreensão de fenômenos naturais, de processos histórico-geográficos, da produção tecnológica e das manifestações artísticas."
+      },
+      {
+        "codigo": "SP",
+        "numero": "III",
+        "nome": "Enfrentar situações-problema",
+        "descricao": "Selecionar, organizar, relacionar, interpretar dados e informações representados de diferentes formas, para tomar decisões e enfrentar situações-problema."
+      },
+      {
+        "codigo": "CA",
+        "numero": "IV",
+        "nome": "Construir argumentação",
+        "descricao": "Relacionar informações, representadas em diferentes formas, e conhecimentos disponíveis em situações concretas, para construir argumentação consistente."
+      },
+      {
+        "codigo": "EP",
+        "numero": "V",
+        "nome": "Elaborar propostas",
+        "descricao": "Recorrer aos conhecimentos desenvolvidos na escola para elaboração de propostas de intervenção solidária na realidade, respeitando os valores humanos e considerando a diversidade sociocultural."
+      }
+    ],
+    "areas": [
+      {
+        "codigo": "LC",
+        "nome": "Linguagens, Códigos e suas Tecnologias",
+        "competencias": [
+          {
+            "numero": 1,
+            "descricao": "Aplicar as tecnologias da comunicação e da informação na escola, no trabalho e em outros contextos relevantes para sua vida.",
+            "habilidades": [
+              {
+                "codigo": "H1",
+                "descricao": "Identificar as diferentes linguagens e seus recursos expressivos como elementos de caracterização dos sistemas de comunicação."
+              },
+              {
+                "codigo": "H2",
+                "descricao": "Recorrer aos conhecimentos sobre as linguagens dos sistemas de comunicação e informação para resolver problemas sociais."
+              },
+              {
+                "codigo": "H3",
+                "descricao": "Relacionar informações geradas nos sistemas de comunicação e informação, considerando a função social desses sistemas."
+              },
+              {
+                "codigo": "H4",
+                "descricao": "Reconhecer posições críticas aos usos sociais que são feitos das linguagens e dos sistemas de comunicação e informação."
+              }
+            ]
+          },
+          {
+            "numero": 2,
+            "descricao": "Conhecer e usar língua(s) estrangeira(s) moderna(s) como instrumento de acesso a informações e a outras culturas e grupos sociais.",
+            "habilidades": [
+              {
+                "codigo": "H5",
+                "descricao": "Associar vocábulos e expressões de um texto em LEM ao seu tema."
+              },
+              {
+                "codigo": "H6",
+                "descricao": "Utilizar os conhecimentos da LEM e de seus mecanismos como meio de ampliar as possibilidades de acesso a informações, tecnologias e culturas."
+              },
+              {
+                "codigo": "H7",
+                "descricao": "Relacionar um texto em LEM, as estruturas linguísticas, sua função e seu uso social."
+              },
+              {
+                "codigo": "H8",
+                "descricao": "Reconhecer a importância da produção cultural em LEM como representação da diversidade cultural e linguística."
+              }
+            ]
+          },
+          {
+            "numero": 3,
+            "descricao": "Compreender e usar a linguagem corporal como relevante para a própria vida, integradora social e formadora da identidade.",
+            "habilidades": [
+              {
+                "codigo": "H9",
+                "descricao": "Reconhecer as manifestações corporais de movimento como originárias de necessidades cotidianas de um grupo social."
+              },
+              {
+                "codigo": "H10",
+                "descricao": "Reconhecer a necessidade de transformação de hábitos corporais em função das necessidades cinestésicas."
+              },
+              {
+                "codigo": "H11",
+                "descricao": "Reconhecer a linguagem corporal como meio de interação social, considerando os limites de desempenho e as alternativas de adaptação para diferentes indivíduos."
+              }
+            ]
+          },
+          {
+            "numero": 4,
+            "descricao": "Compreender a arte como saber cultural e estético gerador de significação e integrador da organização do mundo e da própria identidade.",
+            "habilidades": [
+              {
+                "codigo": "H12",
+                "descricao": "Reconhecer diferentes funções da arte, do trabalho da produção dos artistas em seus meios culturais."
+              },
+              {
+                "codigo": "H13",
+                "descricao": "Analisar as diversas produções artísticas como meio de explicar diferentes culturas, padrões de beleza e preconceitos."
+              },
+              {
+                "codigo": "H14",
+                "descricao": "Reconhecer o valor da diversidade artística e das inter-relações de elementos que se apresentam nas manifestações de vários grupos sociais e étnicos."
+              }
+            ]
+          },
+          {
+            "numero": 5,
+            "descricao": "Analisar, interpretar e aplicar recursos expressivos das linguagens, relacionando textos com seus contextos, mediante a natureza, função, organização, estrutura das manifestações, de acordo com as condições de produção e recepção.",
+            "habilidades": [
+              {
+                "codigo": "H15",
+                "descricao": "Estabelecer relações entre o texto literário e o momento de sua produção, situando aspectos do contexto histórico, social e político."
+              },
+              {
+                "codigo": "H16",
+                "descricao": "Relacionar informações sobre concepções artísticas e procedimentos de construção do texto literário."
+              },
+              {
+                "codigo": "H17",
+                "descricao": "Reconhecer a presença de valores sociais e humanos atualizáveis e permanentes no patrimônio literário nacional."
+              }
+            ]
+          },
+          {
+            "numero": 6,
+            "descricao": "Compreender e usar os sistemas simbólicos das diferentes linguagens como meios de organização cognitiva da realidade pela constituição de significados, expressão, comunicação e informação.",
+            "habilidades": [
+              {
+                "codigo": "H18",
+                "descricao": "Identificar os elementos que concorrem para a progressão temática e para a organização e estruturação de textos de diferentes gêneros e tipos."
+              },
+              {
+                "codigo": "H19",
+                "descricao": "Analisar a função da linguagem predominante nos textos em situações específicas de interlocução."
+              },
+              {
+                "codigo": "H20",
+                "descricao": "Reconhecer a importância do patrimônio linguístico para a preservação da memória e da identidade nacional."
+              }
+            ]
+          },
+          {
+            "numero": 7,
+            "descricao": "Confrontar opiniões e pontos de vista sobre as diferentes linguagens e suas manifestações específicas.",
+            "habilidades": [
+              {
+                "codigo": "H21",
+                "descricao": "Reconhecer em textos de diferentes gêneros, recursos verbais e não-verbais utilizados com a finalidade de criar e mudar comportamentos e hábitos."
+              },
+              {
+                "codigo": "H22",
+                "descricao": "Relacionar, em diferentes textos, opiniões, temas, assuntos e recursos linguísticos."
+              },
+              {
+                "codigo": "H23",
+                "descricao": "Inferir em um texto quais são os objetivos de seu produtor e quem é seu público alvo, pela análise dos procedimentos argumentativos utilizados."
+              },
+              {
+                "codigo": "H24",
+                "descricao": "Reconhecer no texto estratégias argumentativas empregadas para o convencimento do público, tais como a intimidação, sedução, comoção, chantagem, entre outras."
+              }
+            ]
+          },
+          {
+            "numero": 8,
+            "descricao": "Compreender e usar a língua portuguesa como língua materna, geradora de significação e integradora da organização do mundo e da própria identidade.",
+            "habilidades": [
+              {
+                "codigo": "H25",
+                "descricao": "Identificar, em textos de diferentes gêneros, as marcas linguísticas que singularizam as variedades linguísticas sociais, regionais e de registro."
+              },
+              {
+                "codigo": "H26",
+                "descricao": "Relacionar as variedades linguísticas a situações específicas de uso social."
+              },
+              {
+                "codigo": "H27",
+                "descricao": "Reconhecer os usos da norma padrão da língua portuguesa nas diferentes situações de comunicação."
+              }
+            ]
+          },
+          {
+            "numero": 9,
+            "descricao": "Entender os princípios, a natureza, a função e o impacto das tecnologias da comunicação e da informação na sua vida pessoal e social, no desenvolvimento do conhecimento, associando-o aos conhecimentos científicos, às linguagens que lhes dão suporte, às demais tecnologias, aos processos de produção e aos problemas que se propõem solucionar.",
+            "habilidades": [
+              {
+                "codigo": "H28",
+                "descricao": "Reconhecer a função e o impacto social das diferentes tecnologias da comunicação e informação."
+              },
+              {
+                "codigo": "H29",
+                "descricao": "Identificar pela análise de suas linguagens, as tecnologias da comunicação e informação."
+              },
+              {
+                "codigo": "H30",
+                "descricao": "Relacionar as tecnologias de comunicação e informação ao desenvolvimento das sociedades e ao conhecimento que elas produzem."
+              }
+            ]
+          }
+        ],
+        "objetos_conhecimento": [
+          {
+            "tema": "Estudo do texto",
+            "descricao": "As sequências discursivas e os gêneros textuais no sistema de comunicação e informação - modos de organização da composição textual; atividades de produção escrita e de leitura de textos gerados nas diferentes esferas sociais - públicas e privadas."
+          },
+          {
+            "tema": "Estudo das práticas corporais",
+            "descricao": "A linguagem corporal como integradora social e formadora de identidade - performance corporal e identidades juvenis; possibilidades de vivência crítica e emancipada do lazer; mitos e verdades sobre os corpos masculino e feminino na sociedade atual; exercício físico e saúde; o corpo e a expressão artística e cultural; o corpo no mundo dos símbolos e como produção da cultura; práticas corporais e autonomia; condicionamentos e esforços físicos; o esporte; a dança; as lutas; os jogos; as brincadeiras."
+          },
+          {
+            "tema": "Produção e recepção de textos artísticos",
+            "descricao": "Interpretação e representação do mundo para o fortalecimento dos processos de identidade e cidadania – Artes Visuais, Teatro, Música, Dança: estrutura morfológica, sintática, o contexto da obra artística, o contexto da comunidade, as fontes de criação. Conteúdos estruturantes das linguagens artísticas; inclusão, diversidade e multiculturalidade."
+          },
+          {
+            "tema": "Estudo do texto literário",
+            "descricao": "Relações entre produção literária e processo social, concepções artísticas, procedimentos de construção e recepção de textos - produção literária e processo social; processos de formação literária e de formação nacional; produção de textos literários, sua recepção e a constituição do patrimônio literário nacional."
+          },
+          {
+            "tema": "Estudo dos aspectos linguísticos em diferentes textos",
+            "descricao": "Recursos expressivos da língua, procedimentos de construção e recepção de textos - organização da macroestrutura semântica e a articulação entre ideias e proposições (relações lógico-semânticas)."
+          },
+          {
+            "tema": "Estudo do texto argumentativo",
+            "descricao": "Seus gêneros e recursos linguísticos: argumentação: tipo, gêneros e usos em língua portuguesa - formas de apresentação de diferentes pontos de vista; organização e progressão textual."
+          },
+          {
+            "tema": "Estudo dos aspectos linguísticos da língua portuguesa",
+            "descricao": "Usos da língua: norma culta e variação linguística - uso dos recursos linguísticos em relação ao contexto em que o texto é constituído."
+          },
+          {
+            "tema": "Estudo dos gêneros digitais",
+            "descricao": "Tecnologia da comunicação e informação: impacto e função social - o texto literário típico da cultura de massa: o suporte textual em gêneros digitais; a caracterização dos interlocutores na comunicação tecnológica."
+          }
+        ]
+      },
+      {
+        "codigo": "MT",
+        "nome": "Matemática e suas Tecnologias",
+        "competencias": [
+          {
+            "numero": 1,
+            "descricao": "Construir significados para os números naturais, inteiros, racionais e reais.",
+            "habilidades": [
+              {
+                "codigo": "H1",
+                "descricao": "Reconhecer, no contexto social, diferentes significados e representações dos números e operações - naturais, inteiros, racionais ou reais."
+              },
+              {
+                "codigo": "H2",
+                "descricao": "Identificar padrões numéricos ou princípios de contagem."
+              },
+              {
+                "codigo": "H3",
+                "descricao": "Resolver situação-problema envolvendo conhecimentos numéricos."
+              },
+              {
+                "codigo": "H4",
+                "descricao": "Avaliar a razoabilidade de um resultado numérico na construção de argumentos sobre afirmações quantitativas."
+              },
+              {
+                "codigo": "H5",
+                "descricao": "Avaliar propostas de intervenção na realidade utilizando conhecimentos numéricos."
+              }
+            ]
+          },
+          {
+            "numero": 2,
+            "descricao": "Utilizar o conhecimento geométrico para realizar a leitura e a representação da realidade e agir sobre ela.",
+            "habilidades": [
+              {
+                "codigo": "H6",
+                "descricao": "Interpretar a localização e a movimentação de pessoas/objetos no espaço tridimensional e sua representação no espaço bidimensional."
+              },
+              {
+                "codigo": "H7",
+                "descricao": "Identificar características de figuras planas ou espaciais."
+              },
+              {
+                "codigo": "H8",
+                "descricao": "Resolver situação-problema que envolva conhecimentos geométricos de espaço e forma."
+              },
+              {
+                "codigo": "H9",
+                "descricao": "Utilizar conhecimentos geométricos de espaço e forma na seleção de argumentos propostos como solução de problemas do cotidiano."
+              }
+            ]
+          },
+          {
+            "numero": 3,
+            "descricao": "Construir noções de grandezas e medidas para a compreensão da realidade e a solução de problemas do cotidiano.",
+            "habilidades": [
+              {
+                "codigo": "H10",
+                "descricao": "Identificar relações entre grandezas e unidades de medida."
+              },
+              {
+                "codigo": "H11",
+                "descricao": "Utilizar a noção de escalas na leitura de representação de situação do cotidiano."
+              },
+              {
+                "codigo": "H12",
+                "descricao": "Resolver situação-problema que envolva medidas de grandezas."
+              },
+              {
+                "codigo": "H13",
+                "descricao": "Avaliar o resultado de uma medição na construção de um argumento consistente."
+              },
+              {
+                "codigo": "H14",
+                "descricao": "Avaliar proposta de intervenção na realidade utilizando conhecimentos geométricos relacionados a grandezas e medidas."
+              }
+            ]
+          },
+          {
+            "numero": 4,
+            "descricao": "Construir noções de variação de grandezas para a compreensão da realidade e a solução de problemas do cotidiano.",
+            "habilidades": [
+              {
+                "codigo": "H15",
+                "descricao": "Identificar a relação de dependência entre grandezas."
+              },
+              {
+                "codigo": "H16",
+                "descricao": "Resolver situação-problema envolvendo a variação de grandezas, direta ou inversamente proporcionais."
+              },
+              {
+                "codigo": "H17",
+                "descricao": "Analisar informações envolvendo a variação de grandezas como recurso para a construção de argumentação."
+              },
+              {
+                "codigo": "H18",
+                "descricao": "Avaliar propostas de intervenção na realidade envolvendo variação de grandezas."
+              }
+            ]
+          },
+          {
+            "numero": 5,
+            "descricao": "Modelar e resolver problemas que envolvem variáveis socioeconômicas ou técnico-científicas, usando representações algébricas.",
+            "habilidades": [
+              {
+                "codigo": "H19",
+                "descricao": "Identificar representações algébricas que expressem a relação entre grandezas."
+              },
+              {
+                "codigo": "H20",
+                "descricao": "Interpretar gráfico cartesiano que represente relações entre grandezas."
+              },
+              {
+                "codigo": "H21",
+                "descricao": "Resolver situação-problema cuja modelagem envolva conhecimentos algébricos."
+              },
+              {
+                "codigo": "H22",
+                "descricao": "Utilizar conhecimentos algébricos/geométricos como recurso para a construção de argumentação."
+              },
+              {
+                "codigo": "H23",
+                "descricao": "Avaliar propostas de intervenção na realidade utilizando conhecimentos algébricos."
+              }
+            ]
+          },
+          {
+            "numero": 6,
+            "descricao": "Interpretar informações de natureza científica e social obtidas da leitura de gráficos e tabelas, realizando previsão de tendência, extrapolação, interpolação e interpretação.",
+            "habilidades": [
+              {
+                "codigo": "H24",
+                "descricao": "Utilizar informações expressas em gráficos ou tabelas para fazer inferências."
+              },
+              {
+                "codigo": "H25",
+                "descricao": "Resolver problema com dados apresentados em tabelas ou gráficos."
+              },
+              {
+                "codigo": "H26",
+                "descricao": "Analisar informações expressas em gráficos ou tabelas como recurso para a construção de argumentos."
+              }
+            ]
+          },
+          {
+            "numero": 7,
+            "descricao": "Compreender o caráter aleatório e não-determinístico dos fenômenos naturais e sociais e utilizar instrumentos adequados para medidas, determinação de amostras e cálculos de probabilidade para interpretar informações de variáveis apresentadas em uma distribuição estatística.",
+            "habilidades": [
+              {
+                "codigo": "H27",
+                "descricao": "Calcular medidas de tendência central ou de dispersão de um conjunto de dados expressos em uma tabela de frequências de dados agrupados (não em classes) ou em gráficos."
+              },
+              {
+                "codigo": "H28",
+                "descricao": "Resolver situação-problema que envolva conhecimentos de estatística e probabilidade."
+              },
+              {
+                "codigo": "H29",
+                "descricao": "Utilizar conhecimentos de estatística e probabilidade como recurso para a construção de argumentação."
+              },
+              {
+                "codigo": "H30",
+                "descricao": "Avaliar propostas de intervenção na realidade utilizando conhecimentos de estatística e probabilidade."
+              }
+            ]
+          }
+        ],
+        "objetos_conhecimento": [
+          {
+            "tema": "Conhecimentos numéricos",
+            "conteudos": [
+              "Operações em conjuntos numéricos (naturais, inteiros, racionais e reais)",
+              "Desigualdades",
+              "Divisibilidade",
+              "Fatoração",
+              "Razões e proporções",
+              "Porcentagem e juros",
+              "Relações de dependência entre grandezas",
+              "Sequências e progressões",
+              "Princípios de contagem"
+            ]
+          },
+          {
+            "tema": "Conhecimentos geométricos",
+            "conteudos": [
+              "Características das figuras geométricas planas e espaciais",
+              "Grandezas, unidades de medida e escalas",
+              "Comprimentos, áreas e volumes",
+              "Ângulos",
+              "Posições de retas",
+              "Simetrias de figuras planas ou espaciais",
+              "Congruência e semelhança de triângulos",
+              "Teorema de Tales",
+              "Relações métricas nos triângulos",
+              "Circunferências",
+              "Trigonometria do ângulo agudo"
+            ]
+          },
+          {
+            "tema": "Conhecimentos de estatística e probabilidade",
+            "conteudos": [
+              "Representação e análise de dados",
+              "Medidas de tendência central (médias, moda e mediana)",
+              "Desvios e variância",
+              "Noções de probabilidade"
+            ]
+          },
+          {
+            "tema": "Conhecimentos algébricos",
+            "conteudos": [
+              "Gráficos e funções",
+              "Funções algébricas do 1º e do 2º graus",
+              "Funções polinomiais, racionais, exponenciais e logarítmicas",
+              "Equações e inequações",
+              "Relações no ciclo trigonométrico e funções trigonométricas"
+            ]
+          },
+          {
+            "tema": "Conhecimentos algébricos/geométricos",
+            "conteudos": [
+              "Plano cartesiano",
+              "Retas",
+              "Circunferências",
+              "Paralelismo e perpendicularidade",
+              "Sistemas de equações"
+            ]
+          }
+        ]
+      },
+      {
+        "codigo": "CN",
+        "nome": "Ciências da Natureza e suas Tecnologias",
+        "competencias": [
+          {
+            "numero": 1,
+            "descricao": "Compreender as ciências naturais e as tecnologias a elas associadas como construções humanas, percebendo seus papéis nos processos de produção e no desenvolvimento econômico e social da humanidade.",
+            "habilidades": [
+              {
+                "codigo": "H1",
+                "descricao": "Reconhecer características ou propriedades de fenômenos ondulatórios ou oscilatórios, relacionando-os a seus usos em diferentes contextos."
+              },
+              {
+                "codigo": "H2",
+                "descricao": "Associar a solução de problemas de comunicação, transporte, saúde ou outro, com o correspondente desenvolvimento científico e tecnológico."
+              },
+              {
+                "codigo": "H3",
+                "descricao": "Confrontar interpretações científicas com interpretações baseadas no senso comum, ao longo do tempo ou em diferentes culturas."
+              },
+              {
+                "codigo": "H4",
+                "descricao": "Avaliar propostas de intervenção no ambiente, considerando a qualidade da vida humana ou medidas de conservação, recuperação ou utilização sustentável da biodiversidade."
+              }
+            ]
+          },
+          {
+            "numero": 2,
+            "descricao": "Identificar a presença e aplicar as tecnologias associadas às ciências naturais em diferentes contextos.",
+            "habilidades": [
+              {
+                "codigo": "H5",
+                "descricao": "Dimensionar circuitos ou dispositivos elétricos de uso cotidiano."
+              },
+              {
+                "codigo": "H6",
+                "descricao": "Relacionar informações para compreender manuais de instalação ou utilização de aparelhos, ou sistemas tecnológicos de uso comum."
+              },
+              {
+                "codigo": "H7",
+                "descricao": "Selecionar testes de controle, parâmetros ou critérios para a comparação de materiais e produtos, tendo em vista a defesa do consumidor, a saúde do trabalhador ou a qualidade de vida."
+              }
+            ]
+          },
+          {
+            "numero": 3,
+            "descricao": "Associar intervenções que resultam em degradação ou conservação ambiental a processos produtivos e sociais e a instrumentos ou ações científico-tecnológicos.",
+            "habilidades": [
+              {
+                "codigo": "H8",
+                "descricao": "Identificar etapas em processos de obtenção, transformação, utilização ou reciclagem de recursos naturais, energéticos ou matérias-primas, considerando processos biológicos, químicos ou físicos neles envolvidos."
+              },
+              {
+                "codigo": "H9",
+                "descricao": "Compreender a importância dos ciclos biogeoquímicos ou do fluxo energia para a vida, ou da ação de agentes ou fenômenos que podem causar alterações nesses processos."
+              },
+              {
+                "codigo": "H10",
+                "descricao": "Analisar perturbações ambientais, identificando fontes, transporte e(ou) destino dos poluentes ou prevendo efeitos em sistemas naturais, produtivos ou sociais."
+              },
+              {
+                "codigo": "H11",
+                "descricao": "Reconhecer benefícios, limitações e aspectos éticos da biotecnologia, considerando estruturas e processos biológicos envolvidos em produtos biotecnológicos."
+              },
+              {
+                "codigo": "H12",
+                "descricao": "Avaliar impactos em ambientes naturais decorrentes de atividades sociais ou econômicas, considerando interesses contraditórios."
+              }
+            ]
+          },
+          {
+            "numero": 4,
+            "descricao": "Compreender interações entre organismos e ambiente, em particular aquelas relacionadas à saúde humana, relacionando conhecimentos científicos, aspectos culturais e características individuais.",
+            "habilidades": [
+              {
+                "codigo": "H13",
+                "descricao": "Reconhecer mecanismos de transmissão da vida, prevendo ou explicando a manifestação de características dos seres vivos."
+              },
+              {
+                "codigo": "H14",
+                "descricao": "Identificar padrões em fenômenos e processos vitais dos organismos, como manutenção do equilíbrio interno, defesa, relações com o ambiente, sexualidade, entre outros."
+              },
+              {
+                "codigo": "H15",
+                "descricao": "Interpretar modelos e experimentos para explicar fenômenos ou processos biológicos em qualquer nível de organização dos sistemas biológicos."
+              },
+              {
+                "codigo": "H16",
+                "descricao": "Compreender o papel da evolução na produção de padrões, processos biológicos ou na organização taxonômica dos seres vivos."
+              }
+            ]
+          },
+          {
+            "numero": 5,
+            "descricao": "Entender métodos e procedimentos próprios das ciências naturais e aplicá-los em diferentes contextos.",
+            "habilidades": [
+              {
+                "codigo": "H17",
+                "descricao": "Relacionar informações apresentadas em diferentes formas de linguagem e representação usadas nas ciências físicas, químicas ou biológicas, como texto discursivo, gráficos, tabelas, relações matemáticas ou linguagem simbólica."
+              },
+              {
+                "codigo": "H18",
+                "descricao": "Relacionar propriedades físicas, químicas ou biológicas de produtos, sistemas ou procedimentos tecnológicos às finalidades a que se destinam."
+              },
+              {
+                "codigo": "H19",
+                "descricao": "Avaliar métodos, processos ou procedimentos das ciências naturais que contribuam para diagnosticar ou solucionar problemas de ordem social, econômica ou ambiental."
+              }
+            ]
+          },
+          {
+            "numero": 6,
+            "descricao": "Apropriar-se de conhecimentos da física para, em situações problema, interpretar, avaliar ou planejar intervenções científico-tecnológicas.",
+            "habilidades": [
+              {
+                "codigo": "H20",
+                "descricao": "Caracterizar causas ou efeitos dos movimentos de partículas, substâncias, objetos ou corpos celestes."
+              },
+              {
+                "codigo": "H21",
+                "descricao": "Utilizar leis físicas e (ou) químicas para interpretar processos naturais ou tecnológicos inseridos no contexto da termodinâmica e(ou) do eletromagnetismo."
+              },
+              {
+                "codigo": "H22",
+                "descricao": "Compreender fenômenos decorrentes da interação entre a radiação e a matéria em suas manifestações em processos naturais ou tecnológicos, ou em suas implicações biológicas, sociais, econômicas ou ambientais."
+              },
+              {
+                "codigo": "H23",
+                "descricao": "Avaliar possibilidades de geração, uso ou transformação de energia em ambientes específicos, considerando implicações éticas, ambientais, sociais e/ou econômicas."
+              }
+            ]
+          },
+          {
+            "numero": 7,
+            "descricao": "Apropriar-se de conhecimentos da química para, em situações problema, interpretar, avaliar ou planejar intervenções científico-tecnológicas.",
+            "habilidades": [
+              {
+                "codigo": "H24",
+                "descricao": "Utilizar códigos e nomenclatura da química para caracterizar materiais, substâncias ou transformações químicas."
+              },
+              {
+                "codigo": "H25",
+                "descricao": "Caracterizar materiais ou substâncias, identificando etapas, rendimentos ou implicações biológicas, sociais, econômicas ou ambientais de sua obtenção ou produção."
+              },
+              {
+                "codigo": "H26",
+                "descricao": "Avaliar implicações sociais, ambientais e/ou econômicas na produção ou no consumo de recursos energéticos ou minerais, identificando transformações químicas ou de energia envolvidas nesses processos."
+              },
+              {
+                "codigo": "H27",
+                "descricao": "Avaliar propostas de intervenção no meio ambiente aplicando conhecimentos químicos, observando riscos ou benefícios."
+              }
+            ]
+          },
+          {
+            "numero": 8,
+            "descricao": "Apropriar-se de conhecimentos da biologia para, em situações problema, interpretar, avaliar ou planejar intervenções científico-tecnológicas.",
+            "habilidades": [
+              {
+                "codigo": "H28",
+                "descricao": "Associar características adaptativas dos organismos com seu modo de vida ou com seus limites de distribuição em diferentes ambientes, em especial em ambientes brasileiros."
+              },
+              {
+                "codigo": "H29",
+                "descricao": "Interpretar experimentos ou técnicas que utilizam seres vivos, analisando implicações para o ambiente, a saúde, a produção de alimentos, matérias primas ou produtos industriais."
+              },
+              {
+                "codigo": "H30",
+                "descricao": "Avaliar propostas de alcance individual ou coletivo, identificando aquelas que visam à preservação e a implementação da saúde individual, coletiva ou do ambiente."
+              }
+            ]
+          }
+        ],
+        "objetos_conhecimento": {
+          "fisica": [
+            {
+              "tema": "Conhecimentos básicos e fundamentais",
+              "conteudos": [
+                "Noções de ordem de grandeza",
+                "Notação Científica",
+                "Sistema Internacional de Unidades",
+                "Metodologia de investigação",
+                "Gráficos e vetores",
+                "Grandezas vetoriais e escalares"
+              ]
+            },
+            {
+              "tema": "O movimento, o equilíbrio e a descoberta de leis físicas",
+              "conteudos": [
+                "Grandezas fundamentais da mecânica",
+                "Leis de Newton",
+                "Quantidade de movimento",
+                "Momento de uma força (torque)",
+                "Condições de equilíbrio estático",
+                "Força de atrito, força peso, força normal",
+                "Movimentos circulares",
+                "Hidrostática",
+                "Princípios de Pascal, Arquimedes e Stevin"
+              ]
+            },
+            {
+              "tema": "Energia, trabalho e potência",
+              "conteudos": [
+                "Trabalho, energia e potência",
+                "Energia potencial e cinética",
+                "Conservação de energia mecânica",
+                "Forças conservativas e dissipativas"
+              ]
+            },
+            {
+              "tema": "A Mecânica e o funcionamento do Universo",
+              "conteudos": [
+                "Lei da Gravitação Universal",
+                "Leis de Kepler",
+                "Movimentos de corpos celestes",
+                "Marés e variações climáticas"
+              ]
+            },
+            {
+              "tema": "Fenômenos Elétricos e Magnéticos",
+              "conteudos": [
+                "Carga elétrica e corrente elétrica",
+                "Lei de Coulomb",
+                "Campo elétrico e potencial elétrico",
+                "Capacitores",
+                "Lei de Ohm",
+                "Circuitos elétricos",
+                "Campo magnético"
+              ]
+            },
+            {
+              "tema": "Oscilações, ondas, óptica e radiação",
+              "conteudos": [
+                "Reflexão e refração",
+                "Óptica geométrica",
+                "Lentes e espelhos",
+                "Fenômenos ondulatórios",
+                "Propagação de ondas"
+              ]
+            },
+            {
+              "tema": "O calor e os fenômenos térmicos",
+              "conteudos": [
+                "Calor e temperatura",
+                "Escalas termométricas",
+                "Capacidade calorífica e calor específico",
+                "Dilatação térmica",
+                "Mudanças de estado físico",
+                "Gases ideais",
+                "Leis da Termodinâmica"
+              ]
+            }
+          ],
+          "quimica": [
+            {
+              "tema": "Transformações Químicas",
+              "conteudos": [
+                "Evidências de transformações químicas",
+                "Sistemas Gasosos",
+                "Modelo atômico",
+                "Tabela Periódica",
+                "Reações químicas"
+              ]
+            },
+            {
+              "tema": "Representação das transformações químicas",
+              "conteudos": [
+                "Fórmulas químicas",
+                "Balanceamento de equações",
+                "Leis ponderais",
+                "Cálculos estequiométricos"
+              ]
+            },
+            {
+              "tema": "Materiais, suas propriedades e usos",
+              "conteudos": [
+                "Estados físicos",
+                "Misturas e métodos de separação",
+                "Ligações químicas",
+                "Forças intermoleculares"
+              ]
+            },
+            {
+              "tema": "Água",
+              "conteudos": [
+                "Soluções",
+                "Solubilidade",
+                "Concentração",
+                "Ácidos, Bases, Sais e Óxidos",
+                "pH"
+              ]
+            },
+            {
+              "tema": "Transformações Químicas e Energia",
+              "conteudos": [
+                "Termoquímica",
+                "Entalpia",
+                "Lei de Hess",
+                "Eletroquímica",
+                "Pilha e Eletrólise",
+                "Radioatividade"
+              ]
+            },
+            {
+              "tema": "Dinâmica das Transformações Químicas",
+              "conteudos": [
+                "Velocidade de reação",
+                "Energia de ativação",
+                "Fatores que alteram a velocidade"
+              ]
+            },
+            {
+              "tema": "Transformação Química e Equilíbrio",
+              "conteudos": [
+                "Constante de equilíbrio",
+                "pH",
+                "Hidrólise",
+                "Princípio de Le Chatelier"
+              ]
+            },
+            {
+              "tema": "Compostos de Carbono",
+              "conteudos": [
+                "Funções orgânicas",
+                "Hidrocarbonetos",
+                "Compostos oxigenados e nitrogenados",
+                "Polímeros",
+                "Biomoléculas"
+              ]
+            },
+            {
+              "tema": "Relações da Química com as Tecnologias, a Sociedade e o Meio Ambiente",
+              "conteudos": [
+                "Química no cotidiano",
+                "Indústria Química",
+                "Poluição e tratamento de água",
+                "Impactos ambientais"
+              ]
+            },
+            {
+              "tema": "Energias Químicas no Cotidiano",
+              "conteudos": [
+                "Combustíveis fósseis",
+                "Biocombustíveis",
+                "Energia nuclear"
+              ]
+            }
+          ],
+          "biologia": [
+            {
+              "tema": "Moléculas, células e tecidos",
+              "conteudos": [
+                "Estrutura e fisiologia celular",
+                "Divisão celular",
+                "Metabolismo celular",
+                "Fotossíntese e respiração",
+                "Síntese proteica",
+                "Tecidos animais e vegetais",
+                "Biotecnologia"
+              ]
+            },
+            {
+              "tema": "Hereditariedade e diversidade da vida",
+              "conteudos": [
+                "Genética mendeliana",
+                "Grupos sanguíneos",
+                "Mutações",
+                "Aconselhamento genético",
+                "Evolução"
+              ]
+            },
+            {
+              "tema": "Identidade dos seres vivos",
+              "conteudos": [
+                "Classificação dos seres vivos",
+                "Vírus, procariontes e eucariontes",
+                "Anatomia e fisiologia humana",
+                "Evolução humana"
+              ]
+            },
+            {
+              "tema": "Ecologia e ciências ambientais",
+              "conteudos": [
+                "Ecossistemas",
+                "Cadeias e teias alimentares",
+                "Ciclos biogeoquímicos",
+                "Biomas brasileiros",
+                "Problemas ambientais",
+                "Conservação"
+              ]
+            },
+            {
+              "tema": "Origem e evolução da vida",
+              "conteudos": [
+                "Origem da vida",
+                "Teorias evolutivas",
+                "Seleção natural",
+                "Seleção artificial"
+              ]
+            },
+            {
+              "tema": "Qualidade de vida das populações humanas",
+              "conteudos": [
+                "Indicadores sociais",
+                "Doenças",
+                "Primeiros socorros",
+                "DSTs",
+                "Drogas",
+                "Saúde pública"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "codigo": "CH",
+        "nome": "Ciências Humanas e suas Tecnologias",
+        "competencias": [
+          {
+            "numero": 1,
+            "descricao": "Compreender os elementos culturais que constituem as identidades.",
+            "habilidades": [
+              {
+                "codigo": "H1",
+                "descricao": "Interpretar historicamente e/ou geograficamente fontes documentais acerca de aspectos da cultura."
+              },
+              {
+                "codigo": "H2",
+                "descricao": "Analisar a produção da memória pelas sociedades humanas."
+              },
+              {
+                "codigo": "H3",
+                "descricao": "Associar as manifestações culturais do presente aos seus processos históricos."
+              },
+              {
+                "codigo": "H4",
+                "descricao": "Comparar pontos de vista expressos em diferentes fontes sobre determinado aspecto da cultura."
+              },
+              {
+                "codigo": "H5",
+                "descricao": "Identificar as manifestações ou representações da diversidade do patrimônio cultural e artístico em diferentes sociedades."
+              }
+            ]
+          },
+          {
+            "numero": 2,
+            "descricao": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+            "habilidades": [
+              {
+                "codigo": "H6",
+                "descricao": "Interpretar diferentes representações gráficas e cartográficas dos espaços geográficos."
+              },
+              {
+                "codigo": "H7",
+                "descricao": "Identificar os significados histórico-geográficos das relações de poder entre as nações."
+              },
+              {
+                "codigo": "H8",
+                "descricao": "Analisar a ação dos estados nacionais no que se refere à dinâmica dos fluxos populacionais e no enfrentamento de problemas de ordem econômico-social."
+              },
+              {
+                "codigo": "H9",
+                "descricao": "Comparar o significado histórico-geográfico das organizações políticas e socioeconômicas em escala local, regional ou mundial."
+              },
+              {
+                "codigo": "H10",
+                "descricao": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica."
+              }
+            ]
+          },
+          {
+            "numero": 3,
+            "descricao": "Compreender a produção e o papel histórico das instituições sociais, políticas e econômicas, associando-as aos diferentes grupos, conflitos e movimentos sociais.",
+            "habilidades": [
+              {
+                "codigo": "H11",
+                "descricao": "Identificar registros de práticas de grupos sociais no tempo e no espaço."
+              },
+              {
+                "codigo": "H12",
+                "descricao": "Analisar o papel da justiça como instituição na organização das sociedades."
+              },
+              {
+                "codigo": "H13",
+                "descricao": "Analisar a atuação dos movimentos sociais que contribuíram para mudanças ou rupturas em processos de disputa pelo poder."
+              },
+              {
+                "codigo": "H14",
+                "descricao": "Comparar diferentes pontos de vista, presentes em textos analíticos e interpretativos, sobre situação ou fatos de natureza histórico-geográfica acerca das instituições sociais, políticas e econômicas."
+              },
+              {
+                "codigo": "H15",
+                "descricao": "Avaliar criticamente conflitos culturais, sociais, políticos, econômicos ou ambientais ao longo da história."
+              }
+            ]
+          },
+          {
+            "numero": 4,
+            "descricao": "Entender as transformações técnicas e tecnológicas e seu impacto nos processos de produção, no desenvolvimento do conhecimento e na vida social.",
+            "habilidades": [
+              {
+                "codigo": "H16",
+                "descricao": "Identificar registros sobre o papel das técnicas e tecnologias na organização do trabalho e/ou da vida social."
+              },
+              {
+                "codigo": "H17",
+                "descricao": "Analisar fatores que explicam o impacto das novas tecnologias no processo de territorialização da produção."
+              },
+              {
+                "codigo": "H18",
+                "descricao": "Analisar diferentes processos de produção ou circulação de riquezas e suas implicações sócio-espaciais."
+              },
+              {
+                "codigo": "H19",
+                "descricao": "Reconhecer as transformações técnicas e tecnológicas que determinam as várias formas de uso e apropriação dos espaços rural e urbano."
+              },
+              {
+                "codigo": "H20",
+                "descricao": "Selecionar argumentos favoráveis ou contrários às modificações impostas pelas novas tecnologias à vida social e ao mundo do trabalho."
+              }
+            ]
+          },
+          {
+            "numero": 5,
+            "descricao": "Utilizar os conhecimentos históricos para compreender e valorizar os fundamentos da cidadania e da democracia, favorecendo uma atuação consciente do indivíduo na sociedade.",
+            "habilidades": [
+              {
+                "codigo": "H21",
+                "descricao": "Identificar o papel dos meios de comunicação na construção da vida social."
+              },
+              {
+                "codigo": "H22",
+                "descricao": "Analisar as lutas sociais e conquistas obtidas no que se refere às mudanças nas legislações ou nas políticas públicas."
+              },
+              {
+                "codigo": "H23",
+                "descricao": "Analisar a importância dos valores éticos na estruturação política das sociedades."
+              },
+              {
+                "codigo": "H24",
+                "descricao": "Relacionar cidadania e democracia na organização das sociedades."
+              },
+              {
+                "codigo": "H25",
+                "descricao": "Identificar estratégias que promovam formas de inclusão social."
+              }
+            ]
+          },
+          {
+            "numero": 6,
+            "descricao": "Compreender a sociedade e a natureza, reconhecendo suas interações no espaço em diferentes contextos históricos e geográficos.",
+            "habilidades": [
+              {
+                "codigo": "H26",
+                "descricao": "Identificar em fontes diversas o processo de ocupação dos meios físicos e as relações da vida humana com a paisagem."
+              },
+              {
+                "codigo": "H27",
+                "descricao": "Analisar de maneira crítica as interações da sociedade com o meio físico, levando em consideração aspectos históricos e(ou) geográficos."
+              },
+              {
+                "codigo": "H28",
+                "descricao": "Relacionar o uso das tecnologias com os impactos sócio-ambientais em diferentes contextos histórico-geográficos."
+              },
+              {
+                "codigo": "H29",
+                "descricao": "Reconhecer a função dos recursos naturais na produção do espaço geográfico, relacionando-os com as mudanças provocadas pelas ações humanas."
+              },
+              {
+                "codigo": "H30",
+                "descricao": "Avaliar as relações entre preservação e degradação da vida no planeta nas diferentes escalas."
+              }
+            ]
+          }
+        ],
+        "objetos_conhecimento": [
+          {
+            "tema": "Diversidade cultural, conflitos e vida em sociedade",
+            "conteudos": [
+              "Cultura Material e imaterial; patrimônio e diversidade cultural no Brasil",
+              "A Conquista da América. Conflitos entre europeus e indígenas na América colonial",
+              "A escravidão e formas de resistência indígena e africana na América",
+              "História cultural dos povos africanos. A luta dos negros no Brasil",
+              "História dos povos indígenas e a formação sócio-cultural brasileira",
+              "Movimentos culturais no mundo ocidental e seus impactos na vida política e social"
+            ]
+          },
+          {
+            "tema": "Formas de organização social, movimentos sociais, pensamento político e ação do Estado",
+            "conteudos": [
+              "Cidadania e democracia na Antiguidade; Estado e direitos do cidadão a partir da Idade Moderna",
+              "Revoluções sociais e políticas na Europa Moderna",
+              "Formação territorial brasileira; as regiões brasileiras",
+              "As lutas pela conquista da independência política das colônias da América",
+              "Grupos sociais em conflito no Brasil imperial e a construção da nação",
+              "O desenvolvimento do pensamento liberal na sociedade capitalista",
+              "Políticas de colonização, migração, imigração e emigração no Brasil",
+              "Grandes processos revolucionários do século XX",
+              "Geopolítica e conflitos: Imperialismo, Guerras Mundiais e Guerra Fria",
+              "Sistemas totalitários na Europa do século XX",
+              "Ditaduras políticas na América Latina",
+              "Conflitos político-culturais pós-Guerra Fria",
+              "A luta pela conquista de direitos pelos cidadãos",
+              "Vida urbana: redes e hierarquia nas cidades, pobreza e segregação espacial"
+            ]
+          },
+          {
+            "tema": "Características e transformações das estruturas produtivas",
+            "conteudos": [
+              "Diferentes formas de organização da produção: escravismo, feudalismo, capitalismo, socialismo",
+              "Economia agro-exportadora brasileira",
+              "Revolução Industrial e transformações na estrutura produtiva",
+              "Fordismo, toyotismo e novas técnicas de produção",
+              "A industrialização brasileira e transformações sociais",
+              "Globalização e novas tecnologias",
+              "Produção e transformação dos espaços agrários",
+              "Agronegócio, agricultura familiar e lutas sociais no campo"
+            ]
+          },
+          {
+            "tema": "Os domínios naturais e a relação do ser humano com o ambiente",
+            "conteudos": [
+              "Relação homem-natureza e apropriação dos recursos naturais",
+              "Impacto ambiental das atividades econômicas no Brasil",
+              "Recursos minerais, energéticos e hídricos",
+              "Questões ambientais contemporâneas: mudança climática, efeito estufa, chuva ácida",
+              "Políticas territoriais ambientais e sustentabilidade",
+              "Estrutura interna da Terra, solo e relevo",
+              "Atmosfera e classificação climática",
+              "Grandes domínios da vegetação no Brasil e no mundo"
+            ]
+          },
+          {
+            "tema": "Representação espacial",
+            "conteudos": [
+              "Projeções cartográficas",
+              "Leitura de mapas temáticos, físicos e políticos",
+              "Tecnologias modernas aplicadas à cartografia"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
