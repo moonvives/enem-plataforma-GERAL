@@ -52,7 +52,7 @@
     wrap.id = "auth-gate";
     wrap.innerHTML =
       '<div class="box">' +
-        '<div class="logo">CN</div>' +
+        '<div class="logo">EE</div>' +
         "<h1>" + (isSetup ? "Criar acesso" : "Bem-vindo(a) de volta" + (name ? ", " + name : "")) + "</h1>" +
         "<p>" + (isSetup
           ? "Defina um PIN para proteger seu progresso neste aparelho."

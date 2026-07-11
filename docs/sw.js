@@ -1,13 +1,14 @@
 /* Service worker — cache para uso offline / instalação como app (PWA). */
-var CACHE = "enemcn-v1";
+var CACHE = "enemcn-v2";
 var CORE = [
   "index.html", "questao.html", "painel.html", "painel-oficial.html",
-  "materiais.html", "sobre.html", "estudar.html", "meu-painel.html", "tri.html", "padroes.html",
+  "materiais.html", "sobre.html", "estudar.html", "meu-painel.html", "tri.html", "padroes.html", "modelos.html",
   "manifest.webmanifest",
   "assets/styles.css", "assets/app.js", "assets/boot.js",
   "assets/auth.js", "assets/tracker.js",
   "assets/data.js", "assets/microdados.js", "assets/materiais.js",
-  "assets/provas.js", "assets/estudar.js", "assets/meu-painel.js", "assets/tri.js", "assets/padroes.js"
+  "assets/provas.js", "assets/estudar.js", "assets/meu-painel.js", "assets/tri.js", "assets/padroes.js",
+  "assets/modelos.js", "assets/modelos-page.js"
 ];
 
 self.addEventListener("install", function (e) {
