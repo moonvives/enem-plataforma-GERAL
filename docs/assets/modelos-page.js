@@ -72,8 +72,12 @@
       }).join("");
       var alts = (m.alts || []).map(function (a) {
         var ok = a.l === m.gab;
-        var body = a.img
-          ? '<img loading="lazy" alt="Alternativa ' + a.l + '" src="assets/img/' + esc(a.img) + '" style="max-height:120px">'
+        var altImages = (a.imgs && a.imgs.length ? a.imgs : (a.img ? [a.img] : []));
+        var body = altImages.length
+          ? '<span class="alt-images">' + altImages.map(function (image, imageIndex) {
+              return '<img loading="lazy" alt="Alternativa ' + a.l + ', figura ' + (imageIndex + 1) +
+                '" src="assets/img/' + esc(image) + '" style="max-height:160px">';
+            }).join("") + '</span>'
           : (a.t ? esc(a.t) : "<em>alternativa gráfica — ver recorte original abaixo</em>");
         return '<div class="alt' + (ok ? " correct" : "") + '"><span class="l">' + a.l + "</span><span>" + body + "</span></div>";
       }).join("");
@@ -104,6 +108,13 @@
     }
 
     var F = { busca: el("f-busca"), hab: el("f-hab"), tema: el("f-tema"), comando: el("f-comando"), tier: el("f-tier"), ano: el("f-ano") };
+    var initialParams = new URLSearchParams(window.location.search);
+    if (initialParams.get("tema") && temas.indexOf(initialParams.get("tema")) !== -1) {
+      F.tema.value = initialParams.get("tema");
+    }
+    if (initialParams.get("hab") && habs.map(String).indexOf(initialParams.get("hab")) !== -1) {
+      F.hab.value = initialParams.get("hab");
+    }
     function applyFilters() {
       var q = (F.busca.value || "").trim().toLowerCase();
       var out = modelos.filter(function (m) {
@@ -132,6 +143,13 @@
 
     // ---- Alternância de visões ----
     var vp = el("view-padroes"), vc = el("view-catalogo");
+    if (F.tema.value || F.hab.value) {
+      Array.prototype.forEach.call(el("viewtabs").querySelectorAll("button"), function (x) {
+        x.classList.toggle("on", x.dataset.view === "catalogo");
+      });
+      vp.hidden = true;
+      vc.hidden = false;
+    }
     el("viewtabs").addEventListener("click", function (e) {
       var b = e.target.closest("button[data-view]"); if (!b) return;
       Array.prototype.forEach.call(this.querySelectorAll("button"), function (x) { x.classList.remove("on"); });

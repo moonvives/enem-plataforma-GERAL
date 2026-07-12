@@ -102,11 +102,13 @@ domínio próprio.
   publicação e a pasta `/docs`.
 - **Domínio próprio:** adicione o domínio em _Settings → Pages → Custom domain_
   (grava um arquivo `CNAME` em `docs/`) e aponte o DNS do domínio para o GitHub
-  Pages. O PIN pessoal é apenas uma trava de privacidade local (client-side):
-  esconde a interface no aparelho e mantém o progresso de estudo salvo só ali.
-  Ele **não** controla o acesso ao conteúdo hospedado — em um site publicado,
-  os arquivos `docs/assets/*.js` e `docs/api/*.json` continuam publicamente
-  acessíveis por URL direta.
+  Pages. O PIN pessoal é **somente uma trava de privacidade local, executada no
+  navegador (client-side)**: esconde a interface naquele aparelho e mantém o
+  progresso de estudo salvo localmente. O PIN **não é autenticação, não cifra os
+  dados e não protege os arquivos hospedados**. Em um site publicado, todo o
+  conteúdo estático — inclusive `docs/assets/*.js`, `docs/api/*.json` e imagens
+  — continua publicamente acessível por URL direta. Conteúdo que exija controle
+  de acesso real deve ser servido por um backend autenticado e autorizado.
 
 Todos os dados ficam embutidos em `docs/assets/*.js` (e espelhados em
 `docs/api/*.json`), de modo que o site funciona mesmo instalado e offline.

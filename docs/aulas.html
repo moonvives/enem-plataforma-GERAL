@@ -9,6 +9,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
   <style>
     .aula{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem;margin-top:1.25rem}
     .aula .ahead{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-start}
@@ -30,7 +31,26 @@
     .atalho .l{color:var(--t1)}
     .fechamento{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--border);line-height:1.65}
     .aula .cta{display:inline-block;margin-top:.9rem;color:var(--brand);font-weight:700;text-decoration:none}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.7rem}
+    .formula-card{min-width:0;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.8rem;overflow:auto}
+    .formula-card .l,.lab .eyebrow{font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:800}
+    .formula-card .math{padding:.3rem 0;color:var(--brand);font-size:1.05rem}
+    .lab{position:relative;overflow:hidden;border:1px solid color-mix(in srgb,var(--brand) 35%,var(--border));border-radius:12px;padding:1rem;background:linear-gradient(135deg,rgba(13,92,68,.09),rgba(255,255,255,.9))}
+    .lab:after{content:"";position:absolute;right:-3rem;top:-4rem;width:10rem;height:10rem;border-radius:50%;border:1px solid rgba(13,92,68,.16);box-shadow:0 0 0 1.7rem rgba(13,92,68,.04),0 0 0 3.4rem rgba(13,92,68,.025);pointer-events:none}
+    .lab-head{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+    .lab .factor{font-weight:800;color:var(--brand);font-variant-numeric:tabular-nums}
+    .lab label{position:relative;z-index:1;display:grid;gap:.35rem;margin:.9rem 0;font-size:.78rem;color:var(--muted);font-weight:700}
+    .lab input[type="range"]{width:100%;accent-color:var(--brand)}
+    .trophic{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;align-items:end}
+    .trophic-level{display:grid;justify-items:center;text-align:center;gap:.4rem;min-width:0}
+    .trophic-level .bubble{display:grid;place-items:center;width:calc(2.5rem * var(--scale));height:calc(2.5rem * var(--scale));min-width:1.5rem;min-height:1.5rem;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;box-shadow:0 0 0 .35rem rgba(13,92,68,.09)}
+    .trophic-level strong,.trophic-level small{display:block}
+    .trophic-level strong{font-size:.75rem}
+    .trophic-level small{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.68rem}
+    .lab-note{margin:.8rem 0 0;font-size:.78rem;color:var(--muted)}
+    .lab-note .katex-display{display:inline;margin:0 .25rem}
     .note{color:var(--muted);font-size:.82rem;margin-top:1rem}
+    @media(max-width:600px){.aula{padding:1rem}.modelo>summary{padding:.8rem}.modelo .body{padding:0 .8rem .8rem}.formula-grid{grid-template-columns:1fr}.trophic{grid-template-columns:repeat(2,1fr);row-gap:1rem}.katex-display{overflow:auto hidden;padding:.2rem 0}.lab{padding:.85rem}}
   </style>
 </head>
 <body data-page="aulas">
@@ -70,6 +90,7 @@
   </footer>
 
   <script src="assets/aulas.js"></script>
+  <script src="assets/vendor/katex/katex.min.js"></script>
   <script src="assets/auth.js"></script>
   <script src="assets/tracker.js"></script>
   <script src="assets/aulas-page.js"></script>

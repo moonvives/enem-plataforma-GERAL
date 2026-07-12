@@ -24,7 +24,7 @@ Saídas:
   docs/assets/modelos.js             -> window.ENEM_MODELOS
   docs/assets/img/modelos/*.webp     -> recorte-fonte de cada questão + figuras
 """
-import json, os, re, unicodedata
+import csv, glob, hashlib, json, os, re, unicodedata
 from collections import defaultdict, Counter
 from PIL import Image
 
@@ -35,6 +35,17 @@ E360 = os.path.join(OCR, "e360v2")
 API = os.path.join(ROOT, "docs", "api")
 ASSETS = os.path.join(ROOT, "docs", "assets")
 IMGDIR = os.path.join(ASSETS, "img", "modelos")
+MICRO = os.path.join(ROOT, "data", "microdados")
+
+# Marcadores que aparecem no OCR das alternativas. Alguns extratores convertem
+# o C circulado em ©; tratá-lo explicitamente evita perder a alternativa C.
+CIRC_MAP = {
+    "Ⓐ": "A", "Ⓑ": "B", "Ⓒ": "C", "Ⓓ": "D", "Ⓔ": "E",
+    "ⓐ": "A", "ⓑ": "B", "ⓒ": "C", "ⓓ": "D", "ⓔ": "E",
+    "①": "A", "②": "B", "③": "C", "④": "D", "⑤": "E",
+    "©": "C",
+}
+ALT_MARKER = re.compile(r"^\s*([A-EⒶ-ⓔ①-⑤©])(?:[.)\-:]|\s)+\s*(.*)$")
 
 TIER = [(-1e9, 560, 1), (560, 620, 2), (620, 680, 3), (680, 740, 4), (740, 1e9, 5)]
 def tier_de(b):
@@ -47,6 +58,150 @@ def tier_de(b):
 
 def deacc(s):
     return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn")
+
+
+def recognize_alternative(line):
+    """Retorna (letra, texto) para uma linha de alternativa reconhecida."""
+    match = ALT_MARKER.match(line or "")
+    if not match:
+        return None
+    return CIRC_MAP.get(match.group(1), match.group(1)), match.group(2).strip()
+
+
+def _number(value):
+    try:
+        return round(float(str(value).replace(",", ".")), 1)
+    except (TypeError, ValueError):
+        return None
+
+
+def load_gabaritos():
+    """Carrega gabaritos por CO_ITEM e por (ano, habilidade, dificuldade).
+
+    Ano+dificuldade não identifica um item de forma segura: dois itens podem ter
+    o mesmo parâmetro b. A chave secundária inclui a habilidade e só é aceita
+    quando aponta para um único CO_ITEM. Assim nunca misturamos gabaritos de
+    itens diferentes apenas porque os seus parâmetros TRI coincidem.
+    """
+    by_item = defaultdict(Counter)
+    by_signature = defaultdict(Counter)
+    items_by_signature = defaultdict(set)
+    for path in glob.glob(os.path.join(MICRO, "ITENS_PROVA_*.csv")):
+        year = int(os.path.basename(path).split("_")[-1].split(".")[0])
+        rows = None
+        for encoding in ("latin-1", "utf-8"):
+            try:
+                with open(path, encoding=encoding, newline="") as stream:
+                    rows = list(csv.DictReader(stream, delimiter=";"))
+                break
+            except UnicodeDecodeError:
+                continue
+        for row in rows or []:
+            if row.get("SG_AREA") != "CN":
+                continue
+            try:
+                hab = int(row.get("CO_HABILIDADE") or 0)
+                b_enem = round(500 + 100 * float(row["NU_PARAM_B"].replace(",", ".")), 1)
+            except (KeyError, TypeError, ValueError):
+                continue
+            answer = (row.get("TX_GABARITO") or "").strip()
+            item = (row.get("CO_ITEM") or "").strip()
+            if answer not in "ABCDE" or not item or not hab:
+                continue
+            by_item[item][answer] += 1
+            key = (year, hab, b_enem)
+            by_signature[key][answer] += 1
+            items_by_signature[key].add(item)
+    return {
+        "by_item": by_item,
+        "by_signature": by_signature,
+        "items_by_signature": items_by_signature,
+    }
+
+
+def recover_gabarito(rec, lookup):
+    """Recupera (gabarito, fonte, CO_ITEM) sem cruzar itens diferentes."""
+    raw_existing = rec.get("gab")
+    existing = raw_existing if isinstance(raw_existing, str) and raw_existing in "ABCDE" else None
+    item = str(rec.get("co_item") or "").strip()
+    candidates = lookup["by_item"].get(item) if item else None
+    if candidates:
+        answer = existing if existing in candidates else candidates.most_common(1)[0][0]
+        return answer, "microdados", item
+
+    b_enem = _number(rec.get("b_enem"))
+    hab = rec.get("hab")
+    year = rec.get("ano")
+    if b_enem is not None and hab and year:
+        for delta in (0.0, -0.1, 0.1):
+            key = (int(year), int(hab), round(b_enem + delta, 1))
+            item_codes = lookup["items_by_signature"].get(key, set())
+            # Mais de um CO_ITEM na mesma assinatura é ambíguo: preservamos o
+            # gabarito auditado em vez de escolher o modo de itens distintos.
+            if len(item_codes) != 1:
+                continue
+            candidates = lookup["by_signature"].get(key)
+            item = next(iter(item_codes))
+            answer = existing if existing in candidates else candidates.most_common(1)[0][0]
+            return answer, "microdados", item
+    return existing, ("material" if existing else None), None
+
+
+def _canonical_text(value):
+    value = deacc(str(value or "").lower())
+    return re.sub(r"[^a-z0-9]+", " ", value).strip()
+
+
+def question_key(rec):
+    """Identidade independente do ID da fonte para deduplicar questões."""
+    if rec.get("co_item"):
+        return "co_item:" + str(rec["co_item"])
+    alternatives = "|".join(
+        "%s:%s" % (alt.get("l", ""), _canonical_text(alt.get("t", "")))
+        for alt in rec.get("alts", [])
+    )
+    content = "%s|%s" % (_canonical_text(rec.get("enun")), alternatives)
+    digest = hashlib.sha256(content.encode("utf-8")).hexdigest()[:24]
+    # A aplicação/fonte não entra na chave: o mesmo item pode ser descrito como
+    # "Regular", "PPL/Anexos" ou "ENEM 360" em pacotes distintos.
+    return "content:%s:%s" % (rec.get("ano") or "", digest)
+
+
+def _merge_unique(left, right):
+    return list(dict.fromkeys((left or []) + (right or [])))
+
+
+def deduplicate_records(records):
+    """Deduplica itens e combina figuras/alternativas úteis das duas fontes."""
+    best = {}
+    order = []
+    for rec in records:
+        key = question_key(rec)
+        if key not in best:
+            best[key] = rec
+            order.append(key)
+            continue
+        current = best[key]
+        score = lambda row: (len(row.get("enun") or ""), len(row.get("alts") or []), bool(row.get("gab")))
+        winner, other = (rec, current) if score(rec) > score(current) else (current, rec)
+        winner["figs"] = _merge_unique(winner.get("figs"), other.get("figs"))
+        winner["fontes"] = _merge_unique(
+            winner.get("fontes") or ([winner.get("fonte")] if winner.get("fonte") else []),
+            other.get("fontes") or ([other.get("fonte")] if other.get("fonte") else []),
+        )
+        other_alts = {alt.get("l"): alt for alt in other.get("alts", [])}
+        for alt in winner.get("alts", []):
+            peer = other_alts.get(alt.get("l"), {})
+            alt["imgs"] = _merge_unique(
+                alt.get("imgs") or ([alt.get("img")] if alt.get("img") else []),
+                peer.get("imgs") or ([peer.get("img")] if peer.get("img") else []),
+            )
+            if alt["imgs"]:
+                alt["img"] = alt["imgs"][0]  # compatibilidade com clientes antigos
+            if not alt.get("t") and peer.get("t"):
+                alt["t"] = peer["t"]
+        best[key] = winner
+    return [best[key] for key in order]
 
 # ---- Classificadores de PADRÃO (vocabulário de Ciências da Natureza) ----------
 TEMAS = [
@@ -125,6 +280,7 @@ def main():
 
     nat = json.load(open(os.path.join(NAT, "questoes.json"), encoding="utf-8"))
     e360 = [json.loads(l) for l in open(os.path.join(E360, "questoes.jsonl"), encoding="utf-8")]
+    gabaritos = load_gabaritos()
     # e360 indexado pela questão nat correspondente (para anexar figuras limpas)
     e360_by_nat = {}
     for r in e360:
@@ -172,17 +328,25 @@ def main():
             for a in er.get("alternativas", []):
                 if not a.get("imagens"):
                     continue
-                outrel = keep_image(os.path.join(E360, a["imagens"][0]),
-                                    "modelos/q%03d_alt%s.webp" % (num, a["letra"]), max_w=600)
-                if outrel:
+                alt_images = []
+                for image_index, image_rel in enumerate(a["imagens"]):
+                    outrel = keep_image(
+                        os.path.join(E360, image_rel),
+                        "modelos/q%03d_alt%s_%02d.webp" % (num, a["letra"], image_index + 1),
+                        max_w=600,
+                    )
+                    if outrel:
+                        alt_images.append(outrel)
+                if alt_images:
                     for al in alts:
                         if al["l"] == a["letra"]:
-                            al["img"] = outrel
+                            al["imgs"] = alt_images
+                            al["img"] = alt_images[0]  # compatibilidade com o renderer anterior
                             if is_placeholder(al["t"]):
                                 al["t"] = ""
 
         hab = q.get("habilidade")
-        records.append({
+        record = {
             "id": "q%03d" % num,
             "num": num,
             "ano": q.get("ano"),
@@ -197,14 +361,20 @@ def main():
             "enun": enun[:2000],
             "alts": alts,
             "gab": gab,
-            "gab_fonte": "microdados" if gab and q.get("status_item") == "válida" else ("material" if gab else None),
             "fonte_img": fonte_web,
             "figs": figs,
             "tema": classify(enun + " " + (q.get("habilidade_descricao") or ""), TEMAS, "Interdisciplinar"),
             "comando": classify(enun[-400:] or enun, COMANDOS, "Analisar"),
             "contexto": classify(enun, CONTEXTOS, "Cotidiano e tecnologia"),
-        })
+        }
+        official_answer, answer_source, co_item = recover_gabarito(record, gabaritos)
+        record["gab"] = official_answer
+        record["gab_fonte"] = answer_source
+        if co_item:
+            record["co_item"] = co_item
+        records.append(record)
 
+    records = deduplicate_records(records)
     records.sort(key=lambda r: (r["num"]))
     padroes = build_padroes(records)
 
