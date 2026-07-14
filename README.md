@@ -29,6 +29,10 @@ A fonte é a *Coleção ENEM PPL por Habilidades e Dificuldades — Ciências da
   edição e ano.
 - **Endpoints JSON** (`docs/api/`): `questions.json`, `stats.json` e `meta.json`,
   servidos como arquivos estáticos.
+- **Modelos de Biologia** (`docs/modelos.html`): 13 modelos específicos —
+  filogenia, seleção natural, evolução, taxonomia, digestão, excreção,
+  circulação, endocrinologia, imunidade, doenças infecciosas, fermentação,
+  respiração celular e fotossíntese — identificados em 123 questões oficiais.
 
 A régua de dificuldade segue o material-fonte: ❶ muito fácil (`b < 560`),
 ❷ fácil (`560 ≤ b < 620`), ❸ mediana (`620 ≤ b < 680`), ❹ difícil (`680 ≤ b < 740`)
@@ -45,7 +49,8 @@ A plataforma combina três fontes:
    parâmetros reais da TRI (`a`, `b`, `c`) de todos os itens das provas regulares.
    Base do painel "Microdados" (foco em Ciências da Natureza, 672 itens 2020–2025).
 3. **Biblioteca de estudos (Naturezas)** — teoria, apostilas, manuais e simulados
-   por disciplina. PDFs versionados no repositório; videoaulas catalogadas com link.
+   em PDF, todos versionados no próprio repositório. Não há integração com
+   Google Drive nem links de armazenamento externo.
 
 ## Estrutura
 
@@ -55,11 +60,11 @@ data/
   questions.json    Dataset canônico das 540 questões (metadados + questões)
   microdados/       ITENS_PROVA_2009..2025.csv (microdados oficiais do INEP)
   microdados.json   Todos os itens oficiais deduplicados (todas as áreas/anos)
-  naturezas/        Biblioteca de CN: PDFs por disciplina + MANIFEST.md/manifest.json
+  naturezas/        Biblioteca local de CN: PDFs por disciplina + manifesto
 scripts/
   build_dataset.py     Gera o dataset das 540 questões (JSON + data.js)
   build_microdados.py  Gera os itens oficiais da TRI (microdados_*.json + microdados.js)
-  fetch_naturezas.py   Baixa os PDFs da biblioteca e gera o manifesto/catálogo
+  build_materiais.py   Cataloga somente os PDFs já versionados no repositório
 docs/               Site estático (pronto para GitHub Pages)
   index.html        Busca e filtragem (540 questões)
   questao.html      Detalhe da questão
@@ -67,17 +72,19 @@ docs/               Site estático (pronto para GitHub Pages)
   painel-oficial.html  Painel dos microdados oficiais (CN)
   materiais.html    Biblioteca de materiais por disciplina
   sobre.html        Metodologia (Matriz de Referência e TRI)
-  assets/           styles.css, app.js e *.js (datasets embutidos p/ offline)
+  assets/           styles.css, app.js e datasets estáticos da interface
   api/              questions.json, stats.json, meta.json, microdados_*.json, materiais.json
 ```
 
-### Vídeos e arquivos grandes
+### Materiais
 
-As videoaulas da biblioteca (~13 GB, arquivos de até ~940 MB) **não são
-versionadas**: o GitHub rejeita arquivos acima de 100 MB. Elas ficam catalogadas
-em `data/naturezas/MANIFEST.md` e em `docs/api/materiais.json`, com link direto de
-download do Drive, e aparecem na página **Materiais**. O mesmo vale para o único
-PDF acima de 100 MB (o manual de Física de 120 MB).
+A página **Materiais** publica apenas os PDFs presentes em `data/naturezas`.
+O catálogo não contém vídeos, IDs de provedores ou URLs externas. Depois de
+adicionar ou remover um PDF versionado, regenere o catálogo com:
+
+```bash
+python3 scripts/build_materiais.py
+```
 
 ## Como gerar os dados
 
@@ -94,9 +101,8 @@ O script (sem dependências externas) grava `data/questions.json`,
 ## Publicação
 
 A plataforma é um site real, hospedado e acessível pela internet — não um
-projeto para rodar no desktop. É servida como site estático pelo **GitHub
-Pages** a partir da pasta `docs/`, e instalável como aplicativo (PWA), com
-domínio próprio.
+projeto para rodar no desktop. É servida como site estático a partir da pasta
+`docs/`, com domínio próprio, e exige conexão para abrir páginas, dados e painel.
 
 - **GitHub Pages:** em _Settings → Pages_, defina _Source_ como a branch de
   publicação e a pasta `/docs`.
@@ -110,5 +116,6 @@ domínio próprio.
   — continua publicamente acessível por URL direta. Conteúdo que exija controle
   de acesso real deve ser servido por um backend autenticado e autorizado.
 
-Todos os dados ficam embutidos em `docs/assets/*.js` (e espelhados em
-`docs/api/*.json`), de modo que o site funciona mesmo instalado e offline.
+Não há service worker, manifesto PWA ou modo offline. O bootstrap remove
+registros e caches de versões antigas, e a configuração da Vercel envia
+`Cache-Control: no-store` para evitar que o painel seja servido de cache.

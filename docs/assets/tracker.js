@@ -1,5 +1,5 @@
-/* Registro de desempenho pessoal (offline, localStorage).
-   Guarda cada tentativa e expõe agregações para o painel pessoal. */
+/* Registro local de desempenho. A interface e o painel exigem conexão; este
+   módulo apenas preserva as tentativas no navegador entre sessões online. */
 (function () {
   "use strict";
   var KEY = "enemcn.progress.v1";

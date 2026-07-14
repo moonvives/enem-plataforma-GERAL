@@ -221,6 +221,68 @@ TEMAS = [
     ("Microbiologia",     ["bacteria","virus","fungo","vacina","antibiotic","infecc","patogen","micro-organism"]),
     ("Botânica",          ["planta","vegetal","folha","raiz","semente","clorofila","floema","xilema"]),
 ]
+
+# Modelos de Biologia com granularidade suficiente para o catálogo pedagógico.
+# A nomenclatura foi auditada a partir dos quatro arquivos VTT fornecidos pelo
+# usuário (Fisiologia Humana I/II, Evolução e Taxonomia e Metabolismo
+# Energético). Os exemplos e as contagens continuam vindo exclusivamente das
+# questões oficiais do banco: as transcrições não são publicadas nem tratadas
+# como fonte de questão.
+MODELOS_BIOLOGIA = [
+    ("Filogenia e cladogramas", [
+        "cladograma", "arvore filogen", "filogen", "ancestral comum",
+        "parentesco evolut", "grupo monofilet", "taxon",
+    ]),
+    ("Seleção natural e adaptação", [
+        "selecao natural", "pressao seletiva", "mais apto", "adaptacao",
+        "resistencia bacter", "resistencia a antibiot", "darwin", "camuflagem",
+    ]),
+    ("Evidências evolutivas e especiação", [
+        "especiacao", "isolamento reprodutivo", "orgao homologo",
+        "estruturas homolog", "orgao analogo", "estruturas analog",
+        "orgao vestigial", "convergencia evolutiva", "registro fossil",
+    ]),
+    ("Taxonomia e nomenclatura", [
+        "taxonomia", "nomenclatura binomial", "nome cientifico", "genero e especie",
+        "classificacao biologica", "categoria taxonomica", "reino", "filo",
+    ]),
+    ("Digestão e absorção", [
+        "sistema digest", "digestao", "enzima digest", "intestino", "estomago",
+        "absorcao de nutrientes", "vilosidade", "bile", "suco pancreatico",
+    ]),
+    ("Excreção e osmorregulação", [
+        "sistema excret", "excrecao", "osmorregul", "nefron", "rim ", "rins ",
+        "urina", "ureia", "vasopressina", "hormonio antidiuretico", " aldosterona",
+    ]),
+    ("Sangue, circulação e coagulação", [
+        "hemacia", "eritroc", "hemoglobina", "plaqueta", "coagulacao", "hemofilia",
+        "sistema circulatorio", "circulacao sanguinea", "vaso sanguineo", "coracao",
+    ]),
+    ("Endocrinologia e homeostase", [
+        "sistema endocrino", "hormonio", "insulina", "glucagon", "glicemia",
+        "tireoide", "tiroxina", "glandula", "feedback negativo", "adrenalina",
+    ]),
+    ("Imunidade e vacinação", [
+        "imunidade", "resposta imune", "anticorpo", "antigeno", "vacina",
+        "linfocito", "leucocito", "memoria imunologica", "imunizacao", "soro ",
+    ]),
+    ("Doenças infecciosas e vetores", [
+        "zoonose", "vetor biologico", "doenca de chagas", "dengue", "malaria",
+        "leishmaniose", "mosquito", "parasita", "profilaxia", "transmissao da doenca",
+    ]),
+    ("Fermentação", [
+        "fermentacao", "processo anaerob", "metabolismo anaerob", "fermentacao alcoolica",
+        "fermentacao latica", "levedura", "acido latico", "etanol e gas carbonico",
+    ]),
+    ("Respiração celular", [
+        "respiracao celular", "respiracao aerobica", "glicolise", "ciclo de krebs",
+        "cadeia respiratoria", "fosforilacao oxidativa", "atp sintase", "mitocondria",
+    ]),
+    ("Fotossíntese", [
+        "fotossintese", "cloroplasto", "clorofila", "ciclo de calvin",
+        "fase clara", "fase escura", "fixacao de carbono", "fotofosforilacao",
+    ]),
+]
 COMANDOS = [
     ("Calcular",    ["calcul","valor de","qual o valor","quantos","quantas","estim","obtenha","determine o","aproximadamente igual","numero de"]),
     ("Identificar", ["identifi","qual e o","qual e a","que fenomeno","assinale","o nome","corresponde a","qual das","qual o composto","qual a substancia","qual estrutura"]),
@@ -244,6 +306,12 @@ def classify(text, table, default):
         if c > score:
             best, score = label, c
     return best
+
+
+def classify_tema(text):
+    """Prioriza modelos específicos de Biologia e usa o tema amplo como fallback."""
+    modelo = classify(text, MODELOS_BIOLOGIA, None)
+    return modelo or classify(text, TEMAS, "Interdisciplinar")
 
 
 def to_webp(src, dst, max_w=1000, quality=82):
@@ -384,7 +452,7 @@ def main():
             "gab": gab,
             "fonte_img": fonte_web,
             "figs": figs,
-            "tema": classify(enun + " " + (q.get("habilidade_descricao") or ""), TEMAS, "Interdisciplinar"),
+            "tema": classify_tema(enun + " " + (q.get("habilidade_descricao") or "")),
             "comando": classify(enun[-400:] or enun, COMANDOS, "Analisar"),
             "contexto": classify(enun, CONTEXTOS, "Cotidiano e tecnologia"),
         }
@@ -400,6 +468,8 @@ def main():
     padroes = build_padroes(records)
 
     anos = sorted({r["ano"] for r in records if r["ano"]})
+    biology_names = [name for name, _keywords in MODELOS_BIOLOGIA]
+    biology_counts = Counter(r["tema"] for r in records if r["tema"] in biology_names)
     meta = {
         "n_modelos": len(records),
         "n_padroes": len(padroes),
@@ -410,6 +480,10 @@ def main():
         "habilidades": sorted({r["hab"] for r in records if r["hab"]}),
         "por_tema": dict(Counter(r["tema"] for r in records).most_common()),
         "por_ano": dict(sorted(Counter(r["ano"] for r in records if r["ano"]).items())),
+        "modelos_biologia": [
+            {"tema": name, "questoes": biology_counts.get(name, 0)}
+            for name in biology_names if biology_counts.get(name, 0)
+        ],
         "fonte": "Questões reais do ENEM (CN), pacotes auditados Naturezas 720 e ENEM 360; "
                  "gabarito e dificuldade na escala TRI conforme microdados do INEP.",
     }

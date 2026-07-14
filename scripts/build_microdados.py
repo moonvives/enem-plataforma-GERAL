@@ -15,7 +15,7 @@ Saídas:
   - ``docs/api/microdados_cn.json``: itens de Ciências da Natureza (foco da plataforma).
   - ``docs/api/microdados_stats.json``: indicadores de CN por recorte de anos.
   - ``docs/assets/microdados.js``: itens de CN embutidos (window.ENEM_MICRO) para
-    o painel funcionar offline.
+    o painel consumir os dados como arquivos estáticos.
 """
 from __future__ import annotations
 

@@ -1,72 +1,30 @@
-# Biblioteca de Ciências da Natureza — Manifesto
+# Biblioteca de Ciências da Natureza
 
-Catálogo completo dos materiais de CN da biblioteca do Drive.
-PDFs até 100 MB estão versionados no repositório; vídeos e arquivos acima do limite do GitHub ficam apenas neste catálogo, com link de download.
+Catálogo dos PDFs versionados neste repositório. Não há links, IDs ou dependências de armazenamento externo.
 
-- Total de arquivos: **54** (22 PDFs, 32 vídeos)
-- Versionados no repositório: **21**
-- Somente catalogados (link): **33**
+- PDFs: **21**
+- Tamanho total: **418.4 MB**
 
-## Arquivos versionados (no repositório)
-
-| Disciplina | Arquivo | Tamanho | Caminho |
-|---|---|--:|---|
-| Geral | Naturezas.pdf | 53.9 MB | `data/naturezas/Geral/Naturezas.pdf` |
-| Geral | eBook - Naturezas PPL.pdf | 50.8 MB | `data/naturezas/Geral/eBook - Naturezas PPL.pdf` |
-| Geral | Enem 360 de Cn do Fredao.pdf | 14.5 MB | `data/naturezas/Geral/Enem 360 de Cn do Fredao.pdf` |
-| Geral | Manual do ENEM - Natureza.pdf | 4.9 MB | `data/naturezas/Geral/Manual do ENEM - Natureza.pdf` |
-| Fisica | Fisica I.pdf | 22.3 MB | `data/naturezas/Fisica/Teoria/Fisica I.pdf` |
-| Biologia | Manual para gabaritar BIOLOGIA - ENEM.pdf | 13.6 MB | `data/naturezas/Biologia/Teoria/Manual para gabaritar BIOLOGIA - ENEM.pdf` |
-| Quimica | Principios de Quimica - Questionando a Vida Moderna e o Meio Ambiente.pdf | 87.7 MB | `data/naturezas/Quimica/Teoria/Principios de Quimica - Questionando a Vida Moderna e o Meio Ambiente.pdf` |
-| Quimica | Apostila 01 Vestcursos Quimica Organica.pdf | 22.8 MB | `data/naturezas/Quimica/Teoria/Apostila 01 Vestcursos Quimica Organica.pdf` |
-| Quimica | Apostila 01 Vestcursos Quimica Geral.pdf | 21.9 MB | `data/naturezas/Quimica/Teoria/Apostila 01 Vestcursos Quimica Geral.pdf` |
-| Quimica | Apostila 01 Vestcursos Fisico-Quimica.pdf | 16.2 MB | `data/naturezas/Quimica/Teoria/Apostila 01 Vestcursos Fisico-Quimica.pdf` |
-| Quimica | Apostila 02 Vestcursos Quimica Organica.pdf | 14.7 MB | `data/naturezas/Quimica/Teoria/Apostila 02 Vestcursos Quimica Organica.pdf` |
-| Quimica | Apostila 02 Vestcursos Quimica Geral.pdf | 10.9 MB | `data/naturezas/Quimica/Teoria/Apostila 02 Vestcursos Quimica Geral.pdf` |
-| Quimica | Apostila 02 Vestcursos Fisico-Quimica.pdf | 10.7 MB | `data/naturezas/Quimica/Teoria/Apostila 02 Vestcursos Fisico-Quimica.pdf` |
-| Quimica | Apostila 01 Modulo 01 Episteme - Quimica Geral.pdf | 4.8 MB | `data/naturezas/Quimica/Teoria/Apostila 01 Modulo 01 Episteme - Quimica Geral.pdf` |
-| Quimica | Numero de oxidacao - Curso de Quimica Pro.pdf | 0.3 MB | `data/naturezas/Quimica/Teoria/Numero de oxidacao - Curso de Quimica Pro.pdf` |
-| Quimica | Manual para gabaritar QUIMICA - ENEM.pdf | 38.4 MB | `data/naturezas/Quimica/Teoria/Manual para gabaritar QUIMICA - ENEM.pdf` |
-| Quimica | Quimica I.pdf | 27.7 MB | `data/naturezas/Quimica/Teoria/Quimica I.pdf` |
-| Quimica | Simulado ENEM Quimica - Questoes (Episteme).pdf | 0.5 MB | `data/naturezas/Quimica/Simulados/Simulado ENEM Quimica - Questoes (Episteme).pdf` |
-| Quimica | Simulado 2 ENEM Quimica - Questoes (Episteme).pdf | 0.5 MB | `data/naturezas/Quimica/Simulados/Simulado 2 ENEM Quimica - Questoes (Episteme).pdf` |
-| Quimica | Simulado 2 ENEM Quimica - Questoes e Comentarios (Episteme).pdf | 0.6 MB | `data/naturezas/Quimica/Simulados/Simulado 2 ENEM Quimica - Questoes e Comentarios (Episteme).pdf` |
-| Quimica | Simulado ENEM Quimica - Questoes e Comentarios (Episteme).pdf | 0.6 MB | `data/naturezas/Quimica/Simulados/Simulado ENEM Quimica - Questoes e Comentarios (Episteme).pdf` |
-
-## Somente catalogados (fora do repositório — link de download)
-
-| Disciplina | Arquivo | Tipo | Tamanho | Download |
+| Disciplina | Subpasta | Arquivo | Tamanho | SHA-256 |
 |---|---|---|--:|---|
-| Biologia | Bases Ecologicas.mp4 | video | 120.0 MB | [baixar](https://drive.usercontent.google.com/download?id=1muFBQaZ3xyP2i0XmXqqhuXPil3aF_7r3&export=download&confirm=t) |
-| Biologia | Bases Moleculares.mp4 | video | 107.4 MB | [baixar](https://drive.usercontent.google.com/download?id=1nnp64nZRdTFPeq_LoF3_ylfXET6OfXjN&export=download&confirm=t) |
-| Biologia | Bases da Ecologia.mp4 | video | 501.8 MB | [baixar](https://drive.usercontent.google.com/download?id=131M7_y8R4Dn4_knyIb6k6aeAm-KIMuth&export=download&confirm=t) |
-| Biologia | Complicacoes Ecologicas.mp4 | video | 114.4 MB | [baixar](https://drive.usercontent.google.com/download?id=1SUU8ZQiSSrbitA1KlMcDWz0eds0RaO0N&export=download&confirm=t) |
-| Biologia | DNA.mp4 | video | 138.3 MB | [baixar](https://drive.usercontent.google.com/download?id=1CyDp_D2X5NvsOWu8vhdmhzR6Ji6TqKT_&export=download&confirm=t) |
-| Biologia | Destrinchando o Enem 5.mp4 | video | 896.1 MB | [baixar](https://drive.usercontent.google.com/download?id=1XaOher1y41Ykvp2jjsnWUNzhong-MKhp&export=download&confirm=t) |
-| Biologia | Evolucao e Taxonomia.mp4 | video | 531.5 MB | [baixar](https://drive.usercontent.google.com/download?id=1izFsyKWhf9NCG3xO_u800lTMQ5YAJhB6&export=download&confirm=t) |
-| Biologia | Fisiologia Humana I.mp4 | video | 621.5 MB | [baixar](https://drive.usercontent.google.com/download?id=1GrbjI3wxcHX53M0_-V317bh18Pk73epJ&export=download&confirm=t) |
-| Biologia | Fisiologia Humana II.mp4 | video | 541.2 MB | [baixar](https://drive.usercontent.google.com/download?id=1mUtejf8PR9YVX6LnjgynkIoomXpaN9P3&export=download&confirm=t) |
-| Biologia | Metabolismo Energetico.mp4 | video | 475.1 MB | [baixar](https://drive.usercontent.google.com/download?id=1yNDP2GHO4zQaAqOshkLnWG8MdruPmsl3&export=download&confirm=t) |
-| Biologia | Sistemas Ecologicos DOE 2.mp4 | video | 490.4 MB | [baixar](https://drive.usercontent.google.com/download?id=1NKhrtB-tmWGE6g533FGfIR7EEBln8ep5&export=download&confirm=t) |
-| Biologia | Sistemas Ecologicos.mp4 | video | 153.8 MB | [baixar](https://drive.usercontent.google.com/download?id=1DR5duwPCtpddKQ0PbI1AlkuxKakpGeZ1&export=download&confirm=t) |
-| Fisica | Aula 01 - Ondas.mp4 | video | 207.3 MB | [baixar](https://drive.usercontent.google.com/download?id=1E_Zku3ntsS_J2UYmYmGUEAZxgV_knLl7&export=download&confirm=t) |
-| Fisica | Aula 02 - Movimento.mp4 | video | 161.8 MB | [baixar](https://drive.usercontent.google.com/download?id=1ewFCQc3iIwnM-TEpSKQF7LC20s-x3t4w&export=download&confirm=t) |
-| Fisica | Aula 03 - Eletricidade.mp4 | video | 244.0 MB | [baixar](https://drive.usercontent.google.com/download?id=106-KMVCplIUc05-VITkpNfRA-JGxB_n5&export=download&confirm=t) |
-| Fisica | Aula 04 - Termologia.mp4 | video | 189.3 MB | [baixar](https://drive.usercontent.google.com/download?id=1lSJYt-k_Qt0yZTSBltx8RlAHmha63HWm&export=download&confirm=t) |
-| Fisica | Cinematica.mp4 | video | 697.0 MB | [baixar](https://drive.usercontent.google.com/download?id=1r9gj9FMl9cARvhyTnTqupZTlSRNBBJ5w&export=download&confirm=t) |
-| Fisica | Destrinchando o Enem 6 - Termologia e Termodinamica.mp4 | video | 463.0 MB | [baixar](https://drive.usercontent.google.com/download?id=1Bk9s7ujPWHRPYo6-Vn0hJCI3CjNZ6DiX&export=download&confirm=t) |
-| Fisica | Dinamica.mp4 | video | 582.0 MB | [baixar](https://drive.usercontent.google.com/download?id=1MVdrpVHBLChQd0EaYbOSWWm0cPs6jDp0&export=download&confirm=t) |
-| Fisica | Manual para gabaritar FISICA - ENEM.pdf | pdf | 115.3 MB | [baixar](https://drive.usercontent.google.com/download?id=1f6INYoxtNGAWrLT-m9Ae6yZ2jcdaw9vc&export=download&confirm=t) |
-| Geral | Minhas apostas para o Enem 2025 (Natureza e Matematica).mp4 | video | 540.6 MB | [baixar](https://drive.usercontent.google.com/download?id=1dj0-7nFXU_83A7N1yMtkdFIXl0xEqnpH&export=download&confirm=t) |
-| Geral | PARTE 2 - Minhas apostas para o Enem 2025 (Natureza e Matematica).mp4 | video | 207.0 MB | [baixar](https://drive.usercontent.google.com/download?id=1eaJaeJutfOJZmrrbFSVmeJA1nGpH8uzH&export=download&confirm=t) |
-| Quimica | Aula 11 - Analitica.mp4 | video | 182.9 MB | [baixar](https://drive.usercontent.google.com/download?id=1JxEipmBhLMpLcUVNpsZEagiiR1w4sf2Z&export=download&confirm=t) |
-| Quimica | Aula 12 - Eletroquimica.mp4 | video | 208.9 MB | [baixar](https://drive.usercontent.google.com/download?id=11L2drAsKCR9zawOJ9dB9O2XMVVlHeLO0&export=download&confirm=t) |
-| Quimica | Aula 13 - Termoquimica.mp4 | video | 209.0 MB | [baixar](https://drive.usercontent.google.com/download?id=1yjZtqE9nxzmRmufH9M1BZZviPy90RqaA&export=download&confirm=t) |
-| Quimica | Aula 14 - Radioatividade.mp4 | video | 118.3 MB | [baixar](https://drive.usercontent.google.com/download?id=1frWhoU30J0MfufEG-emc35k7rmu4Cf49&export=download&confirm=t) |
-| Quimica | Destrinchando o Enem - Equilibrio.mp4 | video | 720.1 MB | [baixar](https://drive.usercontent.google.com/download?id=1vHJFWiUbOduBmlsLLZKpajVDSJrOmLzz&export=download&confirm=t) |
-| Quimica | Estequiometria.mp4 | video | 592.6 MB | [baixar](https://drive.usercontent.google.com/download?id=1HBqbARcTSdePF9kJbvSCwx89eJYRjift&export=download&confirm=t) |
-| Quimica | Inorganica.mp4 | video | 313.4 MB | [baixar](https://drive.usercontent.google.com/download?id=1cgpnnLPAQu5rlxGDjOQOpFqPy0zTqD5H&export=download&confirm=t) |
-| Quimica | Quimica Organica.mp4 | video | 632.5 MB | [baixar](https://drive.usercontent.google.com/download?id=1WpcZvKjKkjRjHe7eSpqUXp3iDMk8UlTc&export=download&confirm=t) |
-| Quimica | Radioatividade.mp4 | video | 319.3 MB | [baixar](https://drive.usercontent.google.com/download?id=1rok3_SiBcbVl-83pxaeDP7flqxkgPQio&export=download&confirm=t) |
-| Quimica | Reacoes Inorganicas.mp4 | video | 587.0 MB | [baixar](https://drive.usercontent.google.com/download?id=1b-qEJK7AS2Wl0gCF7W0VFoYwiD44XJ49&export=download&confirm=t) |
-| Quimica | Solubilidade.mp4 | video | 500.0 MB | [baixar](https://drive.usercontent.google.com/download?id=1iXRNXO6KL15VUsUUTnZ74GUcvyyQDlx7&export=download&confirm=t) |
+| Biologia | Teoria | `Manual para gabaritar BIOLOGIA - ENEM.pdf` | 13.6 MB | `66ae86311df2d3bb1a38bdfd504384e94c4c7d77892ff4151ca437825937a9d1` |
+| Fisica | Teoria | `Fisica I.pdf` | 22.3 MB | `6a38d25c4e8054ee6dddb0cab24755c03d047d9c664c7d241013982acfe8cbe8` |
+| Geral | — | `Enem 360 de Cn do Fredao.pdf` | 14.5 MB | `7c587415531ac2f8d5448e1b715f670be1de6576c1bc7224cd712bcf1ceb8e68` |
+| Geral | — | `Manual do ENEM - Natureza.pdf` | 4.9 MB | `9bfe2411a4626a84fe869a41d55ec09bc7df8479ad5b7360aa4783279cb9683d` |
+| Geral | — | `Naturezas.pdf` | 53.9 MB | `c776fd37e2cb80d9c90826faabb6b16aa3927a0e26d36d0568269a9873f537cc` |
+| Geral | — | `eBook - Naturezas PPL.pdf` | 50.8 MB | `ef706e3385a2cc74c8565ee6b969182e46c60aa521265d39a597a56881cd9154` |
+| Quimica | Simulados | `Simulado 2 ENEM Quimica - Questoes (Episteme).pdf` | 0.5 MB | `9f5a56dd3830665f921ae0eeecabcc7dd4e27729492719cbc8c0fe69eb12139e` |
+| Quimica | Simulados | `Simulado 2 ENEM Quimica - Questoes e Comentarios (Episteme).pdf` | 0.6 MB | `4952461de473547d2e87dbd06e4ae327d23fd6a9116e92bb33f054b6162d8bfe` |
+| Quimica | Simulados | `Simulado ENEM Quimica - Questoes (Episteme).pdf` | 0.5 MB | `3461ecf8ca4f7da098e42d022fd308c846cbd5df78681324cf8c534e00a9a4b4` |
+| Quimica | Simulados | `Simulado ENEM Quimica - Questoes e Comentarios (Episteme).pdf` | 0.6 MB | `d281876b4a0ced301187c8987034fa6c7ef0427d7420261f42ae56cafee6741f` |
+| Quimica | Teoria | `Apostila 01 Modulo 01 Episteme - Quimica Geral.pdf` | 4.8 MB | `455cd11dc476cb6747f6d1402c0c41db41f035788cedda282d51000112255681` |
+| Quimica | Teoria | `Apostila 01 Vestcursos Fisico-Quimica.pdf` | 16.2 MB | `e1555c9bb5a8c0179895d5a918399de32968d9a290dad2376934df213a54b1a6` |
+| Quimica | Teoria | `Apostila 01 Vestcursos Quimica Geral.pdf` | 21.9 MB | `2bd88ca83eb50c567a2f240088d55c62b7f1f68e3cf3539918d40e644e453e32` |
+| Quimica | Teoria | `Apostila 01 Vestcursos Quimica Organica.pdf` | 22.8 MB | `1b66e7b9af37fd182b4334e203242139e50d0ba7a6d224389bd05e030fafd65f` |
+| Quimica | Teoria | `Apostila 02 Vestcursos Fisico-Quimica.pdf` | 10.7 MB | `8efd38eb37f8ca9a2d7313609a3287007bb1095eeceb8b69f72c28a439c8f781` |
+| Quimica | Teoria | `Apostila 02 Vestcursos Quimica Geral.pdf` | 10.9 MB | `409358882bb1a16a79194b82aea2253327cc3745172458b72a6e6acf97eba677` |
+| Quimica | Teoria | `Apostila 02 Vestcursos Quimica Organica.pdf` | 14.7 MB | `f0a6da2d73e0dcad6f6489dad5fa51c5a323f7e92e47b1d11db91bebd878d3ef` |
+| Quimica | Teoria | `Manual para gabaritar QUIMICA - ENEM.pdf` | 38.4 MB | `5db3dae9dcf2235ecfa15cb1f2b5cef36a9d3af6969aaeddbcdb8d31a7bd12bb` |
+| Quimica | Teoria | `Numero de oxidacao - Curso de Quimica Pro.pdf` | 0.3 MB | `dfba56be095b645980bfb5b56ac0841ea40a55675eb63e9f15264bfc2dd9b7fb` |
+| Quimica | Teoria | `Principios de Quimica - Questionando a Vida Moderna e o Meio Ambiente.pdf` | 87.7 MB | `3690b72d1c5a85040036da4b759dad8ecc940cf102e62dd6acd6927a6736891f` |
+| Quimica | Teoria | `Quimica I.pdf` | 27.7 MB | `15c23097b40bae7203628412a13a0ae1e2058bb79a0fa27cd75db561037716b3` |

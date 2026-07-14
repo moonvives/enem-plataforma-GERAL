@@ -1,6 +1,5 @@
 /* Plataforma ENEM — Ciências da Natureza (edições não regulares).
-   Dados embutidos em data.js (window.ENEM_DATA) para funcionar offline via
-   file://; os mesmos dados estão disponíveis como JSON em /api/. */
+   Dados estáticos carregados pelo site publicado, sem modo offline. */
 (function () {
   "use strict";
 
@@ -303,18 +302,15 @@
     el("#mat-kpis").innerHTML = [
       kpi(r.total, "Arquivos"),
       kpi(r.pdfs, "PDFs"),
-      kpi(r.videos, "Vídeos"),
-      kpi(r.versionados, "No repositório")
+      kpi(r.por_disciplina.Biologia || 0, "Biologia"),
+      kpi(r.por_disciplina.Fisica || 0, "Física")
     ].join("");
 
     function icon(t) {
-      return t === "video"
-        ? '<svg class="ico" viewBox="0 0 24 24" style="color:var(--accent)"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg>'
-        : '<svg class="ico" viewBox="0 0 24 24" style="color:var(--brand)"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>';
+      return '<svg class="ico" viewBox="0 0 24 24" style="color:var(--brand)"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>';
     }
     function linkFor(m) {
-      if (m.no_repositorio && m.caminho) return "../" + m.caminho;
-      return m.download_url;
+      return m.caminho ? "../" + m.caminho : "#";
     }
     var discs = ["Geral", "Biologia", "Fisica", "Quimica"];
     var nome = { Geral: "Geral", Biologia: "Biologia", Fisica: "Física", Quimica: "Química" };
@@ -327,11 +323,9 @@
         ' <span style="color:var(--muted);font-weight:400">· ' + itens.length + ' arquivos</span></h3>' +
         '<ul class="meta-list">';
       itens.forEach(function (m) {
-        var tag = m.no_repositorio
-          ? '<span class="badge area-biologia">no repo</span>'
-          : '<span class="badge hab">Drive</span>';
+        var tag = '<span class="badge area-biologia">repositório</span>';
         html += '<li><span class="k">' + icon(m.tipo) + " " +
-          '<a href="' + linkFor(m) + '"' + (m.no_repositorio ? "" : ' target="_blank" rel="noopener"') + ">" +
+          '<a href="' + linkFor(m) + '">' +
           m.titulo + "</a>" + (m.subpasta ? ' <span style="color:var(--muted);font-size:.8rem">· ' + m.subpasta + "</span>" : "") +
           '</span><span class="v">' + m.tamanho_mb + " MB " + tag + "</span></li>";
       });

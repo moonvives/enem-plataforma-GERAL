@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#123b2b">
   <title>Modelos de questões · ENEM Estratégia</title>
   <meta name="description" content="Catálogo de modelos de questões reais do ENEM de Ciências da Natureza: como cada habilidade é cobrada, os padrões que se repetem ao longo dos anos, com enunciado, alternativas, gabarito oficial e dificuldade na escala TRI.">
-  <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +57,6 @@
         <a href="banco.html">Banco</a>
         <a href="estudar.html">Estudar</a>
         <a href="modelos.html" class="active">Modelos</a>
-        <a href="aulas.html">Aulas</a>
         <a href="meu-painel.html">Meu painel</a>
         <a href="tri.html">Mapa TRI</a>
         <a href="padroes.html">Padrões</a>
@@ -78,12 +76,18 @@
 
     <div class="viewtabs" id="viewtabs">
       <button data-view="padroes" class="on">Padrões que se repetem</button>
+      <button data-view="biologia">Modelos de Biologia</button>
       <button data-view="catalogo">Catálogo de modelos</button>
     </div>
 
     <section id="view-padroes">
       <p class="count-note" id="pad-note"></p>
       <div class="cards" id="padroes"></div>
+    </section>
+
+    <section id="view-biologia" hidden>
+      <p class="count-note" id="bio-note"></p>
+      <div class="cards" id="bio-modelos"></div>
     </section>
 
     <section id="view-catalogo" hidden>

@@ -14,7 +14,7 @@ Saídas:
   - ``docs/api/questions.json``: mesmo dataset, servido como endpoint estático.
   - ``docs/api/stats.json``: agregações para o painel analítico.
   - ``docs/api/meta.json``: metadados (habilidades, competências, régua, filtros).
-  - ``docs/assets/data.js``: dataset embutido para funcionamento offline
+  - ``docs/assets/data.js``: dataset estático consumido pela interface web
     (``file://``), evitando dependência de ``fetch``/CORS.
 """
 from __future__ import annotations

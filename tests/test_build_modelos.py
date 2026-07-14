@@ -3,6 +3,7 @@ import unittest
 from collections import Counter, defaultdict
 
 from scripts.build_modelos import (
+    classify_tema,
     deduplicate_records,
     question_key,
     recognize_alternative,
@@ -19,6 +20,18 @@ def lookup():
 
 
 class BuildModelosTest(unittest.TestCase):
+    def test_biology_model_taxonomy_is_granular(self):
+        samples = {
+            "O cladograma representa o ancestral comum dos grupos.": "Filogenia e cladogramas",
+            "A insulina reduz a glicemia por feedback negativo.": "Endocrinologia e homeostase",
+            "A glicólise antecede o ciclo de Krebs na respiração aeróbica.": "Respiração celular",
+            "A vacina induz memória imunológica e produção de anticorpos.": "Imunidade e vacinação",
+            "A vasopressina altera a reabsorção de água no néfron.": "Excreção e osmorregulação",
+        }
+        for text, expected in samples.items():
+            with self.subTest(text=text):
+                self.assertEqual(classify_tema(text), expected)
+
     def test_copyright_symbol_is_alternative_c(self):
         self.assertEqual(recognize_alternative("© fotossíntese"), ("C", "fotossíntese"))
 

@@ -39,7 +39,7 @@
     el("pad-note").textContent =
       padroes.length + " padrões recorrentes identificados nas " + meta.n_modelos +
       " questões reais. Cada card agrupa itens da mesma habilidade e mesmo tema — ordenados do mais recorrente ao menos recorrente.";
-    el("padroes").innerHTML = padroes.map(function (p) {
+    function patternCard(p) {
       var anos = p.anos.map(function (a) { return '<span class="yr">' + a + "</span>"; }).join("");
       return '<div class="pcard">' +
         '<div class="top"><span class="tema">' + esc(p.tema) + '</span>' +
@@ -55,7 +55,20 @@
         '<button class="linklike" data-goto-hab="' + p.hab + '" data-goto-tema="' + esc(p.tema) +
           '" style="align-self:flex-start;background:none;border:0;color:var(--brand);font:inherit;font-weight:600;cursor:pointer;padding:0">Ver as ' + p.n + " questões deste padrão →</button>" +
         "</div>";
-    }).join("");
+    }
+    el("padroes").innerHTML = padroes.map(patternCard).join("");
+
+    var biologyModels = meta.modelos_biologia || [];
+    var biologyThemes = biologyModels.map(function (model) { return model.tema; });
+    var biologyPatterns = padroes.filter(function (pattern) {
+      return biologyThemes.indexOf(pattern.tema) !== -1;
+    });
+    var biologyQuestionCount = biologyModels.reduce(function (total, model) {
+      return total + model.questoes;
+    }, 0);
+    el("bio-note").textContent = biologyModels.length + " modelos específicos, identificados em " +
+      biologyQuestionCount + " questões oficiais. Os cards preservam habilidade, recorrência, anos e dificuldade TRI.";
+    el("bio-modelos").innerHTML = biologyPatterns.map(patternCard).join("");
 
     // ---- Catálogo (filtros + questões) ----
     var habs = meta.habilidades.slice().sort(function (a, b) { return a - b; });
@@ -142,33 +155,38 @@
     applyFilters();
 
     // ---- Alternância de visões ----
-    var vp = el("view-padroes"), vc = el("view-catalogo");
+    var vp = el("view-padroes"), vb = el("view-biologia"), vc = el("view-catalogo");
     if (F.tema.value || F.hab.value) {
       Array.prototype.forEach.call(el("viewtabs").querySelectorAll("button"), function (x) {
         x.classList.toggle("on", x.dataset.view === "catalogo");
       });
-      vp.hidden = true;
+      vp.hidden = true; vb.hidden = true;
       vc.hidden = false;
     }
     el("viewtabs").addEventListener("click", function (e) {
       var b = e.target.closest("button[data-view]"); if (!b) return;
       Array.prototype.forEach.call(this.querySelectorAll("button"), function (x) { x.classList.remove("on"); });
       b.classList.add("on");
-      var padroesView = b.dataset.view === "padroes";
-      vp.hidden = !padroesView; vc.hidden = padroesView;
+      vp.hidden = b.dataset.view !== "padroes";
+      vb.hidden = b.dataset.view !== "biologia";
+      vc.hidden = b.dataset.view !== "catalogo";
     });
 
     // clique num padrão -> abre catálogo já filtrado
-    el("padroes").addEventListener("click", function (e) {
-      var b = e.target.closest("button[data-goto-hab]"); if (!b) return;
-      F.busca.value = ""; F.comando.value = ""; F.tier.value = ""; F.ano.value = "";
-      F.hab.value = b.dataset.gotoHab; F.tema.value = b.dataset.gotoTema;
-      applyFilters();
-      Array.prototype.forEach.call(el("viewtabs").querySelectorAll("button"), function (x) {
-        x.classList.toggle("on", x.dataset.view === "catalogo");
+    function bindPatternNavigation(container) {
+      container.addEventListener("click", function (e) {
+        var b = e.target.closest("button[data-goto-hab]"); if (!b) return;
+        F.busca.value = ""; F.comando.value = ""; F.tier.value = ""; F.ano.value = "";
+        F.hab.value = b.dataset.gotoHab; F.tema.value = b.dataset.gotoTema;
+        applyFilters();
+        Array.prototype.forEach.call(el("viewtabs").querySelectorAll("button"), function (x) {
+          x.classList.toggle("on", x.dataset.view === "catalogo");
+        });
+        vp.hidden = true; vb.hidden = true; vc.hidden = false;
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
-      vp.hidden = true; vc.hidden = false;
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    }
+    bindPatternNavigation(el("padroes"));
+    bindPatternNavigation(el("bio-modelos"));
   });
 })();
