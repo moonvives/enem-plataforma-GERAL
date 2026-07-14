@@ -1,0 +1,76 @@
+{
+  "id": "eco-bases",
+  "titulo": "Bases da Ecologia",
+  "curso": "Destrinchando o Enem — Biologia",
+  "area": "Ciências da Natureza · Biologia",
+  "tema_banco": "Ecologia",
+  "duracao_estimada": "1 aula",
+  "resumo": "Fundamentos de ecologia com os modelos de questão que mais se repetem no ENEM. Biologia é muito valorizada pela TRI em Ciências da Natureza e costuma ser a área com maior chance de ganho de acertos: dominar estes cinco modelos cobre boa parte das questões de ecologia.",
+  "modelos": [
+    {
+      "nome": "Magnificação trófica (bioacumulação)",
+      "conceitos": ["cadeia alimentar", "nível trófico", "metais pesados", "poluentes"],
+      "ideia": "Quanto maior o nível trófico, maior o acúmulo de certas substâncias no organismo. Substâncias como metais pesados (ex.: mercúrio) e compostos orgânicos tóxicos não são metabolizados nem eliminados, então vão se concentrando ao subir na cadeia alimentar.",
+      "como_funciona": "Numa cadeia fitoplâncton → zooplâncton → peixe pequeno → peixe grande, o produtor acumula uma quantidade base (≈1). Cada consumidor come muitos indivíduos do nível anterior e herda tudo o que estava acumulado neles, então a concentração cresce de forma acentuada, quase exponencial: 1 → 10 → 100 → 1000. O topo da cadeia (maior nível trófico) sempre apresenta o maior acúmulo.",
+      "como_cai": "A questão traz um contaminante (mercúrio, TBT, metal pesado) e pede em qual organismo a concentração é maior, ou por que um predador de topo acumula mais. A resposta é sempre: o organismo de maior nível trófico / no topo da cadeia acumula mais.",
+      "atalho": "Topo da cadeia = maior nível trófico = maior acúmulo.",
+      "formulas": [
+        {"rotulo": "Modelo multiplicativo", "latex": "C_n=C_0\\,k^n"},
+        {"rotulo": "Razão entre níveis", "latex": "\\frac{C_{n+1}}{C_n}=k\\quad(k>1)"}
+      ],
+      "simulador": {"tipo": "biomagnificacao", "fator_inicial": 10, "concentracao_inicial": 1}
+    },
+    {
+      "nome": "Ciclo do nitrogênio",
+      "conceitos": ["fixação", "nitrificação", "desnitrificação", "bactérias", "leguminosas"],
+      "ideia": "O nitrogênio circula entre a atmosfera (N2, ~78% do ar, forma inutilizável pela maioria dos seres vivos) e os organismos, sendo transformado por bactérias em compostos aproveitáveis e devolvido à atmosfera. Três etapas concentram quase todas as questões.",
+      "como_funciona": "1) Fixação: bactérias fixadoras nas raízes de plantas leguminosas convertem o N2 atmosférico em amônia (NH3). 2) Nitrificação: bactérias nitrificantes transformam a amônia em nitrato (NH3 → nitrito NO2 → nitrato NO3); o nitrato é a forma absorvida pelas plantas. As subetapas são nitrosação (amônia→nitrito) e nitratação (nitrito→nitrato). 3) Desnitrificação: bactérias desnitrificantes devolvem o nitrato à atmosfera como N2, fechando o ciclo.",
+      "como_cai": "Falou em aprisionar/capturar o nitrogênio no solo, plantio com leguminosas ou reduzir fertilizantes → é fixação biológica por bactérias nas raízes. Falou em transformar amônia em nitrato → nitrificação. Falou em devolver o nitrogênio à atmosfera / reduzir a forma mais oxidada → desnitrificação.",
+      "atalho": "Fixação (leguminosas) põe N no solo; nitrificação vira nitrato absorvível; desnitrificação devolve N2 ao ar.",
+      "formulas": [
+        {"rotulo": "Fixação", "latex": "\\mathrm{N_2\\longrightarrow NH_3}"},
+        {"rotulo": "Nitrificação", "latex": "\\mathrm{NH_3\\longrightarrow NO_2^-\\longrightarrow NO_3^-}"},
+        {"rotulo": "Desnitrificação", "latex": "\\mathrm{NO_3^-\\longrightarrow N_2\\uparrow}"}
+      ]
+    },
+    {
+      "nome": "Ciclo do carbono",
+      "conceitos": ["fotossíntese", "respiração", "combustão", "combustíveis fósseis", "aquecimento global"],
+      "ideia": "O carbono está na atmosfera como CO2. A fotossíntese o fixa na matéria orgânica; respiração, decomposição e combustão o devolvem. O desequilíbrio vem de liberar carbono que estava fora do ciclo.",
+      "como_funciona": "Fotossíntese (produtores): CO2 + água → glicose + O2 — o carbono atmosférico entra na matéria orgânica e sobe pela cadeia alimentar. Respiração celular (todos os seres vivos): glicose + O2 → água + CO2 + energia — devolve CO2. Decomposição também devolve CO2. A combustão de combustíveis fósseis (petróleo, carvão) libera CO2 que estava aprisionado no subsolo por milhões de anos, fora do ciclo; isso aumenta o CO2 atmosférico e leva ao aquecimento global.",
+      "como_cai": "Uso de petróleo/carvão desequilibra o ciclo do carbono porque libera carbono antes aprisionado no sedimento. Sobre sequestro de carbono: é maior em plantas em crescimento (reflorestar áreas degradadas), não em floresta nativa madura — nela o que é absorvido é devolvido pela respiração (pegadinha).",
+      "atalho": "Fotossíntese fixa; respiração/decomposição/combustão liberam. Fóssil = carbono \"novo\" fora do ciclo → aquecimento. Sequestro é maior em floresta que cresce, não na madura.",
+      "formulas": [
+        {"rotulo": "Fotossíntese", "latex": "6\\,\\mathrm{CO_2}+6\\,\\mathrm{H_2O}\\xrightarrow{\\text{luz}}\\mathrm{C_6H_{12}O_6}+6\\,\\mathrm{O_2}"},
+        {"rotulo": "Respiração celular", "latex": "\\mathrm{C_6H_{12}O_6}+6\\,\\mathrm{O_2}\\longrightarrow6\\,\\mathrm{CO_2}+6\\,\\mathrm{H_2O}+\\text{energia}"}
+      ]
+    },
+    {
+      "nome": "Fitoplâncton e produtores aquáticos",
+      "conceitos": ["produtor", "autótrofo", "cadeia alimentar aquática", "fotossíntese"],
+      "ideia": "No ambiente aquático o fitoplâncton (algas) é o produtor, a base da cadeia alimentar — o equivalente às plantas em terra.",
+      "como_funciona": "As algas do fitoplâncton são autótrofas: fazem fotossíntese e sustentam a cadeia (fitoplâncton → zooplâncton → peixes). Sua importância ecológica é ser produtor/base da cadeia, não consumidor nem decompositor. A fotossíntese depende de luz: se a água escurece (ex.: corantes/poluição), a luz não penetra e o impacto negativo inicial é a inibição da fotossíntese.",
+      "como_cai": "Pergunta a importância ecológica das algas/recifes → autótrofos, base da cadeia alimentar marinha. Escurecimento da água → inibição da fotossíntese (efeito inicial, antes de eutrofização).",
+      "atalho": "Fitoplâncton = produtor autótrofo, base da cadeia aquática. Água escura → falta luz → inibe fotossíntese.",
+      "formulas": [
+        {"rotulo": "Produtividade primária líquida", "latex": "\\mathrm{PPL=PPB-R}"},
+        {"rotulo": "Energia disponível", "latex": "E_{n+1}\\approx0{,}1\\,E_n"}
+      ]
+    },
+    {
+      "nome": "Sucessão ecológica",
+      "conceitos": ["comunidade pioneira", "estágios intermediários", "comunidade clímax", "estratégias r e K"],
+      "ideia": "Processo dinâmico que transforma um ambiente inóspito (sem vida) até uma comunidade clímax, exuberante e diversa. Três grandezas mudam de forma previsível ao longo do tempo.",
+      "como_funciona": "Do estágio pioneiro ao clímax: a variabilidade das condições ambientais (umidade, temperatura) DIMINUI (ambiente fica mais estável); a taxa/velocidade de crescimento DIMINUI (no clímax já está tudo \"construído\"); a complexidade/biodiversidade AUMENTA. Para recuperar uma área desmatada usam-se espécies pioneiras: alto potencial biótico, crescimento rápido, muitos descendentes pequenos, vida curta (estratégia r) — elas recolonizam rápido. As espécies de clímax (estratégia K: crescimento lento, poucos descendentes grandes, vida longa) vêm depois.",
+      "como_cai": "Reflorestar área desmatada → começar pelas espécies pioneiras (alto potencial biótico, rápida recolonização). Importância das pioneiras no solo → estabilização da umidade (condição ambiental fica menos variável). Gráficos: identificar qual curva sobe (complexidade) e quais descem (variabilidade ambiental e taxa de crescimento).",
+      "atalho": "Pioneiro → clímax: ambiente estabiliza, crescimento desacelera, complexidade sobe. Área desmatada começa por espécies pioneiras (estratégia r).",
+      "formulas": [
+        {"rotulo": "Tendência da diversidade", "latex": "\\frac{dD}{dt}>0"},
+        {"rotulo": "Tendência da variabilidade ambiental", "latex": "\\frac{dV}{dt}<0"},
+        {"rotulo": "Crescimento logístico", "latex": "\\frac{dN}{dt}=rN\\left(1-\\frac{N}{K}\\right)"}
+      ]
+    }
+  ],
+  "fechamento": "Cinco modelos básicos de ecologia que caem muito: magnificação trófica (maior nível trófico acumula mais), ciclo do nitrogênio (fixação, nitrificação, desnitrificação), ciclo do carbono (fotossíntese × respiração e o carbono fóssil fora do ciclo), fitoplâncton como produtor base da cadeia aquática e sucessão ecológica (do pioneiro ao clímax). Pratique com as questões de Ecologia do banco para fixar cada padrão.",
+  "fonte": "Conteúdo sintetizado a partir da transcrição da videoaula (uso de estudo pessoal do assinante)."
+}

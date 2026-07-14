@@ -1,17 +1,1 @@
-{
-  "name": "CN Estratégia — ENEM Ciências da Natureza",
-  "short_name": "CN Estratégia",
-  "description": "Plataforma pessoal de estudo estratégico do ENEM (Ciências da Natureza) com TRI, microdados oficiais e acompanhamento de erros e acertos.",
-  "start_url": "index.html",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "portrait-primary",
-  "background_color": "#0c1116",
-  "theme_color": "#123b2b",
-  "lang": "pt-BR",
-  "icons": [
-    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
-  ]
-}
+{"name":"ENEM Atlas","short_name":"ENEM Atlas","description":"Inteligência de prova baseada na Matriz e nos microdados do INEP.","start_url":"./","display":"standalone","background_color":"#f4f2ed","theme_color":"#f4f2ed","icons":[{"src":"assets/icon-192.png","sizes":"192x192","type":"image/png"},{"src":"assets/icon-512.png","sizes":"512x512","type":"image/png"}]}

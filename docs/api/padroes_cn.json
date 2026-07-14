@@ -1,0 +1,3207 @@
+{
+  "meta": {
+    "area": "CN",
+    "area_nome": "Ciências da Natureza",
+    "fonte": "Microdados do ENEM (INEP) — arquivos ITENS_PROVA, 2010–2025",
+    "total_calibracao": 1698,
+    "total_com_habilidade": 1462,
+    "media": 624.7,
+    "desvio": 76.4,
+    "b_min": 319.9,
+    "b_max": 881.5,
+    "regua": [
+      {
+        "rotulo": "Muito fácil",
+        "total": 326,
+        "pct": 19.2
+      },
+      {
+        "rotulo": "Fácil",
+        "total": 446,
+        "pct": 26.3
+      },
+      {
+        "rotulo": "Mediana",
+        "total": 543,
+        "pct": 32.0
+      },
+      {
+        "rotulo": "Difícil",
+        "total": 282,
+        "pct": 16.6
+      },
+      {
+        "rotulo": "Muito difícil",
+        "total": 101,
+        "pct": 5.9
+      }
+    ],
+    "por_ano": [
+      {
+        "ano": 2010,
+        "total": 40
+      },
+      {
+        "ano": 2011,
+        "total": 84
+      },
+      {
+        "ano": 2012,
+        "total": 90
+      },
+      {
+        "ano": 2013,
+        "total": 56
+      },
+      {
+        "ano": 2014,
+        "total": 43
+      },
+      {
+        "ano": 2015,
+        "total": 51
+      },
+      {
+        "ano": 2016,
+        "total": 108
+      },
+      {
+        "ano": 2017,
+        "total": 143
+      },
+      {
+        "ano": 2018,
+        "total": 98
+      },
+      {
+        "ano": 2019,
+        "total": 89
+      },
+      {
+        "ano": 2020,
+        "total": 147
+      },
+      {
+        "ano": 2021,
+        "total": 104
+      },
+      {
+        "ano": 2022,
+        "total": 87
+      },
+      {
+        "ano": 2023,
+        "total": 94
+      },
+      {
+        "ano": 2024,
+        "total": 94
+      },
+      {
+        "ano": 2025,
+        "total": 134
+      }
+    ],
+    "regras": "Exclui 2009 (piloto), itens anulados e b fora de [-3,4]; dedup por CO_ITEM; b_enem=500+100·b."
+  },
+  "ranking": [
+    18,
+    17,
+    1,
+    20,
+    24,
+    14,
+    3,
+    2,
+    5,
+    8,
+    21,
+    25,
+    19,
+    10,
+    23,
+    26,
+    7,
+    22,
+    12,
+    16,
+    28,
+    9,
+    15,
+    27,
+    4,
+    6,
+    30,
+    11,
+    29,
+    13
+  ],
+  "habilidades": {
+    "1": {
+      "id": 1,
+      "competencia": 1,
+      "area": "Física",
+      "descricao": "Fenômenos ondulatórios e oscilatórios em seus usos e contextos.",
+      "total": 59,
+      "freq_pct": 4.0,
+      "media_b": 644.4,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 439.4,
+      "b_max": 775.8,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 3
+        },
+        {
+          "ano": 2014,
+          "total": 3
+        },
+        {
+          "ano": 2015,
+          "total": 4
+        },
+        {
+          "ano": 2016,
+          "total": 4
+        },
+        {
+          "ano": 2017,
+          "total": 5
+        },
+        {
+          "ano": 2018,
+          "total": 5
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 6
+        },
+        {
+          "ano": 2021,
+          "total": 4
+        },
+        {
+          "ano": 2022,
+          "total": 4
+        },
+        {
+          "ano": 2023,
+          "total": 5
+        },
+        {
+          "ano": 2024,
+          "total": 2
+        },
+        {
+          "ano": 2025,
+          "total": 3
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 16
+        },
+        {
+          "letra": "B",
+          "total": 11
+        },
+        {
+          "letra": "C",
+          "total": 13
+        },
+        {
+          "letra": "D",
+          "total": 9
+        },
+        {
+          "letra": "E",
+          "total": 10
+        }
+      ]
+    },
+    "2": {
+      "id": 2,
+      "competencia": 1,
+      "area": "Física",
+      "descricao": "Solução de problemas de comunicação, transporte ou saúde e o desenvolvimento científico-tecnológico.",
+      "total": 54,
+      "freq_pct": 3.7,
+      "media_b": 631.9,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 454.4,
+      "b_max": 788.1,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 2
+        },
+        {
+          "ano": 2015,
+          "total": 2
+        },
+        {
+          "ano": 2016,
+          "total": 5
+        },
+        {
+          "ano": 2017,
+          "total": 7
+        },
+        {
+          "ano": 2018,
+          "total": 3
+        },
+        {
+          "ano": 2019,
+          "total": 4
+        },
+        {
+          "ano": 2020,
+          "total": 6
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 8
+        },
+        {
+          "letra": "B",
+          "total": 12
+        },
+        {
+          "letra": "C",
+          "total": 14
+        },
+        {
+          "letra": "D",
+          "total": 11
+        },
+        {
+          "letra": "E",
+          "total": 9
+        }
+      ]
+    },
+    "3": {
+      "id": 3,
+      "competencia": 1,
+      "area": "Interdisciplinar",
+      "descricao": "Interpretações científicas frente ao senso comum ao longo do tempo e entre culturas.",
+      "total": 55,
+      "freq_pct": 3.8,
+      "media_b": 603.0,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 385.1,
+      "b_max": 784.4,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 4
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 4
+        },
+        {
+          "ano": 2016,
+          "total": 4
+        },
+        {
+          "ano": 2017,
+          "total": 4
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 4
+        },
+        {
+          "ano": 2020,
+          "total": 7
+        },
+        {
+          "ano": 2021,
+          "total": 2
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 6
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 16
+        },
+        {
+          "letra": "B",
+          "total": 10
+        },
+        {
+          "letra": "C",
+          "total": 8
+        },
+        {
+          "letra": "D",
+          "total": 11
+        },
+        {
+          "letra": "E",
+          "total": 10
+        }
+      ]
+    },
+    "4": {
+      "id": 4,
+      "competencia": 1,
+      "area": "Biologia",
+      "descricao": "Propostas de intervenção no ambiente: qualidade de vida e conservação da biodiversidade.",
+      "total": 42,
+      "freq_pct": 2.9,
+      "media_b": 571.9,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 447.6,
+      "b_max": 777.2,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 3
+        },
+        {
+          "ano": 2017,
+          "total": 3
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 7
+        },
+        {
+          "ano": 2021,
+          "total": 4
+        },
+        {
+          "ano": 2022,
+          "total": 2
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 2
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 9
+        },
+        {
+          "letra": "B",
+          "total": 8
+        },
+        {
+          "letra": "C",
+          "total": 12
+        },
+        {
+          "letra": "D",
+          "total": 4
+        },
+        {
+          "letra": "E",
+          "total": 9
+        }
+      ]
+    },
+    "5": {
+      "id": 5,
+      "competencia": 2,
+      "area": "Física",
+      "descricao": "Dimensionamento de circuitos ou dispositivos elétricos de uso cotidiano.",
+      "total": 54,
+      "freq_pct": 3.7,
+      "media_b": 679.6,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 547.1,
+      "b_max": 838.6,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 3
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 4
+        },
+        {
+          "ano": 2017,
+          "total": 5
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 6
+        },
+        {
+          "ano": 2021,
+          "total": 9
+        },
+        {
+          "ano": 2022,
+          "total": 2
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 4
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 8
+        },
+        {
+          "letra": "B",
+          "total": 12
+        },
+        {
+          "letra": "C",
+          "total": 10
+        },
+        {
+          "letra": "D",
+          "total": 15
+        },
+        {
+          "letra": "E",
+          "total": 9
+        }
+      ]
+    },
+    "6": {
+      "id": 6,
+      "competencia": 2,
+      "area": "Física",
+      "descricao": "Manuais de instalação ou utilização de aparelhos e sistemas tecnológicos.",
+      "total": 42,
+      "freq_pct": 2.9,
+      "media_b": 659.7,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 483.0,
+      "b_max": 880.0,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 4
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 4
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 5
+        },
+        {
+          "ano": 2021,
+          "total": 4
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 2
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 5
+        },
+        {
+          "letra": "B",
+          "total": 11
+        },
+        {
+          "letra": "C",
+          "total": 13
+        },
+        {
+          "letra": "D",
+          "total": 10
+        },
+        {
+          "letra": "E",
+          "total": 3
+        }
+      ]
+    },
+    "7": {
+      "id": 7,
+      "competencia": 2,
+      "area": "Química",
+      "descricao": "Testes de controle, parâmetros e critérios para comparar materiais e produtos.",
+      "total": 46,
+      "freq_pct": 3.1,
+      "media_b": 647.5,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 432.5,
+      "b_max": 836.5,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 4
+        },
+        {
+          "ano": 2017,
+          "total": 5
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 4
+        },
+        {
+          "ano": 2020,
+          "total": 5
+        },
+        {
+          "ano": 2021,
+          "total": 2
+        },
+        {
+          "ano": 2022,
+          "total": 2
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 10
+        },
+        {
+          "letra": "B",
+          "total": 8
+        },
+        {
+          "letra": "C",
+          "total": 14
+        },
+        {
+          "letra": "D",
+          "total": 11
+        },
+        {
+          "letra": "E",
+          "total": 3
+        }
+      ]
+    },
+    "8": {
+      "id": 8,
+      "competencia": 3,
+      "area": "Química",
+      "descricao": "Etapas de obtenção, transformação, uso ou reciclagem de recursos.",
+      "total": 54,
+      "freq_pct": 3.7,
+      "media_b": 618.9,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 400.0,
+      "b_max": 760.9,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 5
+        },
+        {
+          "ano": 2017,
+          "total": 7
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 4
+        },
+        {
+          "ano": 2020,
+          "total": 5
+        },
+        {
+          "ano": 2021,
+          "total": 6
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 12
+        },
+        {
+          "letra": "B",
+          "total": 10
+        },
+        {
+          "letra": "C",
+          "total": 14
+        },
+        {
+          "letra": "D",
+          "total": 10
+        },
+        {
+          "letra": "E",
+          "total": 8
+        }
+      ]
+    },
+    "9": {
+      "id": 9,
+      "competencia": 3,
+      "area": "Biologia",
+      "descricao": "Ciclos biogeoquímicos e fluxo de energia para a vida.",
+      "total": 43,
+      "freq_pct": 2.9,
+      "media_b": 634.6,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 513.3,
+      "b_max": 879.9,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 3
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 4
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 3
+        },
+        {
+          "ano": 2021,
+          "total": 4
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 2
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 11
+        },
+        {
+          "letra": "B",
+          "total": 7
+        },
+        {
+          "letra": "C",
+          "total": 7
+        },
+        {
+          "letra": "D",
+          "total": 6
+        },
+        {
+          "letra": "E",
+          "total": 12
+        }
+      ]
+    },
+    "10": {
+      "id": 10,
+      "competencia": 3,
+      "area": "Química",
+      "descricao": "Perturbações ambientais: fontes, transporte e efeitos dos poluentes.",
+      "total": 48,
+      "freq_pct": 3.3,
+      "media_b": 598.4,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 436.1,
+      "b_max": 725.8,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 2
+        },
+        {
+          "ano": 2016,
+          "total": 3
+        },
+        {
+          "ano": 2017,
+          "total": 3
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 7
+        },
+        {
+          "ano": 2021,
+          "total": 6
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 12
+        },
+        {
+          "letra": "B",
+          "total": 13
+        },
+        {
+          "letra": "C",
+          "total": 8
+        },
+        {
+          "letra": "D",
+          "total": 7
+        },
+        {
+          "letra": "E",
+          "total": 8
+        }
+      ]
+    },
+    "11": {
+      "id": 11,
+      "competencia": 3,
+      "area": "Biologia",
+      "descricao": "Biotecnologia: benefícios, limitações e aspectos éticos.",
+      "total": 40,
+      "freq_pct": 2.7,
+      "media_b": 598.4,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 427.3,
+      "b_max": 703.5,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 2
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 3
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 4
+        },
+        {
+          "ano": 2021,
+          "total": 2
+        },
+        {
+          "ano": 2022,
+          "total": 2
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 5
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 7
+        },
+        {
+          "letra": "B",
+          "total": 7
+        },
+        {
+          "letra": "C",
+          "total": 9
+        },
+        {
+          "letra": "D",
+          "total": 8
+        },
+        {
+          "letra": "E",
+          "total": 9
+        }
+      ]
+    },
+    "12": {
+      "id": 12,
+      "competencia": 3,
+      "area": "Biologia",
+      "descricao": "Impactos ambientais decorrentes de atividades sociais ou econômicas.",
+      "total": 44,
+      "freq_pct": 3.0,
+      "media_b": 601.2,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 457.8,
+      "b_max": 773.6,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 4
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 4
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 2
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 5
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 9
+        },
+        {
+          "letra": "B",
+          "total": 8
+        },
+        {
+          "letra": "C",
+          "total": 7
+        },
+        {
+          "letra": "D",
+          "total": 12
+        },
+        {
+          "letra": "E",
+          "total": 8
+        }
+      ]
+    },
+    "13": {
+      "id": 13,
+      "competencia": 4,
+      "area": "Biologia",
+      "descricao": "Mecanismos de transmissão da vida e manifestação de características.",
+      "total": 36,
+      "freq_pct": 2.5,
+      "media_b": 617.7,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 463.6,
+      "b_max": 819.8,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 2
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 4
+        },
+        {
+          "ano": 2018,
+          "total": 3
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 4
+        },
+        {
+          "ano": 2021,
+          "total": 1
+        },
+        {
+          "ano": 2022,
+          "total": 2
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 3
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 4
+        },
+        {
+          "letra": "B",
+          "total": 9
+        },
+        {
+          "letra": "C",
+          "total": 7
+        },
+        {
+          "letra": "D",
+          "total": 8
+        },
+        {
+          "letra": "E",
+          "total": 8
+        }
+      ]
+    },
+    "14": {
+      "id": 14,
+      "competencia": 4,
+      "area": "Biologia",
+      "descricao": "Padrões em processos vitais: equilíbrio, defesa, sexualidade.",
+      "total": 56,
+      "freq_pct": 3.8,
+      "media_b": 606.0,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 389.8,
+      "b_max": 881.5,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 3
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 3
+        },
+        {
+          "ano": 2016,
+          "total": 8
+        },
+        {
+          "ano": 2017,
+          "total": 5
+        },
+        {
+          "ano": 2018,
+          "total": 3
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 5
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 4
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 12
+        },
+        {
+          "letra": "B",
+          "total": 12
+        },
+        {
+          "letra": "C",
+          "total": 11
+        },
+        {
+          "letra": "D",
+          "total": 14
+        },
+        {
+          "letra": "E",
+          "total": 7
+        }
+      ]
+    },
+    "15": {
+      "id": 15,
+      "competencia": 4,
+      "area": "Biologia",
+      "descricao": "Modelos e experimentos para explicar fenômenos biológicos.",
+      "total": 43,
+      "freq_pct": 2.9,
+      "media_b": 603.7,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 358.1,
+      "b_max": 771.3,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 1
+        },
+        {
+          "ano": 2012,
+          "total": 5
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 4
+        },
+        {
+          "ano": 2016,
+          "total": 3
+        },
+        {
+          "ano": 2017,
+          "total": 3
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 3
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 7
+        },
+        {
+          "letra": "B",
+          "total": 8
+        },
+        {
+          "letra": "C",
+          "total": 13
+        },
+        {
+          "letra": "D",
+          "total": 5
+        },
+        {
+          "letra": "E",
+          "total": 10
+        }
+      ]
+    },
+    "16": {
+      "id": 16,
+      "competencia": 4,
+      "area": "Biologia",
+      "descricao": "Papel da evolução em padrões, processos e organização taxonômica.",
+      "total": 44,
+      "freq_pct": 3.0,
+      "media_b": 607.5,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 420.8,
+      "b_max": 749.7,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 5
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 6
+        },
+        {
+          "ano": 2021,
+          "total": 4
+        },
+        {
+          "ano": 2022,
+          "total": 2
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 7
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 3
+        },
+        {
+          "letra": "B",
+          "total": 10
+        },
+        {
+          "letra": "C",
+          "total": 17
+        },
+        {
+          "letra": "D",
+          "total": 8
+        },
+        {
+          "letra": "E",
+          "total": 6
+        }
+      ]
+    },
+    "17": {
+      "id": 17,
+      "competencia": 5,
+      "area": "Interdisciplinar",
+      "descricao": "Relacionar informações em diferentes linguagens e representações.",
+      "total": 61,
+      "freq_pct": 4.2,
+      "media_b": 622.0,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 453.4,
+      "b_max": 805.7,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 2
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 9
+        },
+        {
+          "ano": 2017,
+          "total": 6
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 4
+        },
+        {
+          "ano": 2020,
+          "total": 5
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 4
+        },
+        {
+          "ano": 2023,
+          "total": 5
+        },
+        {
+          "ano": 2024,
+          "total": 4
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 10
+        },
+        {
+          "letra": "B",
+          "total": 12
+        },
+        {
+          "letra": "C",
+          "total": 15
+        },
+        {
+          "letra": "D",
+          "total": 10
+        },
+        {
+          "letra": "E",
+          "total": 13
+        }
+      ]
+    },
+    "18": {
+      "id": 18,
+      "competencia": 5,
+      "area": "Interdisciplinar",
+      "descricao": "Relacionar propriedades de produtos, sistemas ou procedimentos tecnológicos.",
+      "total": 63,
+      "freq_pct": 4.3,
+      "media_b": 633.8,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 463.7,
+      "b_max": 765.3,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 6
+        },
+        {
+          "ano": 2013,
+          "total": 4
+        },
+        {
+          "ano": 2014,
+          "total": 2
+        },
+        {
+          "ano": 2015,
+          "total": 3
+        },
+        {
+          "ano": 2016,
+          "total": 5
+        },
+        {
+          "ano": 2017,
+          "total": 7
+        },
+        {
+          "ano": 2018,
+          "total": 3
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 5
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 4
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 4
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 18
+        },
+        {
+          "letra": "B",
+          "total": 11
+        },
+        {
+          "letra": "C",
+          "total": 11
+        },
+        {
+          "letra": "D",
+          "total": 13
+        },
+        {
+          "letra": "E",
+          "total": 10
+        }
+      ]
+    },
+    "19": {
+      "id": 19,
+      "competencia": 5,
+      "area": "Interdisciplinar",
+      "descricao": "Métodos e procedimentos das ciências para diagnosticar ou solucionar problemas.",
+      "total": 50,
+      "freq_pct": 3.4,
+      "media_b": 633.9,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 471.8,
+      "b_max": 819.4,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 4
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 2
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 3
+        },
+        {
+          "ano": 2017,
+          "total": 7
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 7
+        },
+        {
+          "ano": 2021,
+          "total": 5
+        },
+        {
+          "ano": 2022,
+          "total": 1
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 2
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 7
+        },
+        {
+          "letra": "B",
+          "total": 7
+        },
+        {
+          "letra": "C",
+          "total": 11
+        },
+        {
+          "letra": "D",
+          "total": 10
+        },
+        {
+          "letra": "E",
+          "total": 15
+        }
+      ]
+    },
+    "20": {
+      "id": 20,
+      "competencia": 6,
+      "area": "Física",
+      "descricao": "Movimentos de partículas, substâncias, objetos ou corpos celestes.",
+      "total": 58,
+      "freq_pct": 4.0,
+      "media_b": 658.4,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 463.6,
+      "b_max": 824.4,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 3
+        },
+        {
+          "ano": 2012,
+          "total": 4
+        },
+        {
+          "ano": 2013,
+          "total": 3
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 5
+        },
+        {
+          "ano": 2017,
+          "total": 7
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 5
+        },
+        {
+          "ano": 2020,
+          "total": 4
+        },
+        {
+          "ano": 2021,
+          "total": 4
+        },
+        {
+          "ano": 2022,
+          "total": 4
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 8
+        },
+        {
+          "letra": "B",
+          "total": 13
+        },
+        {
+          "letra": "C",
+          "total": 14
+        },
+        {
+          "letra": "D",
+          "total": 13
+        },
+        {
+          "letra": "E",
+          "total": 10
+        }
+      ]
+    },
+    "21": {
+      "id": 21,
+      "competencia": 6,
+      "area": "Física",
+      "descricao": "Leis físicas ou químicas para interpretar processos naturais ou tecnológicos.",
+      "total": 52,
+      "freq_pct": 3.6,
+      "media_b": 635.9,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 491.8,
+      "b_max": 788.0,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2013,
+          "total": 3
+        },
+        {
+          "ano": 2014,
+          "total": 2
+        },
+        {
+          "ano": 2015,
+          "total": 2
+        },
+        {
+          "ano": 2016,
+          "total": 3
+        },
+        {
+          "ano": 2017,
+          "total": 6
+        },
+        {
+          "ano": 2018,
+          "total": 5
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 4
+        },
+        {
+          "ano": 2021,
+          "total": 2
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 8
+        },
+        {
+          "letra": "B",
+          "total": 10
+        },
+        {
+          "letra": "C",
+          "total": 11
+        },
+        {
+          "letra": "D",
+          "total": 13
+        },
+        {
+          "letra": "E",
+          "total": 10
+        }
+      ]
+    },
+    "22": {
+      "id": 22,
+      "competencia": 6,
+      "area": "Física",
+      "descricao": "Interação entre radiação e matéria.",
+      "total": 46,
+      "freq_pct": 3.1,
+      "media_b": 636.5,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 443.9,
+      "b_max": 813.7,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 5
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 3
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 4
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 2
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 10
+        },
+        {
+          "letra": "B",
+          "total": 6
+        },
+        {
+          "letra": "C",
+          "total": 6
+        },
+        {
+          "letra": "D",
+          "total": 13
+        },
+        {
+          "letra": "E",
+          "total": 11
+        }
+      ]
+    },
+    "23": {
+      "id": 23,
+      "competencia": 6,
+      "area": "Física",
+      "descricao": "Geração, uso ou transformação de energia em ambientes específicos.",
+      "total": 47,
+      "freq_pct": 3.2,
+      "media_b": 634.9,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 479.7,
+      "b_max": 768.3,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 1
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 2
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 3
+        },
+        {
+          "ano": 2018,
+          "total": 5
+        },
+        {
+          "ano": 2019,
+          "total": 4
+        },
+        {
+          "ano": 2020,
+          "total": 6
+        },
+        {
+          "ano": 2021,
+          "total": 4
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 4
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 12
+        },
+        {
+          "letra": "B",
+          "total": 9
+        },
+        {
+          "letra": "C",
+          "total": 9
+        },
+        {
+          "letra": "D",
+          "total": 12
+        },
+        {
+          "letra": "E",
+          "total": 5
+        }
+      ]
+    },
+    "24": {
+      "id": 24,
+      "competencia": 7,
+      "area": "Química",
+      "descricao": "Códigos e nomenclatura química para caracterizar materiais e transformações.",
+      "total": 58,
+      "freq_pct": 4.0,
+      "media_b": 647.8,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 501.1,
+      "b_max": 776.6,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2013,
+          "total": 4
+        },
+        {
+          "ano": 2014,
+          "total": 4
+        },
+        {
+          "ano": 2015,
+          "total": 2
+        },
+        {
+          "ano": 2016,
+          "total": 4
+        },
+        {
+          "ano": 2017,
+          "total": 6
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 5
+        },
+        {
+          "ano": 2021,
+          "total": 5
+        },
+        {
+          "ano": 2022,
+          "total": 4
+        },
+        {
+          "ano": 2023,
+          "total": 4
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 3
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 15
+        },
+        {
+          "letra": "B",
+          "total": 14
+        },
+        {
+          "letra": "C",
+          "total": 10
+        },
+        {
+          "letra": "D",
+          "total": 10
+        },
+        {
+          "letra": "E",
+          "total": 9
+        }
+      ]
+    },
+    "25": {
+      "id": 25,
+      "competencia": 7,
+      "area": "Química",
+      "descricao": "Caracterização de materiais: etapas, rendimentos e implicações.",
+      "total": 52,
+      "freq_pct": 3.6,
+      "media_b": 658.8,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 469.6,
+      "b_max": 788.6,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 6
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 3
+        },
+        {
+          "ano": 2015,
+          "total": 2
+        },
+        {
+          "ano": 2016,
+          "total": 4
+        },
+        {
+          "ano": 2017,
+          "total": 6
+        },
+        {
+          "ano": 2018,
+          "total": 3
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 3
+        },
+        {
+          "ano": 2021,
+          "total": 4
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 6
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 8
+        },
+        {
+          "letra": "B",
+          "total": 12
+        },
+        {
+          "letra": "C",
+          "total": 15
+        },
+        {
+          "letra": "D",
+          "total": 14
+        },
+        {
+          "letra": "E",
+          "total": 3
+        }
+      ]
+    },
+    "26": {
+      "id": 26,
+      "competencia": 7,
+      "area": "Química",
+      "descricao": "Implicações socioambientais e econômicas na produção e consumo de recursos.",
+      "total": 47,
+      "freq_pct": 3.2,
+      "media_b": 627.7,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 413.7,
+      "b_max": 818.8,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 2
+        },
+        {
+          "ano": 2011,
+          "total": 1
+        },
+        {
+          "ano": 2012,
+          "total": 5
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 4
+        },
+        {
+          "ano": 2016,
+          "total": 4
+        },
+        {
+          "ano": 2017,
+          "total": 4
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 3
+        },
+        {
+          "ano": 2020,
+          "total": 5
+        },
+        {
+          "ano": 2021,
+          "total": 1
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 3
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 5
+        },
+        {
+          "letra": "B",
+          "total": 8
+        },
+        {
+          "letra": "C",
+          "total": 14
+        },
+        {
+          "letra": "D",
+          "total": 10
+        },
+        {
+          "letra": "E",
+          "total": 10
+        }
+      ]
+    },
+    "27": {
+      "id": 27,
+      "competencia": 7,
+      "area": "Química",
+      "descricao": "Propostas de intervenção no ambiente com base em conhecimentos químicos.",
+      "total": 43,
+      "freq_pct": 2.9,
+      "media_b": 638.4,
+      "tier": {
+        "nivel": 3,
+        "rotulo": "Mediana"
+      },
+      "b_min": 459.0,
+      "b_max": 810.6,
+      "por_ano": [
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 3
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 2
+        },
+        {
+          "ano": 2016,
+          "total": 5
+        },
+        {
+          "ano": 2017,
+          "total": 3
+        },
+        {
+          "ano": 2018,
+          "total": 3
+        },
+        {
+          "ano": 2019,
+          "total": 4
+        },
+        {
+          "ano": 2020,
+          "total": 3
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 4
+        },
+        {
+          "ano": 2023,
+          "total": 2
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 3
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 6
+        },
+        {
+          "letra": "B",
+          "total": 9
+        },
+        {
+          "letra": "C",
+          "total": 8
+        },
+        {
+          "letra": "D",
+          "total": 11
+        },
+        {
+          "letra": "E",
+          "total": 9
+        }
+      ]
+    },
+    "28": {
+      "id": 28,
+      "competencia": 8,
+      "area": "Biologia",
+      "descricao": "Características adaptativas dos organismos ao modo de vida e distribuição.",
+      "total": 44,
+      "freq_pct": 3.0,
+      "media_b": 604.6,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 455.9,
+      "b_max": 797.3,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 2
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 5
+        },
+        {
+          "ano": 2018,
+          "total": 4
+        },
+        {
+          "ano": 2019,
+          "total": 4
+        },
+        {
+          "ano": 2020,
+          "total": 4
+        },
+        {
+          "ano": 2021,
+          "total": 3
+        },
+        {
+          "ano": 2022,
+          "total": 2
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 4
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 8
+        },
+        {
+          "letra": "B",
+          "total": 8
+        },
+        {
+          "letra": "C",
+          "total": 13
+        },
+        {
+          "letra": "D",
+          "total": 8
+        },
+        {
+          "letra": "E",
+          "total": 7
+        }
+      ]
+    },
+    "29": {
+      "id": 29,
+      "competencia": 8,
+      "area": "Biologia",
+      "descricao": "Experimentos e técnicas que utilizam seres vivos.",
+      "total": 40,
+      "freq_pct": 2.7,
+      "media_b": 614.8,
+      "tier": {
+        "nivel": 2,
+        "rotulo": "Fácil"
+      },
+      "b_min": 516.9,
+      "b_max": 819.2,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 2
+        },
+        {
+          "ano": 2012,
+          "total": 3
+        },
+        {
+          "ano": 2013,
+          "total": 2
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 3
+        },
+        {
+          "ano": 2017,
+          "total": 4
+        },
+        {
+          "ano": 2018,
+          "total": 2
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 4
+        },
+        {
+          "ano": 2021,
+          "total": 2
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 4
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 6
+        },
+        {
+          "letra": "B",
+          "total": 11
+        },
+        {
+          "letra": "C",
+          "total": 4
+        },
+        {
+          "letra": "D",
+          "total": 10
+        },
+        {
+          "letra": "E",
+          "total": 9
+        }
+      ]
+    },
+    "30": {
+      "id": 30,
+      "competencia": 8,
+      "area": "Biologia",
+      "descricao": "Propostas individuais ou coletivas para a manutenção da saúde.",
+      "total": 41,
+      "freq_pct": 2.8,
+      "media_b": 553.5,
+      "tier": {
+        "nivel": 1,
+        "rotulo": "Muito fácil"
+      },
+      "b_min": 319.9,
+      "b_max": 735.8,
+      "por_ano": [
+        {
+          "ano": 2010,
+          "total": 1
+        },
+        {
+          "ano": 2011,
+          "total": 4
+        },
+        {
+          "ano": 2012,
+          "total": 1
+        },
+        {
+          "ano": 2013,
+          "total": 1
+        },
+        {
+          "ano": 2014,
+          "total": 1
+        },
+        {
+          "ano": 2015,
+          "total": 1
+        },
+        {
+          "ano": 2016,
+          "total": 2
+        },
+        {
+          "ano": 2017,
+          "total": 3
+        },
+        {
+          "ano": 2018,
+          "total": 3
+        },
+        {
+          "ano": 2019,
+          "total": 2
+        },
+        {
+          "ano": 2020,
+          "total": 6
+        },
+        {
+          "ano": 2021,
+          "total": 2
+        },
+        {
+          "ano": 2022,
+          "total": 3
+        },
+        {
+          "ano": 2023,
+          "total": 3
+        },
+        {
+          "ano": 2024,
+          "total": 3
+        },
+        {
+          "ano": 2025,
+          "total": 5
+        }
+      ],
+      "gab": [
+        {
+          "letra": "A",
+          "total": 5
+        },
+        {
+          "letra": "B",
+          "total": 8
+        },
+        {
+          "letra": "C",
+          "total": 7
+        },
+        {
+          "letra": "D",
+          "total": 6
+        },
+        {
+          "letra": "E",
+          "total": 15
+        }
+      ]
+    }
+  }
+}
