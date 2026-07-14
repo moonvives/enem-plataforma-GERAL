@@ -26,7 +26,8 @@ Saídas:
 """
 import csv, glob, hashlib, json, os, re, unicodedata
 from collections import defaultdict, Counter
-from PIL import Image
+# Pillow é importado sob demanda dentro de to_webp(), para que os testes das
+# funções puras (parsing/gabarito/dedup) rodem sem a dependência de imagem.
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OCR = os.path.join(ROOT, "data", "ocr")
@@ -247,6 +248,7 @@ def classify(text, table, default):
 
 def to_webp(src, dst, max_w=1000, quality=82):
     """Converte um PNG/JPG para webp, limitando a largura. Retorna KB gravados."""
+    from PIL import Image
     try:
         im = Image.open(src).convert("RGB")
     except Exception:
@@ -281,6 +283,14 @@ def main():
     nat = json.load(open(os.path.join(NAT, "questoes.json"), encoding="utf-8"))
     e360 = [json.loads(l) for l in open(os.path.join(E360, "questoes.jsonl"), encoding="utf-8")]
     gabaritos = load_gabaritos()
+    # Backfill de metadados por número da questão a partir da extração regular
+    # (que já traz habilidade/competência/dificuldade do Enem 2024, ausentes no
+    # pacote-fonte nat720). As numerações coincidem (676–720 = Enem 2024).
+    regular_por_num = {}
+    reg_path = os.path.join(API, "questions_regular.json")
+    if os.path.exists(reg_path):
+        for q in json.load(open(reg_path, encoding="utf-8")).get("questoes", []):
+            regular_por_num[q.get("numero")] = q
     # e360 indexado pela questão nat correspondente (para anexar figuras limpas)
     e360_by_nat = {}
     for r in e360:
@@ -346,6 +356,17 @@ def main():
                                 al["t"] = ""
 
         hab = q.get("habilidade")
+        comp = q.get("competencia")
+        # Backfill de habilidade/competência/dificuldade a partir da extração
+        # regular quando o pacote-fonte não traz (caso do Enem 2024).
+        reg = regular_por_num.get(num)
+        if reg and reg.get("ano") == q.get("ano"):
+            if hab is None and reg.get("habilidade"):
+                hab = reg["habilidade"]
+            if comp is None and reg.get("competencia"):
+                comp = reg["competencia"]
+            if b is None and reg.get("dificuldade"):
+                b = round(float(reg["dificuldade"]), 1)
         record = {
             "id": "q%03d" % num,
             "num": num,
@@ -353,7 +374,7 @@ def main():
             "aplicacao": q.get("aplicacao"),
             "fonte": "Naturezas 720 (Enem 2009–2024)",
             "hab": hab,
-            "comp": q.get("competencia"),
+            "comp": comp,
             "hab_desc": q.get("habilidade_descricao"),
             "b_enem": b,
             "tier": tier_de(b),

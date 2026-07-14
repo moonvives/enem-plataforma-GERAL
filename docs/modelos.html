@@ -9,7 +9,13 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
   <style>
+    /* Fonte oficial do INEP nos cadernos do ENEM — aplicada só ao conteúdo da
+       questão (enunciado + alternativas A–E), não à interface do site. */
+    .qmodel .enun, .qmodel .alt{font-family:"Source Sans 3","Source Sans Pro",sans-serif}
     .viewtabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.25rem 0 .5rem}
     .viewtabs button{font:inherit;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:.55rem 1rem;border-radius:999px}
     .viewtabs button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
