@@ -47,7 +47,27 @@
     .alt img{border:1px solid var(--border);border-radius:8px;background:#fff}
     .count-note{color:var(--muted);font-size:.9rem;margin:.25rem 0 0}
     .empty{padding:2rem;text-align:center;color:var(--muted)}
+    /* Modelos de Biologia — conteúdo extraído das videoaulas */
+    #bio-modelos{display:flex;flex-direction:column;gap:.7rem;margin-top:1rem}
+    .biomodel{border:1px solid var(--border);border-radius:12px;background:var(--surface-2);overflow:hidden}
+    .biomodel>summary{cursor:pointer;padding:.9rem 1.1rem;font-weight:700;display:flex;align-items:center;gap:.6rem;list-style:none}
+    .biomodel>summary::-webkit-details-marker{display:none}
+    .biomodel>summary .idx{width:1.7rem;height:1.7rem;flex:none;display:grid;place-items:center;border-radius:8px;background:var(--brand);color:#fff;font-size:.85rem}
+    .biomodel>summary .qcount{margin-left:auto;font-size:.72rem;color:var(--muted);font-weight:600}
+    .biomodel>summary .chev{color:var(--muted);transition:transform .2s}
+    .biomodel[open]>summary .chev{transform:rotate(90deg)}
+    .biomodel .body{padding:0 1.1rem 1.1rem;display:flex;flex-direction:column;gap:.75rem}
+    .bio-block .l{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:800;margin-bottom:.2rem}
+    .bio-block p{margin:0;line-height:1.6}
+    .bio-block.atalho{background:rgba(58,125,68,.12);border:1px solid var(--t1);border-radius:10px;padding:.6rem .85rem}
+    .bio-block.atalho .l{color:var(--t1)}
+    .bio-formulas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.6rem}
+    .bio-formula{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.7rem;overflow:auto}
+    .bio-formula .l{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800;margin-bottom:.25rem}
+    .bio-formula .math{color:var(--brand)}
+    @media(max-width:600px){.bio-formulas{grid-template-columns:1fr}.katex-display{overflow:auto hidden}}
   </style>
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
 </head>
 <body data-page="modelos">
   <header class="site-header">
@@ -114,6 +134,7 @@
   </footer>
 
   <script src="assets/modelos.js"></script>
+  <script src="assets/vendor/katex/katex.min.js"></script>
   <script src="assets/auth.js"></script>
   <script src="assets/tracker.js"></script>
   <script src="assets/modelos-page.js"></script>

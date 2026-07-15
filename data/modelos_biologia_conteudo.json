@@ -1,0 +1,74 @@
+{
+  "_fonte": "Conteúdo sintetizado das transcrições das videoaulas (uso pessoal do assinante).",
+  "Filogenia e cladogramas": {
+    "ideia": "O cladograma mostra a linha evolutiva no tempo: mais para baixo = mais antigo; mais para cima = mais recente. Cada nó é o surgimento de uma característica que separou as linhagens.",
+    "como_cai": "As espécies mais semelhantes são as que se separaram mais recentemente (nó mais alto). Para 'quem é mais próximo de X', ache o nó de separação mais recente a partir de X.",
+    "atalho": "Semelhança = separação recente (nó alto). Distância = separação antiga."
+  },
+  "Seleção natural e adaptação": {
+    "ideia": "Cada ambiente impõe uma pressão seletiva que seleciona as características vantajosas NAQUELE ambiente; quem é mais adaptado sobrevive e reproduz mais, aumentando a frequência da característica (Darwin).",
+    "como_cai": "Mimetismo, domesticação (aumento da frequência de alelos de interesse), melhor parasita = o que não mata o hospedeiro. A alternativa segura costuma ser 'sobreviveram/reproduziram mais com essa característica'.",
+    "atalho": "Ambiente → pressão → seleciona o vantajoso → mais reprodução → aumenta a frequência da característica."
+  },
+  "Evidências evolutivas e especiação": {
+    "ideia": "Evolução é MUDANÇA (não melhoria; não há ápice). Especiação = nova espécie a partir de uma ancestral, só com ISOLAMENTO REPRODUTIVO (sem fluxo gênico).",
+    "como_cai": "Convergência adaptativa: ancestrais diferentes + mesma função = órgãos ANÁLOGOS (olho humano × olho de lula). Irradiação adaptativa: mesmo ancestral + funções diferentes = órgãos HOMÓLOGOS (braço × nadadeira). Raças de cão que não copulam mas mantêm fluxo gênico → sem especiação.",
+    "atalho": "Análogos = convergência (função igual). Homólogos = irradiação (origem igual). Especiação exige isolamento reprodutivo.",
+    "formulas": [{"rotulo": "Especiação", "latex": "\\text{fluxo g\\^enico}=0\\;\\Rightarrow\\;\\text{nova esp\\'ecie}"}]
+  },
+  "Taxonomia e nomenclatura": {
+    "ideia": "Classificação hierárquica dos seres vivos e o parentesco evolutivo lido no cladograma.",
+    "como_cai": "Relaciona grupos taxonômicos ao ponto de separação na filogenia; grupos irmãos = separação mais recente.",
+    "atalho": "Parentesco = proximidade do nó mais recente no cladograma."
+  },
+  "Digestão e absorção": {
+    "ideia": "Digestão quebra macronutrientes em moléculas absorvíveis: carboidrato → glicose; proteína → aminoácido; lipídio → ácido graxo. Catalisada por enzimas específicas, cada uma com pH ótimo.",
+    "como_cai": "Dão alimento + pH e pedem enzima/local. Carboidrato: boca (amilase, pH~7). Proteína: estômago (pepsina, pH~2 ácido). Lipídio: duodeno (bile emulsifica, suco pancreático digere, pH básico). Suco de limão no leite simula a ação ácida do estômago sobre proteínas.",
+    "atalho": "Carboidrato/boca/neutro; proteína/estômago/ácido; lipídio/duodeno/básico (bile só emulsifica).",
+    "formulas": [{"rotulo": "pH boca × estômago", "latex": "\\mathrm{pH}_{\\text{boca}}\\approx7\\;>\\;\\mathrm{pH}_{\\text{est\\^omago}}\\approx2"}]
+  },
+  "Excreção e osmorregulação": {
+    "ideia": "Os rins filtram resíduos (ureia, íons) e concentram a urina. A reabsorção de água é regulada pelo ADH conforme a concentração de sódio e a hidratação.",
+    "como_cai": "Sem água/muito sódio → mais ADH → mais reabsorção → urina concentrada / menos urina. Diabetes insípido (falha no ADH) → desidratação (urina diluída em excesso).",
+    "atalho": "ADH reabsorve água. Mais urina = mais diluída (menos reabsorção); menos urina = mais concentrada."
+  },
+  "Sangue, circulação e coagulação": {
+    "ideia": "Hemácias (eritrócitos) transportam oxigênio; plaquetas atuam na coagulação.",
+    "como_cai": "Doping com eritropoietina (EPO) → aumenta o transporte de O2. Plaqueta artificial / modular coagulação → hemofilia (coagulação de menos) ou trombos/AVC (de mais).",
+    "atalho": "Hemácia = oxigênio; plaqueta = coagulação. EPO → mais hemácias → mais O2."
+  },
+  "Endocrinologia e homeostase": {
+    "ideia": "Hormônios regulam o metabolismo e a homeostase. Os da tireoide (T3, T4) dependem de iodo para se formar.",
+    "como_cai": "Falta de iodo → bócio endêmico; por isso há iodo no sal de cozinha no Brasil. Substância que impede a ação das desiodases → afeta a tireoide.",
+    "atalho": "T3/T4 regulam o metabolismo e precisam de iodo. Falta de iodo → bócio."
+  },
+  "Imunidade e vacinação": {
+    "ideia": "Glóbulos brancos reconhecem antígenos e desencadeiam a resposta imune. Vacina dá o ANTÍGENO (imunidade ativa, duradoura); soro dá o ANTÍDOTO/anticorpo pronto (imunidade passiva, imediata).",
+    "como_cai": "Antígeno em humano (vacina) e em cavalo para extrair anticorpos (soro): ambos estimulam anticorpos. Probiótico 'similar à vacina' → estimula imunoglobulinas. Soro é para ação imediata (picada de cobra), sem memória.",
+    "atalho": "Vacina = antígeno → imunidade ativa/duradoura. Soro = anticorpo pronto → imunidade passiva/imediata.",
+    "formulas": [{"rotulo": "Vacina × soro", "latex": "\\text{ant\\'igeno}\\to\\text{mem\\'oria (ativa)}\\;;\\;\\text{anticorpo}\\to\\text{imediata (passiva)}"}]
+  },
+  "Doenças infecciosas e vetores": {
+    "ideia": "Cada doença = agente + vetor + profilaxia. O vetor (mosquito) não causa a doença: carrega o agente. Combater vetor/hospedeiro intermediário é a profilaxia-chave.",
+    "como_cai": "Malária: Plasmodium/Anopheles (febre pela lise das hemácias). Chagas: Trypanosoma/barbeiro. Esquistossomose: Schistosoma/caramujo (molusquicida controla o caramujo). Ovo da tênia = cisticercose; cisticerco na carne = teníase. Dengue: 4 sorotipos = variabilidade antigênica (difícil vacina única); Aedes localiza pelo olfato → repelente.",
+    "atalho": "Caramujo = esquistossomose; barbeiro = Chagas; Anopheles = malária. Ovo → cisticercose; carne → teníase. Dengue = 4 sorotipos."
+  },
+  "Fermentação": {
+    "ideia": "Obtenção de energia SEM oxigênio: parte da glicose, gera pouco ATP (2) e produtos metabolizáveis (etanol ou ácido lático).",
+    "como_cai": "Alcoólica: leveduras/fungos (eucariontes) + CO2. Lática: lactobacilos/bactérias (procariontes), sem CO2. O que têm em comum: produtos metabolizáveis (sem oxidação completa). Azedar de alimento = microrganismos fermentando.",
+    "atalho": "Sem O2, pouco ATP, produto metabolizável. Alcoólica = fungo + CO2; lática = bactéria.",
+    "formulas": [{"rotulo": "Fermentação alcoólica", "latex": "\\mathrm{C_6H_{12}O_6}\\to2\\,\\mathrm{C_2H_5OH}+2\\,\\mathrm{CO_2}+2\\,\\text{ATP}"}]
+  },
+  "Respiração celular": {
+    "ideia": "Obtenção de energia COM oxigênio, muito rentável (~38 ATP): oxida a glicose até CO2 + água na mitocôndria.",
+    "como_cai": "Três etapas: glicólise, ciclo de Krebs (libera CO2, NADH, FADH2), fosforilação oxidativa (ATP sintase, maior parte do ATP). O O2 é aceptor final → vira água (isótopo ¹⁸O aparece na água). Ao passar de anaeróbico a aeróbico, o consumo de glicose CAI.",
+    "atalho": "Com O2, muito ATP, CO2 + água. O2 vira água; ATP vem da ATP sintase.",
+    "formulas": [{"rotulo": "Equação global", "latex": "\\mathrm{C_6H_{12}O_6}+6\\,\\mathrm{O_2}\\to6\\,\\mathrm{CO_2}+6\\,\\mathrm{H_2O}+\\sim\\!38\\,\\text{ATP}"}]
+  },
+  "Fotossíntese": {
+    "ideia": "Autótrofos (cloroplasto) usam CO2 + água + luz para produzir glicose + O2. Fase clara produz O2 (vindo da água); fase escura fixa CO2.",
+    "como_cai": "Fase clara (fotólise da água): água + luz → O2 + energia (ATP/NADPH) — análoga ao efeito fotoelétrico. Fase escura (ciclo de Calvin): energia + CO2 → glicose. Engelmann: maior taxa fotossintética = mais O2 = mais bactérias aeróbicas.",
+    "atalho": "Fase clara: água + luz → O2 + energia. Fase escura: energia + CO2 → glicose. O O2 do ar vem da água.",
+    "formulas": [{"rotulo": "Equação global", "latex": "6\\,\\mathrm{CO_2}+6\\,\\mathrm{H_2O}\\xrightarrow{\\text{luz}}\\mathrm{C_6H_{12}O_6}+6\\,\\mathrm{O_2}"}]
+  }
+}

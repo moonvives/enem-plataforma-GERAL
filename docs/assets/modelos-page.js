@@ -59,16 +59,40 @@
     el("padroes").innerHTML = padroes.map(patternCard).join("");
 
     var biologyModels = meta.modelos_biologia || [];
-    var biologyThemes = biologyModels.map(function (model) { return model.tema; });
-    var biologyPatterns = padroes.filter(function (pattern) {
-      return biologyThemes.indexOf(pattern.tema) !== -1;
-    });
     var biologyQuestionCount = biologyModels.reduce(function (total, model) {
       return total + model.questoes;
     }, 0);
-    el("bio-note").textContent = biologyModels.length + " modelos específicos, identificados em " +
-      biologyQuestionCount + " questões oficiais. Os cards preservam habilidade, recorrência, anos e dificuldade TRI.";
-    el("bio-modelos").innerHTML = biologyPatterns.map(patternCard).join("");
+    el("bio-note").textContent = biologyModels.length + " modelos de Biologia, identificados em " +
+      biologyQuestionCount + " questões oficiais. Conteúdo extraído das videoaulas: ideia central, como cai no ENEM, atalho e fórmulas.";
+
+    function bioBlock(label, text) {
+      return text ? '<div class="bio-block"><div class="l">' + label + '</div><p>' + esc(text) + "</p></div>" : "";
+    }
+    function bioFormulas(items) {
+      if (!items || !items.length) return "";
+      return '<div class="bio-formulas">' + items.map(function (f) {
+        return '<div class="bio-formula"><span class="l">' + esc(f.rotulo) + '</span>' +
+          '<span class="math" data-latex="' + esc(f.latex).replace(/'/g, "&#39;") + '"></span></div>';
+      }).join("") + "</div>";
+    }
+    function bioCard(m, i) {
+      return '<details class="biomodel"' + (i === 0 ? " open" : "") + '>' +
+        '<summary><span class="idx">' + (i + 1) + '</span>' + esc(m.tema) +
+          '<span class="qcount">' + m.questoes + ' questões</span><span class="chev">›</span></summary>' +
+        '<div class="body">' +
+          bioBlock("Ideia central", m.ideia) +
+          bioBlock("Como cai no ENEM", m.como_cai) +
+          bioFormulas(m.formulas) +
+          (m.atalho ? '<div class="bio-block atalho"><div class="l">Atalho</div><p>' + esc(m.atalho) + "</p></div>" : "") +
+        "</div></details>";
+    }
+    el("bio-modelos").innerHTML = biologyModels.map(bioCard).join("");
+    if (window.katex) {
+      el("bio-modelos").querySelectorAll(".math[data-latex]").forEach(function (node) {
+        try { window.katex.render(node.dataset.latex, node, { throwOnError: false, displayMode: true }); }
+        catch (e) { node.textContent = node.dataset.latex; }
+      });
+    }
 
     // ---- Catálogo (filtros + questões) ----
     var habs = meta.habilidades.slice().sort(function (a, b) { return a - b; });

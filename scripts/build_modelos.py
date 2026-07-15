@@ -468,6 +468,12 @@ def main():
     padroes = build_padroes(records)
 
     anos = sorted({r["ano"] for r in records if r["ano"]})
+    # Conteúdo de estudo (extraído das videoaulas) associado a cada modelo de Biologia.
+    biology_content = {}
+    _content_path = os.path.join(ROOT, "data", "modelos_biologia_conteudo.json")
+    if os.path.exists(_content_path):
+        biology_content = {k: v for k, v in json.load(open(_content_path, encoding="utf-8")).items()
+                           if not k.startswith("_")}
     biology_names = [name for name, _keywords in MODELOS_BIOLOGIA]
     biology_counts = Counter(r["tema"] for r in records if r["tema"] in biology_names)
     meta = {
@@ -481,7 +487,8 @@ def main():
         "por_tema": dict(Counter(r["tema"] for r in records).most_common()),
         "por_ano": dict(sorted(Counter(r["ano"] for r in records if r["ano"]).items())),
         "modelos_biologia": [
-            {"tema": name, "questoes": biology_counts.get(name, 0)}
+            dict({"tema": name, "questoes": biology_counts.get(name, 0)},
+                 **{k: v for k, v in (biology_content.get(name) or {}).items()})
             for name in biology_names if biology_counts.get(name, 0)
         ],
         "fonte": "Questões reais do ENEM (CN), pacotes auditados Naturezas 720 e ENEM 360; "
