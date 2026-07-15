@@ -87,9 +87,11 @@ def main():
                       "aban":(r.get("IN_ITEM_ABAN") or "0").strip() in ("1","1.0"),
                       "gab":(r.get("TX_GABARITO") or "").strip()}
     itens=list(rows.values())
-    # calibração geral (régua/média): não exige habilidade
+    # calibração geral (régua/média): não exige habilidade, mas exige gabarito
+    # A–E válido (itens com TX_GABARITO "X" são anulados/sem gabarito e não
+    # entram na calibração, mesmo quando IN_ITEM_ABAN=0).
     calib=[x for x in itens if x["ano"]>=2010 and not x["aban"] and x["b"] is not None
-           and -3<=x["b"]<=4]
+           and -3<=x["b"]<=4 and x["gab"] in ("A","B","C","D","E")]
     for x in calib: x["b_enem"]=round(500+100*x["b"],1)
     # análise por habilidade (cards/ranking): exige habilidade 1..30
     clean=[x for x in calib if 1<=x["hab"]<=30]

@@ -3,8 +3,8 @@
     "area": "CN",
     "area_nome": "Ciências da Natureza",
     "fonte": "Microdados do ENEM (INEP) — arquivos ITENS_PROVA, 2010–2025",
-    "total_calibracao": 1698,
-    "total_com_habilidade": 1462,
+    "total_calibracao": 1697,
+    "total_com_habilidade": 1461,
     "media": 624.7,
     "desvio": 76.4,
     "b_min": 319.9,
@@ -22,8 +22,8 @@
       },
       {
         "rotulo": "Mediana",
-        "total": 543,
-        "pct": 32.0
+        "total": 542,
+        "pct": 31.9
       },
       {
         "rotulo": "Difícil",
@@ -33,7 +33,7 @@
       {
         "rotulo": "Muito difícil",
         "total": 101,
-        "pct": 5.9
+        "pct": 6.0
       }
     ],
     "por_ano": [
@@ -63,7 +63,7 @@
       },
       {
         "ano": 2016,
-        "total": 108
+        "total": 107
       },
       {
         "ano": 2017,
@@ -1770,9 +1770,9 @@
       "competencia": 5,
       "area": "Interdisciplinar",
       "descricao": "Relacionar informações em diferentes linguagens e representações.",
-      "total": 61,
-      "freq_pct": 4.2,
-      "media_b": 622.0,
+      "total": 60,
+      "freq_pct": 4.1,
+      "media_b": 621.1,
       "tier": {
         "nivel": 3,
         "rotulo": "Mediana"
@@ -1806,7 +1806,7 @@
         },
         {
           "ano": 2016,
-          "total": 9
+          "total": 8
         },
         {
           "ano": 2017,
