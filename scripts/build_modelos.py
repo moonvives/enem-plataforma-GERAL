@@ -315,8 +315,13 @@ MODELOS_BIOLOGIA = [
         "linfocito", "leucocito", "memoria imunologica", "imunizacao", "soro ",
     ]),
     ("Doenças infecciosas e vetores", [
-        "zoonose", "vetor biologico", "doenca de chagas", "dengue", "malaria",
-        "leishmaniose", "mosquito", "parasita", "profilaxia", "transmissao da doenca",
+        "zoonose", "vetor biologico", "doenca de chagas", "malaria", "esquistossom",
+        "leishmaniose", "barbeiro", "parasita", "profilaxia", "transmissao da doenca",
+        "cisticercose", "teniase", "filariose", "caramujo",
+    ]),
+    ("Dengue", [
+        "dengue", "aedes", "sorotipo", "variabilidade antigenica", "febre amarela",
+        "arbovirus", "flavivirus", "aedes aegypti",
     ]),
     ("Relações ecológicas", [
         "mutualismo", "protocooperacao", "comensalismo", "competicao", "predacao",

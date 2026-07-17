@@ -176,68 +176,87 @@
     "atalho": "Gene de outra espécie = transgenia. Gene saudável para tratar = terapia gênica. Cópia idêntica = clonagem. Cortar/reparar DNA = edição gênica. Analisar o genoma = mapeamento."
   },
   "Digestão e absorção": {
-    "aula": "Fisiologia Humana",
-    "teoria": "A digestão quebra os macronutrientes em moléculas absorvíveis: carboidrato → glicose; proteína → aminoácido; lipídio → ácido graxo e glicerol. Cada etapa é catalisada por enzimas específicas, e cada enzima tem um pH ótimo, o que amarra o local do tubo digestório onde ela age.",
-    "como_cai": "O enunciado dá um alimento e um pH (ou um local) e pede a enzima/etapa correspondente. Carboidrato começa na boca (amilase, pH ~7); proteína no estômago (pepsina, pH ~2, ácido); lipídio no duodeno (bile emulsifica, suco pancreático digere, pH básico).",
+    "aula": "Fisiologia Humana I",
+    "teoria": "O corpo não absorve as macromoléculas na forma em que são ingeridas: a digestão as quebra em moléculas menores e absorvíveis. Cada macronutriente tem um produto final fixo — carboidrato → glicose, proteína → aminoácido, lipídio → ácido graxo — e cada transformação é catalisada por uma ENZIMA específica (uma enzima não faz o serviço da outra). Como cada enzima age num local com pH próprio, sabendo o alimento você sabe o local, a enzima e o pH.",
+    "como_cai": "O enunciado dá um alimento e um pH (ou local) e pede a etapa/enzima. Onde CADA macronutriente começa a ser digerido: carboidrato na boca (amilase salivar/ptialina, pH ~7 neutro); proteína no estômago (suco gástrico = ácido clorídrico + pepsina, pH ~2 ácido); lipídio no duodeno (bile emulsifica + suco pancreático digere, pH básico). Atenção: 'começa' — todos são majoritariamente digeridos no duodeno.",
     "exemplos": [
-      "Suco de limão adicionado ao leite 'talha' as proteínas: o meio ácido simula a ação do estômago (pepsina) sobre as proteínas.",
-      "A bile NÃO digere gordura — ela apenas emulsifica (quebra em gotículas) para a lipase do suco pancreático agir."
+      "Enzima de rótulo apagado que 'digere proteína e age no estômago': o tubo em que ela deve agir é o do pedaço de carne (proteína) em solução de pH 5 (ácido) — não a batata/macarrão (carboidrato) nem a manteiga (lipídio), nem os tubos de pH 9 (básico).",
+      "Indicador de pH aplicado à saliva e ao suco gástrico: saliva ~7 (neutro, cor roxa da escala) e suco gástrico ~2 (ácido, cor vermelha) → resposta 'roxo e vermelho'.",
+      "Suco de limão (ácido) adicionado ao leite (gordura + proteína) 'talha' as proteínas: simula a ação do SUCO GÁSTRICO (ácido) sobre as proteínas no estômago — não a bile nem o suco pancreático, que agem em pH básico."
     ],
-    "atalho": "Carboidrato/boca/neutro; proteína/estômago/ácido; lipídio/duodeno/básico (bile só emulsifica).",
+    "pegadinha": "A bile NÃO digere gordura: ela apenas emulsifica (age como detergente). Quem digere o lipídio é a enzima do suco pancreático. E carboidrato 'começa' na boca — não é 'inteiramente digerido' ali.",
+    "atalho": "Carboidrato/boca/neutro (amilase); proteína/estômago/ácido (pepsina); lipídio/duodeno/básico (bile só emulsifica). Todos terminam no duodeno.",
     "formulas": [{"rotulo": "pH boca × estômago", "latex": "\\mathrm{pH}_{\\text{boca}}\\approx7\\;>\\;\\mathrm{pH}_{\\text{est\\^omago}}\\approx2"}]
   },
   "Excreção e osmorregulação": {
-    "aula": "Fisiologia Humana",
-    "teoria": "Os rins filtram os resíduos do sangue (ureia, íons em excesso) e concentram a urina. A reabsorção de água nos túbulos é regulada pelo ADH (hormônio antidiurético) de acordo com o estado de hidratação e a concentração de sódio: mais ADH → mais água reabsorvida → urina mais concentrada e em menor volume.",
-    "como_cai": "Situações de desidratação, excesso de sódio ou falha hormonal. A régua é simples: mais ADH concentra a urina; menos ADH a dilui.",
+    "aula": "Fisiologia Humana I",
+    "teoria": "Os rins filtram os resíduos da circulação (ureia, íons, resíduos metabólicos) e, ao longo da alça de Henle, reabsorvem água — por isso produzem e CONCENTRAM a urina. A reabsorção é regulada por dois fatores: a concentração do sangue (medida pelo sódio) e o nível de hidratação. O hormônio central é o ADH (antidiurético): quanto mais ADH, mais água reabsorvida, urina mais concentrada e em menor volume.",
+    "como_cai": "Situações de desidratação, excesso de sódio ou falha hormonal. A régua: mais reabsorção de água → menos urina e mais concentrada; menos reabsorção → mais urina e mais diluída. Por osmose, muito sódio no sangue puxa mais água de volta.",
     "exemplos": [
-      "Pouca água ou muito sódio no corpo → mais ADH → mais reabsorção → urina concentrada e em menor quantidade.",
-      "Diabetes insípido (falha no ADH) → o rim não reabsorve água → urina diluída em excesso e desidratação."
+      "Estudantes perdidos, sem água e sob o sol, com sede crescente: o sistema excretor AUMENTA a reabsorção de água → produz urina com maior concentração de sais (menor volume) — não maior volume nem urina mais diluída.",
+      "Diabetes insípido (distúrbio na produção/ação do ADH): sem reabsorver a água, o sintoma clássico é a DESIDRATAÇÃO (urina diluída em excesso) — não hiperglicemia, que é o outro diabetes (insulina)."
     ],
-    "atalho": "ADH reabsorve água. Muita urina = mais diluída (menos ADH); pouca urina = mais concentrada (mais ADH)."
+    "pegadinha": "São dois diabetes distintos: o insípido é do ADH (água); o melito é da insulina (glicose). O álcool inibe o ADH — por isso se urina mais ao beber.",
+    "atalho": "ADH reabsorve água. Muita urina = mais diluída (menos ADH); pouca urina = mais concentrada (mais ADH). Muito sódio no sangue → mais reabsorção."
   },
   "Sangue, circulação e coagulação": {
-    "aula": "Fisiologia Humana",
-    "teoria": "As hemácias (eritrócitos), ricas em hemoglobina, transportam o oxigênio; as plaquetas participam da coagulação, formando o coágulo que estanca o sangramento. Desequilíbrios em cada componente geram efeitos previsíveis.",
-    "como_cai": "Contextos de doping, doenças da coagulação e transporte de gases. Basta ligar hemácia a oxigênio e plaqueta a coagulação.",
+    "aula": "Fisiologia Humana I",
+    "teoria": "Duas células do sangue caem nas questões: as hemácias (eritrócitos), que transportam o OXIGÊNIO aos tecidos (mais hemácias = transporte mais eficiente), e as plaquetas, que atuam na COAGULAÇÃO (menos plaquetas = sangue que não coagula bem). É só ligar hemácia a oxigênio e plaqueta a coagulação.",
+    "como_cai": "Contextos de doping, transporte de gases e distúrbios de coagulação. A palavra do enunciado (eritropoietina, plaqueta, trombo, hemorragia) já entrega qual célula está em jogo.",
     "exemplos": [
-      "Doping com eritropoietina (EPO): mais hemácias → mais transporte de O2 → mais desempenho (e mais risco).",
-      "Coagulação de menos = hemofilia (sangramentos); coagulação de mais = trombos, que podem causar AVC/infarto."
+      "Doping sanguíneo com eritropoietina (EPO): a EPO estimula a eritropoese → mais hemácias → aumenta a TAXA DE TRANSPORTE DE OXIGÊNIO pelo sangue (não a frequência cardíaca, a capacidade pulmonar nem a massa muscular).",
+      "Plaqueta artificial que agiliza a coagulação: beneficia pacientes com HEMOFILIA (falta de coagulação, a doença das famílias reais europeias).",
+      "Molécula do veneno da cascavel que MODULA a coagulação: aplicação em impedir a formação de TROMBOS típicos do AVC (coagulação excessiva na circulação)."
     ],
-    "atalho": "Hemácia = oxigênio; plaqueta = coagulação. EPO → mais hemácias → mais O2."
+    "pegadinha": "Anemia é problema de hemácia (transporte de O2), NÃO de coagulação. 'Modular' a coagulação serve tanto para o excesso (trombo) quanto para a falta (hemorragia).",
+    "atalho": "Hemácia/eritrócito = oxigênio; plaqueta = coagulação. EPO → mais hemácias → mais O2. Trombo/hemofilia = plaqueta."
   },
   "Endocrinologia e homeostase": {
-    "aula": "Fisiologia Humana",
-    "teoria": "Os hormônios regulam o metabolismo e mantêm a homeostase, muitas vezes por retroalimentação negativa (feedback). Os hormônios da tireoide (T3 e T4) controlam o metabolismo basal e dependem de iodo para serem sintetizados.",
-    "como_cai": "Casos de deficiência ou bloqueio hormonal, com destaque para a tireoide e o iodo.",
+    "aula": "Fisiologia Humana I",
+    "teoria": "Os hormônios da tireoide, T3 e T4, regulam o metabolismo (batimento cardíaco, digestão, gasto energético). O ponto que cai: o IODO faz parte da estrutura desses hormônios — sem iodo na dieta, T3 e T4 não são formados corretamente e a tireoide se desregula.",
+    "como_cai": "Deficiência de iodo, bócio endêmico e bloqueio da síntese hormonal. A resposta quase sempre aponta para a glândula tireoide.",
     "exemplos": [
-      "Falta de iodo → menos T3/T4 → bócio endêmico (aumento da tireoide); por isso o sal de cozinha é iodado no Brasil.",
-      "Substância que impede a ação das desiodases interfere na produção dos hormônios tireoidianos."
+      "Lei que obriga a adição de iodeto de potássio ao sal de cozinha: a medida visa prevenir problemas na glândula TIREOIDE (a falta de iodo causa bócio endêmico).",
+      "Bisfenol A que impede a ação das desiodases (enzimas que atuam na conversão de T3 e T4): afeta os hormônios da tireoide."
     ],
-    "atalho": "T3/T4 regulam o metabolismo e precisam de iodo. Falta de iodo → bócio."
+    "pegadinha": "Falta de iodo → bócio endêmico (tireoide aumentada). No Brasil isso é raro justamente pela política do sal iodado.",
+    "atalho": "T3/T4 regulam o metabolismo e têm iodo na estrutura. Sem iodo → bócio. Sal iodado = profilaxia."
   },
   "Imunidade e vacinação": {
-    "aula": "Fisiologia Humana",
-    "teoria": "Os leucócitos (glóbulos brancos) reconhecem antígenos e desencadeiam a resposta imune, gerando anticorpos e memória. A VACINA fornece o ANTÍGENO (ou versão atenuada) e estimula o corpo a produzir os próprios anticorpos → imunidade ATIVA e duradoura, com memória. O SORO fornece os anticorpos já prontos → imunidade PASSIVA e imediata, sem memória.",
-    "como_cai": "Diferenciar vacina de soro e reconhecer o que estimula a produção de anticorpos.",
+    "aula": "Fisiologia Humana II",
+    "teoria": "Os glóbulos brancos (leucócitos) são as células de defesa: reconhecem o ANTÍGENO estranho (a 'identidade' proteica de um vírus/bactéria) e desencadeiam a resposta imune. Se o corpo já conhece o antígeno, a resposta é rápida; se não, é lenta. A VACINA expõe o corpo ao ANTÍGENO (versão inativada, ou o RNA mensageiro que faz o corpo produzir o antígeno) → o corpo fabrica os próprios anticorpos → imunidade ATIVA e de longo prazo, com memória. O SORO fornece o ANTÍDOTO (anticorpos já prontos) → ação IMEDIATA e passiva, sem memória.",
+    "como_cai": "Diferenciar vacina de soro e reconhecer um processo como 'semelhante à vacina' (estimula a produção de anticorpos) ou 'semelhante ao soro' (anticorpo pronto).",
     "exemplos": [
-      "Injetar o antígeno em humano (vacina) e injetá-lo em um cavalo para depois extrair anticorpos (soro): ambos os processos estimulam a produção de anticorpos.",
-      "Soro antiofídico é usado após a picada de cobra porque a ação precisa ser IMEDIATA (anticorpo pronto); não gera memória.",
-      "Probiótico descrito como 'similar à vacina' → estimula a produção de imunoglobulinas."
+      "Imunobiológicos 1 e 2: aplicar o antígeno no humano (vacina) e aplicá-lo em um cavalo para depois extrair os anticorpos e fabricar o soro. Ambos 'estimulam a produção de anticorpos' — no humano vacinado e no cavalo há imunidade ATIVA; quem recebe o soro tem imunidade passiva.",
+      "Probiótico com 'efeito similar ao da vacina' → estimula a produção de imunoglobulinas (anticorpos).",
+      "Vacina anti-esquistossomose feita com uma proteína do verme: induz a produção de anticorpos e sua vantagem é eliminar o esquistossomo dentro do organismo ANTES da manifestação dos sintomas (resposta imune já pronta)."
     ],
-    "atalho": "Vacina = antígeno → imunidade ativa/duradoura (com memória). Soro = anticorpo pronto → imunidade passiva/imediata.",
+    "pegadinha": "Vacina e soro só têm ação 'semelhante' quando comparados em espécies diferentes (humano vacinado × cavalo). No mesmo humano, vacina (ativa) e soro (passiva) são respostas opostas.",
+    "atalho": "Vacina = antígeno → imunidade ativa/duradoura (com memória). Soro = anticorpo/antídoto pronto → imunidade passiva/imediata.",
     "formulas": [{"rotulo": "Vacina × soro", "latex": "\\text{ant\\'igeno}\\to\\text{mem\\'oria (ativa)}\\;;\\;\\text{anticorpo}\\to\\text{imediata (passiva)}"}]
   },
   "Doenças infecciosas e vetores": {
-    "aula": "Fisiologia Humana",
-    "teoria": "Cada doença infecciosa combina agente etiológico + vetor/hospedeiro + profilaxia. O vetor (em geral um mosquito) NÃO causa a doença — ele carrega o agente. Combater o vetor ou o hospedeiro intermediário é a profilaxia-chave.",
-    "como_cai": "Ligar doença ao seu vetor/hospedeiro e escolher a profilaxia que quebra o ciclo.",
+    "aula": "Fisiologia Humana II",
+    "teoria": "Cada zoonose combina agente etiológico + vetor/hospedeiro + profilaxia. O vetor (mosquito, barbeiro) NÃO causa a doença — ele apenas CARREGA o agente; um mosquito não contaminado que pica não transmite nada. A profilaxia-chave é combater o vetor ou o hospedeiro intermediário.",
+    "como_cai": "Ligar a doença ao seu vetor/hospedeiro e escolher a profilaxia que quebra o ciclo. Frequentemente basta saber um único elo (ex.: caramujo = esquistossomose).",
     "exemplos": [
-      "Malária: Plasmodium transmitido pelo mosquito Anopheles (a febre coincide com a lise das hemácias). Doença de Chagas: Trypanosoma pelo barbeiro. Esquistossomose: Schistosoma pelo caramujo (molusquicida controla o caramujo).",
-      "Tênia: ingerir o OVO causa cisticercose; ingerir o cisticerco na carne malcozida causa teníase.",
-      "Dengue tem 4 sorotipos (variabilidade antigênica), o que dificulta uma vacina única; o Aedes localiza a pessoa pelo olfato, por isso o repelente funciona."
+      "Malária: Plasmodium (protozoário) transmitido pelo mosquito Anopheles; as febres intermitentes coincidem com a LISE das hemácias (que libera merozoítos e hemozoínas). Chagas: Trypanosoma cruzi pelas fezes do barbeiro (ou açaí contaminado), causando cardiopatia.",
+      "Esquistossomose: Schistosoma mansoni; os ovos nas fezes eclodem em miracídios que infectam o CARAMUJO (hospedeiro intermediário) e viram cercárias que penetram a pele. Molusquicida (mata o caramujo) controla a doença.",
+      "Tênia: ingerir o OVO da Taenia solium causa cisticercose (lavar alimentos previne); ingerir o CISTICERCO na carne crua/malpassada causa teníase. Leishmaniose e filariose: transmitidas por picada de mosquito → controle dos vetores/pomadas."
     ],
-    "atalho": "Caramujo = esquistossomose; barbeiro = Chagas; Anopheles = malária. Ovo → cisticercose; carne → teníase. Dengue = 4 sorotipos."
+    "pegadinha": "Cisticercose = OVO (Taenia solium); teníase = cisticerco na CARNE. Não confundir. O vetor nunca é a causa: é sempre o agente que ele carrega.",
+    "atalho": "Caramujo = esquistossomose; barbeiro = Chagas; Anopheles = malária; mosquito palha = leishmaniose; Culex = filariose. Ovo → cisticercose; carne → teníase."
+  },
+  "Dengue": {
+    "aula": "Fisiologia Humana II",
+    "teoria": "A dengue é causada por um arbovírus (gênero Flavivirus) com QUATRO sorotipos, transmitido pela picada do mosquito Aedes aegypti. Não é um 'modelo de resposta fixa' como as zoonoses, mas tem dois raciocínios que resolvem as questões: a variabilidade antigênica (4 sorotipos) e o comportamento do vetor.",
+    "como_cai": "Duas frentes: por que não há vacina única eficaz, e como interferir na localização do hospedeiro pelo mosquito.",
+    "exemplos": [
+      "Há vacina para febre amarela, mas não uma vacina única eficaz para dengue: isso se deve à alta VARIABILIDADE ANTIGÊNICA — os 4 sorotipos funcionam como antígenos diferentes, e um antígeno só não cobre todos.",
+      "O Aedes aegypti localiza a pessoa pelo OLFATO (moléculas de odor da sudorese): medidas que interferem nessa modalidade sensorial = uso de cremes/pomadas com princípios ativos (repelentes) — não telas nem eliminação de criadouros, que agem por outra via."
+    ],
+    "pegadinha": "Quando a questão foca no OLFATO do mosquito, a resposta é o repelente (cheiro), não 'telas nas janelas' nem 'eliminar criadouros' — essas combatem o Aedes por outra via.",
+    "atalho": "Dengue = 4 sorotipos (sem vacina única) + Aedes que caça pelo olfato (repelente disfarça o cheiro)."
   },
   "Relações ecológicas": {
     "aula": "Sistemas Ecológicos",
