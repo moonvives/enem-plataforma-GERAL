@@ -607,6 +607,11 @@ def main():
         "Aparelhos de medida": ["voltimetro", "amperimetro", "multimetro", "medir a corrente"],
         "Geradores e receptores": ["gerador", "bateria", "pilha", "capacidade de carga"],
         "Circuitos: série e paralelo": ["em serie", "em paralelo", "circuito", "resistencia equivalente", "lampadas"],
+        "Energia elétrica e consumo (kWh)": ["kwh", "consumo de energia", "quilowatt", "consumo mensal"],
+        "Carga elétrica e baterias": ["ampere hora", "amper hora", "mah", "coulomb", "carga da bateria"],
+        "Potência dissipada": ["potencia dissipada", "disjuntor", "efeito joule", "chuveiro eletrico"],
+        "Placas solares": ["placa solar", "painel solar", "irradiancia", "fotovoltaic", "energia solar"],
+        "Indução eletromagnética": ["inducao", "campo magnetico", "espira", "eletromagnetica", "magnetico alternado"],
     }
     PHYS_BROAD = {"Mecânica", "Eletromagnetismo", "Termologia", "Óptica", "Ondas e som"}
     _fis_tab = [(n, kw) for n, kw in FIS_KW.items()]

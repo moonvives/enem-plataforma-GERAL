@@ -705,5 +705,157 @@
         "latex": "\\dfrac{1}{R_{eq}}=\\dfrac{1}{R_1}+\\dfrac{1}{R_2}+\\cdots"
       }
     ]
+  },
+  "Energia elétrica e consumo (kWh)": {
+    "aula": "Eletrodinâmica II e Energia",
+    "teoria": [
+      "Energia é potência × tempo: E = P·t. No SI dá joule (W·s), mas as contas de luz usam kWh: potência em kW × tempo em HORAS. (1 kWh = 1000·3600 J.)",
+      "A potência tem três formas equivalentes: P = U·I (a principal), e — substituindo U = R·I — também P = U²/R e P = R·I². Maior potência ou maior tempo → maior consumo."
+    ],
+    "como_cai": "Consumo mensal de um aparelho em kWh; economia ao trocar incandescente por LED; tempo para recarregar um carro elétrico.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Aparelho de 750 W usado 30 min/dia por 30 dias. Consumo mensal em kWh?",
+        "resolucao": [
+          "Tempo = 30 min × 30 = 900 min = 15 h.",
+          "E = P·t = 750 W × 15 h = 11250 Wh.",
+          "÷1000 → 11,25 kWh (≈11,3, letra D)."
+        ]
+      },
+      {
+        "enunciado": "Carro elétrico faz 110 km com desempenho 5 km/kWh, recarregando a 220 V e 20 A. Quantas horas para recarregar?",
+        "resolucao": [
+          "Energia gasta = 110/5 = 22 kWh.",
+          "Potência de recarga = U·I = 220×20 = 4400 W = 4,4 kW.",
+          "t = E/P = 22/4,4 = 5 h (letra D)."
+        ]
+      }
+    ],
+    "pegadinha": "Respeite as unidades: kWh usa kW e HORA; joule usa W e segundo. Não misture.",
+    "atalho": "E = P·t. P = U·I = U²/R = R·I². Conta de luz em kWh (kW × hora).",
+    "formulas": [
+      {
+        "rotulo": "Energia",
+        "latex": "E=P\\cdot t"
+      },
+      {
+        "rotulo": "Potência",
+        "latex": "P=U\\cdot I=\\dfrac{U^{2}}{R}=R\\,I^{2}"
+      }
+    ]
+  },
+  "Carga elétrica e baterias": {
+    "aula": "Eletrodinâmica II e Energia",
+    "teoria": [
+      "Carga elétrica: Q = I·t, medida em coulomb (A·s). As questões costumam dar em ampère-hora (Ah) ou mAh — é a mesma carga, só outra unidade (converta hora→segundo, mA→A).",
+      "A capacidade de uma bateria em Ah diz por quanto tempo ela fornece uma corrente; combinada com a tensão, dá a energia armazenada."
+    ],
+    "como_cai": "Tempo para carregar uma bateria dada sua carga e a potência do carregador; converter mAh para coulomb.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Bateria de 12 V e 100 Ah (fornece 12 J por coulomb) carregada por um gerador de 600 W. Quanto tempo?",
+        "resolucao": [
+          "Q = 100 Ah = 100×3600 = 360000 C.",
+          "Energia = 360000 C × 12 J/C = 4,32×10⁶ J.",
+          "t = E/P = 4,32×10⁶ / 600 = 7200 s = 2 h (letra B)."
+        ]
+      },
+      {
+        "enunciado": "Bateria de 1500 mAh. Qual a carga em coulomb?",
+        "resolucao": [
+          "1500 mAh = 1,5 Ah.",
+          "Q = 1,5 A × 3600 s = 5400 C."
+        ]
+      }
+    ],
+    "pegadinha": "Coulomb = A·segundo; Ah usa hora (×3600). E mAh precisa virar Ah (÷1000).",
+    "atalho": "Q = I·t (coulomb = A·s). Ah e mAh são a mesma carga em outra unidade.",
+    "formulas": [
+      {
+        "rotulo": "Carga elétrica",
+        "latex": "Q=I\\cdot t"
+      }
+    ]
+  },
+  "Potência dissipada": {
+    "aula": "Eletrodinâmica II e Energia",
+    "teoria": [
+      "A potência dissipada por efeito Joule sai de P = U·I. Quando se dá tensão e resistência, use P = U²/R.",
+      "Consequência importante: para a mesma tensão, MENOR resistência → MAIOR potência (o curto-circuito é o caso extremo: resistência quase nula, corrente enorme, muito calor)."
+    ],
+    "como_cai": "Corrente máxima do disjuntor de um chuveiro; comparar potência de aparelhos; escolher o chuveiro de maior potência (menor resistência).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Chuveiro de 220 V e 6800 W. Corrente máxima do disjuntor (margem ~10%)?",
+        "resolucao": [
+          "I = P/U = 6800/220 ≈ 30,9 A.",
+          "Com ~10% de margem ≈ 34 A; um disjuntor de 30 A cairia no uso normal.",
+          "Escolher o disjuntor de 35 A."
+        ]
+      },
+      {
+        "enunciado": "Cinco chuveiros com tensões e resistências dadas. Qual tem maior potência elétrica?",
+        "resolucao": [
+          "P = U²/R: maior potência = maior tensão E menor resistência.",
+          "A tensão entra ao QUADRADO, então 220 V com R um pouco maior ainda supera 127 V com R menor.",
+          "O de maior tensão (220 V) com a menor resistência entre eles vence."
+        ]
+      }
+    ],
+    "pegadinha": "Maior resistência NÃO significa maior potência — é o contrário (P = U²/R). E a tensão pesa ao quadrado.",
+    "atalho": "P = U·I = U²/R. Mesma tensão: menor R → maior potência. Tensão conta ao quadrado."
+  },
+  "Placas solares": {
+    "aula": "Eletrodinâmica II e Energia",
+    "teoria": [
+      "Numa placa solar, a potência captada = irradiância (W/m²) × área × eficiência (fração aproveitada). Daí se acha a área necessária ou a potência gerada.",
+      "É um caso particular do modelo de potência: iguala-se a potência captada à potência requerida."
+    ],
+    "como_cai": "Área total de um parque solar; raio de uma lente convergente para alimentar um chuveiro.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Parque solar de 150 MW; irradiância 1500 W/m², eficiência 20%. Área total dos painéis?",
+        "resolucao": [
+          "Potência aproveitada por m² = 1500 × 0,20 = 300 W/m².",
+          "Área = potência total / por m² = 150×10⁶ / 300 = 5×10⁵ m² (500 mil m², letra B)."
+        ]
+      },
+      {
+        "enunciado": "Lente convergente para um chuveiro de 2000 W; energia do Sol 1000 W/m², eficiência 50% (√π=1,8). Raio da lente?",
+        "resolucao": [
+          "Aproveitado = 1000×0,5 = 500 W/m² → área = 2000/500 = 4 m².",
+          "Área do círculo: A = πr² → r = √(4/π) = 2/√π = 2/1,8 ≈ 1,1 m (letra E)."
+        ]
+      }
+    ],
+    "atalho": "Potência captada = irradiância × área × eficiência. Iguale à potência necessária."
+  },
+  "Indução eletromagnética": {
+    "aula": "Eletrodinâmica II e Energia",
+    "teoria": [
+      "A VARIAÇÃO de um campo magnético induz uma corrente elétrica (Faraday); e, reciprocamente, uma corrente alternada induz campo magnético.",
+      "Macete do sentido: aproximando um polo, a espira induz o MESMO polo (repulsão, quer afastar); afastando, induz o polo OPOSTO (atração, quer trazer de volta). Depois usa-se a regra da mão direita para o sentido da corrente."
+    ],
+    "como_cai": "Obter uma corrente no mesmo sentido movendo/invertendo o ímã e a espira; e magneto-hipertermia (partículas agitadas por campo alternado esquentam por atrito).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Como obter uma corrente no MESMO sentido da figura (ímã afastando gera um polo sul na espira)?",
+        "resolucao": [
+          "Para reproduzir o mesmo campo induzido (sul na face voltada ao ímã), preciso aproximar um polo SUL.",
+          "Aproximar o sul induz sul (repulsão) → mesmo sentido de corrente.",
+          "Alternativa: mover a espira e o ímã aproximando-os com a POLARIDADE INVERTIDA (sul)."
+        ]
+      },
+      {
+        "enunciado": "Magneto-hipertermia: nanopartículas magnéticas em campo alternado aquecem o tumor. Por quê?",
+        "resolucao": [
+          "O campo alternado faz as nanopartículas oscilarem/girarem.",
+          "Esse movimento gera ATRITO com as células, e o atrito transfere calor.",
+          "Resposta: o campo alternado faz as nanopartículas girarem, transferindo calor por atrito (letra D)."
+        ]
+      }
+    ],
+    "pegadinha": "O calor da magneto-hipertermia vem do ATRITO das partículas em movimento, não do campo 'fornecendo' calor.",
+    "atalho": "Campo magnético que VARIA induz corrente. Aproxima → mesmo polo (repele); afasta → polo oposto (atrai)."
   }
 }
