@@ -612,6 +612,13 @@ def main():
         "Potência dissipada": ["potencia dissipada", "disjuntor", "efeito joule", "chuveiro eletrico"],
         "Placas solares": ["placa solar", "painel solar", "irradiancia", "fotovoltaic", "energia solar"],
         "Indução eletromagnética": ["inducao", "campo magnetico", "espira", "eletromagnetica", "magnetico alternado"],
+        "Temperatura, densidade e convecção": ["conveccao", "ar condicionado", "dilata", "menos denso", "densidade"],
+        "Estados da matéria e mudanças de fase": ["estado solido", "vaporizacao", "evaporacao", "ebulicao", "mudanca de fase", "sublimacao"],
+        "Termodinâmica (1ª e 2ª leis)": ["termodinamica", "adiabatica", "isotermica", "energia interna", "gas"],
+        "Calor específico": ["calor especifico", "caloria", "temperatura da agua"],
+        "Condutividade térmica": ["condutividade termica", "conduz o calor", "isolante termico"],
+        "Aquecimento elétrico (potência × calorimetria)": ["chuveiro", "ducha", "aquario", "vazao"],
+        "Propagação de calor": ["propagacao de calor", "conducao", "irradiacao", "fluxo de calor", "trocas de calor"],
     }
     PHYS_BROAD = {"Mecânica", "Eletromagnetismo", "Termologia", "Óptica", "Ondas e som"}
     _fis_tab = [(n, kw) for n, kw in FIS_KW.items()]

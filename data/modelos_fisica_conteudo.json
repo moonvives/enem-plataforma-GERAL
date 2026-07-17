@@ -857,5 +857,216 @@
     ],
     "pegadinha": "O calor da magneto-hipertermia vem do ATRITO das partículas em movimento, não do campo 'fornecendo' calor.",
     "atalho": "Campo magnético que VARIA induz corrente. Aproxima → mesmo polo (repele); afasta → polo oposto (atrai)."
+  },
+  "Temperatura, densidade e convecção": {
+    "aula": "Termologia e Termodinâmica",
+    "teoria": [
+      "Aumentar a temperatura DILATA a matéria (mesmo material, mesma massa, mais volume) → a densidade DIMINUI (d = m/V). Resfriar contrai → densidade AUMENTA.",
+      "Por isso o que está quente (menos denso) SOBE e o que está frio (mais denso) DESCE — são as correntes de convecção. É a base para posicionar aparelhos: ar-condicionado em CIMA (joga ar frio que desce); aquecedor embaixo (o ar quente sobe)."
+    ],
+    "como_cai": "Onde instalar ar-condicionado/aquecedor e onde colocar entrada/saída de água num reservatório, sempre respeitando a convecção.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Por que instalar o ar-condicionado na parte SUPERIOR da parede minimiza o consumo de energia?",
+        "resolucao": [
+          "O ar frio é mais denso e desce; o ar quente é menos denso e sobe.",
+          "Colocando o aparelho em cima, o ar frio desce e o quente sobe para ser resfriado — cria a corrente de convecção.",
+          "Resposta: facilita a circulação das correntes de convecção (letra D)."
+        ]
+      },
+      {
+        "enunciado": "Reservatório aquecido na base: onde devem ficar a entrada de água fria e a saída de água quente (posições 1 a 6)?",
+        "resolucao": [
+          "A água quente (menos densa) sobe → sai no ponto MAIS ALTO (4).",
+          "A água fria (mais densa) desce e deve entrar perto do aquecedor, na base (3).",
+          "Resposta: entrada em 3 e saída em 4."
+        ]
+      }
+    ],
+    "atalho": "Quente = menos denso = sobe. Frio = mais denso = desce. Ar-condicionado em cima; aquecedor embaixo.",
+    "formulas": [
+      {
+        "rotulo": "Densidade",
+        "latex": "d=\\dfrac{m}{V}\\;\\;(\\uparrow T\\Rightarrow\\uparrow V\\Rightarrow\\downarrow d)"
+      }
+    ]
+  },
+  "Estados da matéria e mudanças de fase": {
+    "aula": "Termologia e Termodinâmica",
+    "teoria": [
+      "A temperatura mede o grau de agitação das moléculas. Sólido (moléculas juntas, pouca agitação), líquido (mais soltas, fluido) e gasoso (muito agitadas, ocupam todo o espaço) diferem por essa organização — não por trocar átomos.",
+      "Transições: fusão (sólido→líquido), vaporização (líquido→gasoso), condensação (gasoso→líquido), solidificação (líquido→sólido) e sublimação (sólido→gasoso direto). A vaporização tem 3 formas: EVAPORAÇÃO (lenta, espontânea, à temperatura ambiente), EBULIÇÃO (a 100 °C para a água) e CALEFAÇÃO (instantânea, superfície muito quente)."
+    ],
+    "como_cai": "Reconhecer que a mudança de fase é rearranjo espacial das moléculas (não muda o átomo); calor latente (ir e voltar exigem a mesma energia); e a distinção evaporação × condensação.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "As transições sólido/líquido/gasoso (Platão) estão associadas, em nível microscópico, a quê?",
+        "resolucao": [
+          "Não há troca de átomos, transmutação nem mudança de isótopos — o átomo é o mesmo.",
+          "Muda a ORGANIZAÇÃO espacial das moléculas (grau de agitação/arranjo).",
+          "Resposta: mudança da estrutura espacial formada pelos constituintes do material (letra D)."
+        ]
+      },
+      {
+        "enunciado": "Em dias úmidos, o incômodo mencionado (temperatura do ambiente inferior à do corpo) deve-se a quê?",
+        "resolucao": [
+          "Se o ambiente é MAIS FRIO que a pele, o vapor não pode CONDENSAR ao tocá-la (condensação exige queda de temperatura).",
+          "O ar úmido já está saturado de vapor, então o SUOR tem mais dificuldade para EVAPORAR (e o corpo não se resfria).",
+          "Resposta: o suor apresenta maior dificuldade para evaporar (letra B)."
+        ]
+      }
+    ],
+    "pegadinha": "Mudar de fase não troca átomos nem isótopos. E em dia úmido o problema é a evaporação dificultada — não condensação na pele (a pele está mais quente que o ar).",
+    "atalho": "Sólido→líquido→gasoso = mais agitação. Vaporização: evaporação (lenta), ebulição (100 °C), calefação (instantânea)."
+  },
+  "Termodinâmica (1ª e 2ª leis)": {
+    "aula": "Termologia e Termodinâmica",
+    "teoria": [
+      "1ª lei: o calor fornecido a um gás vira trabalho (expansão) mais variação da energia interna: Q = τ + ΔU (a energia interna é proporcional à temperatura). Casos: ISOTÉRMICA (ΔU=0, todo calor vira trabalho); ADIABÁTICA (Q=0 → o trabalho é feito à custa da energia interna, então expandir ESFRIA o gás).",
+      "2ª lei: o calor flui espontaneamente da fonte QUENTE para a FRIA, até o equilíbrio térmico (sem diferença de temperatura, cessa o fluxo)."
+    ],
+    "como_cai": "Gráficos pressão×volume distinguindo isoterma de adiabática; identificar em que etapa há absorção/liberação de calor; explicar resfriamento por expansão adiabática (desodorante, nitrogênio líquido).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Por que a expansão ADIABÁTICA resfria o nitrogênio (N₂)?",
+        "resolucao": [
+          "Adiabática: Q = 0, logo τ + ΔU = 0 → ΔU = −τ.",
+          "Se há expansão (trabalho positivo), a energia interna DIMINUI → a temperatura cai.",
+          "Resposta: o trabalho está associado diretamente à variação da energia interna (não à troca de calor)."
+        ]
+      },
+      {
+        "enunciado": "No ciclo Diesel (P×V, duas etapas adiabáticas), em qual etapa o calor é absorvido?",
+        "resolucao": [
+          "As duas adiabáticas (mesmo formato de curva) são A→B e C→D (Q=0).",
+          "B→C: volume aumenta à mesma pressão → temperatura sobe e há trabalho → calor ABSORVIDO (Q>0).",
+          "Resposta: o calor é absorvido em B→C."
+        ]
+      }
+    ],
+    "pegadinha": "Na adiabática não há troca de calor (Q=0): a expansão esfria o gás porque consome energia interna, não porque 'perde calor'.",
+    "atalho": "Q = τ + ΔU. Isotérmica: ΔU=0. Adiabática: Q=0 → expandir esfria. Calor vai do quente ao frio.",
+    "formulas": [
+      {
+        "rotulo": "1ª lei da termodinâmica",
+        "latex": "Q=\\tau+\\Delta U"
+      }
+    ]
+  },
+  "Calor específico": {
+    "aula": "Calorimetria",
+    "teoria": [
+      "Calor específico (c) é uma propriedade de cada material: a energia necessária para mudar a temperatura. Pense nele como RESISTÊNCIA à mudança de temperatura — alto c muda pouco a temperatura mesmo absorvendo muito calor; baixo c aquece/esfria fácil.",
+      "A água tem c alto (1 cal/g·°C); o ferro, baixo (~0,11) — por isso a panela esquenta rápido e a água demora. A conta usa Q = m·c·ΔT; respeite as unidades (cal/J, g/kg)."
+    ],
+    "como_cai": "Escolher a propriedade de um fluido (alto calor específico para absorver calor) e cálculos diretos com Q = m·c·ΔT.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Qual propriedade o fluido arrefecedor de um motor deve ter para resfriá-lo com maior eficiência?",
+        "resolucao": [
+          "Ele precisa absorver muito calor do motor sem esquentar rápido (senão iguala a temperatura e para de trocar calor).",
+          "Isso é ter ALTO calor específico.",
+          "Resposta: alto calor específico (letra A)."
+        ]
+      },
+      {
+        "enunciado": "Queimando 2,5 g de castanha (70 kcal/10 g, 50% aproveitado) aquece-se 350 g de água (c=1) a 20 °C. Temperatura final?",
+        "resolucao": [
+          "Energia aproveitada: 70·(2,5/10)·0,5 = 8,75 kcal = 8750 cal.",
+          "Q = m·c·ΔT → 8750 = 350·1·ΔT → ΔT = 25 °C.",
+          "Temperatura final = 20 + 25 = 45 °C (cuidado: pede a FINAL)."
+        ]
+      }
+    ],
+    "pegadinha": "Cuidado: variação × temperatura FINAL (some à inicial). Converta kcal→cal, kg→g conforme a fórmula.",
+    "atalho": "c = resistência a mudar de temperatura. Q = m·c·ΔT. Alto c → aquece devagar.",
+    "formulas": [
+      {
+        "rotulo": "Equação fundamental da calorimetria",
+        "latex": "Q=m\\cdot c\\cdot\\Delta T"
+      }
+    ]
+  },
+  "Condutividade térmica": {
+    "aula": "Calorimetria",
+    "teoria": [
+      "Condutividade térmica é a rapidez com que um material transmite calor. Alta (metais) → o calor passa rápido (encostou, queimou). Baixa (madeira, cerâmica, vidro) → retém o calor (cabo de madeira não queima a mão, mesmo quente).",
+      "É diferente do calor específico: aqui importa a VELOCIDADE do fluxo de calor, não a energia para mudar a temperatura."
+    ],
+    "como_cai": "Por que o cabo de madeira não queima; e qual material mantém o alimento aquecido por mais tempo (menor condutividade).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Por que tocar o cabo de madeira e não a base de metal da panela (ambos em equilíbrio térmico)?",
+        "resolucao": [
+          "Mesma temperatura, mas a madeira transmite calor devagar (baixa condutividade) e o metal, rápido (alta).",
+          "O metal transfere calor mais rápido à mão.",
+          "Resposta: o metal tem maior condutividade térmica."
+        ]
+      },
+      {
+        "enunciado": "Para MANTER um alimento aquecido por mais tempo (mesma espessura), qual material usar?",
+        "resolucao": [
+          "Manter aquecido = não deixar o calor escapar.",
+          "Escolher o de MENOR condutividade térmica (a cerâmica).",
+          "Resposta: cerâmica (letra E)."
+        ]
+      }
+    ],
+    "atalho": "Alta condutividade = passa calor rápido (metal). Baixa = retém (madeira/cerâmica). Manter quente → baixa condutividade."
+  },
+  "Aquecimento elétrico (potência × calorimetria)": {
+    "aula": "Calorimetria",
+    "teoria": [
+      "Modelo que junta eletrodinâmica e calorimetria, sempre em DUAS etapas: (1) energia elétrica E = P·t; (2) calorimetria Q = m·c·ΔT (com E = Q).",
+      "Truque do tempo: quando dão vazão (L/min) e não o tempo, escolha um tempo cômodo (ex.: 1 minuto) e use a MESMA base nas duas etapas."
+    ],
+    "como_cai": "Chuveiros, duchas, aquários e microondas: achar variação de temperatura, potência, corrente do disjuntor ou rendimento.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Aquário de 50 L com aquecedor de 50 W desligado por 1 h; água c=4 kJ/kg·K, densidade 1 kg/L. Queda de temperatura?",
+        "resolucao": [
+          "Etapa 1: E = P·t = 50 × 3600 = 180000 J = 180 kJ.",
+          "Etapa 2: Q = m·c·ΔT → 180 = 50·4·ΔT → ΔT = 0,9 °C (letra C)."
+        ]
+      },
+      {
+        "enunciado": "Microondas de 800 W aquece 500 g de água (c=1) e vidro de 300 g (c=0,2) de 6 °C a 40 °C em 2,5 min. Percentual convertido em calor?",
+        "resolucao": [
+          "Calorimetria: Q_água = 500·1·34 = 17000 cal; Q_vidro = 300·0,2·34 = 2040 cal; total ≈ 19040 cal ≈ 80000 J.",
+          "Energia do forno: E = 800 × 150 s = 120000 J.",
+          "Rendimento = 80000/120000 ≈ 66,7% (letra D)."
+        ]
+      }
+    ],
+    "pegadinha": "Use a mesma base de tempo nas duas etapas; converta cal↔J antes de comparar; com dois materiais, calcule o calor de cada um e some.",
+    "atalho": "Etapa 1: E = P·t. Etapa 2: Q = m·c·ΔT (E = Q). Vazão sem tempo → escolha 1 min e mantenha."
+  },
+  "Propagação de calor": {
+    "aula": "Calorimetria",
+    "teoria": [
+      "Calor é FLUXO de energia térmica, sempre do corpo mais quente para o mais frio. Frio não 'entra' nem 'se move' — é apenas a sensação do calor saindo.",
+      "Três formas: CONDUÇÃO (contato, molécula a molécula), CONVECÇÃO (deslocamento de massa de ar/água) e IRRADIAÇÃO (ondas eletromagnéticas, infravermelho — como o calor do Sol chega pelo vácuo)."
+    ],
+    "como_cai": "Corrigir 'frio entrando' (cobertor/porta = minimizar perda de calor); identificar mecanismos (Sol→Terra = irradiação; brisa = convecção); geladeira.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "A porta e os cobertores do jingle têm, respectivamente, as funções de?",
+        "resolucao": [
+          "Frio não entra: o que existe é calor saindo. Porta e cobertor não aquecem.",
+          "Ambos MINIMIZAM a perda de calor (isolam).",
+          "Resposta: minimizar a perda de calor (letra C)."
+        ]
+      },
+      {
+        "enunciado": "Mecanismos de troca entre o Sol e a ilha de calor, e entre a ilha e a brisa marítima?",
+        "resolucao": [
+          "Sol → ilha: há vácuo, só por ondas → IRRADIAÇÃO.",
+          "Ilha → brisa: o vento (matéria em movimento) carrega o calor → CONVECÇÃO.",
+          "Resposta: irradiação e convecção (letra A)."
+        ]
+      }
+    ],
+    "pegadinha": "Frio não se move nem 'entra' — só o calor flui (quente→frio). Cobertor não aquece: retém o calor do corpo.",
+    "atalho": "Calor = fluxo de energia (quente→frio). Condução (contato), convecção (movimento), irradiação (ondas, vácuo)."
   }
 }
