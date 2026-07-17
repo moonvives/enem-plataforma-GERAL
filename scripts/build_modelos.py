@@ -629,6 +629,31 @@ def main():
             if m:
                 fisica_counts[m] += 1
 
+    # Conteúdo de Química (Fundamentos) extraído da videoaula.
+    quimica_content = {}
+    _qui_path = os.path.join(ROOT, "data", "modelos_quimica_conteudo.json")
+    if os.path.exists(_qui_path):
+        quimica_content = {k: v for k, v in json.load(open(_qui_path, encoding="utf-8")).items()
+                           if not k.startswith("_")}
+    QUI_KW = {
+        "Emissão de fótons (teste de chama)": ["foton", "teste de chama", "transicao eletronica", "excitad", "chama"],
+        "Polaridade das moléculas": ["polar", "apolar", "eletronegativ", "geometria molecular", "dipolo"],
+        "Interações intermoleculares": ["interacao intermolecular", "ligacao de hidrogenio", "dipolo induzido", "forcas intermolecular"],
+        "Detergentes e tensoativos": ["detergente", "tensoativo", "micela", "emulsific", "sabao"],
+        "Princípio da solubilidade": ["solubilidade", "dissolve", "hidrofilic", "hidrofobic", "soluvel"],
+        "Propriedades físicas dos compostos orgânicos": ["ponto de ebulicao", "volatil", "temperatura de ebulicao", "massa molar", "ramificac"],
+        "Tabela periódica": ["tabela periodica", "familia", "raio atomico", "energia de ionizacao", "eletronegatividade", "metais e ametais"],
+        "Ligações químicas": ["ligacao covalente", "ligacao ionica", "ligacao metalica", "liga metalica", "transferencia de eletron"],
+    }
+    QUIM_BROAD = {"Físico-química", "Química orgânica", "Estequiometria"}
+    _qui_tab = [(n, kw) for n, kw in QUI_KW.items()]
+    quimica_counts = Counter()
+    for r in records:
+        if r["tema"] in QUIM_BROAD:
+            m = classify(r["enun"], _qui_tab, None)
+            if m:
+                quimica_counts[m] += 1
+
     meta = {
         "n_modelos": len(records),
         "n_padroes": len(padroes),
@@ -647,6 +672,10 @@ def main():
         "modelos_fisica": [
             dict({"tema": name, "questoes": fisica_counts.get(name, 0)}, **v)
             for name, v in fisica_content.items()
+        ],
+        "modelos_quimica": [
+            dict({"tema": name, "questoes": quimica_counts.get(name, 0)}, **v)
+            for name, v in quimica_content.items()
         ],
         "fonte": "Questões reais do ENEM (CN), pacotes auditados Naturezas 720 e ENEM 360; "
                  "gabarito e dificuldade na escala TRI conforme microdados do INEP.",

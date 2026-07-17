@@ -165,6 +165,18 @@
       renderModelos("fis-modelos", physicsModels);
     }
 
+    // ---- Modelos de Química ----
+    var chemModels = meta.modelos_quimica || [];
+    if (chemModels.length) {
+      var chemAulas = {};
+      chemModels.forEach(function (m) { chemAulas[m.aula || "Outros"] = 1; });
+      var chemQ = chemModels.reduce(function (t, m) { return t + (m.questoes || 0); }, 0);
+      el("qui-note").textContent = chemModels.length + " modelos de Química, agrupados em " +
+        Object.keys(chemAulas).length + " videoaula(s)" + (chemQ ? " (≈" + chemQ + " questões oficiais mapeadas)" : "") +
+        ". Cada modelo traz a teoria completa, como cai no ENEM, questões-modelo resolvidas passo a passo, atalho e fórmulas.";
+      renderModelos("qui-modelos", chemModels);
+    }
+
     // ---- Catálogo (filtros + questões) ----
     var habs = meta.habilidades.slice().sort(function (a, b) { return a - b; });
     el("f-hab").innerHTML += habs.map(function (h) { return '<option value="' + h + '">H' + h + "</option>"; }).join("");
@@ -253,12 +265,13 @@
     applyFilters();
 
     // ---- Alternância de visões ----
-    var vp = el("view-padroes"), vb = el("view-biologia"), vf = el("view-fisica"), vc = el("view-catalogo");
+    var vp = el("view-padroes"), vb = el("view-biologia"), vf = el("view-fisica"),
+        vq = el("view-quimica"), vc = el("view-catalogo");
     if (F.tema.value || F.hab.value) {
       Array.prototype.forEach.call(el("viewtabs").querySelectorAll("button"), function (x) {
         x.classList.toggle("on", x.dataset.view === "catalogo");
       });
-      vp.hidden = true; vb.hidden = true; vf.hidden = true;
+      vp.hidden = true; vb.hidden = true; vf.hidden = true; vq.hidden = true;
       vc.hidden = false;
     }
     el("viewtabs").addEventListener("click", function (e) {
@@ -268,6 +281,7 @@
       vp.hidden = b.dataset.view !== "padroes";
       vb.hidden = b.dataset.view !== "biologia";
       vf.hidden = b.dataset.view !== "fisica";
+      vq.hidden = b.dataset.view !== "quimica";
       vc.hidden = b.dataset.view !== "catalogo";
     });
 
