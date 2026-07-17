@@ -114,7 +114,8 @@
     function bioCard(m, i) {
       return '<details class="biomodel"' + (i === 0 ? " open" : "") + '>' +
         '<summary><span class="idx">' + (i + 1) + '</span>' + esc(m.tema) +
-          '<span class="qcount">' + m.questoes + ' questões</span><span class="chev">›</span></summary>' +
+          (m.questoes ? '<span class="qcount">' + m.questoes + ' questões</span>' : '') +
+          '<span class="chev">›</span></summary>' +
         '<div class="body">' +
           bioBlock("Teoria essencial", m.teoria || m.ideia) +
           bioBlock("Como cai no ENEM", m.como_cai) +
@@ -125,20 +126,43 @@
           bioBlock("Atalho", m.atalho, "atalho") +
         "</div></details>";
     }
-    var idx = 0;
-    el("bio-modelos").innerHTML = aulaOrder.map(function (a) {
-      var group = aulaMap[a];
-      var n = group.reduce(function (t, m) { return t + m.questoes; }, 0);
-      var cards = group.map(function (m) { return bioCard(m, idx++); }).join("");
-      return '<section class="bio-aula"><h3>' + esc(a) +
-        '<span class="aula-meta">' + group.length + " modelos · " + n + " questões</span></h3>" +
-        cards + "</section>";
-    }).join("");
-    if (window.katex) {
-      el("bio-modelos").querySelectorAll(".math[data-latex]").forEach(function (node) {
-        try { window.katex.render(node.dataset.latex, node, { throwOnError: false, displayMode: true }); }
-        catch (e) { node.textContent = node.dataset.latex; }
+    // Renderiza uma lista de modelos agrupada pela videoaula de origem, em
+    // qualquer container (Biologia, Física, …), com a mesma ficha profunda.
+    function renderModelos(containerId, models) {
+      var order = [], map = {};
+      models.forEach(function (m) {
+        var a = m.aula || "Outros modelos";
+        if (!map[a]) { map[a] = []; order.push(a); }
+        map[a].push(m);
       });
+      var i = 0;
+      el(containerId).innerHTML = order.map(function (a) {
+        var group = map[a];
+        var n = group.reduce(function (t, m) { return t + (m.questoes || 0); }, 0);
+        var cards = group.map(function (m) { return bioCard(m, i++); }).join("");
+        var metaTxt = group.length + " modelos" + (n ? " · " + n + " questões" : "");
+        return '<section class="bio-aula"><h3>' + esc(a) +
+          '<span class="aula-meta">' + metaTxt + "</span></h3>" + cards + "</section>";
+      }).join("");
+      if (window.katex) {
+        el(containerId).querySelectorAll(".math[data-latex]").forEach(function (node) {
+          try { window.katex.render(node.dataset.latex, node, { throwOnError: false, displayMode: true }); }
+          catch (e) { node.textContent = node.dataset.latex; }
+        });
+      }
+    }
+    renderModelos("bio-modelos", biologyModels);
+
+    // ---- Modelos de Física (mecânica) ----
+    var physicsModels = meta.modelos_fisica || [];
+    if (physicsModels.length) {
+      var physAulas = {};
+      physicsModels.forEach(function (m) { physAulas[m.aula || "Outros"] = 1; });
+      var physQ = physicsModels.reduce(function (t, m) { return t + (m.questoes || 0); }, 0);
+      el("fis-note").textContent = physicsModels.length + " modelos de Física, agrupados em " +
+        Object.keys(physAulas).length + " videoaulas" + (physQ ? " (≈" + physQ + " questões oficiais mapeadas)" : "") +
+        ". Cada modelo traz a teoria completa, como cai no ENEM, questões-modelo resolvidas passo a passo, atalho e fórmulas.";
+      renderModelos("fis-modelos", physicsModels);
     }
 
     // ---- Catálogo (filtros + questões) ----
@@ -229,12 +253,12 @@
     applyFilters();
 
     // ---- Alternância de visões ----
-    var vp = el("view-padroes"), vb = el("view-biologia"), vc = el("view-catalogo");
+    var vp = el("view-padroes"), vb = el("view-biologia"), vf = el("view-fisica"), vc = el("view-catalogo");
     if (F.tema.value || F.hab.value) {
       Array.prototype.forEach.call(el("viewtabs").querySelectorAll("button"), function (x) {
         x.classList.toggle("on", x.dataset.view === "catalogo");
       });
-      vp.hidden = true; vb.hidden = true;
+      vp.hidden = true; vb.hidden = true; vf.hidden = true;
       vc.hidden = false;
     }
     el("viewtabs").addEventListener("click", function (e) {
@@ -243,6 +267,7 @@
       b.classList.add("on");
       vp.hidden = b.dataset.view !== "padroes";
       vb.hidden = b.dataset.view !== "biologia";
+      vf.hidden = b.dataset.view !== "fisica";
       vc.hidden = b.dataset.view !== "catalogo";
     });
 

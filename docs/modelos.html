@@ -48,7 +48,7 @@
     .count-note{color:var(--muted);font-size:.9rem;margin:.25rem 0 0}
     .empty{padding:2rem;text-align:center;color:var(--muted)}
     /* Modelos de Biologia — conteúdo extraído das videoaulas */
-    #bio-modelos{display:flex;flex-direction:column;gap:.7rem;margin-top:1rem}
+    #bio-modelos,#fis-modelos{display:flex;flex-direction:column;gap:.7rem;margin-top:1rem}
     .biomodel{border:1px solid var(--border);border-radius:12px;background:var(--surface-2);overflow:hidden}
     .biomodel>summary{cursor:pointer;padding:.9rem 1.1rem;font-weight:700;display:flex;align-items:center;gap:.6rem;list-style:none}
     .biomodel>summary::-webkit-details-marker{display:none}
@@ -118,6 +118,7 @@
     <div class="viewtabs" id="viewtabs">
       <button data-view="padroes" class="on">Padrões que se repetem</button>
       <button data-view="biologia">Modelos de Biologia</button>
+      <button data-view="fisica">Modelos de Física</button>
       <button data-view="catalogo">Catálogo de modelos</button>
     </div>
 
@@ -129,6 +130,11 @@
     <section id="view-biologia" hidden>
       <p class="count-note" id="bio-note"></p>
       <div class="cards" id="bio-modelos"></div>
+    </section>
+
+    <section id="view-fisica" hidden>
+      <p class="count-note" id="fis-note"></p>
+      <div class="cards" id="fis-modelos"></div>
     </section>
 
     <section id="view-catalogo" hidden>

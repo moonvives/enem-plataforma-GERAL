@@ -574,6 +574,45 @@ def main():
                            if not k.startswith("_")}
     biology_names = [name for name, _keywords in MODELOS_BIOLOGIA]
     biology_counts = Counter(r["tema"] for r in records if r["tema"] in biology_names)
+
+    # Conteúdo de Física (mecânica) extraído das videoaulas. Os modelos são
+    # renderizados independentemente da contagem; a contagem é uma estimativa
+    # por palavras-chave sobre as questões oficiais de Física (Mecânica).
+    fisica_content = {}
+    _fis_path = os.path.join(ROOT, "data", "modelos_fisica_conteudo.json")
+    if os.path.exists(_fis_path):
+        fisica_content = {k: v for k, v in json.load(open(_fis_path, encoding="utf-8")).items()
+                          if not k.startswith("_")}
+    FIS_KW = {
+        "Movimento uniforme": ["velocidade constante", "movimento uniforme", "km/h"],
+        "Movimento acelerado e frenagem": ["aceleracao", "frenagem", "desacelera", "freio"],
+        "Gráfico posição × tempo": ["posicao em funcao do tempo", "inclinacao", "grafico da posicao"],
+        "Composição de movimentos e trajetória": ["trajetoria", "correnteza", "lancada sobre"],
+        "Queda livre": ["queda livre", "resistencia do ar", "caem"],
+        "Lançamentos": ["lancamento", "alcance", "obliquo", "horizontalmente"],
+        "Peso, massa e normal": ["balanca", "massa", "peso", "gravidade da lua"],
+        "Atrito": ["atrito", "coeficiente de atrito", "deslizamento", "escorrega"],
+        "Tensão e polias": ["polia", "tensao", "corda", "arquimedes"],
+        "Aceleração centrípeta": ["centripeta", "circular", "tangencial"],
+        "Impulso e quantidade de movimento": ["impulso", "cinto de seguranca", "colisao"],
+        "Tipos de energia mecânica": ["energia potencial", "energia cinetica", "energia elastica"],
+        "Conservação e transformação de energia": ["conservacao de energia", "mola", "deformacao"],
+        "Trabalho e potência": ["trabalho realizado", "potencia", "watt"],
+        "Colisões e quantidade de movimento": ["pendulo", "colidem", "quantidade de movimento"],
+        "Pressão": ["pressao", "forca sobre", "pascal"],
+        "Hidrostática": ["hidrostatica", "mergulh", "pressao atmosferica", "fluido"],
+        "Rotação e translação": ["rotacao", "translacao", "estacao do ano", "eixo terrestre"],
+        "Gravitação": ["gravitacao", "forca gravitacional", "buraco negro", "orbita"],
+    }
+    PHYS_BROAD = {"Mecânica", "Eletromagnetismo", "Termologia", "Óptica", "Ondas e som"}
+    _fis_tab = [(n, kw) for n, kw in FIS_KW.items()]
+    fisica_counts = Counter()
+    for r in records:
+        if r["tema"] in PHYS_BROAD:
+            m = classify(r["enun"], _fis_tab, None)
+            if m:
+                fisica_counts[m] += 1
+
     meta = {
         "n_modelos": len(records),
         "n_padroes": len(padroes),
@@ -588,6 +627,10 @@ def main():
             dict({"tema": name, "questoes": biology_counts.get(name, 0)},
                  **{k: v for k, v in (biology_content.get(name) or {}).items()})
             for name in biology_names if biology_counts.get(name, 0)
+        ],
+        "modelos_fisica": [
+            dict({"tema": name, "questoes": fisica_counts.get(name, 0)}, **v)
+            for name, v in fisica_content.items()
         ],
         "fonte": "Questões reais do ENEM (CN), pacotes auditados Naturezas 720 e ENEM 360; "
                  "gabarito e dificuldade na escala TRI conforme microdados do INEP.",

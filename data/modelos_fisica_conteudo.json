@@ -1,0 +1,574 @@
+{
+  "_fonte": "Conteúdo integral sintetizado das transcrições das videoaulas de Física (uso pessoal do assinante): teoria essencial, como cai no ENEM, questões-modelo resolvidas passo a passo, pegadinhas, atalho e fórmulas.",
+  "Movimento uniforme": {
+    "aula": "Cinemática",
+    "teoria": [
+      "Movimento uniforme (MU) é aquele em que a velocidade é CONSTANTE e a aceleração é NULA. Como a velocidade não muda, distâncias iguais são percorridas em tempos iguais.",
+      "A relação básica é a velocidade média: v = ΔS/Δt (espaço percorrido dividido pelo tempo). Dela sai o deslocamento ΔS = v·t. É o famoso jogo de três grandezas: dá duas, pede a terceira.",
+      "Quando há dois móveis com velocidades diferentes e constantes, o truque é a taxa de afastamento: a cada segundo eles se distanciam pela diferença das velocidades. Sabendo essa diferença e o tempo (ou a distância acumulada), chega-se a qualquer dado."
+    ],
+    "como_cai": "Ou aplicação direta de v = ΔS/Δt (dá dois, pede o terceiro), ou dois móveis/sinais com velocidades distintas em que a diferença de velocidade e a diferença de tempo revelam a distância.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "A sonda New Horizons, no ponto mais próximo de Plutão, estava a ~5 bilhões de km da Terra. Sabendo que a velocidade da luz é 3×10⁸ m/s, qual o tempo decorrido entre o envio de uma imagem e sua recepção na Terra?",
+        "resolucao": [
+          "v = ΔS/Δt → Δt = ΔS/v.",
+          "ΔS = 5×10⁹ km = 5×10¹² m (converter km→m multiplicando por 10³).",
+          "Δt = 5×10¹² / 3×10⁸ ≈ 1,7×10⁴ s.",
+          "Resposta: ~1,7×10⁴ s (letra D)."
+        ]
+      },
+      {
+        "enunciado": "Um som da queda de gelo é detectado por dois sensores no barco: A na água (v=1540 m/s) e B no ar (v=340 m/s). O sinal chega 12 s antes na água. Qual a distância L entre o barco e a geleira?",
+        "resolucao": [
+          "Os dois sons partem juntos; a cada segundo o som na água ganha 1540−340 = 1200 m de vantagem sobre o do ar.",
+          "O som na água chegou 12 s antes; nesse intervalo o som no ar percorreria 340×12 = 4080 m — essa é a vantagem em distância acumulada.",
+          "Tempo de percurso = vantagem/taxa de afastamento = 4080/1200 = 3,4 s.",
+          "L = velocidade na água × tempo = 1540 × 3,4 ≈ 5236 m (mais próximo de ~5240 m)."
+        ]
+      }
+    ],
+    "atalho": "v = ΔS/Δt. Dois móveis: eles se afastam pela DIFERENÇA das velocidades a cada segundo.",
+    "formulas": [
+      {
+        "rotulo": "Velocidade média",
+        "latex": "v=\\dfrac{\\Delta S}{\\Delta t}"
+      }
+    ]
+  },
+  "Movimento acelerado e frenagem": {
+    "aula": "Cinemática",
+    "teoria": [
+      "No movimento uniformemente variado (MUV) a velocidade varia a uma aceleração CONSTANTE. Aceleração (m/s²) é quanto a velocidade muda por segundo.",
+      "Três fórmulas resolvem quase tudo: (1) S = S₀ + v₀t + ½at² (equação horária, o 'sorvetão'); (2) v = v₀ + at; (3) Torricelli v² = v₀² + 2aΔS — use esta quando NÃO tem o tempo. Na frenagem, a é negativa (desaceleração)."
+    ],
+    "como_cai": "Frenagem: parar o carro (v final = 0). Comparação motorista atento × desatento, em que o desatento demora mais para reagir e, ao frear, já está mais rápido por ter acelerado nesse tempo extra.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Dois motoristas aceleram a 1 m/s² e freiam a 5 m/s². O atento aciona o freio a 14 m/s; o desatento leva 1 s a mais para começar a frear. Quanto o desatento percorre a mais até parar?",
+        "resolucao": [
+          "Motorista atento (frenagem, sem tempo → Torricelli): 0 = 14² − 2·5·S → 10S = 196 → S = 19,6 m.",
+          "Desatento — no 1 s extra ainda acelerando a 1 m/s²: ΔS = v₀t + ½at² = 14·1 + ½·1·1² = 14,5 m; e a velocidade sobe para 15 m/s.",
+          "Frenagem do desatento a partir de 15 m/s: 0 = 15² − 2·5·S → 10S = 225 → S = 22,5 m.",
+          "Total desatento = 14,5 + 22,5 = 37 m. Diferença: 37 − 19,6 = 17,4 m (letra E)."
+        ]
+      }
+    ],
+    "pegadinha": "Ao começar a frear, a velocidade do desatento NÃO é a inicial do enunciado — é ela somada à aceleração ganha no tempo de reação.",
+    "atalho": "Sem o tempo → Torricelli. Comparativa: calcule o atento; para o desatento some o trecho do tempo de reação e use a velocidade JÁ aumentada na frenagem.",
+    "formulas": [
+      {
+        "rotulo": "Equação horária",
+        "latex": "S=S_0+v_0t+\\tfrac{1}{2}at^2"
+      },
+      {
+        "rotulo": "Torricelli",
+        "latex": "v^2=v_0^2+2a\\,\\Delta S"
+      }
+    ]
+  },
+  "Gráfico posição × tempo": {
+    "aula": "Cinemática",
+    "teoria": [
+      "Num gráfico de posição (y) por tempo (x), a velocidade em cada ponto é numericamente igual à INCLINAÇÃO (tangente) da curva naquele ponto, porque velocidade é espaço dividido por tempo.",
+      "Reta mais inclinada (mais 'em pé') = andou muito em pouco tempo = maior velocidade. Reta menos inclinada = andou pouco em muito tempo = menor velocidade."
+    ],
+    "como_cai": "Pedem o ponto de maior e menor velocidade num gráfico posição×tempo. Traça-se a tangente em cada ponto e compara-se a inclinação.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Um piloto testa um carro numa reta; a posição × tempo está no gráfico. Os pontos de menor e maior velocidade são, respectivamente?",
+        "resolucao": [
+          "Velocidade = inclinação da tangente à curva em cada ponto.",
+          "O ponto de tangente mais inclinada é o de MAIOR velocidade (L); o de tangente menos inclinada é o de MENOR velocidade (M).",
+          "Menor e maior = M e L (letra C)."
+        ]
+      }
+    ],
+    "atalho": "Posição×tempo: velocidade = inclinação da tangente. Mais em pé = mais rápido.",
+    "formulas": [
+      {
+        "rotulo": "Velocidade no gráfico",
+        "latex": "v=\\tan\\theta=\\dfrac{\\Delta S}{\\Delta t}"
+      }
+    ]
+  },
+  "Composição de movimentos e trajetória": {
+    "aula": "Cinemática",
+    "teoria": [
+      "Um movimento pode ser a COMPOSIÇÃO de dois movimentos em eixos diferentes (por exemplo, para frente e para o lado). A trajetória resultante é a soma vetorial dos dois.",
+      "Quase nunca a composição é 'igual' nos dois eixos: em geral um eixo tem movimento uniforme e o outro, variado. Por isso a trajetória costuma ser uma CURVA, não uma reta diagonal simétrica."
+    ],
+    "como_cai": "Identificar a trajetória correta a partir da descrição (barco atravessando correnteza de velocidade variável; bolinha lançada da mesa caindo).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Um barco atravessa um rio mantendo o motor perpendicular à correnteza, que é fraca junto à margem e máxima no meio. Qual trajetória o representa?",
+        "resolucao": [
+          "Em Y (perpendicular) o barco tem velocidade constante; em X a correnteza o arrasta, e ela varia (fraca na margem, forte no meio).",
+          "Perto da margem: anda muito para frente e pouco para o lado. No meio: anda muito para o lado e pouco para frente.",
+          "A trajetória é uma curva com arrasto lateral crescente — não a diagonal reta (letra D)."
+        ]
+      },
+      {
+        "enunciado": "Uma bolinha é lançada horizontalmente da beira de uma mesa. Qual a trajetória de queda?",
+        "resolucao": [
+          "Em X a velocidade é constante (movimento uniforme); em Y age a gravidade (queda livre, velocidade crescente).",
+          "Espaços iguais em X por intervalo, mas espaços crescentes em Y → curva (parábola) que desce cada vez mais rápido.",
+          "Trajetória curva, não os 'passos no vazio' dos desenhos (letra D)."
+        ]
+      }
+    ],
+    "pegadinha": "A trajetória da bolinha lançada é curva (parábola), não a queda vertical 'de desenho animado' nem uma diagonal reta.",
+    "atalho": "Composição = X uniforme + Y variado (queda livre). Resultado quase sempre curvo."
+  },
+  "Queda livre": {
+    "aula": "Cinemática",
+    "teoria": [
+      "Queda livre é um MUV cuja aceleração é a da gravidade (g). Sem resistência do ar, a queda NÃO depende da massa: corpos de massas diferentes soltos juntos, da mesma altura, chegam juntos.",
+      "O que importa é a mesma aceleração (g) agindo sobre todos, e a mesma velocidade inicial e tempo."
+    ],
+    "como_cai": "Explicar por que dois corpos de massas diferentes caem simultaneamente (sem ar).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Duas motos (uma com massa 3× a outra) saem horizontalmente do precipício ao mesmo tempo e caem sem resistência do ar. Por que atingem o solo simultaneamente?",
+        "resolucao": [
+          "Sem ar, a única aceleração vertical é g, igual para as duas, independentemente da massa.",
+          "Mesma altura, mesma velocidade inicial vertical (zero) e mesma aceleração → mesmo tempo de queda.",
+          "Resposta: adquirem a mesma aceleração durante a queda (não é a mesma força — as forças-peso são diferentes)."
+        ]
+      }
+    ],
+    "pegadinha": "Elas NÃO têm a mesma força-peso nem a mesma inércia; têm a mesma ACELERAÇÃO (g).",
+    "atalho": "Sem ar, queda independe da massa: mesma g → caem juntas.",
+    "formulas": [
+      {
+        "rotulo": "Queda livre",
+        "latex": "a=g\\;\\;(\\text{independe de }m)"
+      }
+    ]
+  },
+  "Lançamentos": {
+    "aula": "Cinemática",
+    "teoria": [
+      "Lançamentos são composições de dois movimentos: em X, movimento uniforme; em Y, queda livre/MUV com g. Há três tipos: horizontal (v inicial só em X), vertical (v só em Y, sobe desacelerando por g e desce em queda livre) e oblíquo (as duas componentes).",
+      "O alcance horizontal cresce quando a gravidade é menor: com g menor o corpo demora mais para subir e descer em Y, e como X segue com velocidade constante, percorre mais distância."
+    ],
+    "como_cai": "Comparar alcance na Lua × Terra; e problemas de lançamento horizontal com jato de água/queda.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "A gravidade na Lua é 1/6 da terrestre. Em relação à Terra, um salto oblíquo na Lua teria alcance?",
+        "resolucao": [
+          "Em Y, com g seis vezes menor, o corpo leva muito mais tempo para desacelerar até o topo e depois cair.",
+          "Em X a velocidade é constante; durante esse tempo maior, percorre muito mais distância.",
+          "Resposta: alcance muito maior (letra D)."
+        ]
+      },
+      {
+        "enunciado": "Uma mangueira horizontal a 1 m do chão lança água que atinge o solo a 3 m de distância (g=10). Qual o alcance vertical se apontada para cima?",
+        "resolucao": [
+          "Queda em Y: 1 = ½·10·t² → t² = 1/5 → t = 1/√5 s (v inicial em Y é zero, pois o lançamento é horizontal).",
+          "Velocidade de saída = 3 / (1/√5) = 3√5 m/s.",
+          "Apontando para cima (Torricelli, v final=0): 0 = (3√5)² − 2·10·h → 45 = 20h → h = 2,25 m (letra B)."
+        ]
+      }
+    ],
+    "atalho": "X sempre uniforme, Y queda livre. Menor gravidade → maior alcance (mais tempo no ar).",
+    "formulas": [
+      {
+        "rotulo": "Lançamento horizontal (Y)",
+        "latex": "h=\\tfrac{1}{2}gt^2\\;;\\;v_x=\\dfrac{\\Delta x}{t}"
+      }
+    ]
+  },
+  "Peso, massa e normal": {
+    "aula": "Dinâmica",
+    "teoria": [
+      "MASSA é a quantidade de matéria de um corpo — INVARIÁVEL (80 kg na Terra, na Lua ou em Saturno).",
+      "PESO é a força da massa vezes a gravidade (P = m·g): muda com a gravidade (na Lua o peso é menor, embora a massa seja a mesma).",
+      "NORMAL é a força de contato entre superfícies (o que a balança de plataforma mede). Peso e normal NÃO formam par ação-reação."
+    ],
+    "como_cai": "Balança de braços iguais (mede massa por comparação — resultado igual em qualquer gravidade) × balança de plataforma (mede compressão/peso — muda com g). Elevador: subindo, a compressão aumenta.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Uma balança A (braços iguais) e uma B (plataforma) marcam 5 kg na Terra. Levadas à Lua (g=1,6), quanto marcam M1 (balança A) e M2 (balança B)?",
+        "resolucao": [
+          "Balança A compara massas: o peso-padrão sofre a mesma gravidade que o corpo, então continua equilibrando em 5 kg → M1 = 5 kg.",
+          "Balança B mede a compressão (peso): com g menor, a compressão é menor → M2 < 5 kg.",
+          "Resposta: M1 = 5 kg e M2 menor que 5 kg."
+        ]
+      },
+      {
+        "enunciado": "Uma balança de força na Lua (g=1,6) marca peso de 4 N para uma massa m̂. Qual essa massa?",
+        "resolucao": [
+          "Peso = massa × gravidade → m = P/g.",
+          "m = 4 / 1,6 = 2,5 kg."
+        ]
+      }
+    ],
+    "pegadinha": "Balança de braços iguais dá o MESMO valor em qualquer lugar (mede massa); balança de plataforma muda com a gravidade (mede peso/compressão).",
+    "atalho": "Massa invariável; peso = m·g (muda com g); normal = força de contato.",
+    "formulas": [
+      {
+        "rotulo": "Peso",
+        "latex": "P=m\\cdot g"
+      }
+    ]
+  },
+  "Atrito": {
+    "aula": "Dinâmica",
+    "teoria": [
+      "Atrito é uma força RESISTIVA, contrária ao escorregamento entre superfícies sólidas. Seu módulo é Fat = μ·N (coeficiente de atrito vezes a força normal).",
+      "O coeficiente μ depende do par de superfícies; o atrito estático (para tirar do lugar) é MAIOR que o dinâmico (para manter em movimento)."
+    ],
+    "como_cai": "Curling (varrer reduz o atrito cinético); escolha de revestimento de rampa com μ suficiente e menor custo.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "No curling, varrer o gelo à frente da pedra faz a desaceleração ser MENOR. Isso ocorre porque a ação dos varredores diminui o quê?",
+        "resolucao": [
+          "Varrer alisa/derrete micro-irregularidades do gelo, reduzindo o atrito.",
+          "A pedra está em movimento → atrito cinético.",
+          "Resposta: diminui o módulo da força de atrito cinético."
+        ]
+      },
+      {
+        "enunciado": "Rampa de cadeira de rodas: não pode deslizar com força até 200 N; normal = 800 N. Qual revestimento (μ) de menor custo serve?",
+        "resolucao": [
+          "No limite: Fat = μ·N → 200 = μ·800 → μ = 0,25.",
+          "Para NÃO deslizar em 200 N, é preciso μ > 0,25.",
+          "Entre os que têm μ > 0,25, escolher o mais barato (a madeira, no quadro)."
+        ]
+      }
+    ],
+    "atalho": "Fat = μ·N. Estático > dinâmico. Precisa μ maior que o do limiar F/N.",
+    "formulas": [
+      {
+        "rotulo": "Força de atrito",
+        "latex": "F_{at}=\\mu\\cdot N"
+      }
+    ]
+  },
+  "Tensão e polias": {
+    "aula": "Dinâmica",
+    "teoria": [
+      "Tensão é a força transmitida por uma corda/cabo — não há transmissão 'mágica' de força sem contato; a corda sofre a força e a repassa. Numa corda ideal a tensão é uniforme.",
+      "Cada POLIA MÓVEL multiplica por 2 a força aplicada (ou reduz o esforço à metade): F vira 2F, depois 4F, 8F... É o princípio da associação de polias de Arquimedes."
+    ],
+    "como_cai": "Número de polias móveis para mover uma carga (Arquimedes e o navio).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Arquimedes moveu sozinho um navio de 3000 kg (μ=0,8; g=10) puxando com F=400 N por uma associação de polias. Número mínimo de polias móveis?",
+        "resolucao": [
+          "Força de atrito a vencer: Fat = μ·N = 0,8 × 30000 = 24000 N (N = m·g = 30000 N).",
+          "Cada polia móvel dobra a força: 400 → 800 → 1600 → 3200 → 6400 → 12800 → 25600.",
+          "Com 6 polias móveis a força (25600 N) supera os 24000 N necessários. Resposta: 6 (letra B)."
+        ]
+      }
+    ],
+    "atalho": "Cada polia móvel dobra a força. Conte quantas dobras passam da força de atrito.",
+    "formulas": [
+      {
+        "rotulo": "Polias móveis",
+        "latex": "F_{efetiva}=2^{n}\\cdot F"
+      }
+    ]
+  },
+  "Aceleração centrípeta": {
+    "aula": "Dinâmica",
+    "teoria": [
+      "Todo movimento circular tem uma aceleração centrípeta, dirigida ao CENTRO da trajetória, dada por ac = v²/R. É ela que mantém o corpo na curva.",
+      "A aceleração TANGENCIAL só existe se a velocidade (módulo) muda ao longo da curva. Se a velocidade é constante, a aceleração tangencial é nula e só há a centrípeta."
+    ],
+    "como_cai": "Bem teórica: identificar que, com velocidade constante, a aceleração tangencial é nula e só há centrípeta (satélite/coelhinho em órbita).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Um objeto descreve trajetória circular com módulo de velocidade constante. O vetor aceleração tangencial é?",
+        "resolucao": [
+          "Velocidade (módulo) constante → não há variação tangencial de velocidade.",
+          "Logo a aceleração tangencial é NULA; existe apenas a centrípeta (perpendicular à velocidade, para o centro).",
+          "Resposta: aceleração tangencial nula."
+        ]
+      }
+    ],
+    "atalho": "Circular: ac = v²/R (para o centro). Velocidade constante → tangencial nula.",
+    "formulas": [
+      {
+        "rotulo": "Aceleração centrípeta",
+        "latex": "a_c=\\dfrac{v^2}{R}"
+      }
+    ]
+  },
+  "Impulso e quantidade de movimento": {
+    "aula": "Dinâmica",
+    "teoria": [
+      "Impulso é uma força aplicada durante um tempo (I = F·Δt) e é igual à variação da quantidade de movimento: F·Δt = m·Δv.",
+      "Para uma MESMA variação de velocidade (mesma massa), pode-se usar uma força grande por pouco tempo (soco) ou uma força pequena por muito tempo (empurrão gentil). Diluir a força no tempo reduz a força — princípio dos amortecedores e do cinto/airbag."
+    ],
+    "como_cai": "Cinto de segurança e barreiras de proteção: para reduzir a força (dano), prolongar o tempo da colisão.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Testes de 5 cintos numa colisão de 0,3 s, com mesma massa e mesma variação de velocidade. Qual cinto oferece menor risco de lesão?",
+        "resolucao": [
+          "F·Δt = m·Δv. Como m e Δv são iguais, a força é menor quando o tempo é maior.",
+          "No gráfico aceleração×tempo, escolher a curva que distribui a desaceleração no MAIOR tempo (menor pico de força).",
+          "Resposta: o cinto cujo gráfico ocupa mais tempo (letra B)."
+        ]
+      },
+      {
+        "enunciado": "Barreira de pneus (o carro volta) × barreira de blocos deformáveis (o carro para). Como ficam a força média e a energia dissipada?",
+        "resolucao": [
+          "Pneus: o carro chega e VOLTA → maior variação de velocidade (chega +5, volta −2 → Δv=7) → com o mesmo tempo, força MAIOR.",
+          "Blocos: o carro para (Δv menor), mas vai da velocidade a zero → dissipa MAIS energia.",
+          "Resposta: força maior nos pneus; energia dissipada maior nos blocos (letra A)."
+        ]
+      }
+    ],
+    "pegadinha": "Voltar após a batida exige MAIS força (maior Δv); parar dissipa mais energia.",
+    "atalho": "F·Δt = m·Δv. Mesmo Δv: mais tempo → menos força (por isso airbag/cinto amortecem).",
+    "formulas": [
+      {
+        "rotulo": "Teorema do impulso",
+        "latex": "F\\cdot\\Delta t=m\\cdot\\Delta v"
+      }
+    ]
+  },
+  "Tipos de energia mecânica": {
+    "aula": "Energia Mecânica",
+    "teoria": [
+      "Há três energias mecânicas: potencial GRAVITACIONAL (ligada à altura, Epg = m·g·h), potencial ELÁSTICA (ligada à deformação de molas, Epe = kx²/2) e CINÉTICA (ligada à velocidade, Ec = mv²/2).",
+      "As potenciais são 'armazenadas' (só viram energia de fato quando liberadas); a cinética exige movimento. Um sistema mola→carrinho→loop mostra as três se convertendo entre si."
+    ],
+    "como_cai": "Caracterizar/identificar o tipo de energia por comparação (um sistema descrito é análogo a qual energia conhecida?).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Um cristal é comprimido por pressão extrema e passa a armazenar enorme quantidade de energia numa estrutura supercompacta. Esse processo é análogo à energia?",
+        "resolucao": [
+          "Comprimir algo e nele armazenar energia liberável é exatamente o que ocorre numa MOLA comprimida.",
+          "Reservatório de usina e carrinho no alto = potencial gravitacional; fósforo/reator = térmica/nuclear.",
+          "Resposta: energia potencial elástica acumulada na mola (letra E)."
+        ]
+      }
+    ],
+    "atalho": "Altura = gravitacional (mgh); mola/compressão = elástica (kx²/2); velocidade = cinética (mv²/2).",
+    "formulas": [
+      {
+        "rotulo": "Potencial gravitacional",
+        "latex": "E_{pg}=m\\,g\\,h"
+      },
+      {
+        "rotulo": "Potencial elástica",
+        "latex": "E_{pe}=\\dfrac{k x^2}{2}"
+      },
+      {
+        "rotulo": "Cinética",
+        "latex": "E_c=\\dfrac{m v^2}{2}"
+      }
+    ]
+  },
+  "Conservação e transformação de energia": {
+    "aula": "Energia Mecânica",
+    "teoria": [
+      "Em sistemas ideais (sem atrito), a energia mecânica se CONSERVA: a que sai de uma forma reaparece em outra (elástica→cinética→gravitacional).",
+      "Cuidado com os fatores quadráticos: na cinética a velocidade está ao quadrado, e na elástica a deformação x está ao quadrado. Dobrar x quadruplica a energia elástica; dobrar v quadruplica a cinética."
+    ],
+    "como_cai": "Multiplicar a velocidade de lançamento (elástica→cinética) por um fator, decidindo o que mudar na mola/deformação/massa.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Uma mola lança um cubo. Para a velocidade de lançamento AUMENTAR 4 vezes, o que fazer? (atrito desprezível)",
+        "resolucao": [
+          "Conservação: kx²/2 = mv²/2 → v = x·√(k/m).",
+          "Para v×4: aumentar a deformação x em 4×, OU a constante k em 16×, OU dividir a massa por 16.",
+          "A alternativa que bate: manter a mola e aumentar a deformação 4 vezes (letra B)."
+        ]
+      },
+      {
+        "enunciado": "Disco de Maxwell: energia cinética de rotação no ponto mais baixo, com massa 30 g, altura útil 2h/3 (h=410 mm), g=10.",
+        "resolucao": [
+          "Sistema conservativo: Ec = Epg = m·g·(2h/3).",
+          "= 30×10⁻³ · 10 · (2·0,410/3) ≈ 8,2×10⁻² J (letra B)."
+        ]
+      }
+    ],
+    "pegadinha": "Dobrar a deformação NÃO dobra a energia elástica — QUADRUPLICA (x é ao quadrado). Idem velocidade na cinética.",
+    "atalho": "Energia se conserva. v e x entram ao quadrado — cuidado com os fatores."
+  },
+  "Trabalho e potência": {
+    "aula": "Energia Mecânica",
+    "teoria": [
+      "Trabalho é a variação de energia de um sistema: τ = ΔE, e também τ = F·d·cosθ. Para mudar a energia de um corpo (levantá-lo, acelerá-lo) é preciso realizar trabalho.",
+      "Potência é trabalho por tempo: P = τ/Δt, medida em watt (W = J/s). Um sistema é mais 'potente' quando realiza o mesmo trabalho em menos tempo."
+    ],
+    "como_cai": "Calcular trabalho como variação de energia cinética; usar 'watt = joule por segundo' para achar tempo a partir da potência.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Corredor de 90 kg vai do repouso a 12 m/s nas 13 primeiras passadas (plano). Trabalho total realizado?",
+        "resolucao": [
+          "τ = ΔEc = ½m·v_f² − ½m·v_i² (v_i = 0).",
+          "= ½·90·12² = 45·144 = 6480 J ≈ 6,5×10³ J."
+        ]
+      },
+      {
+        "enunciado": "Carro solar de 200 kg, painel de 9 m², insolação 1000 W/m², rendimento 30%. Tempo para ir do repouso a 108 km/h (30 m/s)?",
+        "resolucao": [
+          "Potência captada = 1000×9×0,30 = 2700 W = 2700 J/s.",
+          "Energia necessária = ½·200·30² = 90000 J.",
+          "Tempo = 90000/2700 ≈ 33 s (watt = joule/segundo)."
+        ]
+      }
+    ],
+    "atalho": "τ = ΔE = F·d·cosθ. Potência P = τ/t; W = J/s (energia por segundo).",
+    "formulas": [
+      {
+        "rotulo": "Trabalho",
+        "latex": "\\tau=\\Delta E=F\\,d\\cos\\theta"
+      },
+      {
+        "rotulo": "Potência",
+        "latex": "P=\\dfrac{\\tau}{\\Delta t}\\;[\\mathrm{W}=\\mathrm{J/s}]"
+      }
+    ]
+  },
+  "Colisões e quantidade de movimento": {
+    "aula": "Energia Mecânica",
+    "teoria": [
+      "Nas colisões conserva-se a quantidade de movimento (p = m·v). Numa colisão perfeitamente elástica (pêndulo de Newton), conserva-se também a energia: o número de esferas que batem de um lado é o que sai do outro.",
+      "Numa colisão em que os corpos se unem (inelástica), m·v antes = (m total)·v depois: se a massa total dobra com a mesma 'força', a velocidade cai pela metade."
+    ],
+    "como_cai": "Pêndulo de Newton (n esferas batem, n saem) e carrinhos que se aglutinam (conservação de m·v).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "No pêndulo de Newton, 3 esferas são soltas e colidem elasticamente com as 2 paradas. O que acontece após a colisão?",
+        "resolucao": [
+          "Conservação de energia e quantidade de movimento numa colisão elástica.",
+          "O número de esferas que sai é igual ao que bateu: 3 batem, 3 saem.",
+          "Resposta: 3 esferas saem do outro lado (letra C)."
+        ]
+      },
+      {
+        "enunciado": "Carrinho 1 (150 g) colide com o carrinho 2 (parado) e passam a andar juntos. Pelos dados, a velocidade cai a 1/3. Qual a massa do carrinho 2?",
+        "resolucao": [
+          "Conservação: m₁v₁ = (m₁+m₂)·v_f. A velocidade caiu a 1/3 → a massa total triplicou.",
+          "Massa total = 3×150 = 450 g.",
+          "Carrinho 2 = 450 − 150 = 300 g (letra C)."
+        ]
+      }
+    ],
+    "atalho": "Elástica (pêndulo): saem tantas quantas batem. União: m·v conserva — dobra a massa, cai a velocidade à metade.",
+    "formulas": [
+      {
+        "rotulo": "Quantidade de movimento",
+        "latex": "m_1 v_1=(m_1+m_2)\\,v_f"
+      }
+    ]
+  },
+  "Pressão": {
+    "aula": "Pressão, hidrostática e gravitação",
+    "teoria": [
+      "Pressão é força por área: P = F/A (Pascal = N/m²). Para a mesma força, quanto MENOR a área, maior a pressão (ponta do lápis dói, a base não).",
+      "Diferenças de pressão explicam efeitos do cotidiano: ao abrir e fechar a geladeira, sai ar quente, a pressão interna cai e a maior pressão externa dificulta reabrir."
+    ],
+    "como_cai": "Conceito P = F/A (efeitos como geladeira); e escala geométrica (torre × protótipo) em que peso∝volume∝k³ e área∝k².",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Uma réplica da Torre Eiffel em escala 1:100 usa os mesmos materiais. Qual a razão entre a pressão da torre real e a do modelo na fundação?",
+        "resolucao": [
+          "P = F/A; a força é o peso, proporcional ao VOLUME (∝ escala³ = 10⁶); a área da base ∝ escala² = 10⁴.",
+          "P_real/P_modelo = (10⁶)/(10⁴) = 10² = 100 (letra C)."
+        ]
+      },
+      {
+        "enunciado": "Após abrir e fechar a geladeira, ela custa a reabrir. Por quê?",
+        "resolucao": [
+          "Ao abrir, sai ar; ao fechar, a pressão interna fica menor que a externa.",
+          "A maior pressão externa 'segura' a porta.",
+          "Resposta: a pressão no interior está abaixo da externa."
+        ]
+      }
+    ],
+    "atalho": "P = F/A (N/m² = Pa). Menor área → maior pressão. Escala linear k → área k², volume/peso k³.",
+    "formulas": [
+      {
+        "rotulo": "Pressão",
+        "latex": "P=\\dfrac{F}{A}"
+      }
+    ]
+  },
+  "Hidrostática": {
+    "aula": "Pressão, hidrostática e gravitação",
+    "teoria": [
+      "Macete-chave: a cada 10 m de profundidade na água, soma-se ~1 atmosfera de pressão (além da 1 atm do ar).",
+      "O movimento de fluidos (e a sucção do aspirador, o canudo) vem de DIFERENÇAS de pressão: o líquido/ar vai da região de maior para a de menor pressão. Se as pressões se igualam, não há escoamento."
+    ],
+    "como_cai": "Descompressão de mergulhador (converter profundidade em atm); por que não se bebe o suco com um canudo dentro e outro fora.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Mergulhador a 50 m precisa se descomprimir; o gráfico dá tempo × variação de pressão. Qual o tempo de descompressão?",
+        "resolucao": [
+          "50 m ≈ 5 atm da água + 1 atm do ar = 6 atm sobre ele.",
+          "Ao voltar à superfície ele sai de 6 atm para 1 atm → variação de 5 atm (≈500 kPa).",
+          "No gráfico, 500 kPa corresponde a 60 min (letra C)."
+        ]
+      },
+      {
+        "enunciado": "Bebendo suco com um canudo dentro do líquido e outro fora, ao sugar os dois é difícil beber. Por quê?",
+        "resolucao": [
+          "O canudo de fora liga a boca ao ar; a pressão na boca se iguala à atmosférica que atua sobre o suco.",
+          "Sem diferença de pressão, o líquido não sobe.",
+          "Resposta: a pressão na boca fica praticamente igual à que atua sobre o suco."
+        ]
+      }
+    ],
+    "pegadinha": "O suco só sobe quando se cria BAIXA pressão no canudo (tirando o ar); com pressões iguais, nada sobe.",
+    "atalho": "Cada 10 m de água = +1 atm. Fluido escoa da maior para a menor pressão."
+  },
+  "Rotação e translação": {
+    "aula": "Pressão, hidrostática e gravitação",
+    "teoria": [
+      "A ROTAÇÃO da Terra (em torno do próprio eixo, ~24 h) causa o dia e a noite.",
+      "A TRANSLAÇÃO (em torno do Sol), combinada à inclinação do eixo, causa as ESTAÇÕES do ano e as variações na duração do dia e na posição do nascer/pôr do sol."
+    ],
+    "como_cai": "Explicar mudança na posição do sol/estações (translação + inclinação); interpretar produção de placa solar maior no verão.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "A posição em que o sol se põe muda com a estação. Esse fenômeno se deve à combinação de dois fatores: inclinação do eixo terrestre e ...?",
+        "resolucao": [
+          "As estações e a mudança aparente do sol vêm da órbita da Terra ao redor do Sol.",
+          "O segundo fator é a translação da Terra ao redor do Sol.",
+          "Resposta: inclinação do eixo + translação."
+        ]
+      }
+    ],
+    "atalho": "Rotação → dia/noite. Translação + inclinação do eixo → estações e duração do dia."
+  },
+  "Gravitação": {
+    "aula": "Pressão, hidrostática e gravitação",
+    "teoria": [
+      "A força gravitacional entre dois corpos depende das massas, da constante G e da distância ao QUADRADO: F = G·M·m/d². Substituir um corpo por outro de MESMA massa não altera a força — mantém as órbitas.",
+      "Quando a distância muda, a força muda: um corpo que se aproxima da Terra sofre força crescente e, pela composição desse vetor com sua velocidade, tem a trajetória desviada (curva)."
+    ],
+    "como_cai": "Buraco negro de mesma massa do Sol (órbitas inalteradas); desvio de trajetória de asteroide que se aproxima.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Se o Sol fosse substituído por um buraco negro de MESMA massa, o que aconteceria com as órbitas dos planetas?",
+        "resolucao": [
+          "F = G·M·m/d² depende da massa, não do tamanho/tipo do corpo.",
+          "Mesma massa e mesmas distâncias → mesma força gravitacional.",
+          "Resposta: as órbitas permaneceriam inalteradas."
+        ]
+      },
+      {
+        "enunciado": "Um asteroide que passa perto da Terra tem a trajetória desviada. Isso ocorre por quê?",
+        "resolucao": [
+          "Massas e G não mudam; o que muda é a distância → a força gravitacional da Terra sobre ele cresce ao se aproximar.",
+          "Essa força, quase perpendicular à velocidade, compõe-se com ela e curva a trajetória.",
+          "Resposta: sofre força gravitacional crescente (interação gravitacional mais forte) que desvia sua trajetória."
+        ]
+      }
+    ],
+    "atalho": "F = G·M·m/d². Mesma massa → mesma força (órbita igual). Muda a distância → muda a força → desvia a trajetória.",
+    "formulas": [
+      {
+        "rotulo": "Gravitação universal",
+        "latex": "F=G\\dfrac{M\\,m}{d^{2}}"
+      }
+    ]
+  }
+}
