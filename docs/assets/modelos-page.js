@@ -62,11 +62,25 @@
     var biologyQuestionCount = biologyModels.reduce(function (total, model) {
       return total + model.questoes;
     }, 0);
-    el("bio-note").textContent = biologyModels.length + " modelos de Biologia, identificados em " +
-      biologyQuestionCount + " questões oficiais. Conteúdo extraído das videoaulas: ideia central, como cai no ENEM, atalho e fórmulas.";
+    // Agrupa os modelos pela videoaula de origem, preservando a ordem em que
+    // aparecem no dataset. Modelos sem "aula" caem num grupo geral no fim.
+    var aulaOrder = [], aulaMap = {};
+    biologyModels.forEach(function (m) {
+      var a = m.aula || "Outros modelos";
+      if (!aulaMap[a]) { aulaMap[a] = []; aulaOrder.push(a); }
+      aulaMap[a].push(m);
+    });
+    el("bio-note").textContent = biologyModels.length + " modelos de Biologia, agrupados em " +
+      aulaOrder.length + " videoaulas e identificados em " + biologyQuestionCount +
+      " questões oficiais. Cada modelo traz a teoria completa, como cai no ENEM, exemplos reais resolvidos, pegadinhas, atalho e fórmulas.";
 
     function bioBlock(label, text) {
       return text ? '<div class="bio-block"><div class="l">' + label + '</div><p>' + esc(text) + "</p></div>" : "";
+    }
+    function bioList(label, items, cls) {
+      if (!items || !items.length) return "";
+      return '<div class="bio-block ' + (cls || "") + '"><div class="l">' + label + "</div><ul>" +
+        items.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul></div>";
     }
     function bioFormulas(items) {
       if (!items || !items.length) return "";
@@ -80,13 +94,23 @@
         '<summary><span class="idx">' + (i + 1) + '</span>' + esc(m.tema) +
           '<span class="qcount">' + m.questoes + ' questões</span><span class="chev">›</span></summary>' +
         '<div class="body">' +
-          bioBlock("Ideia central", m.ideia) +
+          bioBlock("Teoria essencial", m.teoria || m.ideia) +
           bioBlock("Como cai no ENEM", m.como_cai) +
+          bioList("Exemplos reais resolvidos", m.exemplos, "exemplos") +
           bioFormulas(m.formulas) +
+          bioBlock("Pegadinhas", m.pegadinha) +
           (m.atalho ? '<div class="bio-block atalho"><div class="l">Atalho</div><p>' + esc(m.atalho) + "</p></div>" : "") +
         "</div></details>";
     }
-    el("bio-modelos").innerHTML = biologyModels.map(bioCard).join("");
+    var idx = 0;
+    el("bio-modelos").innerHTML = aulaOrder.map(function (a) {
+      var group = aulaMap[a];
+      var n = group.reduce(function (t, m) { return t + m.questoes; }, 0);
+      var cards = group.map(function (m) { return bioCard(m, idx++); }).join("");
+      return '<section class="bio-aula"><h3>' + esc(a) +
+        '<span class="aula-meta">' + group.length + " modelos · " + n + " questões</span></h3>" +
+        cards + "</section>";
+    }).join("");
     if (window.katex) {
       el("bio-modelos").querySelectorAll(".math[data-latex]").forEach(function (node) {
         try { window.katex.render(node.dataset.latex, node, { throwOnError: false, displayMode: true }); }
@@ -107,8 +131,9 @@
       var fig = (m.figs || []).map(function (f) {
         return '<figure><img loading="lazy" alt="Figura do enunciado" src="assets/img/' + esc(f) + '"></figure>';
       }).join("");
+      var anulada = m.status === "anulada";
       var alts = (m.alts || []).map(function (a) {
-        var ok = a.l === m.gab;
+        var ok = a.l === m.gab && !anulada;
         var altImages = (a.imgs && a.imgs.length ? a.imgs : (a.img ? [a.img] : []));
         var body = altImages.length
           ? '<span class="alt-images">' + altImages.map(function (image, imageIndex) {
@@ -118,9 +143,11 @@
           : (a.t ? esc(a.t) : "<em>alternativa gráfica — ver recorte original abaixo</em>");
         return '<div class="alt' + (ok ? " correct" : "") + '"><span class="l">' + a.l + "</span><span>" + body + "</span></div>";
       }).join("");
-      var gabline = m.gab
-        ? "Gabarito: <strong>" + m.gab + "</strong> · " + (m.gab_fonte === "microdados" ? "oficial (microdados INEP)" : "indicado pelo material")
-        : (m.status === "anulada" ? "Questão anulada — sem gabarito" : "Gabarito não disponível");
+      var gabline = anulada
+        ? "Questão anulada pelo INEP — sem gabarito válido"
+        : (m.gab
+            ? "Gabarito: <strong>" + m.gab + "</strong> · " + (m.gab_fonte === "microdados" ? "oficial (microdados INEP)" : "indicado pelo material")
+            : "Gabarito não disponível");
       var habBadge = m.hab
         ? '<span class="badge hab">H' + m.hab + (m.comp ? " · C" + m.comp : "") + "</span>"
         : '<span class="badge" title="Microdados sem habilidade para esta edição">sem habilidade</span>';

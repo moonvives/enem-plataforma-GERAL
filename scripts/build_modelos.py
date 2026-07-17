@@ -524,6 +524,10 @@ def main():
                 comp = reg["competencia"]
             if b is None and reg.get("dificuldade"):
                 b = round(float(reg["dificuldade"]), 1)
+        # Descarta valores de TRI implausíveis (erro na fonte): fora da faixa
+        # 200–900 eles distorceriam o tier, a ordenação e as médias de padrão.
+        if b is not None and not (200 <= b <= 900):
+            b = None
         record = {
             "id": "q%03d" % num,
             "num": num,
