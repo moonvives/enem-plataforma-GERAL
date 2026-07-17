@@ -603,6 +603,10 @@ def main():
         "Hidrostática": ["hidrostatica", "mergulh", "pressao atmosferica", "fluido"],
         "Rotação e translação": ["rotacao", "translacao", "estacao do ano", "eixo terrestre"],
         "Gravitação": ["gravitacao", "forca gravitacional", "buraco negro", "orbita"],
+        "Resistores e leis de Ohm": ["resistor", "resistencia eletrica", "lei de ohm", "resistividade", "ohm"],
+        "Aparelhos de medida": ["voltimetro", "amperimetro", "multimetro", "medir a corrente"],
+        "Geradores e receptores": ["gerador", "bateria", "pilha", "capacidade de carga"],
+        "Circuitos: série e paralelo": ["em serie", "em paralelo", "circuito", "resistencia equivalente", "lampadas"],
     }
     PHYS_BROAD = {"Mecânica", "Eletromagnetismo", "Termologia", "Óptica", "Ondas e som"}
     _fis_tab = [(n, kw) for n, kw in FIS_KW.items()]

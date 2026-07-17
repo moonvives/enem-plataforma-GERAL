@@ -570,5 +570,140 @@
         "latex": "F=G\\dfrac{M\\,m}{d^{2}}"
       }
     ]
+  },
+  "Resistores e leis de Ohm": {
+    "aula": "Eletrização e Eletrodinâmica I",
+    "teoria": [
+      "Resistores resistem à passagem da corrente e dissipam energia como calor (efeito Joule — é o que aquece a água no chuveiro).",
+      "1ª lei de Ohm: U = R·I (tensão = resistência × corrente). U é a tensão (V, volts), R a resistência (Ω, ohms) e I a corrente (A, ampères). É a fórmula mais usada de toda a eletrodinâmica.",
+      "2ª lei de Ohm: R = ρ·L/A — a resistência depende da resistividade ρ (do material), do comprimento L (maior L, maior R) e da área de seção transversal A (maior A, menor R). Cuidado: L e A têm de estar na MESMA unidade."
+    ],
+    "como_cai": "Comparar resistências de fios por R = ρL/A; ler gráfico tensão×corrente de um resistor ôhmico; e casos em que o fio consome parte da tensão (2 etapas: achar R do fio e depois U = R·I).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Fios do mesmo material têm áreas e comprimentos dados (mesmas unidades). Colocar as resistências em ordem crescente.",
+        "resolucao": [
+          "R = ρL/A; com ρ constante, maior R = maior L com menor A.",
+          "Calcular L/A de cada fio e ordenar.",
+          "A ordem crescente sai direto dos quocientes L/A (letra C na questão)."
+        ]
+      },
+      {
+        "enunciado": "Torneira elétrica: corrente 30 A, fio de cobre A=4 mm², L=28 m, ρ=1,7×10⁻⁸, tomada 220 V. Qual a tensão que sobra para a torneira?",
+        "resolucao": [
+          "Converter área: 4 mm² = 4×10⁻⁶ m².",
+          "R do fio = ρL/A = 1,7×10⁻⁸ · 28 / (4×10⁻⁶) ≈ 0,119 Ω.",
+          "Queda no fio: U = R·I = 0,119 · 30 ≈ 3,57 V.",
+          "Sobra para a torneira: 220 − 3,57 ≈ 216 V."
+        ]
+      }
+    ],
+    "pegadinha": "L e A precisam estar na mesma unidade (converta mm²→m²). E o fio SEMPRE consome um pouco da tensão — subtraia essa queda.",
+    "atalho": "U = R·I (a fórmula-mãe). R = ρL/A (resistência é ρL/A: maior L / menor A → maior R).",
+    "formulas": [
+      {
+        "rotulo": "1ª lei de Ohm",
+        "latex": "U=R\\cdot I"
+      },
+      {
+        "rotulo": "2ª lei de Ohm",
+        "latex": "R=\\rho\\dfrac{L}{A}"
+      }
+    ]
+  },
+  "Aparelhos de medida": {
+    "aula": "Eletrização e Eletrodinâmica I",
+    "teoria": [
+      "O VOLTÍMETRO mede tensão e é ligado em PARALELO (funciona como resistência infinita — nada passa por ele, ele 'sente' a diferença de tensão entre dois pontos).",
+      "O AMPERÍMETRO mede corrente e é ligado em SÉRIE (funciona como resistência nula — a corrente passa por dentro dele). Se ligado em paralelo, desviaria toda a corrente.",
+      "Um multímetro é o mesmo aparelho podendo atuar como um ou outro, conforme a ligação."
+    ],
+    "como_cai": "Identificar como ligar o aparelho (série/paralelo) e o que ele mede; ler o valor a partir de U = R·I ou de carga/tempo.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Para medir a corrente de fuga de uma bateria, como o amperímetro deve ser ligado e qual a leitura, sabendo que gastou 60 Ah em 120 h?",
+        "resolucao": [
+          "Amperímetro mede corrente → ligado em SÉRIE (corrente passa por dentro, não bifurca).",
+          "Corrente = carga/tempo = 60 Ah / 120 h = 0,5 A.",
+          "Esquema em série com leitura de 0,5 A."
+        ]
+      },
+      {
+        "enunciado": "No circuito, o multímetro 1 está em paralelo com a lâmpada e o 2 em série. O que cada um mede e quais os valores?",
+        "resolucao": [
+          "Em paralelo → voltímetro: mede a tensão (5,62 V na lâmpada).",
+          "Em série → amperímetro: mede a corrente.",
+          "Corrente pela lâmpada (R=40 Ω, U=5,62 V): I = U/R = 5,62/40 ≈ 0,14 A."
+        ]
+      }
+    ],
+    "pegadinha": "Use a tensão REAL que chega (5,62 V), não os 6 V nominais — a resistência interna das pilhas e do fio consome um pouco.",
+    "atalho": "Voltímetro = paralelo (tensão). Amperímetro = série (corrente)."
+  },
+  "Geradores e receptores": {
+    "aula": "Eletrização e Eletrodinâmica I",
+    "teoria": [
+      "Gerador (pilha/bateria) fornece tensão. Associação em SÉRIE (positivo no negativo do seguinte): as tensões SOMAM. Associação em PARALELO (mesmos polos juntos): a tensão é a MESMA, mas a duração DOBRA (dividem o trabalho).",
+      "Receptor é o oposto do gerador: recebe/consome a tensão. Se você inverte um gerador numa série (polos iguais frente a frente), ele vira receptor e a tensão resultante pode se anular."
+    ],
+    "como_cai": "Identificar a associação (série soma tensão; paralelo aumenta duração/carga) a partir dos polos.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Um acidente com baterias de 12 V (pele molhada, R=1000 Ω) exigiu corrente ≥ 20 mA (parada respiratória). Qual associação de baterias causou isso?",
+        "resolucao": [
+          "Uma bateria: I = U/R = 12/1000 = 0,012 A (12 mA) — não basta.",
+          "Duas em SÉRIE dobram a tensão (24 V) → I = 24/1000 = 0,024 A (24 mA) → parada respiratória.",
+          "A associação é a que liga positivo com negativo (série). Paralelo não somaria a tensão."
+        ]
+      },
+      {
+        "enunciado": "Bateria de 10,8 V ou 14,4 V, feita de 12 células de 3,6 V. Qual tem maior capacidade de carga?",
+        "resolucao": [
+          "10,8 V = 3 células em série; 14,4 V = 4 células em série.",
+          "Com 12 células: 10,8 V permite 4 ramos em paralelo (12/3); 14,4 V permite 3 ramos (12/4).",
+          "Mais ramos em paralelo = maior capacidade de carga → a de 10,8 V, com 4 conjuntos em paralelo de 3 células em série (letra A)."
+        ]
+      }
+    ],
+    "atalho": "Série = soma tensão. Paralelo = mesma tensão, dobra a duração/carga. Polos iguais frente a frente → vira receptor."
+  },
+  "Circuitos: série e paralelo": {
+    "aula": "Eletrização e Eletrodinâmica I",
+    "teoria": [
+      "Em SÉRIE, a mesma corrente passa por todos os resistores e a resistência equivalente é a SOMA (Req = R1+R2+...).",
+      "Em PARALELO, todos ficam sob a MESMA tensão e a equivalente sai de 1/Req = 1/R1 + 1/R2 + ... (n resistores iguais R → Req = R/n). Associar em paralelo REDUZ a resistência equivalente.",
+      "Regra de ouro: resistores em série → mesma corrente; em paralelo → mesma tensão."
+    ],
+    "como_cai": "Comparar correntes em pontos de um circuito (a total se divide igualmente entre ramos idênticos) e explicar superaquecimento por queda da resistência equivalente.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Três lâmpadas idênticas em paralelo; bateria e fios ideais. Quais correntes (A,B,C,D,E) são iguais?",
+        "resolucao": [
+          "Ramos idênticos sob mesma tensão → mesma corrente x em cada um; a total é 3x.",
+          "No ponto de entrada (A) e no de saída (E) passa a total 3x; após o 1º ramo sobra 2x; nos ramos individuais (C e D) passa x.",
+          "Iguais: A = E (3x) e C = D (x) (letra A)."
+        ]
+      },
+      {
+        "enunciado": "Adaptador T ligando três aparelhos de resistência R em paralelo. Por que superaquece?",
+        "resolucao": [
+          "Três R em paralelo: Req = R/3 (resistência equivalente MUITO menor).",
+          "Mesma tensão (mesmos terminais C-D) com resistência menor → por U = R·I, a corrente SOBE muito.",
+          "Superaquecimento por aumento da corrente entre C e D."
+        ]
+      }
+    ],
+    "pegadinha": "Ligar aparelhos em paralelo (adaptador T) reduz a resistência equivalente e AUMENTA a corrente — risco de superaquecer.",
+    "atalho": "Série: soma R, mesma corrente. Paralelo: 1/Req = Σ1/R, mesma tensão (R/n se iguais).",
+    "formulas": [
+      {
+        "rotulo": "Série",
+        "latex": "R_{eq}=R_1+R_2+\\cdots"
+      },
+      {
+        "rotulo": "Paralelo",
+        "latex": "\\dfrac{1}{R_{eq}}=\\dfrac{1}{R_1}+\\dfrac{1}{R_2}+\\cdots"
+      }
+    ]
   }
 }
