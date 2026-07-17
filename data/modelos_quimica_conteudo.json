@@ -1,182 +1,308 @@
 {
-  "_fonte": "Conteúdo integral sintetizado da transcrição da videoaula de Química (Fundamentos da Química): teoria essencial, como cai no ENEM, questões-modelo resolvidas passo a passo, pegadinhas, atalho e fórmulas.",
+  "_fonte": "Conteúdo integral sintetizado da transcrição da videoaula de Química (Fundamentos da Química): teoria completa, como cai no ENEM, todas as questões-modelo resolvidas passo a passo, pegadinhas, atalho e fórmulas.",
   "Emissão de fótons (teste de chama)": {
     "aula": "Fundamentos da Química",
     "teoria": [
-      "Pelo modelo de Bohr, os elétrons ocupam níveis de energia definidos: órbitas mais internas = menos energia; mais externas = mais energia.",
-      "Ao receber energia (calor da chama), o elétron ABSORVE e salta para um nível mais externo (excitação). Ao VOLTAR ao nível original, ele LIBERA essa energia na forma de FÓTON (luz) — cada elemento emite uma cor característica (teste de chama)."
+      "Este modelo cai dentro do conteúdo de ÁTOMOS, mais especificamente no modelo atômico de Bohr. Antes dele vieram Dalton, Thomson e Rutherford, mas é o átomo de Bohr que vira questão-modelo recorrente. Bohr descobriu algo genial: os elétrons não ficam em qualquer lugar da eletrosfera — eles ocupam órbitas/níveis de energia PRÉ-DEFINIDOS. Órbitas mais internas correspondem a níveis de MENOR energia; órbitas mais externas, a níveis de MAIOR energia.",
+      "A aplicação que vira modelo é a emissão de fótons (o teste de chama). Quando você fornece energia a um átomo — por exemplo, o calor da chama do fogão — você OBRIGA o elétron a absorver essa energia e SALTAR para uma órbita mais externa (mais energética). Isso é a excitação do elétron.",
+      "Mas o elétron não fica lá: em seguida ele VOLTA para a sua órbita original (o estado fundamental). E para voltar, ele precisa LIBERAR a energia que tinha absorvido. Essa energia é liberada na forma de FÓTON — que, na prática, é luz de uma cor. Como cada elemento tem níveis de energia próprios, cada substância emite fótons de uma cor característica. É por isso que o sal (sódio) jogado no fogo deixa a chama alaranjada/amarelada, e outros elementos dão verde, vermelho etc.",
+      "Portanto, a sequência é: recebe energia → elétron sobe de nível (absorve) → elétron volta ao nível original → emite fóton (luz colorida). O fóton é a mesma energia que foi absorvida, devolvida ao ambiente como luz."
     ],
-    "como_cai": "Explicar a mudança de cor da chama (sal/sódio) como emissão de fótons na transição eletrônica de volta ao nível fundamental.",
+    "como_cai": "O enunciado descreve a mudança de cor de uma chama (sal na chama, bico de Bunsen com cátions metálicos) e pergunta a causa. A resposta é sempre a emissão de fótons na transição eletrônica de volta ao nível fundamental — em meio a alternativas que citam reação química, combustão etc. para confundir quem não conhece o modelo.",
     "questoes_resolvidas": [
       {
-        "enunciado": "Ao derramar água salgada (NaCl) na chama, ela fica amarelada. Cientificamente, essa mudança de cor ocorre por quê?",
+        "enunciado": "Ao cozinhar arroz e derramar a água do cozimento (que contém NaCl) na chama, ela muda para uma cor amarelada. Cientificamente, essa mudança de cor ocorre por quê?",
         "resolucao": [
-          "O calor excita os elétrons do sódio (sobem de nível).",
-          "Ao voltarem ao nível original, emitem a energia como fótons (luz amarela).",
-          "Resposta: emissão de fótons pelo sódio excitado pela chama (não é reação química)."
+          "A água tem vários componentes (sais, carboidratos, proteínas), mas o que importa é o cloreto de sódio (NaCl).",
+          "O calor da chama excita os elétrons do sódio, que sobem de nível.",
+          "Ao voltarem ao nível original, emitem a energia absorvida como fótons (luz amarela).",
+          "Não houve reação química nem combustão do sal. Resposta: emissão de fótons pelo sódio excitado pela chama (alternativa B)."
         ]
       },
       {
-        "enunciado": "No teste de chama, a cor emitida por cada cátion metálico deve-se a quê?",
+        "enunciado": "Um teste no bico de Bunsen identifica cátions metálicos pela cor da luz emitida. Essa cor é proveniente da emissão de radiação eletromagnética que ocorre por quê?",
         "resolucao": [
-          "É radiação eletromagnética (fóton) emitida na transição eletrônica.",
-          "O elétron excitado volta de um nível MAIS EXTERNO para um mais INTERNO, emitindo o fóton.",
+          "Cada cátion emite uma cor diferente porque o elétron excitado pelo calor volta ao nível fundamental emitindo um fóton (radiação eletromagnética).",
+          "Não é mudança de fase, nem combustão, nem 'diminuição da energia cinética na mesma órbita'.",
+          "O elétron faz a transição de um nível MAIS EXTERNO para um mais INTERNO.",
           "Resposta: transição eletrônica de um nível mais externo para outro mais interno."
         ]
       }
     ],
-    "pegadinha": "O fóton é emitido quando o elétron VOLTA ao nível original — não quando absorve energia e sobe. Alternativas que dizem 'promoção para níveis mais energéticos' invertem o momento.",
-    "atalho": "Absorve energia → sobe de nível. Volta ao nível original → emite fóton (cor)."
+    "pegadinha": "A pegadinha clássica: alternativas que dizem 'promoção dos elétrons do estado fundamental para níveis mais energéticos'. Isso descreve a ABSORÇÃO (subida), mas o fóton é emitido na VOLTA ao nível original. Elas só invertem o momento da emissão.",
+    "atalho": "Absorve energia → sobe de nível (excita). Volta ao nível original → emite fóton (a cor da chama). Cada elemento, uma cor.",
+    "formulas": [
+      {
+        "rotulo": "Energia do fóton",
+        "latex": "\\Delta E=E_{\\text{externo}}-E_{\\text{interno}}=h\\cdot f"
+      }
+    ]
   },
   "Polaridade das moléculas": {
     "aula": "Fundamentos da Química",
     "teoria": [
-      "A polaridade de uma molécula depende de DOIS fatores: a geometria molecular e a polaridade das ligações. Ligação polar: átomos de eletronegatividades diferentes (um puxa mais o elétron); ligação apolar: átomos iguais.",
-      "Vetores de polaridade que se ANULAM pela geometria → molécula apolar. Ex.: água (angular) é POLAR; CO₂ (linear) é APOLAR (os dois vetores se cancelam). Guardar: água polar; óleos/gorduras e petróleo (hidrocarbonetos) apolares; etanol polar (um pouco menos)."
+      "A polaridade é a base de quase toda a química do ENEM (interações intermoleculares, solubilidade, propriedades físicas). Uma molécula é POLAR (tem um polo + e um polo −) ou APOLAR. Isso depende de DOIS fatores combinados: a GEOMETRIA MOLECULAR e a POLARIDADE DAS LIGAÇÕES.",
+      "Polaridade da ligação: numa ligação entre átomos de eletronegatividades diferentes, o mais eletronegativo puxa o elétron compartilhado para si — ele fica com tendência negativa e o outro com tendência positiva (ligação polar, gera um vetor). Se os átomos são iguais (H–H, O=O), o 'cabo de guerra' empata: ligação apolar.",
+      "Geometria: os vetores das ligações podem se ANULAR. O gás carbônico (CO₂) tem ligações C=O polares, mas geometria LINEAR (O=C=O): os dois vetores apontam para lados opostos e se cancelam → resultante nula → molécula APOLAR. Já a água (H₂O) é ANGULAR: os vetores não se anulam, sobra uma resultante → molécula POLAR. Regra prática: geometria angular/assimétrica tende a polar; linear/simétrica que anula os vetores tende a apolar.",
+      "Substâncias que você precisa saber de cor: ÁGUA é polar (o exemplo clássico); ÓLEOS e GORDURAS são apolares (óleo e água não se misturam); PETRÓLEO é apolar (formado por hidrocarbonetos); ETANOL é polar, porém um pouco menos que a água (tem uma parte que interage com apolares). Regra da química orgânica: cadeia só de carbono e hidrogênio = apolar; a presença de oxigênio ou nitrogênio (sobretudo o grupo OH) confere polaridade."
     ],
-    "como_cai": "Classificar substâncias como polares/apolares (base para solubilidade e interações). Regra da química orgânica: sem O ou N → apolar; grupos com O/N (sobretudo OH) → polar.",
+    "como_cai": "Classificar uma substância como polar ou apolar — sozinho ou como etapa para resolver solubilidade e interações. Em compostos orgânicos: contar grupos com O/N (especialmente OH) para julgar a polaridade.",
     "questoes_resolvidas": [
       {
-        "enunciado": "Por que o CO₂ é apolar mesmo tendo ligações polares?",
+        "enunciado": "Por que o CO₂ é uma molécula apolar mesmo tendo ligações polares?",
         "resolucao": [
-          "As ligações C=O são polares (o oxigênio puxa mais o elétron).",
-          "Mas a geometria é LINEAR: os dois vetores apontam em sentidos opostos e se anulam.",
-          "Resultante nula → molécula apolar."
+          "Cada ligação C=O é polar: o oxigênio, mais eletronegativo, puxa os elétrons e gera um vetor.",
+          "A geometria é LINEAR (O=C=O): os dois vetores têm mesmo módulo e sentidos opostos.",
+          "Eles se anulam → resultante zero → molécula apolar.",
+          "(Compare com a água, angular, cujos vetores não se anulam → polar.)"
         ]
       }
     ],
-    "pegadinha": "Ligação polar não garante molécula polar: a geometria pode anular os vetores (CO₂). Na orgânica, cadeia só de C e H = apolar.",
-    "atalho": "Angular/assimétrica → polar; linear/simétrica com vetores que se anulam → apolar. Água polar; hidrocarboneto apolar."
+    "pegadinha": "Ligação polar NÃO garante molécula polar: a geometria pode anular os vetores (CO₂). E em orgânica, cadeia de só C e H é sempre apolar, por mais grande que seja.",
+    "atalho": "Polaridade = geometria + polaridade das ligações. Vetores que se anulam → apolar. Água polar; óleo/petróleo/hidrocarboneto apolar; etanol polar (menos que a água).",
+    "formulas": [
+      {
+        "rotulo": "CO₂ (linear, vetores se anulam)",
+        "latex": "\\mathrm{O}=\\mathrm{C}=\\mathrm{O}\\;\\Rightarrow\\;\\vec{\\mu}_{\\text{resultante}}=0\\;(\\text{apolar})"
+      }
+    ]
   },
   "Interações intermoleculares": {
     "aula": "Fundamentos da Química",
     "teoria": [
-      "Interações intermoleculares (entre moléculas diferentes) definem propriedades físicas (ponto de ebulição, volatilidade). São mais fracas que as ligações dentro da molécula.",
-      "Da mais fraca para a mais forte: DIPOLO INDUZIDO (entre apolares — muito fraca, viram gases); DIPOLO PERMANENTE (entre polares); LIGAÇÃO DE HIDROGÊNIO (polares com F, O ou N ligados ao H — muito forte); ÍON-DIPOLO (íon com carga real + composto polar — a mais forte)."
+      "É um dos conteúdos mais importantes do ensino médio: cai muito por si só E é a base de mais de dez modelos seguintes. Interação intermolecular é a força de atração ENTRE moléculas diferentes (não é a ligação DENTRO da molécula, que é muito mais forte). São elas que definem propriedades físicas como o ponto de ebulição e a volatilidade.",
+      "Existem quatro tipos, da mais FRACA para a mais FORTE: (1) DIPOLO INDUZIDO (ou dipolo instantâneo) — entre moléculas APOLARES; é fraquíssima, por isso apolares como O₂, H₂, N₂ ficam tão soltos que são gases. (2) DIPOLO PERMANENTE (dipolo–dipolo) — entre moléculas POLARES (ex.: HCl): o lado positivo de uma atrai o lado negativo da outra, interação já bem mais forte.",
+      "(3) LIGAÇÃO DE HIDROGÊNIO — é um dipolo permanente levado ao extremo, que ocorre quando há FLÚOR, OXIGÊNIO ou NITROGÊNIO ligados ao HIDROGÊNIO (regra do 'FON com H'). Esses três têm eletronegatividade altíssima e o hidrogênio, baixíssima — como um brutamontes puxando o elétron contra uma criança. A diferença de eletronegatividade é tão grande que a interação fica muito forte. (4) ÍON-DIPOLO — a mais forte: um ÍON (carga REAL, positiva ou negativa, ex.: Na⁺) interage com um composto polar; como a carga é real (não só tendência), a atração é a maior de todas.",
+      "Resumo da força crescente: dipolo induzido < dipolo permanente < ligação de hidrogênio < íon-dipolo. O grupo hidroxila (OH) sempre faz ligação de hidrogênio — e a ligação de hidrogênio é a 'queridinha' do ENEM (a resposta mais frequente)."
     ],
-    "como_cai": "Identificar o tipo de interação entre duas substâncias a partir da polaridade. Grupo hidroxila (OH) → ligação de hidrogênio (o preferido do ENEM).",
+    "como_cai": "Dão duas substâncias e pedem o tipo de interação entre elas — basta julgar a polaridade de cada uma. Ver 'OH' já indica ligação de hidrogênio.",
     "questoes_resolvidas": [
       {
-        "enunciado": "Carvão ativado (só carbono, apolar) adsorve benzeno (hidrocarboneto, apolar). Que interação se forma?",
+        "enunciado": "O carvão ativado (praticamente só carbono, apolar) remove benzeno (hidrocarboneto) por adsorção. Que interação se forma entre o carvão e o benzeno?",
         "resolucao": [
-          "Ambos são apolares (só ligações C–C e C–H).",
-          "Entre apolares a interação é dipolo induzido.",
-          "Resposta: dipolo induzido–dipolo induzido."
+          "O carvão é só carbono ligado a carbono → apolar. O benzeno é hidrocarboneto (anel de C e H) → apolar.",
+          "Dois apolares interagem por dipolo induzido.",
+          "Resposta: dipolo induzido–dipolo induzido (alternativa D)."
         ]
       },
       {
-        "enunciado": "Grupos hidroxila (OH) da superfície interagem com a parede da bactéria. Que tipo de interação?",
+        "enunciado": "Grupos hidroxila (OH) da superfície de nanopartículas interagem com a parede celular da bactéria. Qual o tipo de interação?",
         "resolucao": [
-          "OH = oxigênio ligado ao hidrogênio → faz ligação de hidrogênio.",
+          "OH = oxigênio ligado ao hidrogênio → regra do FON com H.",
+          "Logo, forma ligação de hidrogênio (interação forte).",
+          "Resposta: ligação de hidrogênio."
+        ]
+      },
+      {
+        "enunciado": "A dissolução do açúcar na água ocorre predominantemente por meio de qual interação?",
+        "resolucao": [
+          "O açúcar tem muitos grupos OH; a água também.",
+          "OH com OH → ligação de hidrogênio (por isso o açúcar é muito solúvel na água, e o óleo, apolar, não).",
           "Resposta: ligação de hidrogênio."
         ]
       }
     ],
-    "pegadinha": "Ligação de hidrogênio é interação INTERmolecular (não é 'ligação' dentro da molécula), e só com F, O ou N ligados ao H. É a resposta mais frequente no ENEM.",
-    "atalho": "Apolar-apolar = dipolo induzido; polar-polar = dipolo permanente; F/O/N–H = ligação de hidrogênio; íon+polar = íon-dipolo (força crescente)."
+    "pegadinha": "Ligação de hidrogênio é interação INTERmolecular (não confunda com ligação dentro da molécula) e só ocorre com F, O ou N ligados ao H. No ENEM, quando houver OH/NH, quase sempre a resposta é ligação de hidrogênio.",
+    "atalho": "Apolar+apolar = dipolo induzido; polar+polar = dipolo permanente; F/O/N–H = ligação de hidrogênio; íon+polar = íon-dipolo (força crescente).",
+    "formulas": [
+      {
+        "rotulo": "Força crescente",
+        "latex": "\\text{dipolo induzido}<\\text{dipolo perm.}<\\text{lig. de hidrog\\^enio}<\\text{\\'ion-dipolo}"
+      }
+    ]
   },
   "Detergentes e tensoativos": {
     "aula": "Fundamentos da Química",
     "teoria": [
-      "O detergente/tensoativo tem uma estrutura marcante: uma CAUDA carbônica longa APOLAR (interage com óleo) e uma CABEÇA POLAR/iônica (interage com a água).",
-      "Por isso ele emulsifica: a cauda gruda no óleo (apolar) e a cabeça na água (polar), permitindo arrastar a gordura com a água. As moléculas se organizam em micelas (cauda para dentro, cabeça para a água)."
+      "O detergente (ou tensoativo, ou sabão) tem uma estrutura ANFIFÍLICA muito marcante: uma CAUDA carbônica longa (hidrocarboneto), que é APOLAR e interage com óleo/gordura, e uma CABEÇA POLAR/iônica (ex.: —COO⁻Na⁺), que interage com a água. Bateu o olho nessa estrutura de 'cauda apolar + cabeça polar' → é detergente.",
+      "É essa dupla natureza que explica sua função. Água (polar) não tira o óleo (apolar) da sua mão porque 'semelhante dissolve semelhante'. Mas o detergente faz a ponte: a cauda apolar gruda no óleo e a cabeça polar gruda na água, arrastando a gordura junto com a água. Por isso ele emulsifica (mistura o que não se misturaria).",
+      "Na superfície da água, as moléculas de tensoativo se organizam com a CABEÇA polar mergulhada na água e a CAUDA apolar para FORA (fugindo da água); dentro do líquido formam micelas (caudas para dentro, cabeças para a água). Esse mesmo princípio explica a ação dos ÁCIDOS BILIARES na digestão: eles emulsificam os lipídios (apolares) para que sejam absorvidos — ou seja, agem como um detergente dentro do intestino."
     ],
-    "como_cai": "Reconhecer a estrutura anfifílica (parte polar + parte apolar), o arranjo na superfície da água (cabeça na água, cauda para fora) e a função emulsificante (inclusive dos ácidos biliares na digestão).",
+    "como_cai": "Reconhecer a estrutura (parte polar + parte apolar), o arranjo correto na superfície da água (cabeça na água, cauda para fora) e a função emulsificante (inclusive dos ácidos biliares).",
     "questoes_resolvidas": [
       {
-        "enunciado": "Qual estrutura é capaz de formar micelas (parte que interage com polar e parte com apolar)?",
+        "enunciado": "As micelas de um sabão têm partes que interagem com substâncias polares (água) e partes que interagem com apolares. Qual estrutura é capaz de formá-las?",
         "resolucao": [
-          "Precisa ter uma cauda longa de C e H (apolar) E uma cabeça muito polar (ex.: COO⁻Na⁺).",
-          "A alternativa com cadeia carbônica longa + grupo polar/iônico é o sabão/detergente.",
-          "Resposta: a estrutura com cauda apolar e cabeça polar (letra B)."
+          "É preciso ter uma cauda longa de C e H (apolar) E uma cabeça muito polar/iônica (ex.: COO⁻Na⁺).",
+          "Estruturas só com C e H (sem cabeça polar), ou com a parte polar curta demais, não servem.",
+          "Resposta: a que tem cauda apolar longa + cabeça polar com sódio/oxigênio (alternativa B)."
+        ]
+      },
+      {
+        "enunciado": "Ao adicionar um tensoativo sobre a água, como suas moléculas se arranjam?",
+        "resolucao": [
+          "A cabeça polar interage com a água (fica em contato com ela).",
+          "A cauda apolar foge da água (fica para fora/para cima).",
+          "Resposta: cabeça polar na água e cauda apolar para fora da água (alternativa C)."
         ]
       },
       {
         "enunciado": "Os ácidos biliares atuam na digestão dos lipídios de que modo?",
         "resolucao": [
-          "O lipídio é apolar e não se mistura com a água; precisa ser emulsificado.",
-          "O ácido biliar tem parte polar e apolar → age como um detergente/tensoativo.",
-          "Resposta: agindo como detergente (emulsificante)."
+          "O lipídio é apolar e insolúvel em água; precisa ser emulsificado em gotículas.",
+          "O ácido biliar tem parte polar e parte apolar → funciona como detergente/tensoativo.",
+          "Resposta: agindo como detergente (emulsificante) (alternativa B)."
         ]
       }
     ],
+    "pegadinha": "No arranjo na superfície da água, a cauda apolar NUNCA fica dentro da água — ela foge dela. E a cabeça polar é que mergulha na água.",
     "atalho": "Detergente = cauda apolar (pega óleo) + cabeça polar (pega água). Emulsifica. Na água: cabeça dentro, cauda para fora."
   },
   "Princípio da solubilidade": {
     "aula": "Fundamentos da Química",
     "teoria": [
-      "Semelhante dissolve semelhante (preferencialmente): polar dissolve polar; apolar dissolve apolar. Por isso açúcar (muitos OH, polar) dissolve na água e óleo (apolar) não.",
-      "Nomenclatura: o que dissolve em água (polar) é HIDROFÍLICO; o que foge da água (apolar) é HIDROFÓBICO. O que dissolve em gordura (apolar) é LIPOFÍLICO; o que não, LIPOFÓBICO."
+      "A regra de ouro: SEMELHANTE DISSOLVE SEMELHANTE (preferencialmente). Polar dissolve polar; apolar dissolve apolar. Por isso o açúcar (muitos OH, polar) se dissolve na água, e o óleo (apolar) não. 'Preferencialmente' porque a solubilidade é uma escala (régua), não um sim/não — pode dissolver muito, pouco ou quase nada.",
+      "Vocabulário que o ENEM usa: o que se dissolve em água (polar) é HIDROFÍLICO (tem afinidade pela água); o que foge da água (apolar) é HIDROFÓBICO. O que se dissolve em gordura (apolar) é LIPOFÍLICO; o que não, LIPOFÓBICO. Assim, um composto polar é hidrofílico e lipofóbico; um apolar é hidrofóbico e lipofílico.",
+      "Uma ferramenta que aparece é o COEFICIENTE DE PARTIÇÃO (ex.: octanol/água): é uma 'régua' que mede se a substância prefere a fase apolar (octanol) ou a polar (água). Tende a zero = quase tudo na água = muito polar/hidrofílico; tende ao infinito = quase tudo no octanol = muito apolar/lipofílico. Em orgânica, mais grupos OH/O = mais polar (mais afinidade pela água)."
     ],
-    "como_cai": "Prever solubilidade/migração por afinidade de polaridade (cromatografia, membranas). Em orgânica, mais grupos OH/O = mais polar = mais interage com a água.",
+    "como_cai": "Prever solubilidade, remoção, migração ou partição por afinidade de polaridade (spray de pimenta, cromatografia, coeficiente de partição, misturas de fases).",
     "questoes_resolvidas": [
       {
-        "enunciado": "Numa cromatografia (fase estacionária = água/celulose polar; fase móvel = hexano apolar), qual substância migra mais LENTAMENTE?",
+        "enunciado": "Por que lavar apenas com água é ineficaz contra o spray de pimenta (oleoresina, princípio ativo capsaína)?",
         "resolucao": [
-          "Migra devagar quem interage mais forte com a fase estacionária polar (a água).",
-          "Interage mais com a água o composto mais polar — o que tem mais grupos OH/oxigênios (ligação de hidrogênio).",
-          "Resposta: a substância com mais hidroxilas/oxigênios (mais polar)."
+          "O spray é uma oleoresina — um óleo, apolar.",
+          "Água é polar; semelhante dissolve semelhante, então a água não dissolve o princípio ativo apolar.",
+          "Resposta: a solubilidade do princípio ativo em água é muito baixa, dificultando sua remoção."
+        ]
+      },
+      {
+        "enunciado": "Trocando o grupo X da testosterona (que tinha OH) por H ou CH₃, o que acontece com a lipofilia dos compostos 1 e 2?",
+        "resolucao": [
+          "O OH faz ligação de hidrogênio com a água → confere polaridade (mais hidrofílico, menos lipofílico).",
+          "Trocar OH por H ou CH₃ remove essa polaridade → o composto fica mais apolar.",
+          "Resposta: os compostos 1 e 2 têm MAIOR lipofilia que a testosterona."
+        ]
+      },
+      {
+        "enunciado": "Entre benzeno, butano, éter etílico, flúor-butano e metanol, qual poluente tem o coeficiente octanol/água (KOA) tendendo a zero?",
+        "resolucao": [
+          "KOA → 0 significa quase tudo na água = o mais POLAR/hidrofílico.",
+          "Benzeno, butano, éter e flúor-butano são majoritariamente apolares.",
+          "O metanol (H₃C–OH) tem um OH para poucos carbonos → muito polar (ainda mais que o etanol).",
+          "Resposta: metanol."
+        ]
+      },
+      {
+        "enunciado": "Misturando mel, água, óleo e álcool etílico, formam-se fases distintas. Quais propriedades justificam o resultado?",
+        "resolucao": [
+          "O óleo (apolar) não se mistura com água/mel/álcool (polares) → separa por SOLUBILIDADE (semelhante dissolve semelhante).",
+          "A ordem das camadas (óleo por cima) é definida pela DENSIDADE (menos denso em cima).",
+          "Resposta: solubilidade e densidade (alternativa A)."
         ]
       }
     ],
-    "atalho": "Semelhante dissolve semelhante. Mais OH/O = mais polar = hidrofílico (interage com água)."
+    "pegadinha": "Solubilidade é uma escala ('preferencialmente'), não um absoluto. E hidrofílico = polar = lipofóbico; hidrofóbico = apolar = lipofílico (não confunda os pares).",
+    "atalho": "Semelhante dissolve semelhante. Polar↔água (hidrofílico); apolar↔gordura (lipofílico). Mais OH/O = mais polar.",
+    "formulas": [
+      {
+        "rotulo": "Coeficiente de partição",
+        "latex": "K_{ow}=\\dfrac{[\\text{soluto}]_{\\text{octanol (apolar)}}}{[\\text{soluto}]_{\\text{\\'agua (polar)}}}"
+      }
+    ]
   },
   "Propriedades físicas dos compostos orgânicos": {
     "aula": "Fundamentos da Química",
     "teoria": [
-      "Três fatores determinam a volatilidade / ponto de ebulição de um composto orgânico, nesta ordem: (1) INTERAÇÃO INTERMOLECULAR — quanto mais forte, MENOS volátil e maior o ponto de ebulição/fusão; (2) MASSA MOLAR — maior massa, menos volátil; (3) RAMIFICAÇÃO — mais ramificada, MAIS volátil (é o fator 'invertido').",
-      "Ligação de hidrogênio (grupos OH, NH) eleva muito o ponto de ebulição."
+      "Consequência direta da polaridade e das interações intermoleculares: elas determinam as propriedades físicas — ponto de fusão, ponto de ebulição e volatilidade (facilidade de evaporar). Três fatores mandam, NESTA ordem de importância:",
+      "(1) INTERAÇÃO INTERMOLECULAR (o principal): quanto mais forte, MENOS volátil e MAIOR o ponto de fusão/ebulição. Exemplo: O₂ faz dipolo induzido (fraco) → é gás, muito volátil; a água faz ligação de hidrogênio (forte) → é líquida à temperatura ambiente, com moléculas bem mais próximas.",
+      "(2) MASSA MOLAR: para o mesmo tipo de interação, maior massa molar (cadeias maiores) = MENOS volátil. Uma cadeia longa faz muito mais interações ao longo dela — mesmo que cada uma seja fraca (dipolo induzido), a soma de milhares delas segura a molécula. É por isso que, no petróleo (tudo hidrocarboneto = tudo apolar, mesma interação), as frações de cadeia maior saem em temperaturas mais altas na destilação.",
+      "(3) RAMIFICAÇÃO (o fator invertido e menos importante): quanto MAIS ramificada a cadeia, MAIS volátil (as ramificações afastam as moléculas e reduzem o contato/interação)."
     ],
-    "como_cai": "Ordenar compostos por ponto de ebulição/volatilidade comparando primeiro a interação intermolecular, depois a massa molar e por fim a ramificação.",
+    "como_cai": "Ordenar/justificar ponto de ebulição ou volatilidade: compare primeiro a interação intermolecular; se empatar (mesma interação), a massa molar; por fim, a ramificação.",
     "questoes_resolvidas": [
       {
-        "enunciado": "Entre compostos orgânicos, qual é o menos volátil (maior ponto de ebulição)?",
+        "enunciado": "Na destilação do petróleo, a fração 4 (C14–C18) só se separa em temperaturas mais altas (260–350 °C). Isso ocorre por quê?",
         "resolucao": [
-          "Compare a interação intermolecular: o que tem ligação de hidrogênio (OH, NH) é o menos volátil.",
-          "Empate: maior massa molar → menos volátil.",
-          "Ainda empate: menos ramificado → menos volátil."
+          "Petróleo é todo hidrocarboneto (C e H) → tudo apolar → mesmo tipo de interação (dipolo induzido). A interação não é o fator que diferencia aqui.",
+          "O que diferencia é a MASSA MOLAR: C14–C18 são cadeias maiores → mais interações somadas → menos voláteis.",
+          "Resposta: maior intensidade das forças intermoleculares por causa da maior massa molar/cadeia (não por formar outro tipo de ligação)."
+        ]
+      },
+      {
+        "enunciado": "Uma lagarta induz a planta a produzir óleos VOLÁTEIS (cadeias só de C e H). Essa volatilidade decorre de quê?",
+        "resolucao": [
+          "Só carbono e hidrogênio → compostos apolares → fazem dipolo induzido (interação fraca).",
+          "Interação fraca = alta volatilidade (evaporam fácil).",
+          "Resposta: fraca interação intermolecular (dipolo induzido)."
         ]
       }
     ],
-    "pegadinha": "Ramificação é o fator invertido: mais ramificações AUMENTAM a volatilidade (diminuem o contato entre moléculas).",
-    "atalho": "Menos volátil = interação forte (ligação de H) > maior massa molar > menos ramificado."
+    "pegadinha": "A ramificação é o fator invertido: MAIS ramificações AUMENTAM a volatilidade. E cuidado: no petróleo o que mais volátil/menos volátil separa não é 'quebra de cadeia' nem densidade — é a massa molar.",
+    "atalho": "Menos volátil = interação forte (ligação de H) > maior massa molar > menos ramificado. Ramificação aumenta volatilidade."
   },
   "Tabela periódica": {
     "aula": "Fundamentos da Química",
     "teoria": [
-      "Metais (esquerda/centro) tendem a PERDER elétrons; ametais (direita) tendem a GANHAR elétrons. Elementos de uma MESMA família (coluna) têm o mesmo número de elétrons na camada de valência e, por isso, propriedades químicas SEMELHANTES.",
-      "Propriedades periódicas: raio atômico, eletronegatividade, afinidade eletrônica e energia de ionização variam de forma previsível ao longo da tabela."
+      "Duas grandes divisões: METAIS (esquerda e centro, a maior parte) tendem a PERDER elétrons; AMETAIS (direita — C, N, O, F, Cl...) tendem a GANHAR elétrons. Essa tendência governa o tipo de ligação que farão.",
+      "O conceito mais cobrado: FAMÍLIAS (grupos/colunas). Elementos da mesma família têm o mesmo número de elétrons na camada de valência e, por isso, PROPRIEDADES QUÍMICAS SEMELHANTES (ex.: lítio, sódio e potássio se parecem; berílio, magnésio e cálcio se parecem). Se dois elementos 'se confundem' por serem tão parecidos, é sinal de que estão na mesma família.",
+      "Propriedades periódicas: RAIO ATÔMICO (distância núcleo–eletrosfera) cresce para BAIXO e para a ESQUERDA. ELETRONEGATIVIDADE (força com que puxa o elétron numa ligação) cresce para CIMA e para a DIREITA (excluindo gases nobres) — o FLÚOR é o mais eletronegativo. Não por acaso, F, O e N (os mais eletronegativos) são justamente os que fazem ligação de hidrogênio com o H.",
+      "Ainda: AFINIDADE ELETRÔNICA (tendência a receber um elétron) e ENERGIA DE IONIZAÇÃO (energia para arrancar um elétron) acompanham a eletronegatividade — quanto mais o átomo 'quer/segura' o elétron, maiores as duas. Esses dois caem menos (nível mais avançado); famílias e eletronegatividade são o essencial."
     ],
-    "como_cai": "Usar a semelhança entre elementos da mesma família para justificar comportamento parecido; comparar eletronegatividade/raio.",
+    "como_cai": "Usar a semelhança entre elementos da mesma família para justificar comportamento parecido; e apontar a eletronegatividade (flúor) como propriedade decisiva.",
     "questoes_resolvidas": [
       {
-        "enunciado": "Por que elementos de uma mesma família (coluna) podem substituir um ao outro em aplicações tecnológicas?",
+        "enunciado": "Qual propriedade do flúor justifica seu uso para forçar o xenônio (gás nobre) a reagir?",
         "resolucao": [
-          "Mesma família = mesmo número de elétrons na camada de valência.",
-          "Isso confere propriedades químicas semelhantes.",
-          "Resposta: pela semelhança de propriedades dos elementos da mesma família."
+          "O xenônio já tinha 8 elétrons na camada de valência (estável) e não queria reagir.",
+          "O flúor é o elemento MAIS ELETRONEGATIVO: puxa o elétron com força suficiente para forçar o compartilhamento.",
+          "Resposta: a eletronegatividade (alta) do flúor."
+        ]
+      },
+      {
+        "enunciado": "Nióbio (Z) e Tântalo (Z=73) chegam a ser confundidos por terem propriedades iguais. Isso se deve a quê?",
+        "resolucao": [
+          "Fazer a distribuição eletrônica mostraria que estão na mesma família — mas o atalho já resolve.",
+          "Elementos que são tão parecidos pertencem ao MESMO GRUPO (família) da tabela.",
+          "Resposta: pertencerem ao mesmo grupo na tabela periódica (alternativa C)."
         ]
       }
     ],
-    "atalho": "Metal perde elétron; ametal ganha. Mesma família (coluna) = propriedades semelhantes."
+    "pegadinha": "Não é preciso decorar distribuição eletrônica: se dois elementos são 'idênticos' em propriedades, estão na mesma família. E o flúor (não o oxigênio) é o mais eletronegativo.",
+    "atalho": "Metal perde elétron; ametal ganha. Mesma família = propriedades semelhantes. Raio: ↓ e ←. Eletronegatividade: ↑ e → (flúor é o maior)."
   },
   "Ligações químicas": {
     "aula": "Fundamentos da Química",
     "teoria": [
-      "Três tipos: COVALENTE (compartilhamento de elétrons, entre AMETAIS); IÔNICA (transferência de elétrons, entre METAL e AMETAL — um perde, o outro ganha, formando íons); METÁLICA (entre METAIS, formando a liga metálica com 'mar de elétrons').",
-      "O tipo de ligação decorre da tendência de ganhar/perder elétrons (eletronegatividade) dos átomos envolvidos."
+      "Três tipos, decorrentes da tendência de ganhar/perder elétrons. COVALENTE: ocorre entre AMETAIS, por COMPARTILHAMENTO de elétrons (ninguém transfere de vez). Ex.: H–H — cada hidrogênio precisa de um elétron para se estabilizar e compartilha com o outro.",
+      "IÔNICA: entre METAL e AMETAL, por TRANSFERÊNCIA de elétrons — um perde (vira cátion, +) e o outro ganha (vira ânion, −). Ex.: Na perde 1 elétron e o Cl ganha; formam-se cargas reais opostas que se atraem fortemente (por isso é uma ligação muito intensa).",
+      "METÁLICA: entre METAIS, formando a LIGA METÁLICA — cátions fixos imersos num 'mar de elétrons' livres. Esse mar de elétrons explica por que os metais conduzem tão bem eletricidade e calor.",
+      "No ENEM, covalente e iônica costumam vir de forma sutil: em vez de dizer o nome, o enunciado descreve o comportamento (compartilhar, transferir, energia de rede, condução) e você identifica pelo tipo dos elementos envolvidos."
     ],
-    "como_cai": "Identificar o tipo de ligação a partir dos elementos (metal/ametal) e explicar propriedades (condução, ponto de fusão).",
+    "como_cai": "Identificar o tipo de ligação pelos elementos (ametal/ametal, metal/ametal, metal/metal) e explicar propriedades (solubilidade de sais por energia de rede, condução, formação de ligas).",
     "questoes_resolvidas": [
       {
-        "enunciado": "Como classificar a ligação entre um metal e um ametal, com transferência de elétrons?",
+        "enunciado": "No difluoreto de xenônio (XeF₂), com quantos elétrons na camada de valência fica o átomo do gás nobre?",
         "resolucao": [
-          "Metal perde elétron (vira cátion), ametal ganha (vira ânion).",
-          "A atração entre os íons é a ligação IÔNICA.",
-          "Resposta: ligação iônica."
+          "O xenônio já tinha 8 elétrons de valência (5s²5p⁶).",
+          "Forçado pelo flúor, ele faz uma ligação covalente com CADA flúor, compartilhando 1 elétron de cada.",
+          "Fica com os 8 dele + 2 das duas ligações = 10 elétrons.",
+          "Resposta: 10 (alternativa C)."
+        ]
+      },
+      {
+        "enunciado": "Os compostos iônicos CaCO₃ (insolúvel) e NaCl (solúvel): a menor solubilidade do CaCO₃ deve-se a maior o quê?",
+        "resolucao": [
+          "Ambos são iônicos (têm cátions e ânions). A solubilidade depende do balanço entre energia de rede e hidratação.",
+          "No CaCO₃ a atração entre os íons é tão forte que a água não consegue separá-los.",
+          "Resposta: maior energia de rede (alternativa A)."
+        ]
+      },
+      {
+        "enunciado": "Prata reage com estanho e com mercúrio formando Ag–Hg e Sn–Hg. Esses materiais são caracterizados como?",
+        "resolucao": [
+          "São combinações entre METAIS.",
+          "Metal + metal formam a liga metálica (ligação metálica).",
+          "Resposta: ligação metálica (alternativa B)."
         ]
       }
     ],
-    "atalho": "Ametal+ametal = covalente (compartilha). Metal+ametal = iônica (transfere). Metal+metal = metálica (liga)."
+    "pegadinha": "O ENEM raramente diz 'iônica/covalente' — descreve o fenômeno (transferência, compartilhamento, energia de rede, mar de elétrons). Identifique pelos elementos: ametal+ametal, metal+ametal, metal+metal.",
+    "atalho": "Ametal+ametal = covalente (compartilha). Metal+ametal = iônica (transfere; forte). Metal+metal = metálica (liga, conduz).",
+    "formulas": [
+      {
+        "rotulo": "Ligação iônica",
+        "latex": "\\mathrm{Na}\\to\\mathrm{Na^{+}}+e^{-}\\;;\\;\\mathrm{Cl}+e^{-}\\to\\mathrm{Cl^{-}}"
+      }
+    ]
   }
 }
