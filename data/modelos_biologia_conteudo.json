@@ -7,7 +7,7 @@
   },
   "Seleção natural e adaptação": {
     "ideia": "Cada ambiente impõe uma pressão seletiva que seleciona as características vantajosas NAQUELE ambiente; quem é mais adaptado sobrevive e reproduz mais, aumentando a frequência da característica (Darwin).",
-    "como_cai": "Mimetismo, domesticação (aumento da frequência de alelos de interesse), melhor parasita = o que não mata o hospedeiro. A alternativa segura costuma ser 'sobreviveram/reproduziram mais com essa característica'.",
+    "como_cai": "Mimetismo, domesticação (aumento da frequência de alelos de interesse), melhor parasita = o que não mata o hospedeiro. A alternativa segura costuma ser 'sobreviveram/reproduziram mais com essa característica'. Resistência bacteriana: usar antibiótico é seleção — mata as sensíveis, sobram e se reproduzem as resistentes.",
     "atalho": "Ambiente → pressão → seleciona o vantajoso → mais reprodução → aumenta a frequência da característica."
   },
   "Evidências evolutivas e especiação": {
@@ -20,6 +20,68 @@
     "ideia": "Classificação hierárquica dos seres vivos e o parentesco evolutivo lido no cladograma.",
     "como_cai": "Relaciona grupos taxonômicos ao ponto de separação na filogenia; grupos irmãos = separação mais recente.",
     "atalho": "Parentesco = proximidade do nó mais recente no cladograma."
+  },
+  "Célula procarionte e antibióticos": {
+    "ideia": "Procariontes (bactérias) são unicelulares com quatro marcas: parede celular de peptidoglicano (açúcar + aminoácido), membrana plasmática lipoproteica, material genético DISPERSO no citoplasma (DNA + plasmídeo circular) e ribossomos. Diferente do vírus, a bactéria tem metabolismo próprio (ribossomo = síntese de proteína).",
+    "como_cai": "Antibiótico = combate doença bacteriana danificando estruturas específicas da bactéria (não ativa imunidade nem age na inflamação). 'Matar fungo sem afetar a microbiota' → o alvo tem de existir só no eucarionte (microtúbulos), nunca ribossomo, membrana fosfolipídica ou síntese de DNA/RNA, que os dois têm.",
+    "atalho": "Procarionte: parede + membrana + DNA disperso/plasmídeo + ribossomo. Antibiótico ataca a bactéria. Alvo exclusivo do eucarionte = microtúbulos.",
+    "formulas": [{"rotulo": "Parede bacteriana", "latex": "\\text{peptidoglicano}=\\text{a\\c{c}\\'ucar}+\\text{amino\\'acido}"}]
+  },
+  "Membrana plasmática e mosaico fluido": {
+    "ideia": "A membrana é uma bicamada fosfolipídica anfifílica: cabeças de fosfato (polar) para fora, caudas lipídicas (apolar) para dentro. Tem proteínas embutidas que funcionam como canais e sinalizadores. Ela é fluida (mosaico fluido) e de permeabilidade seletiva.",
+    "como_cai": "Mosaico fluido: as proteínas se DESLOCAM livremente no plano da bicamada — experimento da célula híbrida camundongo × humano (proteínas marcadas se entremeiam após 40 min). Fluidez maior quando os fosfolipídios interagem menos: caudas menores e mais insaturadas (mais duplas ligações) → menos interação → mais fluidez.",
+    "atalho": "Fosfato fora (polar), lipídio dentro (apolar). Proteínas andam = mosaico fluido. Menos interação entre fosfolipídios = mais fluidez.",
+    "formulas": [{"rotulo": "Fluidez × interação", "latex": "\\text{fluidez}\\;\\propto\\;\\dfrac{1}{\\text{intera\\c{c}\\~ao entre fosfolip\\'idios}}"}]
+  },
+  "Osmose e difusão": {
+    "ideia": "A tendência é o equilíbrio de concentrações. Numa membrana semipermeável, OSMOSE é a passagem do SOLVENTE (água) do meio menos concentrado para o mais concentrado; DIFUSÃO é a passagem do SOLUTO do mais concentrado para o menos concentrado.",
+    "como_cai": "Conservação de alimento por salgamento/desidratação osmótica: muito sal fora → a água sai da célula (meio interno mais concentrado) → alimento desidratado e conservado. É OSMOSE (solvente saindo), gerada pela pressão da diferença de concentração — não difusão.",
+    "atalho": "Osmose = solvente vai para o mais concentrado. Difusão = soluto vai para o menos concentrado. Sal fora → água sai da célula.",
+    "formulas": [{"rotulo": "Osmose", "latex": "\\text{H}_2\\text{O}:\\;\\text{meio hipot\\^onico}\\;\\longrightarrow\\;\\text{meio hipert\\^onico}"}]
+  },
+  "Organelas e suas funções": {
+    "ideia": "Cada organela tem uma função-chave: núcleo (guarda o DNA), ribossomo (síntese de proteína), retículo rugoso (proteína, tem ribossomo), retículo liso (lipídios), complexo de Golgi (empacota e exporta em vesículas), lisossomo (digestão intracelular), mitocôndria (energia/respiração), cloroplasto e vacúolo (só em vegetal: energia e controle osmótico).",
+    "como_cai": "Rota da proteína secretora ao longo do tempo: pico primeiro no retículo rugoso, depois no complexo de Golgi, por fim nas vesículas. Célula de alto metabolismo de síntese = mais mitocôndrias + mais retículo rugoso + mais eucromatina (DNA mais acessível para leitura).",
+    "atalho": "Ribossomo/retículo rugoso = proteína; Golgi = exporta; lisossomo = digere; mitocôndria = energia. Secreção: rugoso → Golgi → vesícula."
+  },
+  "Mitocôndria e teoria endossimbiótica": {
+    "ideia": "Mitocôndria e cloroplasto têm DNA circular próprio e ribossomos e se autoduplicam — características de procariontes. A teoria endossimbiótica (Margulis) diz que essas organelas foram, na origem evolutiva, procariontes capturados e integrados a uma célula eucarionte, vivendo em simbiose.",
+    "como_cai": "A característica que SUSTENTA a teoria é a capacidade de autoduplicação dada pelo DNA circular próprio (semelhante ao bacteriano), não a produção de ATP nem a membrana. Palavra 'endossimbiose' → resposta = DNA próprio / capacidade de se reproduzir.",
+    "atalho": "Endossimbiose = organela que já foi bactéria. Prova disso = DNA circular próprio + autoduplicação."
+  },
+  "Enzimas e catálise": {
+    "ideia": "Enzimas são proteínas que atuam como catalisadores biológicos: DIMINUEM a energia de ativação da reação, tornando-a viável/rápida. Não são consumidas (entram, atuam e saem). Por serem proteínas, sua conformação e eficiência variam com concentração, temperatura e pH.",
+    "como_cai": "Gráficos de atividade × temperatura/pH: cada enzima tem faixa ótima; fora dela a atividade cai (desnatura). Menos eficiência = precisa de mais enzima e metaboliza menos substrato. Catalase decompõe H2O2 em água e O2 e tem pico de atividade numa temperatura ótima.",
+    "atalho": "Enzima = proteína catalisadora, baixa a energia de ativação, não é consumida. Fora do pH/temperatura ótimos, a atividade despenca.",
+    "formulas": [{"rotulo": "Papel do catalisador", "latex": "E_a^{\\text{com enzima}}\\;<\\;E_a^{\\text{sem enzima}}"}]
+  },
+  "Dogma central e síntese proteica": {
+    "ideia": "O dogma central da biologia molecular: o DNA é transcrito em RNA (transcrição), e o RNA é traduzido em proteína (tradução) pelos ribossomos. O DNA também se replica (replicação semiconservativa). A característica genética do indivíduo se expressa, na prática, em proteínas.",
+    "como_cai": "O RNA mensageiro é uma cópia direta do molde de DNA; por isso a informação da proteína vem do DNA. A síntese proteica (relação códon → aminoácido) é um processo comum a TODOS os seres vivos, evidência de ancestral comum. Terapia gênica: inserir o gene normal leva à EXPRESSÃO da enzima normal (o gene vira RNA e depois proteína — não é a proteína pronta nem correção do 'código genético').",
+    "atalho": "DNA →(transcrição)→ RNA →(tradução)→ proteína. Ribossomo faz a síntese. Gene inserido = expressão de proteína normal.",
+    "formulas": [{"rotulo": "Dogma central", "latex": "\\text{DNA}\\xrightarrow{\\text{transcri\\c{c}\\~ao}}\\text{RNA}\\xrightarrow{\\text{tradu\\c{c}\\~ao}}\\text{prote\\'ina}"}]
+  },
+  "Estrutura e pareamento do DNA": {
+    "ideia": "O DNA é uma dupla hélice de duas fitas emparelhadas por ligações de hidrogênio: A–T (2 ligações) e C–G (3 ligações, mais forte). O RNA é fita simples e troca a timina pela uracila (U).",
+    "como_cai": "Regra de Chargaff: numa dupla fita, A = T e C = G (purinas = pirimidinas). Dado o conteúdo de uma fita, a fita complementar tem os pares trocados; some as duas fitas para o total. Timina só existe em DNA; uracila só em RNA. C–G exige mais energia para separar (3 ligações).",
+    "atalho": "A com T (2 ligações), C com G (3 ligações). Chargaff: A=T, C=G. Timina = DNA; uracila = RNA.",
+    "formulas": [{"rotulo": "Regra de Chargaff", "latex": "[\\text{A}]=[\\text{T}]\\;\\;\\text{e}\\;\\;[\\text{C}]=[\\text{G}]"}]
+  },
+  "Código genético (códons)": {
+    "ideia": "Código genético = correspondência entre códons e aminoácidos. Um códon é uma trinca de bases nitrogenadas do RNA que indica um aminoácido na síntese proteica. NÃO é o conjunto de genes (isso é o genoma).",
+    "como_cai": "Três propriedades cobradas: UNIVERSAL (o mesmo em quase todos os seres vivos — evidência de ancestral comum), NÃO AMBÍGUO (cada códon indica um único aminoácido) e DEGENERADO (vários códons diferentes codificam o mesmo aminoácido — 64 códons para ~20 aminoácidos). Pegadinha recorrente: confundir 'código genético' com 'genoma'.",
+    "atalho": "Códon = trinca → 1 aminoácido. Universal, não ambíguo, degenerado. Código genético ≠ genoma.",
+    "formulas": [{"rotulo": "Códons × aminoácidos", "latex": "4^{3}=64\\;\\text{c\\'odons}\\;\\to\\;\\sim\\!20\\;\\text{amino\\'acidos (degenerado)}"}]
+  },
+  "Mutação e regulação gênica": {
+    "ideia": "Mutação = alteração em uma ou mais bases nitrogenadas (troca, inserção ou deleção). Uma troca pode mudar um aminoácido; uma deleção desloca a leitura das trincas (efeito dominó) e destrói a proteína. A epigenética regula QUAIS genes são transcritos, sem alterar a sequência do DNA.",
+    "como_cai": "Papel duplo da mutação: ruim para o indivíduo (pode causar câncer), mas fonte da variabilidade genética que a seleção natural usa ao longo de milhões de anos. Fenômenos epigenéticos atuam na REGULAÇÃO da expressão gênica (remodelam a cromatina, liberam ou não o gene para transcrição) — não alteram a sequência de bases nem corrigem mutações.",
+    "atalho": "Mutação = muda a base (matéria-prima da evolução). Epigenética = liga/desliga genes sem mudar o DNA."
+  },
+  "Biotecnologia e engenharia genética": {
+    "ideia": "Engenharia genética aplica os princípios da genética para transformar o material genético. Conceitos-chave: transgenia (inserir gene de OUTRA espécie), terapia gênica (inserir gene saudável para tratar), clonagem (cópia geneticamente idêntica), hibridismo (cruzar duas espécies em laboratório), mapeamento genético (analisar o genoma em busca de mutações) e edição gênica (CRISPR: cortar e reparar o DNA).",
+    "como_cai": "Soja que produz proteína de outra origem (canavirina anti-HIV, resistência a herbicida) = TRANSGENIA. Prevenir doença recessiva em cruzamento consanguíneo = MAPEAMENTO genético. Técnica que corta e troca um pedaço de DNA (CRISPR) = correção de distúrbios genéticos. Resistência a herbicida por transgenia é seleção, não uso (evite a leitura lamarckista).",
+    "atalho": "Gene de outra espécie = transgenia. Gene saudável para tratar = terapia gênica. Cortar/reparar DNA = edição gênica. Analisar genoma = mapeamento."
   },
   "Digestão e absorção": {
     "ideia": "Digestão quebra macronutrientes em moléculas absorvíveis: carboidrato → glicose; proteína → aminoácido; lipídio → ácido graxo. Catalisada por enzimas específicas, cada uma com pH ótimo.",
@@ -52,6 +114,62 @@
     "ideia": "Cada doença = agente + vetor + profilaxia. O vetor (mosquito) não causa a doença: carrega o agente. Combater vetor/hospedeiro intermediário é a profilaxia-chave.",
     "como_cai": "Malária: Plasmodium/Anopheles (febre pela lise das hemácias). Chagas: Trypanosoma/barbeiro. Esquistossomose: Schistosoma/caramujo (molusquicida controla o caramujo). Ovo da tênia = cisticercose; cisticerco na carne = teníase. Dengue: 4 sorotipos = variabilidade antigênica (difícil vacina única); Aedes localiza pelo olfato → repelente.",
     "atalho": "Caramujo = esquistossomose; barbeiro = Chagas; Anopheles = malária. Ovo → cisticercose; carne → teníase. Dengue = 4 sorotipos."
+  },
+  "Relações ecológicas": {
+    "ideia": "Interação entre dois indivíduos, classificada pelo sinal para cada um: harmônica (+/+ ou +/0) e desarmônica (tem − para pelo menos um). Intraespecífica (mesma espécie) ou interespecífica (espécies diferentes).",
+    "como_cai": "Mutualismo (+/+ obrigatório) × protocooperação (+/+ facultativo); comensalismo (+/0); competição (−/−, sempre prejudicial); predação (+/−, mata); parasitismo (+/− sem matar); amensalismo (−/0). O enunciado descreve a interação e pede a consequência de reduzir uma das espécies, ou pede identificar a relação.",
+    "atalho": "Mapeie os sinais (+, −, 0) para cada um. Obrigatório = mutualismo; facultativo = protocooperação; come e mata = predação; suga sem matar = parasitismo."
+  },
+  "Controle biológico": {
+    "ideia": "Caso especial de predação aplicado à agricultura: usar o predador/parasitoide natural da praga em vez de agrotóxico. Um inimigo natural come/parasita o inseto-praga e reduz sua população.",
+    "como_cai": "Contexto de produção orgânica 'sem agrotóxico': a técnica é controle biológico (predador natural). No sentido inverso, 'usar esses insetos (parasitoides) na lavoura' tem o benefício de DIMINUIR o uso de agrotóxicos/inseticidas.",
+    "atalho": "Controle biológico = predador natural no lugar do agrotóxico → menos inseticida, menos impacto ambiental."
+  },
+  "Corredor ecológico e fragmentação": {
+    "ideia": "A pressão ambiental (urbanização, desmatamento) fragmenta o habitat em ilhas isoladas, sujeitas a efeito de borda, perda de fluxo gênico e extinção. O corredor ecológico liga as ilhas e restabelece o trânsito de espécies.",
+    "como_cai": "'Por que o corredor recupera a biodiversidade?' → promove FLUXO GÊNICO entre as áreas (deslocamento de animais, dispersão de sementes). No sentido inverso, a medida para conservar a biodiversidade em ilhas fragmentadas é CONSTRUIR corredores ecológicos.",
+    "atalho": "Fragmentação isola → corredor ecológico reconecta → fluxo gênico → conservação.",
+    "formulas": [{"rotulo": "Corredor ecológico", "latex": "\\text{ilhas isoladas}\\xrightarrow{\\text{corredor}}\\text{fluxo g\\^enico}\\Rightarrow\\text{biodiversidade}"}]
+  },
+  "Biomas brasileiros": {
+    "ideia": "Três biomas dominam a Biologia do ENEM pelas adaptações das plantas: Caatinga (escassez hídrica), Cerrado (solo ruim + fogo) e Mangue (muita água, pouco O2).",
+    "como_cai": "Caatinga: caule carnoso/suculento e folhas pequenas ou espinhos (armazena água, transpira menos), até 9 meses de seca. Cerrado: solo ácido, laterítico (alumínio), pobre e profundo → casca grossa (adaptação ao fogo) e galhos retorcidos. Mangue: solo lamacento e pobre em oxigênio → raízes pneumatóforas (aerênquima) e escoras, excesso de sal.",
+    "atalho": "Caatinga = seca (caule carnoso, espinho). Cerrado = solo ácido/alumínio + fogo (casca grossa, galho retorcido). Mangue = água/pouco O2 (pneumatóforo, aerênquima)."
+  },
+  "Biodegradação e remediação": {
+    "ideia": "Ser biodegradável = ser degradado/decomposto no ambiente por organismos, em menos tempo. Na remediação do solo (atenuação natural), só a biodegradação DESTRÓI o contaminante — os demais processos apenas o transferem de lugar.",
+    "como_cai": "Vantagem de polímero/surfactante 'bio': degrada-se em tempo bem menor e reduz a contaminação ambiental por resíduos. Entre diluição, adsorção, dispersão e volatilização, a que efetivamente destrói o contaminante é a biodegradação.",
+    "atalho": "Bio = degrada no ambiente. Diluir/adsorver/volatilizar só muda de lugar; biodegradar destrói."
+  },
+  "Eutrofização": {
+    "ideia": "Excesso de nutrientes/matéria orgânica num corpo hídrico dispara uma cascata: proliferação excessiva de algas → bloqueio de luz → morte das plantas → decomposição bacteriana que consome O2 → queda do oxigênio → decomposição anaeróbia com subprodutos ácidos. Resultado: água sem O2, ácida e 'morta'.",
+    "como_cai": "Gráfico/esquema com o lado de maior fluxo de nutrientes tendo menos oxigênio e mais mortes. Para EVITAR a queda de O2, retire do esgoto os materiais ricos em nutrientes antes que cheguem ao rio.",
+    "atalho": "Muito nutriente → algas demais → bactérias decompõem e consomem O2 → água sem oxigênio e ácida. Prevenção = tirar os nutrientes do esgoto.",
+    "formulas": [{"rotulo": "Gatilho e consequência", "latex": "\\uparrow\\text{nutrientes}\\Rightarrow\\uparrow\\text{algas}\\Rightarrow\\downarrow\\text{O}_2\\Rightarrow\\text{acidifica\\c{c}\\~ao}"}]
+  },
+  "Impermeabilização e erosão do solo": {
+    "ideia": "Dois problemas do solo: a impermeabilização (concreto impede a infiltração, a chuva escoa por cima) e a erosão (a chuva arrasta o solo sem cobertura vegetal, sobretudo em encostas).",
+    "como_cai": "Concregrama/pisograma (concreto vazado com grama): objetivo é EVITAR a impermeabilização, permitindo a infiltração da água. Manter a mata na encosta (preceitos do padre Cícero) evita a EROSÃO: a copa amortece a chuva e as raízes seguram o solo.",
+    "atalho": "Concreto vazado/grama → evita impermeabilização (deixa infiltrar). Cobertura vegetal na encosta → evita erosão."
+  },
+  "Chuva ácida": {
+    "ideia": "Óxidos poluentes na atmosfera reagem com a água da chuva formando ácidos fortes: SO2/SO3 → ácido sulfúrico (H2SO4) e NO2 → ácido nítrico (HNO3). A chuva cai com pH baixo.",
+    "como_cai": "Equação com SO2/SO3/NO2 + poluição = chuva ácida. Corrosão de mármore (CaCO3): o H2SO4 reage com o carbonato formando CaSO4 + H2O + CO2 — é a acidez que 'derrete' a estátua, não oxidação, radiação ou abrasão.",
+    "atalho": "Óxido de S/N + água = ácido → chuva ácida. Mármore (CaCO3) + ácido → dissolve, liberando CO2.",
+    "formulas": [
+      {"rotulo": "Ácido sulfúrico", "latex": "\\mathrm{SO_3}+\\mathrm{H_2O}\\to\\mathrm{H_2SO_4}"},
+      {"rotulo": "Corrosão do mármore", "latex": "\\mathrm{CaCO_3}+\\mathrm{H_2SO_4}\\to\\mathrm{CaSO_4}+\\mathrm{H_2O}+\\mathrm{CO_2}"}
+    ]
+  },
+  "Transformação do habitat": {
+    "ideia": "Uma ação antrópica altera o habitat e muda a composição das comunidades. Represa de hidrelétrica inunda o rio (água parada em vez de corrente) e substitui a fauna; desmatamento remove o habitat de espécies associadas à mata.",
+    "como_cai": "Perda de diversidade em hidrelétrica = alteração do habitat pela barragem. Conservar espécie associada à mata (anuros) = acabar com o desmatamento / reflorestar com a vegetação nativa. Mitigação ataca a CAUSA (menos CO2); adaptação lida com o EFEITO já em curso (ex.: diques contra a subida do mar).",
+    "atalho": "Barragem/desmatamento = transforma o habitat → muda a comunidade. Mitigação = evitar a causa; adaptação = conviver com o efeito."
+  },
+  "Descarte de resíduos": {
+    "ideia": "Destino do lixo. Lixão: lixo a céu aberto, solo sem proteção, chorume infiltra e contamina. Aterro sanitário: solo impermeabilizado e chorume tratado, decomposição controlada. Metais pesados (chumbo, mercúrio, cádmio de pilhas e baterias) exigem destino especial.",
+    "como_cai": "Trocar lixão por aterro é necessário porque a poluição é reduzida pela impermeabilização do solo e pelo tratamento do chorume. Pilhas/baterias: a destinação correta é a reutilização/reciclagem dos componentes (não coleta seletiva simples, nem compostagem, nem estoque).",
+    "atalho": "Aterro > lixão: solo impermeabilizado + chorume tratado. Metal pesado (pilha/bateria) → reciclar os componentes."
   },
   "Fermentação": {
     "ideia": "Obtenção de energia SEM oxigênio: parte da glicose, gera pouco ATP (2) e produtos metabolizáveis (etanol ou ácido lático).",

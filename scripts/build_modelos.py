@@ -246,6 +246,54 @@ MODELOS_BIOLOGIA = [
         "taxonomia", "nomenclatura binomial", "nome cientifico", "genero e especie",
         "classificacao biologica", "categoria taxonomica", "reino", "filo",
     ]),
+    ("Célula procarionte e antibióticos", [
+        "procarionte", "peptidoglicano", "plasmidio", "parede celular",
+        "antibiotico", "antimicrobiano", "bacteriana", "microbiota", "cissiparidade",
+    ]),
+    ("Membrana plasmática e mosaico fluido", [
+        "membrana plasmatica", "mosaico fluido", "bicamada lipidica", "fosfolipid",
+        "permeabilidade seletiva", "proteina de membrana", "fluidez da membrana",
+        "membrana celular", "anfifilic",
+    ]),
+    ("Osmose e difusão", [
+        "osmose", "difusao", "semipermeavel", "desidratacao osmotica", "salgamento",
+        "meio hipertonic", "meio hipotonic", "solvente", "concentracao de soluto",
+    ]),
+    ("Organelas e suas funções", [
+        "organela", "reticulo endoplasmatic", "complexo de golgi", "lisossomo",
+        "sintese proteica", "vesicula de secrecao", "vacuolo", "celula secretora",
+        "eucromatina",
+    ]),
+    ("Mitocôndria e teoria endossimbiótica", [
+        "endossimbio", "teoria endossimbiotica", "dna proprio", "dna mitocondrial",
+        "cloroplasto", "procarionte ancestral", "autoduplicacao", "margulis",
+    ]),
+    ("Enzimas e catálise", [
+        "catalisador biologic", "energia de ativacao", "atividade enzimatica",
+        "catalase", "substrato", "ph otimo", "enzima", "desnatur",
+    ]),
+    ("Dogma central e síntese proteica", [
+        "dogma central", "transcricao", "traducao", "rna mensageiro",
+        "rna transportador", "biologia molecular", "expressao genica", "ribossomo le",
+    ]),
+    ("Estrutura e pareamento do DNA", [
+        "dupla helice", "dupla fita", "pareamento", "base nitrogenada", "nucleotideo",
+        "adenina", "timina", "citosina", "guanina", "uracila", "chargaff", "purina",
+        "pirimidina",
+    ]),
+    ("Código genético (códons)", [
+        "codigo genetico", "codon", "codons", "trinca", "degenerado", "nao ambiguo",
+        "universal", "aminoacido correspond",
+    ]),
+    ("Mutação e regulação gênica", [
+        "mutacao", "mutacoes", "epigenetic", "regulacao da expressao", "remodelamento",
+        "cromatina", "insercao de base", "delecao",
+    ]),
+    ("Biotecnologia e engenharia genética", [
+        "biotecnologia", "engenharia genetica", "transgenia", "transgenic", "terapia genica",
+        "clonagem", "hibridismo", "mapeamento genetico", "edicao de genoma", "edicao genica",
+        "geneticamente modificad", "organismo geneticamente",
+    ]),
     ("Digestão e absorção", [
         "sistema digest", "digestao", "enzima digest", "intestino", "estomago",
         "absorcao de nutrientes", "vilosidade", "bile", "suco pancreatico",
@@ -269,6 +317,47 @@ MODELOS_BIOLOGIA = [
     ("Doenças infecciosas e vetores", [
         "zoonose", "vetor biologico", "doenca de chagas", "dengue", "malaria",
         "leishmaniose", "mosquito", "parasita", "profilaxia", "transmissao da doenca",
+    ]),
+    ("Relações ecológicas", [
+        "mutualismo", "protocooperacao", "comensalismo", "competicao", "predacao",
+        "parasitismo", "relacao ecologica", "relacoes ecologicas", "inquilinismo",
+        "predador", "presa",
+    ]),
+    ("Controle biológico", [
+        "controle biologico", "predador natural", "parasitoide", "inimigo natural",
+        "praga", "agrotoxico", "inseticida", "defensivo agricola",
+    ]),
+    ("Corredor ecológico e fragmentação", [
+        "corredor ecologic", "fragmentacao", "fluxo genico", "efeito de borda",
+        "conectividade", "ilha de habitat", "fragmento florestal",
+    ]),
+    ("Biomas brasileiros", [
+        "caatinga", "cerrado", "mangue", "manguezal", "bioma", "pneumatoforo",
+        "escassez hidrica", "queimada", "aerenquima", "xerofit",
+    ]),
+    ("Biodegradação e remediação", [
+        "biodegradavel", "biodegradacao", "biossurfactante", "atenuacao natural",
+        "remediacao", "polimero biodegradavel", "biorremediacao",
+    ]),
+    ("Eutrofização", [
+        "eutrofizacao", "corpo hidrico", "oxigenio dissolvido", "proliferacao de algas",
+        "decomposicao anaerobia", "excesso de nutrientes", "esgoto domestic",
+    ]),
+    ("Impermeabilização e erosão do solo", [
+        "impermeabilizacao", "erosao", "escoamento", "infiltracao", "cobertura vegetal",
+        "concregrama", "pisograma", "assoreamento",
+    ]),
+    ("Chuva ácida", [
+        "chuva acida", "acido sulfurico", "acido nitrico", "oxido de enxofre",
+        "dioxido de enxofre", "carbonato de calcio", "marmore", "so2", "no2",
+    ]),
+    ("Transformação do habitat", [
+        "transformacao do habitat", "alteracao de habitat", "hidreletric", "represa",
+        "barragem", "desmatamento", "mitigacao", "adaptacao climatica", "usina",
+    ]),
+    ("Descarte de resíduos", [
+        "aterro sanitario", "lixao", "chorume", "metais pesados", "descarte de lixo",
+        "residuos solidos", "pilhas e baterias", "coleta seletiva", "reciclagem",
     ]),
     ("Fermentação", [
         "fermentacao", "processo anaerob", "metabolismo anaerob", "fermentacao alcoolica",
