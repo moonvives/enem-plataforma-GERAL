@@ -61,10 +61,22 @@
     .bio-block p{margin:0;line-height:1.6}
     .bio-block.atalho{background:rgba(58,125,68,.12);border:1px solid var(--t1);border-radius:10px;padding:.6rem .85rem}
     .bio-block.atalho .l{color:var(--t1)}
+    .bio-block p+p{margin-top:.55rem}
     .bio-block ul{margin:.15rem 0 0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.4rem}
     .bio-block ul li{line-height:1.6}
     .bio-block.exemplos{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.6rem .85rem}
     .bio-block.exemplos ul{list-style:decimal}
+    /* Questões-modelo resolvidas uma a uma */
+    .bio-block.questoes{display:flex;flex-direction:column;gap:.7rem}
+    .bio-questao{background:var(--surface);border:1px solid var(--border);border-radius:11px;overflow:hidden}
+    .bio-questao .q-enun{padding:.65rem .85rem;background:var(--surface-2);border-bottom:1px solid var(--border);line-height:1.6}
+    .bio-questao .q-num{display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+      color:#fff;background:var(--brand);border-radius:6px;padding:.12rem .45rem;margin-right:.5rem;vertical-align:middle}
+    .bio-questao .q-resol{padding:.65rem .85rem}
+    .bio-questao .q-resol .rl{font-size:.63rem;text-transform:uppercase;letter-spacing:.06em;color:var(--t1);font-weight:800;margin-bottom:.3rem}
+    .bio-questao .q-resol p{line-height:1.65}
+    .bio-questao .q-resol ol.passos{margin:.1rem 0 0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem}
+    .bio-questao .q-resol ol.passos li{line-height:1.6}
     .bio-aula{display:flex;flex-direction:column;gap:.7rem}
     .bio-aula+.bio-aula{margin-top:1.4rem}
     .bio-aula>h3{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin:.2rem 0 .1rem;font-size:1.12rem;

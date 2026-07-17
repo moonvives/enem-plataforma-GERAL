@@ -74,8 +74,15 @@
       aulaOrder.length + " videoaulas e identificados em " + biologyQuestionCount +
       " questões oficiais. Cada modelo traz a teoria completa, como cai no ENEM, exemplos reais resolvidos, pegadinhas, atalho e fórmulas.";
 
-    function bioBlock(label, text) {
-      return text ? '<div class="bio-block"><div class="l">' + label + '</div><p>' + esc(text) + "</p></div>" : "";
+    // Renderiza texto que pode vir como string única ou como lista de
+    // parágrafos (conteúdo integral da videoaula, sem síntese).
+    function paras(val) {
+      var arr = Array.isArray(val) ? val : (val ? [val] : []);
+      return arr.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
+    }
+    function bioBlock(label, val, cls) {
+      var body = paras(val);
+      return body ? '<div class="bio-block ' + (cls || "") + '"><div class="l">' + label + "</div>" + body + "</div>" : "";
     }
     function bioList(label, items, cls) {
       if (!items || !items.length) return "";
@@ -89,6 +96,21 @@
           '<span class="math" data-latex="' + esc(f.latex).replace(/'/g, "&#39;") + '"></span></div>';
       }).join("") + "</div>";
     }
+    // Questões-modelo resolvidas uma a uma: cada item traz o enunciado e a
+    // resolução passo a passo (string ou lista de passos). Quando o modelo
+    // ainda usa o formato antigo "exemplos", cai no bioList.
+    function bioQuestoes(items) {
+      if (!items || !items.length) return "";
+      return '<div class="bio-block questoes"><div class="l">Questões-modelo resolvidas</div>' +
+        items.map(function (q, i) {
+          var res = Array.isArray(q.resolucao)
+            ? "<ol class=\"passos\">" + q.resolucao.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ol>"
+            : "<p>" + esc(q.resolucao) + "</p>";
+          return '<div class="bio-questao">' +
+            '<div class="q-enun"><span class="q-num">Questão ' + (i + 1) + '</span>' + esc(q.enunciado) + "</div>" +
+            '<div class="q-resol"><div class="rl">Resolução</div>' + res + "</div></div>";
+        }).join("") + "</div>";
+    }
     function bioCard(m, i) {
       return '<details class="biomodel"' + (i === 0 ? " open" : "") + '>' +
         '<summary><span class="idx">' + (i + 1) + '</span>' + esc(m.tema) +
@@ -96,10 +118,11 @@
         '<div class="body">' +
           bioBlock("Teoria essencial", m.teoria || m.ideia) +
           bioBlock("Como cai no ENEM", m.como_cai) +
+          bioQuestoes(m.questoes_resolvidas) +
           bioList("Exemplos reais resolvidos", m.exemplos, "exemplos") +
           bioFormulas(m.formulas) +
           bioBlock("Pegadinhas", m.pegadinha) +
-          (m.atalho ? '<div class="bio-block atalho"><div class="l">Atalho</div><p>' + esc(m.atalho) + "</p></div>" : "") +
+          bioBlock("Atalho", m.atalho, "atalho") +
         "</div></details>";
     }
     var idx = 0;

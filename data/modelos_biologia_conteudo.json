@@ -34,7 +34,12 @@
     ],
     "pegadinha": "Órgão vestigial e registro fóssil são evidências de ancestralidade; parecença de função (análogo) NÃO indica parentesco próximo.",
     "atalho": "Análogo = convergência (função igual). Homólogo = irradiação (origem igual). Especiação exige fluxo gênico = 0.",
-    "formulas": [{"rotulo": "Condição de especiação", "latex": "\\text{fluxo g\\^enico}=0\\;\\Rightarrow\\;\\text{nova esp\\'ecie}"}]
+    "formulas": [
+      {
+        "rotulo": "Condição de especiação",
+        "latex": "\\text{fluxo g\\^enico}=0\\;\\Rightarrow\\;\\text{nova esp\\'ecie}"
+      }
+    ]
   },
   "Taxonomia e nomenclatura": {
     "aula": "Evolução e Taxonomia",
@@ -57,7 +62,12 @@
     ],
     "pegadinha": "Não confundir bactéria com vírus: o vírus não tem ribossomo nem metabolismo próprio, por isso antibiótico não age em vírus.",
     "atalho": "Procarionte: parede (peptidoglicano) + membrana + DNA disperso/plasmídeo + ribossomo. Alvo exclusivo do eucarionte = microtúbulos.",
-    "formulas": [{"rotulo": "Parede bacteriana", "latex": "\\text{peptidoglicano}=\\text{a\\c{c}\\'ucar}+\\text{amino\\'acido}"}]
+    "formulas": [
+      {
+        "rotulo": "Parede bacteriana",
+        "latex": "\\text{peptidoglicano}=\\text{a\\c{c}\\'ucar}+\\text{amino\\'acido}"
+      }
+    ]
   },
   "Membrana plasmática e mosaico fluido": {
     "aula": "Citologia",
@@ -69,7 +79,12 @@
     ],
     "pegadinha": "Maior fluidez = MENOS interação entre os fosfolipídios; um enunciado que diz 'quanto maior a interação, menor a fluidez' está pedindo justamente a membrana com caudas curtas/insaturadas.",
     "atalho": "Fosfato fora (polar), lipídio dentro (apolar). Proteínas andam = mosaico fluido. Menos interação entre caudas = mais fluidez.",
-    "formulas": [{"rotulo": "Fluidez × interação", "latex": "\\text{fluidez}\\;\\propto\\;\\dfrac{1}{\\text{intera\\c{c}\\~ao entre fosfolip\\'idios}}"}]
+    "formulas": [
+      {
+        "rotulo": "Fluidez × interação",
+        "latex": "\\text{fluidez}\\;\\propto\\;\\dfrac{1}{\\text{intera\\c{c}\\~ao entre fosfolip\\'idios}}"
+      }
+    ]
   },
   "Osmose e difusão": {
     "aula": "Citologia",
@@ -81,7 +96,12 @@
     ],
     "pegadinha": "Não é o sal que 'entra' na célula (difusão) nem a membrana que se rompe: é a ÁGUA que sai (osmose) para equilibrar as concentrações.",
     "atalho": "Osmose = solvente (água) vai para o meio mais concentrado. Difusão = soluto vai para o menos concentrado. Sal fora → água sai da célula.",
-    "formulas": [{"rotulo": "Osmose", "latex": "\\text{H}_2\\text{O}:\\;\\text{meio hipot\\^onico}\\;\\longrightarrow\\;\\text{meio hipert\\^onico}"}]
+    "formulas": [
+      {
+        "rotulo": "Osmose",
+        "latex": "\\text{H}_2\\text{O}:\\;\\text{meio hipot\\^onico}\\;\\longrightarrow\\;\\text{meio hipert\\^onico}"
+      }
+    ]
   },
   "Organelas e suas funções": {
     "aula": "Citologia",
@@ -114,7 +134,12 @@
     ],
     "pegadinha": "Menos atividade NÃO significa que a temperatura baixa 'destrói' a enzima em si; significa apenas que fora da faixa ótima a enzima trabalha menos (e pode desnaturar em extremos).",
     "atalho": "Enzima = proteína catalisadora, baixa a energia de ativação, não é consumida. Fora do pH/temperatura ótimos, a atividade despenca.",
-    "formulas": [{"rotulo": "Papel do catalisador", "latex": "E_a^{\\text{com enzima}}\\;<\\;E_a^{\\text{sem enzima}}"}]
+    "formulas": [
+      {
+        "rotulo": "Papel do catalisador",
+        "latex": "E_a^{\\text{com enzima}}\\;<\\;E_a^{\\text{sem enzima}}"
+      }
+    ]
   },
   "Dogma central e síntese proteica": {
     "aula": "Material Genético e Biotecnologia",
@@ -126,7 +151,12 @@
     ],
     "pegadinha": "Inserir um gene não é 'liberar a proteína imediatamente': ainda é preciso transcrever (RNA) e traduzir (proteína).",
     "atalho": "DNA →(transcrição)→ RNA →(tradução)→ proteína. Ribossomo faz a síntese. Gene inserido = expressão de proteína normal.",
-    "formulas": [{"rotulo": "Dogma central", "latex": "\\text{DNA}\\xrightarrow{\\text{transcri\\c{c}\\~ao}}\\text{RNA}\\xrightarrow{\\text{tradu\\c{c}\\~ao}}\\text{prote\\'ina}"}]
+    "formulas": [
+      {
+        "rotulo": "Dogma central",
+        "latex": "\\text{DNA}\\xrightarrow{\\text{transcri\\c{c}\\~ao}}\\text{RNA}\\xrightarrow{\\text{tradu\\c{c}\\~ao}}\\text{prote\\'ina}"
+      }
+    ]
   },
   "Estrutura e pareamento do DNA": {
     "aula": "Material Genético e Biotecnologia",
@@ -138,7 +168,12 @@
     ],
     "pegadinha": "Uma fita isolada não obedece A = T; a igualdade de Chargaff vale para a DUPLA fita. E timina no enunciado = DNA; uracila = RNA.",
     "atalho": "A com T (2 ligações), C com G (3 ligações). Chargaff (dupla fita): A = T e C = G. Timina = DNA; uracila = RNA.",
-    "formulas": [{"rotulo": "Regra de Chargaff", "latex": "[\\text{A}]=[\\text{T}]\\;\\;\\text{e}\\;\\;[\\text{C}]=[\\text{G}]"}]
+    "formulas": [
+      {
+        "rotulo": "Regra de Chargaff",
+        "latex": "[\\text{A}]=[\\text{T}]\\;\\;\\text{e}\\;\\;[\\text{C}]=[\\text{G}]"
+      }
+    ]
   },
   "Código genético (códons)": {
     "aula": "Material Genético e Biotecnologia",
@@ -150,7 +185,12 @@
     ],
     "pegadinha": "Código genético ≠ genoma. Genoma é o conjunto de genes/DNA do indivíduo; código genético é a tabela códon→aminoácido, igual para todos.",
     "atalho": "Códon = trinca → 1 aminoácido. Universal, não ambíguo, degenerado. Código genético ≠ genoma.",
-    "formulas": [{"rotulo": "Códons × aminoácidos", "latex": "4^{3}=64\\;\\text{c\\'odons}\\;\\to\\;\\sim\\!20\\;\\text{amino\\'acidos (degenerado)}"}]
+    "formulas": [
+      {
+        "rotulo": "Códons × aminoácidos",
+        "latex": "4^{3}=64\\;\\text{c\\'odons}\\;\\to\\;\\sim\\!20\\;\\text{amino\\'acidos (degenerado)}"
+      }
+    ]
   },
   "Mutação e regulação gênica": {
     "aula": "Material Genético e Biotecnologia",
@@ -177,85 +217,282 @@
   },
   "Digestão e absorção": {
     "aula": "Fisiologia Humana I",
-    "teoria": "O corpo não absorve as macromoléculas na forma em que são ingeridas: a digestão as quebra em moléculas menores e absorvíveis. Cada macronutriente tem um produto final fixo — carboidrato → glicose, proteína → aminoácido, lipídio → ácido graxo — e cada transformação é catalisada por uma ENZIMA específica (uma enzima não faz o serviço da outra). Como cada enzima age num local com pH próprio, sabendo o alimento você sabe o local, a enzima e o pH.",
-    "como_cai": "O enunciado dá um alimento e um pH (ou local) e pede a etapa/enzima. Onde CADA macronutriente começa a ser digerido: carboidrato na boca (amilase salivar/ptialina, pH ~7 neutro); proteína no estômago (suco gástrico = ácido clorídrico + pepsina, pH ~2 ácido); lipídio no duodeno (bile emulsifica + suco pancreático digere, pH básico). Atenção: 'começa' — todos são majoritariamente digeridos no duodeno.",
-    "exemplos": [
-      "Enzima de rótulo apagado que 'digere proteína e age no estômago': o tubo em que ela deve agir é o do pedaço de carne (proteína) em solução de pH 5 (ácido) — não a batata/macarrão (carboidrato) nem a manteiga (lipídio), nem os tubos de pH 9 (básico).",
-      "Indicador de pH aplicado à saliva e ao suco gástrico: saliva ~7 (neutro, cor roxa da escala) e suco gástrico ~2 (ácido, cor vermelha) → resposta 'roxo e vermelho'.",
-      "Suco de limão (ácido) adicionado ao leite (gordura + proteína) 'talha' as proteínas: simula a ação do SUCO GÁSTRICO (ácido) sobre as proteínas no estômago — não a bile nem o suco pancreático, que agem em pH básico."
+    "teoria": [
+      "O ponto de partida é entender que o corpo NÃO absorve as macromoléculas na forma em que você as ingere. Se você almoça arroz e frango, o seu corpo não consegue absorver o frango e o arroz do jeito que estão no bolo alimentar. A digestão é justamente o processo de quebrar os macronutrientes de um alimento para torná-los absorvíveis.",
+      "Cada macronutriente tem uma transformação final fixa, e é isso que o ENEM cobra: carboidrato vira glicose, proteína vira aminoácido e lipídio vira ácido graxo. Onde encontrar cada um: lipídios nos óleos, proteínas principalmente nas carnes, carboidratos nos derivados de trigo (pão, farinha, macarrão). O corpo absorve glicose, aminoácidos e ácidos graxos.",
+      "Esse processo demanda muita energia e é catalisado por ENZIMAS (a enzima diminui a energia de ativação e facilita a reação). A característica central é a ESPECIFICIDADE: a enzima que catalisa lipídio→ácido graxo não é a mesma que catalisa proteína→aminoácido ou carboidrato→glicose. Cada enzima atua sobre um macronutriente, num local próprio, com um pH próprio (o pH em que ela funciona bem).",
+      "Existem enzimas em quatro contextos ao longo do trato: na saliva (boca), no suco gástrico (estômago) e no suco pancreático e entérico (intestino, sobretudo no duodeno). O ENEM quer que você saiba duas coisas: ONDE cada macronutriente começa a ser digerido e QUAL o pH daquele lugar.",
+      "A tabela que resolve o modelo: CARBOIDRATO começa na boca, pH ~7 (neutro), pela amilase salivar (ptialina). PROTEÍNA começa no estômago, pH ~2 (ácido), pelo suco gástrico (ácido clorídrico + pepsina). LIPÍDIO começa no duodeno, pH básico, com a bile (que emulsifica) e o suco pancreático (que digere).",
+      "Detalhe decisivo: isso é só o INÍCIO. Todos os macronutrientes são MAJORITARIAMENTE digeridos no duodeno. Por isso é errado dizer que o carboidrato é 'inteiramente digerido na boca' — ele apenas começa ali."
     ],
-    "pegadinha": "A bile NÃO digere gordura: ela apenas emulsifica (age como detergente). Quem digere o lipídio é a enzima do suco pancreático. E carboidrato 'começa' na boca — não é 'inteiramente digerido' ali.",
-    "atalho": "Carboidrato/boca/neutro (amilase); proteína/estômago/ácido (pepsina); lipídio/duodeno/básico (bile só emulsifica). Todos terminam no duodeno.",
-    "formulas": [{"rotulo": "pH boca × estômago", "latex": "\\mathrm{pH}_{\\text{boca}}\\approx7\\;>\\;\\mathrm{pH}_{\\text{est\\^omago}}\\approx2"}]
+    "como_cai": "Dão um alimento + um pH (ou um local) e pedem a enzima/etapa correspondente. Você associa o alimento ao macronutriente, o macronutriente ao local, e o local ao pH.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Um pesquisador percebe que o rótulo de um vidro com concentrado de enzimas digestivas está ilegível. Ele desconfia que seja uma enzima proteica que age no estômago digerindo proteínas. Monta 5 tubos com alimentos diferentes em soluções de pH determinado. O tubo em que a enzima deve agir para confirmar a hipótese é aquele que contém: cubo de batata (pH básico); pedaço de carne (pH 5); clara de ovo cozida (pH 9); porção de macarrão (pH 5); bolinho de manteiga (pH 9).",
+        "resolucao": [
+          "Se a hipótese é 'enzima que digere proteína e age no estômago', ela precisa de um alimento proteico E de um meio ácido (pH menor que 7, como o estômago).",
+          "Cubo de batata = carboidrato, e ainda em pH básico → dois erros.",
+          "Clara de ovo = proteína, mas em pH 9 (básico) → a enzima ácida não atuaria bem.",
+          "Macarrão = carboidrato (pH 5 está certo, o alimento está errado). Manteiga = lipídio em pH 9.",
+          "Sobra o pedaço de carne (proteína) em pH 5 (ácido), reproduzindo o estômago. Resposta: a carne em meio ácido."
+        ]
+      },
+      {
+        "enunciado": "Utilizando um indicador ácido-base (escala do vermelho = mais ácido, passando por rosa, roxo, azul, verde, até o amarelo = mais básico) para determinar o pH da saliva humana e do suco gástrico, têm-se respectivamente as cores:",
+        "resolucao": [
+          "Saliva humana tem pH neutro (~7) → na escala corresponde à faixa do ROXO.",
+          "Suco gástrico é ácido, perto de pH 2 (por conta do ácido clorídrico) → corresponde ao VERMELHO.",
+          "Respectivamente: roxo (saliva) e vermelho (suco gástrico). Resposta: letra E."
+        ]
+      },
+      {
+        "enunciado": "Em uma prática, adiciona-se suco de limão ao leite (leite até a metade do copo + 20 gotas de limão). Levando em conta o pH do suco de limão, a composição do leite e o resultado observado, qual processo digestório está sendo simulado?",
+        "resolucao": [
+          "O leite tem majoritariamente gorduras e proteínas; o suco de limão é ácido.",
+          "Onde há digestão em meio ácido? No estômago, sobre as PROTEÍNAS, pela ação do suco gástrico.",
+          "Descartando: bile sobre gorduras no duodeno (não é enzimática e é pH básico); suco pancreático sobre gorduras (enzimático, mas pH básico); saliva sobre carboidratos na boca (pH neutro); suco entérico sobre proteínas no duodeno (pH básico).",
+          "Sobra a ação do suco gástrico (ácida) sobre as proteínas no estômago — o limão simula o pH ácido do estômago sobre as proteínas do leite."
+        ]
+      }
+    ],
+    "pegadinha": "A bile NÃO digere gordura: ela apenas emulsifica (age como detergente, quebra em gotículas). Quem digere o lipídio é a enzima do suco pancreático. E cuidado com 'começa' × 'é inteiramente digerido': carboidrato começa na boca, mas termina no duodeno.",
+    "atalho": "Carboidrato/boca/neutro (amilase) · Proteína/estômago/ácido (pepsina) · Lipídio/duodeno/básico (bile só emulsifica). Todos terminam no duodeno.",
+    "formulas": [
+      {
+        "rotulo": "pH boca × estômago",
+        "latex": "\\mathrm{pH}_{\\text{boca}}\\approx7\\;>\\;\\mathrm{pH}_{\\text{est\\^omago}}\\approx2"
+      }
+    ]
   },
   "Excreção e osmorregulação": {
     "aula": "Fisiologia Humana I",
-    "teoria": "Os rins filtram os resíduos da circulação (ureia, íons, resíduos metabólicos) e, ao longo da alça de Henle, reabsorvem água — por isso produzem e CONCENTRAM a urina. A reabsorção é regulada por dois fatores: a concentração do sangue (medida pelo sódio) e o nível de hidratação. O hormônio central é o ADH (antidiurético): quanto mais ADH, mais água reabsorvida, urina mais concentrada e em menor volume.",
-    "como_cai": "Situações de desidratação, excesso de sódio ou falha hormonal. A régua: mais reabsorção de água → menos urina e mais concentrada; menos reabsorção → mais urina e mais diluída. Por osmose, muito sódio no sangue puxa mais água de volta.",
-    "exemplos": [
-      "Estudantes perdidos, sem água e sob o sol, com sede crescente: o sistema excretor AUMENTA a reabsorção de água → produz urina com maior concentração de sais (menor volume) — não maior volume nem urina mais diluída.",
-      "Diabetes insípido (distúrbio na produção/ação do ADH): sem reabsorver a água, o sintoma clássico é a DESIDRATAÇÃO (urina diluída em excesso) — não hiperglicemia, que é o outro diabetes (insulina)."
+    "teoria": [
+      "Os rins são os órgãos centrais da excreção, com duas funções: filtrar os resíduos da circulação (ureia, íons, resíduos metabólicos) e produzir e CONCENTRAR a urina. Eles concentram porque, ao passar pela alça de Henle, ocorre reabsorção de água, deixando a urina mais concentrada.",
+      "O que mais cai é a regulação da excreção, controlada por dois fatores. Primeiro, a concentração do sangue, medida pela presença de SÓDIO: se o sangue está muito concentrado de sódio, por osmose a tendência é reabsorver mais água → urina mais concentrada e menor excreção. Segundo, o nível de hidratação: muita água no corpo → elimina mais; pouca água → o corpo segura, reabsorve mais.",
+      "O hormônio central é o ADH (hormônio antidiurético): ele avisa o corpo que mais água precisa ser reabsorvida. Mais ADH → mais reabsorção → urina mais concentrada e em menor volume. (Curiosidade que ajuda a memorizar, embora não caia: o álcool inibe o ADH — por isso se urina mais ao beber.)"
     ],
-    "pegadinha": "São dois diabetes distintos: o insípido é do ADH (água); o melito é da insulina (glicose). O álcool inibe o ADH — por isso se urina mais ao beber.",
+    "como_cai": "Situações de desidratação, excesso de sódio ou falha hormonal. A régua: mais reabsorção → menos urina e mais concentrada; menos reabsorção → mais urina e mais diluída.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Durante uma expedição, um grupo de estudantes se perde do guia e passa o dia sem água e sob o sol, sentindo cada vez mais sede. Consequentemente, o sistema excretor desses indivíduos teve um acréscimo em um de seus processos funcionais. Nessa situação, o sistema excretor:",
+        "resolucao": [
+          "Sem água e com sede crescente, o corpo AUMENTA a reabsorção de água ('estamos sem água, precisamos segurar').",
+          "Maior reabsorção → menor excreção e urina mais concentrada.",
+          "Descartando: aumentou a filtração glomerular (irrelevante); produziu maior volume de urina (não — o corpo está segurando água); urina com menos ureia / mais diluída (não); reduziu reabsorção de glicose e aminoácidos (não — o que aumentou foi a de água).",
+          "Resposta: produziu urina com maior concentração de sais."
+        ]
+      },
+      {
+        "enunciado": "O diabetes insípido é caracterizado por um distúrbio na produção ou no funcionamento do hormônio antidiurético (ADH), secretado pela neuro-hipófise para controlar a reabsorção de água pelos túbulos renais. Tendo em vista o papel funcional do ADH, qual o sintoma clássico de um paciente acometido por diabetes insípido?",
+        "resolucao": [
+          "O ADH reabsorve água. Se ele não funciona, a água NÃO é reabsorvida.",
+          "Sem reabsorção, forma-se urina muito diluída e em excesso → o corpo perde muita água.",
+          "Descartando: alta taxa de glicose (é o diabetes melito, da insulina, não o insípido); aumento da pressão arterial (seria reabsorção de sais); ganho de massa / anemia crônica (nada a ver com excreção).",
+          "Resposta: desidratação."
+        ]
+      }
+    ],
+    "pegadinha": "São dois diabetes distintos: o insípido é do ADH (água); o melito é da insulina (glicose). Não confundir.",
     "atalho": "ADH reabsorve água. Muita urina = mais diluída (menos ADH); pouca urina = mais concentrada (mais ADH). Muito sódio no sangue → mais reabsorção."
   },
   "Sangue, circulação e coagulação": {
     "aula": "Fisiologia Humana I",
-    "teoria": "Duas células do sangue caem nas questões: as hemácias (eritrócitos), que transportam o OXIGÊNIO aos tecidos (mais hemácias = transporte mais eficiente), e as plaquetas, que atuam na COAGULAÇÃO (menos plaquetas = sangue que não coagula bem). É só ligar hemácia a oxigênio e plaqueta a coagulação.",
-    "como_cai": "Contextos de doping, transporte de gases e distúrbios de coagulação. A palavra do enunciado (eritropoietina, plaqueta, trombo, hemorragia) já entrega qual célula está em jogo.",
-    "exemplos": [
-      "Doping sanguíneo com eritropoietina (EPO): a EPO estimula a eritropoese → mais hemácias → aumenta a TAXA DE TRANSPORTE DE OXIGÊNIO pelo sangue (não a frequência cardíaca, a capacidade pulmonar nem a massa muscular).",
-      "Plaqueta artificial que agiliza a coagulação: beneficia pacientes com HEMOFILIA (falta de coagulação, a doença das famílias reais europeias).",
-      "Molécula do veneno da cascavel que MODULA a coagulação: aplicação em impedir a formação de TROMBOS típicos do AVC (coagulação excessiva na circulação)."
+    "teoria": [
+      "Duas células do sangue interessam neste modelo. As HEMÁCIAS (eritrócitos) transportam o oxigênio aos tecidos: mais hemácias = transporte mais eficiente; déficit de hemácias = deficiência no transporte de O2.",
+      "As PLAQUETAS atuam na coagulação sanguínea. Nível baixo de plaquetas (visto em exames de sangue rotineiros) = sangue que coagula mal, então um machucado demora mais a estancar. É só ligar hemácia a oxigênio e plaqueta a coagulação."
     ],
-    "pegadinha": "Anemia é problema de hemácia (transporte de O2), NÃO de coagulação. 'Modular' a coagulação serve tanto para o excesso (trombo) quanto para a falta (hemorragia).",
+    "como_cai": "Contextos de doping, transporte de gases e distúrbios de coagulação. A palavra do enunciado (eritropoietina, plaqueta, trombo, hemorragia, hemofilia) já entrega a célula em jogo.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Diversas substâncias são usadas para incrementar o desempenho de atletas de alto nível (doping sanguíneo), como a eritropoietina, hormônio produzido por rins e fígado cuja principal ação é regular a eritropoese. Esse tipo de doping está diretamente relacionado ao aumento de:",
+        "resolucao": [
+          "Destrinchando a palavra: 'poese' = formação; 'eritro' = eritrócitos (hemácias). Eritropoietina estimula a formação de hemácias.",
+          "Mais hemácias → transporte de oxigênio mais eficiente.",
+          "Descartando: frequência cardíaca (não); capacidade pulmonar (não muda quanto O2 se inspira); massa muscular (não); respiração anaeróbica (não).",
+          "Resposta: taxa de transporte de oxigênio pelo sangue."
+        ]
+      },
+      {
+        "enunciado": "Pesquisadores criaram uma plaqueta artificial (polímero gelatinoso coberto de anticorpos) que agiliza a coagulação: havendo sangramento, os anticorpos fazem a plaqueta virar uma rede que gruda nas lesões dos vasos. Qual doença cujos pacientes teriam melhora com o uso desse material?",
+        "resolucao": [
+          "Plaqueta está ligada à coagulação. O material agiliza a coagulação.",
+          "A doença ligada à FALTA de coagulação é a hemofilia (a doença das famílias reais europeias, por casamentos consanguíneos).",
+          "As demais alternativas não têm relação com coagulação.",
+          "Resposta: hemofilia."
+        ]
+      },
+      {
+        "enunciado": "O veneno da cascavel pode causar hemorragia. Pesquisadores desenvolveram a molécula peg-colineína-1, a partir de uma proteína do veneno, capaz de MODULAR a coagulação sanguínea. Esse novo medicamento apresenta potencial aplicação para:",
+        "resolucao": [
+          "'Modular' a coagulação significa poder aumentá-la ou diminuí-la.",
+          "Trombo é um produto de coagulação que entope a circulação; se não coagula, o AVC (acidente vascular cerebral) causado por trombo é atenuado.",
+          "Descartando: anemia (é hemácia, não coagulação); urticária/alergia (não); linfonodos/sistema linfático (não); pressão arterial/hipertensão (não têm relação com coagulação).",
+          "Resposta: impedir a formação de trombos típicos de casos de AVC."
+        ]
+      }
+    ],
+    "pegadinha": "Anemia é problema de HEMÁCIA (transporte de O2), NÃO de coagulação. E 'modular' a coagulação serve tanto para o excesso (trombo) quanto para a falta (hemorragia).",
     "atalho": "Hemácia/eritrócito = oxigênio; plaqueta = coagulação. EPO → mais hemácias → mais O2. Trombo/hemofilia = plaqueta."
   },
   "Endocrinologia e homeostase": {
     "aula": "Fisiologia Humana I",
-    "teoria": "Os hormônios da tireoide, T3 e T4, regulam o metabolismo (batimento cardíaco, digestão, gasto energético). O ponto que cai: o IODO faz parte da estrutura desses hormônios — sem iodo na dieta, T3 e T4 não são formados corretamente e a tireoide se desregula.",
+    "teoria": [
+      "No recorte dos modelos, o que importa são os hormônios da tireoide, T3 e T4, que regulam o metabolismo (batimento cardíaco, função digestiva, gasto energético).",
+      "O ponto central: o IODO faz parte da estrutura desses hormônios (a molécula de T4 tem iodo, iodo, iodo). Sem iodo na dieta, T3 e T4 não são formados corretamente e a tireoide se desregula.",
+      "Quando há carência de iodo numa população, há tendência ao bócio endêmico (a tireoide incha por desregulação na produção de T3/T4). No Brasil virou política pública a adição de iodo (na forma de iodeto de potássio) ao sal de cozinha, garantindo consumo regular — por isso o bócio endêmico não é problema por aqui."
+    ],
     "como_cai": "Deficiência de iodo, bócio endêmico e bloqueio da síntese hormonal. A resposta quase sempre aponta para a glândula tireoide.",
-    "exemplos": [
-      "Lei que obriga a adição de iodeto de potássio ao sal de cozinha: a medida visa prevenir problemas na glândula TIREOIDE (a falta de iodo causa bócio endêmico).",
-      "Bisfenol A que impede a ação das desiodases (enzimas que atuam na conversão de T3 e T4): afeta os hormônios da tireoide."
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Os distúrbios por deficiência de iodo têm graves impactos no desenvolvimento humano. No Brasil, vigora uma lei que obriga os produtores de sal de cozinha a incluir certa quantidade de iodeto de potássio. Essa inclusão visa prevenir problemas em qual glândula humana?",
+        "resolucao": [
+          "O iodo é constituinte dos hormônios T3 e T4.",
+          "Esses hormônios são produzidos na tireoide; a falta de iodo causaria bócio endêmico.",
+          "Garantindo o iodo, previne-se o problema na glândula tireoide.",
+          "Resposta: tireoide (letra B)."
+        ]
+      },
+      {
+        "enunciado": "Um estudo demonstrou que o bisfenol A (usado na fabricação de plásticos) impediu a ação das desiodases, enzimas que atuam na transformação do T3 e do T4. Esses hormônios são produzidos na glândula:",
+        "resolucao": [
+          "T3 e T4 são hormônios da tireoide.",
+          "Se o composto afeta a conversão de T3/T4, ele afeta a tireoide.",
+          "Resposta: tireoide."
+        ]
+      }
     ],
     "pegadinha": "Falta de iodo → bócio endêmico (tireoide aumentada). No Brasil isso é raro justamente pela política do sal iodado.",
     "atalho": "T3/T4 regulam o metabolismo e têm iodo na estrutura. Sem iodo → bócio. Sal iodado = profilaxia."
   },
   "Imunidade e vacinação": {
     "aula": "Fisiologia Humana II",
-    "teoria": "Os glóbulos brancos (leucócitos) são as células de defesa: reconhecem o ANTÍGENO estranho (a 'identidade' proteica de um vírus/bactéria) e desencadeiam a resposta imune. Se o corpo já conhece o antígeno, a resposta é rápida; se não, é lenta. A VACINA expõe o corpo ao ANTÍGENO (versão inativada, ou o RNA mensageiro que faz o corpo produzir o antígeno) → o corpo fabrica os próprios anticorpos → imunidade ATIVA e de longo prazo, com memória. O SORO fornece o ANTÍDOTO (anticorpos já prontos) → ação IMEDIATA e passiva, sem memória.",
-    "como_cai": "Diferenciar vacina de soro e reconhecer um processo como 'semelhante à vacina' (estimula a produção de anticorpos) ou 'semelhante ao soro' (anticorpo pronto).",
-    "exemplos": [
-      "Imunobiológicos 1 e 2: aplicar o antígeno no humano (vacina) e aplicá-lo em um cavalo para depois extrair os anticorpos e fabricar o soro. Ambos 'estimulam a produção de anticorpos' — no humano vacinado e no cavalo há imunidade ATIVA; quem recebe o soro tem imunidade passiva.",
-      "Probiótico com 'efeito similar ao da vacina' → estimula a produção de imunoglobulinas (anticorpos).",
-      "Vacina anti-esquistossomose feita com uma proteína do verme: induz a produção de anticorpos e sua vantagem é eliminar o esquistossomo dentro do organismo ANTES da manifestação dos sintomas (resposta imune já pronta)."
+    "teoria": [
+      "Os glóbulos brancos (leucócitos) — monócitos, macrófagos, eosinófilos, basófilos, neutrófilos — são as células de defesa do organismo. Fazem duas coisas: reconhecem o ANTÍGENO estranho (a 'identidade' proteica de um vírus/bactéria, a carteira de identidade que ele mostra) e desencadeiam a RESPOSTA IMUNE.",
+      "Detalhe: se o corpo já conhece aquele antígeno, a resposta é rápida e eficiente; se nunca teve contato, é lenta, e o agente tem efeito muito mais grave. É essa diferença que dá base à vacina.",
+      "VACINA = exposição do sistema imune ao ANTÍGENO do causador da doença. Pode ser o antígeno isolado, o RNA mensageiro do antígeno (como nas vacinas de COVID: o corpo lê o RNAm, produz o antígeno, reconhece como estranho e produz anticorpos), ou o vírus/bactéria inativado/atenuado (quase morto, não se reproduz, mas tem o antígeno). Em todos os casos o corpo produz os PRÓPRIOS anticorpos → imunidade ATIVA e de longo prazo, com memória. Quando o vírus real chegar, os anticorpos já estão prontos.",
+      "SORO = fornece o ANTÍDOTO (os anticorpos já prontos). Ex.: picada de cobra — não faz sentido criar resposta de longo prazo; você precisa que o veneno seja destruído agora, então injeta-se o anticorpo pronto. É imunidade PASSIVA e imediata, e NÃO cria imunidade duradoura."
+    ],
+    "como_cai": "Diferenciar vacina de soro, e reconhecer um processo como 'semelhante à vacina' (estimula a produção de anticorpos) ou 'semelhante ao soro' (anticorpo pronto).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Figura 1: aplica-se vírus/bactéria (antígeno) num humano (vacina). Figura 2: aplica-se o mesmo antígeno num cavalo, e depois extrai-se o sangue do cavalo para fabricar o soro. Embora produzidos e usados em situações distintas, os imunobiológicos 1 e 2 atuam de forma semelhante nos humanos e equinos, pois:",
+        "resolucao": [
+          "No humano vacinado, o antígeno é aplicado e o corpo produz anticorpos (imunidade ativa).",
+          "No cavalo, aplica-se o antígeno, ele produz anticorpos, e esses anticorpos são extraídos para fabricar o soro.",
+          "O enunciado compara humano vacinado × cavalo: em ambos há imunidade ATIVA (produção de anticorpos a partir do antígeno).",
+          "Descartando: confere imunidade passiva (não — passiva é só em quem recebe o soro); transferem células de defesa (não); suprimem a resposta (não — incentivam); produção de antígenos (não — aplica-se o antígeno para gerar anticorpos).",
+          "Resposta: estimulam a produção de anticorpos."
+        ]
+      },
+      {
+        "enunciado": "Qual mecanismo de ação desses probióticos promove um efeito similar ao da vacina? (1) competição por nutrientes; (2) produção de substâncias antimicrobianas; (3) disputa por sítio de adesão; (4) estímulo à produção de imunoglobulinas; (5) manutenção da integridade epitelial.",
+        "resolucao": [
+          "A vacina estimula o organismo a produzir anticorpos.",
+          "Imunoglobulina = anticorpo.",
+          "O mecanismo semelhante à vacina é o estímulo à produção de imunoglobulinas.",
+          "Resposta: alternativa 4."
+        ]
+      },
+      {
+        "enunciado": "Contra a esquistossomose, o tratamento tradicional usa medicamentos orais para matar o parasita depois que a doença aparece. Uma nova estratégia é uma vacina feita a partir de uma proteína extraída do verme, que induz a produção de anticorpos. Uma vantagem da vacina em relação ao tratamento tradicional é que ela poderá:",
+        "resolucao": [
+          "A vacina usa a proteína do verme como antígeno → o corpo produz anticorpos antecipadamente.",
+          "Quando o verme entrar em contato, a resposta imune já está pronta e é muito mais rápida.",
+          "Descartando: impedir a penetração do parasita na pele (o parasita não 'sabe' que a pessoa é vacinada); eliminar o caramujo (não é vacina anti-caramujo); impedir o acesso ao fígado (não); eliminar o esquistossomo antes do contato (impossível — a vacina só age após o contato).",
+          "Resposta: eliminar o esquistossomo dentro do organismo antes da manifestação de sintomas."
+        ]
+      }
     ],
     "pegadinha": "Vacina e soro só têm ação 'semelhante' quando comparados em espécies diferentes (humano vacinado × cavalo). No mesmo humano, vacina (ativa) e soro (passiva) são respostas opostas.",
     "atalho": "Vacina = antígeno → imunidade ativa/duradoura (com memória). Soro = anticorpo/antídoto pronto → imunidade passiva/imediata.",
-    "formulas": [{"rotulo": "Vacina × soro", "latex": "\\text{ant\\'igeno}\\to\\text{mem\\'oria (ativa)}\\;;\\;\\text{anticorpo}\\to\\text{imediata (passiva)}"}]
+    "formulas": [
+      {
+        "rotulo": "Vacina × soro",
+        "latex": "\\text{ant\\'igeno}\\to\\text{mem\\'oria (ativa)}\\;;\\;\\text{anticorpo}\\to\\text{imediata (passiva)}"
+      }
+    ]
   },
   "Doenças infecciosas e vetores": {
     "aula": "Fisiologia Humana II",
-    "teoria": "Cada zoonose combina agente etiológico + vetor/hospedeiro + profilaxia. O vetor (mosquito, barbeiro) NÃO causa a doença — ele apenas CARREGA o agente; um mosquito não contaminado que pica não transmite nada. A profilaxia-chave é combater o vetor ou o hospedeiro intermediário.",
-    "como_cai": "Ligar a doença ao seu vetor/hospedeiro e escolher a profilaxia que quebra o ciclo. Frequentemente basta saber um único elo (ex.: caramujo = esquistossomose).",
-    "exemplos": [
-      "Malária: Plasmodium (protozoário) transmitido pelo mosquito Anopheles; as febres intermitentes coincidem com a LISE das hemácias (que libera merozoítos e hemozoínas). Chagas: Trypanosoma cruzi pelas fezes do barbeiro (ou açaí contaminado), causando cardiopatia.",
-      "Esquistossomose: Schistosoma mansoni; os ovos nas fezes eclodem em miracídios que infectam o CARAMUJO (hospedeiro intermediário) e viram cercárias que penetram a pele. Molusquicida (mata o caramujo) controla a doença.",
-      "Tênia: ingerir o OVO da Taenia solium causa cisticercose (lavar alimentos previne); ingerir o CISTICERCO na carne crua/malpassada causa teníase. Leishmaniose e filariose: transmitidas por picada de mosquito → controle dos vetores/pomadas."
+    "teoria": [
+      "Cada zoonose combina agente etiológico + vetor/hospedeiro + profilaxia. Regra de ouro: o VETOR NÃO causa a doença — ele apenas carrega o agente. Um mosquito não contaminado que pica não transmite nada; o efeito vem do agente. A profilaxia-chave é combater o vetor ou o hospedeiro intermediário.",
+      "MALÁRIA — agente: protozoário Plasmodium sp.; vetor: mosquito Anopheles contaminado; sintoma: febres intermitentes (terçãs/quartãs, a cada 48 ou 72 h) causadas pela LISE das hemácias (que libera merozoítos e substâncias tóxicas, as hemozoínas). Profilaxia: combater o mosquito (redes, repelente).",
+      "DOENÇA DE CHAGAS — agente: protozoário Trypanosoma cruzi; transmissão pelas fezes do barbeiro (ou açaí contaminado com o barbeiro triturado); consequência: cardiopatia chagásica. Profilaxia: evitar casas de barro (moradia do barbeiro) e açaí de procedência duvidosa.",
+      "LEISHMANIOSE — agente: protozoário; transmissão pela picada do mosquito-palha contaminado; formas cutânea e visceral (a visceral é mais grave por atacar órgãos internos). O que cai: é transmitida pela picada do mosquito.",
+      "CISTICERCOSE × TENÍASE (muita gente confunde): cisticercose é causada pela ingestão do OVO da Taenia solium (profilaxia: lavar os alimentos, pois o ovo pode estar na água/alimentos; e tratar os doentes). Teníase é causada pela ingestão do CISTICERCO presente na carne crua ou malpassada (Taenia solium ou saginata); profilaxia: evitar carne crua/malpassada.",
+      "ESQUISTOSSOMOSE — agente: Schistosoma mansoni (platelminto). Ciclo (o que mais cai): ovos nas fezes de doentes → em locais sem saneamento eclodem na água em miracídios → infectam o CARAMUJO (hospedeiro intermediário, reprodução assexuada) → viram cercárias → a cercária penetra na pele humana. Profilaxia: saneamento, tratar doentes e combater o caramujo (molusquicida).",
+      "FILARIOSE (elefantíase) — agente: nematódeo Wuchereria bancrofti; transmissão pela picada do mosquito Culex; afeta o tecido linfático → edema/inchaço dos membros."
     ],
-    "pegadinha": "Cisticercose = OVO (Taenia solium); teníase = cisticerco na CARNE. Não confundir. O vetor nunca é a causa: é sempre o agente que ele carrega.",
-    "atalho": "Caramujo = esquistossomose; barbeiro = Chagas; Anopheles = malária; mosquito palha = leishmaniose; Culex = filariose. Ovo → cisticercose; carne → teníase."
+    "como_cai": "Ligar a doença ao seu vetor/hospedeiro e escolher a profilaxia que quebra o ciclo. Muitas vezes basta saber um único elo (ex.: caramujo = esquistossomose).",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "A Euphorbia milii (coroa-de-cristo) fornece o mais potente molusquicida natural (que mata moluscos). O uso desse látex em água infestada por hospedeiros intermediários tem potencial para atuar no controle de:",
+        "resolucao": [
+          "Molusquicida mata moluscos; o molusco em questão é o caramujo.",
+          "O caramujo é o hospedeiro intermediário da esquistossomose.",
+          "Matar o caramujo controla a transmissão da esquistossomose.",
+          "Não era preciso saber todo o ciclo — só que o caramujo faz parte da transmissão da esquistossomose. Resposta: esquistossomose."
+        ]
+      },
+      {
+        "enunciado": "Um trecho de Guimarães Rosa descreve as crises paroxísticas da malária (febre alta, calafrios, tremores em intervalos regulares). Essas crises periódicas ocorrem em razão de:",
+        "resolucao": [
+          "As febres intermitentes da malária (a cada 48/72 h) coincidem com a LISE das hemácias.",
+          "A lise libera merozoítos e substâncias denominadas hemozoínas, que causam a febre.",
+          "Descartando: invasão das hemácias com maturação até esquizonte (a invasão ocorre antes, não é a causa da febre); reprodução assexuada dos esporozoítos no fígado; liberação dos merozoítos dos hepatócitos; formação de gametócitos nas hemácias.",
+          "Resposta: lise das hemácias liberando merozoítos e substâncias denominadas hemozoínas."
+        ]
+      },
+      {
+        "enunciado": "Produtos de origem botânica que combatem insetos podem auxiliar no controle de qual doença? Alternativas: leptospirose; esquistossomose; hanseníase; AIDS; leishmaniose.",
+        "resolucao": [
+          "É preciso a doença transmitida por INSETO.",
+          "Leptospirose = fezes de rato; esquistossomose = caramujo; hanseníase = bacteriana; AIDS = sexual/sangue.",
+          "Leishmaniose é transmitida por mosquito (inseto). Combater insetos reduz sua transmissão.",
+          "Resposta: leishmaniose."
+        ]
+      },
+      {
+        "enunciado": "A filariose e a leishmaniose são doenças tropicais infecciosas. Uma medida profilática comum a essas duas doenças é: incineração do lixo orgânico; construção de rede de esgoto; uso de vermífugo; controle da população dos vetores; consumo de carnes vermelhas.",
+        "resolucao": [
+          "Filariose é transmitida pela picada do mosquito Culex; leishmaniose, pela picada do mosquito-palha.",
+          "Ambas são transmitidas por picada de mosquito (vetor comum).",
+          "A medida comum é atacar o vetor. (Consumo de carnes vermelhas remeteria à teníase, não a essas duas.)",
+          "Resposta: controle da população dos vetores."
+        ]
+      }
+    ],
+    "pegadinha": "Cisticercose = OVO (Taenia solium); teníase = cisticerco na CARNE. Não trocar. E o vetor nunca é a causa — é sempre o agente que ele carrega.",
+    "atalho": "Caramujo = esquistossomose; barbeiro = Chagas; Anopheles = malária; mosquito-palha = leishmaniose; Culex = filariose. Ovo → cisticercose; carne → teníase."
   },
   "Dengue": {
     "aula": "Fisiologia Humana II",
-    "teoria": "A dengue é causada por um arbovírus (gênero Flavivirus) com QUATRO sorotipos, transmitido pela picada do mosquito Aedes aegypti. Não é um 'modelo de resposta fixa' como as zoonoses, mas tem dois raciocínios que resolvem as questões: a variabilidade antigênica (4 sorotipos) e o comportamento do vetor.",
-    "como_cai": "Duas frentes: por que não há vacina única eficaz, e como interferir na localização do hospedeiro pelo mosquito.",
-    "exemplos": [
-      "Há vacina para febre amarela, mas não uma vacina única eficaz para dengue: isso se deve à alta VARIABILIDADE ANTIGÊNICA — os 4 sorotipos funcionam como antígenos diferentes, e um antígeno só não cobre todos.",
-      "O Aedes aegypti localiza a pessoa pelo OLFATO (moléculas de odor da sudorese): medidas que interferem nessa modalidade sensorial = uso de cremes/pomadas com princípios ativos (repelentes) — não telas nem eliminação de criadouros, que agem por outra via."
+    "teoria": [
+      "A dengue é causada por um arbovírus (gênero Flavivirus) com QUATRO sorotipos, transmitido pela picada do Aedes aegypti.",
+      "Não é um 'modelo de resposta fixa' como as zoonoses da tabela — é um raciocínio que resolve as questões, com dois eixos: a variabilidade antigênica (4 sorotipos) e o comportamento do vetor (o olfato do mosquito)."
     ],
-    "pegadinha": "Quando a questão foca no OLFATO do mosquito, a resposta é o repelente (cheiro), não 'telas nas janelas' nem 'eliminar criadouros' — essas combatem o Aedes por outra via.",
+    "como_cai": "Duas frentes: por que não há vacina única eficaz, e como interferir na localização do hospedeiro pelo mosquito.",
+    "questoes_resolvidas": [
+      {
+        "enunciado": "Febre amarela e dengue são causadas por arbovírus do gênero Flavivirus, transmitidas pelo Aedes; existem quatro sorotipos para o vírus da dengue. Hoje há vacina para febre amarela, mas nenhuma vacina efetiva para dengue. Esse fato pode ser atribuído a:",
+        "resolucao": [
+          "O próprio texto informa: existem 4 sorotipos do vírus da dengue.",
+          "Os 4 sorotipos funcionam como antígenos diferentes — é como se existissem vários 'tipos' de dengue.",
+          "Não dá para criar um único antígeno (uma única vacina) que combata todas as formas; uma vacina seria eficaz para uma forma, não para todas.",
+          "Resposta: alta variabilidade antigênica do vírus da dengue."
+        ]
+      },
+      {
+        "enunciado": "As fêmeas do Aedes aegypti têm olfato refinado e detectam a presença humana pelas moléculas de odor eliminadas na sudorese, indo em direção à fonte alimentar. Medidas que interferem na localização do hospedeiro pelo vetor por meio dessa modalidade sensorial incluem:",
+        "resolucao": [
+          "A modalidade sensorial em foco é o OLFATO (o cheiro humano da sudorese).",
+          "Descartando: telas nas janelas (combate geral ao Aedes, não ao olfato); eliminação de criadouros/oviposição (não trata o olfato); borrifadores de água (não); banhos diários (a sudorese é normal).",
+          "Para interferir no olfato, é preciso disfarçar o cheiro humano.",
+          "Resposta: utilização de cremes ou pomadas com princípios ativos (repelentes)."
+        ]
+      }
+    ],
+    "pegadinha": "Quando a questão foca no OLFATO do mosquito, a resposta é o repelente (cheiro) — não 'telas nas janelas' nem 'eliminar criadouros', que combatem o Aedes por outra via.",
     "atalho": "Dengue = 4 sorotipos (sem vacina única) + Aedes que caça pelo olfato (repelente disfarça o cheiro)."
   },
   "Relações ecológicas": {
@@ -289,7 +526,12 @@
       "Onças isoladas numa mata pequena se extinguiriam mesmo sem serem caçadas (não se reproduzem); a medida de conservação é CONSTRUIR corredores ecológicos ligando os fragmentos."
     ],
     "atalho": "Fragmentação isola → corredor ecológico reconecta → fluxo gênico → conservação da biodiversidade.",
-    "formulas": [{"rotulo": "Corredor ecológico", "latex": "\\text{ilhas isoladas}\\xrightarrow{\\text{corredor}}\\text{fluxo g\\^enico}\\Rightarrow\\text{biodiversidade}"}]
+    "formulas": [
+      {
+        "rotulo": "Corredor ecológico",
+        "latex": "\\text{ilhas isoladas}\\xrightarrow{\\text{corredor}}\\text{fluxo g\\^enico}\\Rightarrow\\text{biodiversidade}"
+      }
+    ]
   },
   "Biomas brasileiros": {
     "aula": "Sistemas Ecológicos",
@@ -323,7 +565,12 @@
     ],
     "pegadinha": "O gatilho é o EXCESSO de nutrientes (parece bom, mas mata o rio); a solução nunca é adicionar bactérias nem aquecer a água.",
     "atalho": "Muito nutriente → algas demais → bactérias consomem O2 → água sem oxigênio e ácida. Prevenção = tirar os nutrientes do esgoto.",
-    "formulas": [{"rotulo": "Gatilho e consequência", "latex": "\\uparrow\\text{nutrientes}\\Rightarrow\\uparrow\\text{algas}\\Rightarrow\\downarrow\\text{O}_2\\Rightarrow\\text{acidifica\\c{c}\\~ao}"}]
+    "formulas": [
+      {
+        "rotulo": "Gatilho e consequência",
+        "latex": "\\uparrow\\text{nutrientes}\\Rightarrow\\uparrow\\text{algas}\\Rightarrow\\downarrow\\text{O}_2\\Rightarrow\\text{acidifica\\c{c}\\~ao}"
+      }
+    ]
   },
   "Impermeabilização e erosão do solo": {
     "aula": "Problemas Ambientais",
@@ -346,8 +593,14 @@
     "pegadinha": "A deterioração do mármore é reação ácido-base/liberação de CO2, não 'oxidação pelo O2' nem 'abrasão pelo vento'.",
     "atalho": "Óxido de S/N + água = ácido → chuva ácida. Mármore (CaCO3) + ácido → dissolve, liberando CO2.",
     "formulas": [
-      {"rotulo": "Ácido sulfúrico", "latex": "\\mathrm{SO_3}+\\mathrm{H_2O}\\to\\mathrm{H_2SO_4}"},
-      {"rotulo": "Corrosão do mármore", "latex": "\\mathrm{CaCO_3}+\\mathrm{H_2SO_4}\\to\\mathrm{CaSO_4}+\\mathrm{H_2O}+\\mathrm{CO_2}"}
+      {
+        "rotulo": "Ácido sulfúrico",
+        "latex": "\\mathrm{SO_3}+\\mathrm{H_2O}\\to\\mathrm{H_2SO_4}"
+      },
+      {
+        "rotulo": "Corrosão do mármore",
+        "latex": "\\mathrm{CaCO_3}+\\mathrm{H_2SO_4}\\to\\mathrm{CaSO_4}+\\mathrm{H_2O}+\\mathrm{CO_2}"
+      }
     ]
   },
   "Transformação do habitat": {
@@ -382,7 +635,12 @@
       "Fermentação lática: lactobacilos (bactérias, procariontes) produzem ácido lático, sem CO2 (iogurte). O 'azedar' de alimentos é microrganismo fermentando."
     ],
     "atalho": "Sem O2, pouco ATP (2), produto metabolizável. Alcoólica = fungo + CO2; lática = bactéria, sem CO2.",
-    "formulas": [{"rotulo": "Fermentação alcoólica", "latex": "\\mathrm{C_6H_{12}O_6}\\to2\\,\\mathrm{C_2H_5OH}+2\\,\\mathrm{CO_2}+2\\,\\text{ATP}"}]
+    "formulas": [
+      {
+        "rotulo": "Fermentação alcoólica",
+        "latex": "\\mathrm{C_6H_{12}O_6}\\to2\\,\\mathrm{C_2H_5OH}+2\\,\\mathrm{CO_2}+2\\,\\text{ATP}"
+      }
+    ]
   },
   "Respiração celular": {
     "aula": "Metabolismo Energético",
@@ -393,7 +651,12 @@
       "Ao passar de metabolismo anaeróbio para aeróbio, o consumo de glicose CAI, porque cada molécula rende muito mais ATP."
     ],
     "atalho": "Com O2, muito ATP (~38), CO2 + água. O2 vira água; o grosso do ATP vem da ATP sintase.",
-    "formulas": [{"rotulo": "Equação global", "latex": "\\mathrm{C_6H_{12}O_6}+6\\,\\mathrm{O_2}\\to6\\,\\mathrm{CO_2}+6\\,\\mathrm{H_2O}+\\sim\\!38\\,\\text{ATP}"}]
+    "formulas": [
+      {
+        "rotulo": "Equação global",
+        "latex": "\\mathrm{C_6H_{12}O_6}+6\\,\\mathrm{O_2}\\to6\\,\\mathrm{CO_2}+6\\,\\mathrm{H_2O}+\\sim\\!38\\,\\text{ATP}"
+      }
+    ]
   },
   "Fotossíntese": {
     "aula": "Metabolismo Energético",
@@ -405,6 +668,11 @@
     ],
     "pegadinha": "O O2 liberado vem da água (fotólise), não do gás carbônico. A fase escura NÃO precisa de escuro — precisa dos produtos da fase clara.",
     "atalho": "Fase clara: água + luz → O2 + energia. Fase escura: energia + CO2 → glicose. O O2 do ar vem da água.",
-    "formulas": [{"rotulo": "Equação global", "latex": "6\\,\\mathrm{CO_2}+6\\,\\mathrm{H_2O}\\xrightarrow{\\text{luz}}\\mathrm{C_6H_{12}O_6}+6\\,\\mathrm{O_2}"}]
+    "formulas": [
+      {
+        "rotulo": "Equação global",
+        "latex": "6\\,\\mathrm{CO_2}+6\\,\\mathrm{H_2O}\\xrightarrow{\\text{luz}}\\mathrm{C_6H_{12}O_6}+6\\,\\mathrm{O_2}"
+      }
+    ]
   }
 }
