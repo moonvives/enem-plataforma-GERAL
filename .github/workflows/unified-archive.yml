@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - chatgpt/unified-sciences-archive
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -19,7 +22,6 @@ jobs:
         run: |
           python - <<'PY'
           import json
-          from collections import Counter
           from pathlib import Path
 
           paths = [
