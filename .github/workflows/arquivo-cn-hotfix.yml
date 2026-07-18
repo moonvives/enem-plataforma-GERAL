@@ -1,0 +1,198 @@
+name: Arquivo CN hotfix
+
+on:
+  push:
+    branches:
+      - claude/enem-cn-non-regular-9fawlh
+    paths:
+      - .github/workflows/arquivo-cn-hotfix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: claude/enem-cn-non-regular-9fawlh
+          fetch-depth: 0
+
+      - name: Apply validated hotfixes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('docs/assets/arquivo-app.js')
+          s = path.read_text(encoding='utf-8')
+
+          def replace_once(old, new, label):
+              global s
+              if old not in s:
+                  raise SystemExit(f'Pattern not found: {label}')
+              s = s.replace(old, new, 1)
+
+          # Repair two syntax errors introduced by b692ad2.
+          replace_once(
+              '"Nenhuma sessão ainda. Use "Estudar estes" no Banco."',
+              '"Nenhuma sessão ainda. Use “Estudar estes” no Banco."',
+              'sessions string syntax'
+          )
+          replace_once(
+              '"Vá ao Banco, filtre as questões e clique em "Estudar estes"."',
+              '"Vá ao Banco, filtre as questões e clique em “Estudar estes”."',
+              'study string syntax'
+          )
+
+          # Annulled questions never call showGab and never reveal an official answer.
+          replace_once(
+              '''    var answered = S.respostas[q.id];
+    if (answered || !q.gabarito || q.anulada) { showGab(q, revOut); rev.style.display = "none"; }
+    rev.addEventListener("click", function () { showGab(q, revOut); rev.style.display = "none"; });''',
+              '''    var answered = S.respostas[q.id];
+    if (q.anulada) {
+      rev.style.display = "none";
+      revOut.appendChild(el("span", "g", "Questão anulada pelo INEP — sem gabarito válido."));
+    } else if (answered || !q.gabarito) {
+      showGab(q, revOut);
+      rev.style.display = "none";
+    }
+    rev.addEventListener("click", function () { showGab(q, revOut); rev.style.display = "none"; });''',
+              'annulled qfoot'
+          )
+
+          # All progress denominators use answerable items only.
+          replace_once(
+              '''      var all = Q.filter(function (q) { return q.materia === m; });
+      var d = all.filter(function (q) { return S.respostas[q.id]; }).length;
+      bm.appendChild(barRow(m, d, all.length));''',
+              '''      var all = Q.filter(function (q) { return q.materia === m && q.gabarito && !q.anulada; });
+      var d = all.filter(function (q) { return S.respostas[q.id]; }).length;
+      bm.appendChild(barRow(m, d, all.length));''',
+              'subject denominator'
+          )
+          replace_once(
+              '''      var all = Q.filter(function (q) { return q.banco === bk; });
+      var d = all.filter(function (q) { return S.respostas[q.id]; }).length;
+      bb.appendChild(barRow(bk + " (" + all.length + ")", d, all.length));''',
+              '''      var all = Q.filter(function (q) { return q.banco === bk && q.gabarito && !q.anulada; });
+      var d = all.filter(function (q) { return S.respostas[q.id]; }).length;
+      bb.appendChild(barRow(bk + " (" + all.length + " respondíveis)", d, all.length));''',
+              'bank denominator'
+          )
+
+          # Finger input scrolls and never creates a stroke; palm input is still rejected.
+          replace_once(
+              '''    function start(e) {
+      // Ignorar toque de dedo durante/após uso da caneta (palm rejection)
+      if (e.pointerType === "touch" && (penIsActive || Date.now() - lastPenAt < PALM_HOLD)) return;
+      // Só um ponteiro ativo por vez
+      if (activePointerId != null && e.pointerId !== activePointerId) return;
+
+      e.preventDefault();''',
+              '''    function start(e) {
+      if (e.pointerType === "touch") {
+        if (penIsActive || Date.now() - lastPenAt < PALM_HOLD) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        return;
+      }
+      // Só um ponteiro ativo por vez
+      if (activePointerId != null && e.pointerId !== activePointerId) return;
+
+      e.preventDefault();''',
+              'finger scroll handling'
+          )
+
+          # Draw quadratic segments separately so pressure changes width along the stroke.
+          replace_once(
+              '''    /* ── paint: interpolação quadrática para traço suave ── */
+    function paint(s, r) {
+      if (!s.pts.length) return;
+      ctx.lineJoin = ctx.lineCap = "round";
+      ctx.strokeStyle = COLORS[s.cor] || "#0a0a0a";
+
+      if (s.pts.length === 1) {
+        var o = s.pts[0];
+        var pw = penWidth(o[2]);
+        ctx.beginPath();
+        ctx.arc(o[0] * r.width, o[1] * r.height, pw / 2, 0, Math.PI * 2);
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
+        return;
+      }
+
+      // Interpolação quadrática: suaviza zigue-zagues de alta frequência
+      ctx.beginPath();
+      var first = s.pts[0];
+      ctx.moveTo(first[0] * r.width, first[1] * r.height);
+      for (var i = 1; i < s.pts.length - 1; i++) {
+        var a = s.pts[i], b = s.pts[i + 1];
+        var mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+        ctx.lineWidth = penWidth(a[2]);
+        ctx.quadraticCurveTo(a[0] * r.width, a[1] * r.height, mx * r.width, my * r.height);
+      }
+      var last = s.pts[s.pts.length - 1];
+      ctx.lineTo(last[0] * r.width, last[1] * r.height);
+      ctx.stroke();
+    }''',
+              '''    /* ── paint: interpolação quadrática com pressão por segmento ── */
+    function paint(s, r) {
+      if (!s.pts.length) return;
+      ctx.lineJoin = ctx.lineCap = "round";
+      ctx.strokeStyle = COLORS[s.cor] || "#0a0a0a";
+      ctx.fillStyle = ctx.strokeStyle;
+
+      if (s.pts.length === 1) {
+        var o = s.pts[0];
+        var pw = penWidth(o[2]);
+        ctx.beginPath();
+        ctx.arc(o[0] * r.width, o[1] * r.height, pw / 2, 0, Math.PI * 2);
+        ctx.fill();
+        return;
+      }
+
+      var startX = s.pts[0][0] * r.width;
+      var startY = s.pts[0][1] * r.height;
+      for (var i = 1; i < s.pts.length; i++) {
+        var current = s.pts[i];
+        var next = s.pts[i + 1] || current;
+        var endX = (i < s.pts.length - 1 ? (current[0] + next[0]) / 2 : current[0]) * r.width;
+        var endY = (i < s.pts.length - 1 ? (current[1] + next[1]) / 2 : current[1]) * r.height;
+        var pressure = current[2] != null ? current[2] : s.pts[i - 1][2];
+        ctx.beginPath();
+        ctx.lineWidth = penWidth(pressure);
+        ctx.moveTo(startX, startY);
+        ctx.quadraticCurveTo(current[0] * r.width, current[1] * r.height, endX, endY);
+        ctx.stroke();
+        startX = endX;
+        startY = endY;
+      }
+    }''',
+              'pressure-aware smoothing'
+          )
+
+          # Correct the misleading Apple Pencil eraser claim; keep generic stylus support.
+          s = s.replace(
+              '/* ── detecção de ponta traseira do Pencil (eraser button, buttons===32) ── */',
+              '/* ── suporte genérico a botão de borracha de stylus (buttons===32) ── */'
+          )
+
+          path.write_text(s, encoding='utf-8')
+          PY
+
+          node --check docs/assets/arquivo-app.js
+
+      - name: Commit patch and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "OpenAI Codex"
+          git config user.email "codex@openai.com"
+          git add docs/assets/arquivo-app.js
+          git rm .github/workflows/arquivo-cn-hotfix.yml
+          git commit -m "fix: validate Apple Pencil engine and annulled-question progress"
+          git push origin HEAD:claude/enem-cn-non-regular-9fawlh
