@@ -77,7 +77,12 @@
     c.appendChild(meta);
 
     var body = el("div", "qbody");
-    body.textContent = q.enunciado || "";
+    if (q.enunciado && q.enunciado.trim()) {
+      body.textContent = q.enunciado;
+    } else {
+      body.className = "qbody vazio";
+      body.textContent = "Enunciado não disponível neste banco — item oficial sem texto extraído. Metadados e gabarito abaixo.";
+    }
     c.appendChild(body);
 
     // Nota: os recortes por questão do banco Regular não acompanham este
