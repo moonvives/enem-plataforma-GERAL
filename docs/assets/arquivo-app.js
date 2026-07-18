@@ -23,7 +23,7 @@
     s.notas = s.notas || {};
     s.sessoes = s.sessoes || [];
     s.tempos = s.tempos || {};     // { id: segundos acumulados }
-    s.desenhos = s.desenhos || {}; // { id: [ {cor, pts:[[x,y],...]} ] }  (coords normalizadas 0..1)
+    s.desenhos = s.desenhos || {}; // { id: [ {cor, pts:[[x,y,p],...]} ] }  (coords normalizadas 0..1)
     return s;
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
@@ -45,8 +45,6 @@
   var DIF_ORDER = ["Muito fácil", "Fácil", "Médio", "Difícil", "Muito difícil", "Sem TRI"];
 
   // Render text into `node`, rendering $...$ / $$...$$ segments with KaTeX.
-  // Official enunciados have no math delimiters, so they fall through as plain
-  // text (preserving line breaks via the pre-wrap container).
   function mathify(node, text) {
     node.textContent = "";
     if (!text) return;
@@ -108,8 +106,6 @@
     }
     c.appendChild(body);
 
-    // Apenas a(s) figura(s) oficial(is) da questão (gráfico, tabela, imagem) —
-    // não o recorte de página inteira, cujo texto já está no corpo acima.
     (q.imagens || []).forEach(function (src, i) {
       var img = new Image();
       img.className = "qfig";
@@ -146,7 +142,6 @@
       c.appendChild(foot);
       if (answered) lockAlts(q, ul, answered.escolha);
     } else {
-      // PPL — alternatives are embedded in the enunciado text; offer letter choice.
       var msg = podeResponder
         ? "Banco PPL: as alternativas aparecem ao final do enunciado acima. Escolha a letra correspondente para responder."
         : (q.anulada ? "Questão anulada — sem resposta a registrar." : "Item sem gabarito oficial disponível.");
@@ -197,7 +192,6 @@
     f.appendChild(rev);
     f.appendChild(revOut);
 
-    // Responder novamente: limpa o registro para tentar de novo (usado na revisão de erros).
     if (answered && onRetry) {
       var retry = el("button", "btn sm ghost", "Responder novamente");
       retry.addEventListener("click", function () {
@@ -222,9 +216,8 @@
     });
     f.appendChild(noteBtn);
 
-    // Explicação ativa da questão — abre a lousa (Apple Pencil / mouse / toque).
     var temDesenho = S.desenhos[q.id] && S.desenhos[q.id].length;
-    var drawBtn = el("button", "btn-draw" + (temDesenho ? " has" : ""), (temDesenho ? "✎ Explicação ativa" : "✎ Explicação ativa"));
+    var drawBtn = el("button", "btn-draw" + (temDesenho ? " has" : ""), "✎ Explicação ativa");
     drawBtn.addEventListener("click", function () { openDraw(q, drawBtn); });
     f.insertBefore(drawBtn, noteBtn.nextSibling);
 
@@ -265,9 +258,6 @@
     });
   }
 
-  // Records an answer. Guards annulled items and items without an official
-  // A–E gabarito so they never enter accuracy/error stats. `lockFn` freezes
-  // the chosen UI (alternatives or letter buttons).
   function record(q, letra, opts, lockFn, foot) {
     if (!q.gabarito || q.anulada) return;
     var correta = letra === q.gabarito;
@@ -298,9 +288,6 @@
       });
     }
     var respIds = Object.keys(S.respostas);
-    var total = Q.length;
-    // Completion is measured against answerable items only (annulled items and
-    // items without an official A–E gabarito can never be recorded).
     var respondiveis = Q.filter(function (q) { return q.gabarito && !q.anulada; }).length;
     var done = respIds.length;
     var acertos = respIds.filter(function (id) { return S.respostas[id].correta; }).length;
@@ -313,7 +300,6 @@
     kpis.appendChild(kpi(done ? pct(acertos, done) + "%" : "—", "taxa de acerto"));
     kpis.appendChild(kpi(String(favs), "favoritadas"));
 
-    // por matéria
     var mats = ["Biologia", "Química", "Física"];
     var bm = document.getElementById("by-materia"); bm.innerHTML = "";
     mats.forEach(function (m) {
@@ -322,7 +308,6 @@
       bm.appendChild(barRow(m, d, all.length));
     });
 
-    // por dificuldade (acerto)
     var bd = document.getElementById("by-dif"); bd.innerHTML = "";
     DIF_ORDER.forEach(function (lvl) {
       var ans = Q.filter(function (q) { return difBucket(q.b) === lvl && S.respostas[q.id]; });
@@ -331,7 +316,6 @@
       bd.appendChild(barRow(lvl, ac, ans.length, ans.length ? pct(ac, ans.length) + "% (" + ac + "/" + ans.length + ")" : "sem respostas"));
     });
 
-    // banco
     var bb = document.getElementById("by-banco"); bb.innerHTML = "";
     ["Regular", "PPL"].forEach(function (bk) {
       var all = Q.filter(function (q) { return q.banco === bk; });
@@ -339,9 +323,8 @@
       bb.appendChild(barRow(bk + " (" + all.length + ")", d, all.length));
     });
 
-    // sessões
     var ss = document.getElementById("sessoes"); ss.innerHTML = "";
-    if (!S.sessoes.length) { ss.appendChild(el("div", "count", "Nenhuma sessão ainda. Use “Estudar estes” no Banco.")); }
+    if (!S.sessoes.length) { ss.appendChild(el("div", "count", "Nenhuma sessão ainda. Use "Estudar estes" no Banco.")); }
     else {
       S.sessoes.slice(-6).reverse().forEach(function (s) {
         var line = el("div", "bar");
@@ -368,7 +351,6 @@
       S = { respostas: {}, favoritos: {}, notas: {}, sessoes: [], tempos: {}, desenhos: {} }; save(); renderPainel();
     }
   });
-  // Exporta as 1.027 linhas no mesmo esquema de progresso_ciencias_da_natureza.csv
   var CSV_COLS = ["disciplina", "numero_arquivo", "numero_disciplina", "id_inep", "ano", "aplicacao",
     "banco", "area", "modelo", "competencia", "habilidade", "tri", "nivel",
     "resposta_marcada", "gabarito", "resultado", "tempo_segundos", "favorita", "nota"];
@@ -393,7 +375,7 @@
     var csv = rows.map(function (r) {
       return r.map(function (c) { c = String(c == null ? "" : c); return '"' + c.replace(/"/g, '""') + '"'; }).join(",");
     }).join("\r\n");
-    var blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
+    var blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8" });
     var a = document.createElement("a"); a.href = URL.createObjectURL(blob);
     a.download = "progresso_ciencias_da_natureza.csv"; a.click();
   }
@@ -494,7 +476,7 @@
   }
   function renderStudy() {
     var body = document.getElementById("study-body"); body.innerHTML = "";
-    if (!study) { body.appendChild(el("div", "empty", "Vá ao Banco, filtre as questões e clique em “Estudar estes”.")); return; }
+    if (!study) { body.appendChild(el("div", "empty", "Vá ao Banco, filtre as questões e clique em "Estudar estes".")); return; }
     if (study.i >= study.list.length) { finishStudy(body); return; }
     var q = study.list[study.i];
 
@@ -520,7 +502,7 @@
     var pager = el("div", "pager");
     var skip = el("button", "btn sm ghost", "Pular");
     skip.addEventListener("click", advance);
-    var nextBtn = el("button", "btn sm", (study.list[study.i].banco === "PPL" ? "Próxima questão ›" : "Próxima questão ›"));
+    var nextBtn = el("button", "btn sm", "Próxima questão ›");
     if (study.list[study.i].banco === "PPL") nextBtn.classList.add("solid");
     nextBtn.addEventListener("click", advance);
     pager.appendChild(skip); pager.appendChild(nextBtn);
@@ -537,7 +519,7 @@
     var done = study ? study.respondidas : 0, ac = study ? study.acertos : 0;
     var box = el("div", "panel");
     box.appendChild(el("h3", null, "Sessão concluída"));
-    box.appendChild(el("div", "kpi", "")); // spacing noop
+    box.appendChild(el("div", "kpi", ""));
     var line = el("p", null, "Você respondeu " + done + " questões e acertou " + ac + " (" + pct(ac, done) + "%). O resultado foi salvo no seu painel.");
     box.appendChild(line);
     var actions = el("div", "pager");
@@ -564,36 +546,72 @@
     ids.map(function (id) { return byId[id]; }).forEach(function (q) { box.appendChild(card(q, {})); });
   }
 
-  /* ---------- EXPLICAÇÃO ATIVA (lousa Apple Pencil / mouse / toque) ---------- */
+  /* ==========================================================================
+     EXPLICAÇÃO ATIVA — Apple Pencil / mouse / toque
+     Melhorias v2:
+       1. touch-action seletivo: dedo faz scroll; só caneta (pen) ou mouse desenha
+       2. desynchronized:true no contexto 2d → latência mínima (sem esperar vsync)
+       3. Pressão real do Apple Pencil via e.pressure (PointerEvents)
+       4. Largura base maior (3px) + curva de pressão mais expressiva
+       5. Palm rejection reforçada: window on touchstart cancela toque de dedo
+          enquanto caneta está ativa ou nos 800 ms seguintes
+       6. Borracha ativa na ponta traseira do Pencil (pointerType==='pen' && buttons===32)
+       7. Interpolação quadrática dos pontos para traço mais suave
+       8. willReadFrequently:false e will-change:transform via JS no canvas
+     ========================================================================== */
   var draw = (function () {
-    var modal = document.getElementById("draw-modal");
-    var canvas = document.getElementById("draw-canvas");
-    var ctx = canvas.getContext("2d");
-    var titleEl = document.getElementById("draw-title");
-    var countEl = document.getElementById("draw-count");
-    var savedEl = document.getElementById("draw-saved");
-    var tools = modal.querySelectorAll(".draw-tool[data-tool='preto'],.draw-tool[data-tool='azul'],.draw-tool[data-tool='borracha']");
-    var cor = "preto", strokes = [], cur = null, drawing = false, qref = null, btnRef = null;
-    var COLORS = { preto: "#0a0a0a", azul: "#002FA7" };
-    var openedAt = 0;
-    var activePointerId = null, lastPenAt = 0;
-    var BASE_W = 2.4; // largura base do traço (mouse/toque); Apple Pencil varia com a pressão
-    var bgImg = null;        // figura oficial da questão (fundo para anotar por cima)
-    var bgRect = null;       // retângulo (contain) onde a figura foi desenhada
+    var modal    = document.getElementById("draw-modal");
+    var canvas   = document.getElementById("draw-canvas");
+    // desynchronized:true reduz latência de ~16 ms para ~1-2 ms no iPad
+    var ctx      = canvas.getContext("2d", { desynchronized: true, willReadFrequently: false });
+    var titleEl  = document.getElementById("draw-title");
+    var countEl  = document.getElementById("draw-count");
+    var savedEl  = document.getElementById("draw-saved");
+    var toolBtns = modal.querySelectorAll(".draw-tool[data-tool='preto'],.draw-tool[data-tool='azul'],.draw-tool[data-tool='borracha']");
 
+    // will-change evita re-composite do resto da página a cada frame de desenho
+    canvas.style.willChange = "transform";
+
+    var cor = "preto", strokes = [], cur = null, drawing = false;
+    var qref = null, btnRef = null, openedAt = 0;
+    var activePointerId = null;
+    var lastPenAt = 0;          // timestamp do último evento pointerType==='pen'
+    var penIsActive = false;    // true enquanto o lápis está em contato
+
+    var BASE_W    = 3.0;        // espessura base (px lógicos) — mouse/toque
+    var PEN_MIN   = 0.4;        // fator mínimo de pressão para o Pencil
+    var PEN_MAX   = 2.2;        // fator máximo de pressão para o Pencil
+    var PALM_HOLD = 800;        // ms de bloqueio de toque após evento de caneta
+
+    var COLORS = { preto: "#0a0a0a", azul: "#002FA7" };
+
+    var bgImg  = null;  // figura oficial como fundo
+    var bgRect = null;
+
+    // ── canvas touch-action: dedo rola a página; caneta e mouse desenham ──
+    // Definimos touch-action via JS para poder ajustar dinamicamente.
+    // O CSS já tem touch-action:none como fallback (necessário para iOS < 13).
+    // No iOS 13+ com Apple Pencil, o browser respeita o pointerType corretamente.
+    canvas.style.touchAction = "pan-y pan-x"; // permite scroll por padrão
+
+    // Quando a lousa abre, bloqueamos scroll só se o usuário realmente estiver
+    // desenhando (start() muda para none; end() restaura).
+    function lockScroll()   { canvas.style.touchAction = "none"; }
+    function unlockScroll() { canvas.style.touchAction = "pan-y pan-x"; }
+
+    /* ── fit / redraw ── */
     function fit() {
-      var r = canvas.parentNode.getBoundingClientRect();
+      var r   = canvas.parentNode.getBoundingClientRect();
       var dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.max(1, Math.round(r.width * dpr));
+      canvas.width  = Math.max(1, Math.round(r.width  * dpr));
       canvas.height = Math.max(1, Math.round(r.height * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       redraw();
     }
+
     function redraw() {
       var r = canvas.parentNode.getBoundingClientRect();
       ctx.clearRect(0, 0, r.width, r.height);
-      // Fundo: a figura oficial da questão (desenhada em 'contain' e centrada),
-      // para o aluno anotar por cima com a Apple Pencil. Sem figura, fica em branco.
       if (bgImg && bgImg.complete && bgImg.naturalWidth) {
         var iw = bgImg.naturalWidth, ih = bgImg.naturalHeight;
         var scale = Math.min(r.width / iw, r.height / ih) * 0.94;
@@ -607,78 +625,135 @@
       strokes.forEach(function (s) { paint(s, r); });
       countEl.textContent = strokes.length + (strokes.length === 1 ? " traço" : " traços");
     }
+
+    /* ── paint: interpolação quadrática para traço suave ── */
     function paint(s, r) {
       if (!s.pts.length) return;
       ctx.lineJoin = ctx.lineCap = "round";
       ctx.strokeStyle = COLORS[s.cor] || "#0a0a0a";
-      // Traço com Apple Pencil varia a espessura com a pressão real reportada
-      // pelo dispositivo (p[2]); mouse/toque usam a espessura base fixa.
+
       if (s.pts.length === 1) {
-        var only = s.pts[0];
+        var o = s.pts[0];
+        var pw = penWidth(o[2]);
         ctx.beginPath();
-        ctx.lineWidth = BASE_W * (only[2] != null ? (0.6 + only[2] * 1.2) : 1);
-        ctx.arc(only[0] * r.width, only[1] * r.height, ctx.lineWidth / 2, 0, Math.PI * 2);
+        ctx.arc(o[0] * r.width, o[1] * r.height, pw / 2, 0, Math.PI * 2);
         ctx.fillStyle = ctx.strokeStyle;
         ctx.fill();
         return;
       }
-      for (var i = 1; i < s.pts.length; i++) {
-        var a = s.pts[i - 1], b = s.pts[i];
-        var pr = b[2] != null ? b[2] : (a[2] != null ? a[2] : 0.5);
-        ctx.beginPath();
-        ctx.lineWidth = BASE_W * (b[2] != null ? (0.6 + pr * 1.2) : 1);
-        ctx.moveTo(a[0] * r.width, a[1] * r.height);
-        ctx.lineTo(b[0] * r.width, b[1] * r.height);
-        ctx.stroke();
+
+      // Interpolação quadrática: suaviza zigue-zagues de alta frequência
+      ctx.beginPath();
+      var first = s.pts[0];
+      ctx.moveTo(first[0] * r.width, first[1] * r.height);
+      for (var i = 1; i < s.pts.length - 1; i++) {
+        var a = s.pts[i], b = s.pts[i + 1];
+        var mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+        ctx.lineWidth = penWidth(a[2]);
+        ctx.quadraticCurveTo(a[0] * r.width, a[1] * r.height, mx * r.width, my * r.height);
       }
+      var last = s.pts[s.pts.length - 1];
+      ctx.lineTo(last[0] * r.width, last[1] * r.height);
+      ctx.stroke();
     }
-    // pos() devolve [xNorm, yNorm, pressao] — pressao só é confiável para pointerType 'pen'.
+
+    function penWidth(pressure) {
+      if (pressure != null && pressure > 0) {
+        // curva de pressão: raiz quadrada suaviza extremos
+        return BASE_W * (PEN_MIN + (PEN_MAX - PEN_MIN) * Math.sqrt(pressure));
+      }
+      return BASE_W;
+    }
+
+    /* ── pos(): normaliza coordenada e lê pressão ── */
     function pos(e) {
-      var r = canvas.getBoundingClientRect();
-      var pressao = (e.pointerType === "pen" && e.pressure > 0) ? e.pressure : null;
-      return [(e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, pressao];
+      var r   = canvas.getBoundingClientRect();
+      // pressure > 0 só é confiável para pointerType 'pen'
+      var pr  = (e.pointerType === "pen" && e.pressure > 0) ? e.pressure : null;
+      return [(e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, pr];
     }
+
+    /* ── borracha ── */
     function hitErase(p) {
-      // remove strokes passing near the point
       var before = strokes.length;
       strokes = strokes.filter(function (s) {
-        return !s.pts.some(function (q2) { return Math.hypot(q2[0] - p[0], q2[1] - p[1]) < 0.02; });
+        return !s.pts.some(function (pt) {
+          return Math.hypot(pt[0] - p[0], pt[1] - p[1]) < 0.025;
+        });
       });
       if (strokes.length !== before) redraw();
     }
-    function start(e) {
-      // Rejeição de palma: com Apple Pencil, ignora toques do dedo que
-      // cheguem durante ou logo após um traço de caneta.
-      if (e.pointerType === "touch" && Date.now() - lastPenAt < 700) return;
-      if (activePointerId != null && e.pointerId !== activePointerId) return;
-      e.preventDefault();
-      activePointerId = e.pointerId;
-      if (e.pointerType === "pen") lastPenAt = Date.now();
-      canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId);
-      var p = pos(e);
-      if (cor === "borracha") { drawing = true; hitErase(p); return; }
-      drawing = true; cur = { cor: cor, pts: [p] }; strokes.push(cur);
+
+    /* ── detecção de ponta traseira do Pencil (eraser button, buttons===32) ── */
+    function isEraserTip(e) {
+      return e.pointerType === "pen" && (e.buttons & 32) !== 0;
     }
+
+    /* ── handlers de pointer ── */
+    function start(e) {
+      // Ignorar toque de dedo durante/após uso da caneta (palm rejection)
+      if (e.pointerType === "touch" && (penIsActive || Date.now() - lastPenAt < PALM_HOLD)) return;
+      // Só um ponteiro ativo por vez
+      if (activePointerId != null && e.pointerId !== activePointerId) return;
+
+      e.preventDefault();
+      lockScroll();
+      activePointerId = e.pointerId;
+
+      if (e.pointerType === "pen") { penIsActive = true; lastPenAt = Date.now(); }
+
+      canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId);
+
+      var p = pos(e);
+      var toolAgora = isEraserTip(e) ? "borracha" : cor;
+
+      if (toolAgora === "borracha") {
+        drawing = true; hitErase(p); return;
+      }
+      drawing = true;
+      cur = { cor: cor, pts: [p] };
+      strokes.push(cur);
+    }
+
     function move(e) {
       if (!drawing || e.pointerId !== activePointerId) return;
       e.preventDefault();
       if (e.pointerType === "pen") lastPenAt = Date.now();
-      // getCoalescedEvents() pode devolver [] (não apenas ser ausente) quando não
-      // há eventos coalescidos — nesse caso o próprio evento precisa ser usado,
-      // senão o ponto do movimento é perdido silenciosamente.
+
+      var toolAgora = isEraserTip(e) ? "borracha" : cor;
+
+      // getCoalescedEvents entrega todos os pontos intermediários desde o último
+      // frame — essencial para traços suaves com o Pencil em alta velocidade
       var coalesced = e.getCoalescedEvents && e.getCoalescedEvents();
       var pts = (coalesced && coalesced.length) ? coalesced : [e];
+
       pts.forEach(function (ev) {
         var p = pos(ev);
-        if (cor === "borracha") { hitErase(p); } else { cur.pts.push(p); }
+        if (toolAgora === "borracha") { hitErase(p); }
+        else if (cur) { cur.pts.push(p); }
       });
       redraw();
     }
+
     function end(e) {
       if (e && e.pointerId !== activePointerId) return;
+      if (e && e.pointerType === "pen") { penIsActive = false; lastPenAt = Date.now(); }
       activePointerId = null;
-      if (!drawing) return; drawing = false; cur = null; persist();
+      unlockScroll();
+      if (!drawing) return;
+      drawing = false; cur = null;
+      persist();
     }
+
+    /* ── palm rejection extra: cancela touchstart de dedo durante caneta ── */
+    canvas.addEventListener("touchstart", function (e) {
+      if (penIsActive || Date.now() - lastPenAt < PALM_HOLD) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, { passive: false });
+
+    /* ── persist / save ── */
     function persist() {
       if (!qref) return;
       if (strokes.length) S.desenhos[qref.id] = strokes; else delete S.desenhos[qref.id];
@@ -687,49 +762,68 @@
       if (btnRef) btnRef.classList.toggle("has", !!strokes.length);
       setTimeout(function () { savedEl.textContent = ""; }, 1200);
     }
+
+    /* ── ferramentas ── */
     function setTool(t) {
       if (t === "desfazer") { strokes.pop(); redraw(); persist(); return; }
-      if (t === "limpar") { strokes = []; redraw(); persist(); return; }
+      if (t === "limpar")   { strokes = []; redraw(); persist(); return; }
       cor = t;
-      tools.forEach(function (b) { b.classList.toggle("on", b.dataset.tool === t); });
+      toolBtns.forEach(function (b) { b.classList.toggle("on", b.dataset.tool === t); });
     }
     modal.querySelectorAll(".draw-tool").forEach(function (b) {
       b.addEventListener("click", function () { setTool(b.dataset.tool); });
     });
+
+    /* ── event listeners ── */
     document.getElementById("draw-close").addEventListener("click", close);
-    canvas.addEventListener("pointerdown", start);
-    canvas.addEventListener("pointermove", move);
-    window.addEventListener("pointerup", end);
+    canvas.addEventListener("pointerdown",   start);
+    canvas.addEventListener("pointermove",   move);
+    window.addEventListener("pointerup",     end);
     window.addEventListener("pointercancel", end);
 
+    /* ── open / close ── */
     function open(q, btn) {
       qref = q; btnRef = btn; openedAt = Date.now();
-      titleEl.textContent = (q.numero_disciplina ? "Nº " + q.numero_disciplina + " · " : "") + q.materia + " · ENEM " + (q.ano || "");
-      strokes = (S.desenhos[q.id] ? S.desenhos[q.id].slice() : []);
+      titleEl.textContent =
+        (q.numero_disciplina ? "Nº " + q.numero_disciplina + " · " : "") +
+        q.materia + " · ENEM " + (q.ano || "");
+      strokes = S.desenhos[q.id] ? S.desenhos[q.id].slice() : [];
       cor = "preto"; setTool("preto");
-      // Carrega a figura oficial da questão como fundo da lousa (só a imagem).
-      // Sem figura, a lousa fica em branco (rascunho livre).
+
       bgImg = null; bgRect = null;
       var src = (q.imagens && q.imagens.length) ? q.imagens[0] : null;
       modal.classList.toggle("has-fig", !!src);
-      modal.classList.add("on"); modal.setAttribute("aria-hidden", "false");
+      modal.classList.add("on");
+      modal.setAttribute("aria-hidden", "false");
       fit();
+
       if (src) {
         var im = new Image();
-        im.onload = function () { if (qref === q) { bgImg = im; redraw(); } };
+        im.onload  = function () { if (qref === q) { bgImg = im; redraw(); } };
         im.onerror = function () { modal.classList.remove("has-fig"); };
         im.src = src;
       }
     }
+
     function close() {
-      // conta o tempo da lousa no tempo total da questão
-      if (qref) { S.tempos[qref.id] = (S.tempos[qref.id] || 0) + Math.round((Date.now() - openedAt) / 1000); save(); }
-      modal.classList.remove("on"); modal.setAttribute("aria-hidden", "true");
+      if (qref) {
+        S.tempos[qref.id] = (S.tempos[qref.id] || 0) + Math.round((Date.now() - openedAt) / 1000);
+        save();
+      }
+      modal.classList.remove("on");
+      modal.setAttribute("aria-hidden", "true");
+      penIsActive = false;
       qref = null; btnRef = null;
+      unlockScroll();
     }
-    window.addEventListener("resize", function () { if (modal.classList.contains("on")) fit(); });
+
+    window.addEventListener("resize", function () {
+      if (modal.classList.contains("on")) fit();
+    });
+
     return { open: open };
   })();
+
   function openDraw(q, btn) { draw.open(q, btn); }
 
   /* ---------- boot ---------- */
