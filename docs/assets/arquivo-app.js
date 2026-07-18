@@ -562,8 +562,10 @@
   var draw = (function () {
     var modal    = document.getElementById("draw-modal");
     var canvas   = document.getElementById("draw-canvas");
-    // desynchronized:true reduz latência de ~16 ms para ~1-2 ms no iPad
-    var ctx      = canvas.getContext("2d", { desynchronized: true, willReadFrequently: false });
+    // Contexto 2D padrão: no Safari do iPad o modo dessynchronized costuma
+    // renderizar os traços de forma inconsistente (some/pisca), então usamos
+    // o contexto normal — confiável acima de tudo.
+    var ctx      = canvas.getContext("2d");
     var titleEl  = document.getElementById("draw-title");
     var countEl  = document.getElementById("draw-count");
     var savedEl  = document.getElementById("draw-saved");
@@ -602,16 +604,12 @@
     var bgImg  = null;  // figura oficial como fundo
     var bgRect = null;
 
-    // ── canvas touch-action: dedo rola a página; caneta e mouse desenham ──
-    // Definimos touch-action via JS para poder ajustar dinamicamente.
-    // O CSS já tem touch-action:none como fallback (necessário para iOS < 13).
-    // No iOS 13+ com Apple Pencil, o browser respeita o pointerType corretamente.
-    canvas.style.touchAction = "pan-y pan-x"; // permite scroll por padrão
-
-    // Quando a lousa abre, bloqueamos scroll só se o usuário realmente estiver
-    // desenhando (start() muda para none; end() restaura).
-    function lockScroll()   { canvas.style.touchAction = "none"; }
-    function unlockScroll() { canvas.style.touchAction = "pan-y pan-x"; }
+    // ── touch-action: none SEMPRE ──
+    // A lousa é um modal de tela cheia (position:fixed;inset:0) — não há nada
+    // para rolar atrás dela. Trocar touch-action no meio do gesto faz o Safari
+    // cancelar o traço da caneta (ele decide rolar-ou-desenhar no INÍCIO do
+    // gesto). Com 'none' fixo, a Apple Pencil desenha de forma confiável.
+    canvas.style.touchAction = "none";
 
     /* ── fit / redraw ── */
     function fit() {
@@ -640,35 +638,38 @@
       countEl.textContent = strokes.length + (strokes.length === 1 ? " traço" : " traços");
     }
 
-    /* ── paint: interpolação quadrática para traço suave ── */
+    /* ── paint ──
+       Cada segmento é traçado separadamente (beginPath/stroke próprios) porque
+       ctx.lineWidth só é aplicado no momento do stroke() — variar a largura DENTRO
+       de um único path não funciona. Assim a pressão da Apple Pencil realmente
+       muda a espessura ponto a ponto. Curva quadrática pelos pontos médios suaviza. */
     function paint(s, r) {
-      if (!s.pts.length) return;
+      var pts = s.pts;
+      if (!pts.length) return;
       ctx.lineJoin = ctx.lineCap = "round";
       ctx.strokeStyle = COLORS[s.cor] || "#0a0a0a";
+      ctx.fillStyle = ctx.strokeStyle;
 
-      if (s.pts.length === 1) {
-        var o = s.pts[0];
-        var pw = penWidth(o[2]);
+      if (pts.length === 1) {
+        var o = pts[0], pw = penWidth(o[2]);
         ctx.beginPath();
         ctx.arc(o[0] * r.width, o[1] * r.height, pw / 2, 0, Math.PI * 2);
-        ctx.fillStyle = ctx.strokeStyle;
         ctx.fill();
         return;
       }
-
-      // Interpolação quadrática: suaviza zigue-zagues de alta frequência
-      ctx.beginPath();
-      var first = s.pts[0];
-      ctx.moveTo(first[0] * r.width, first[1] * r.height);
-      for (var i = 1; i < s.pts.length - 1; i++) {
-        var a = s.pts[i], b = s.pts[i + 1];
-        var mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
-        ctx.lineWidth = penWidth(a[2]);
-        ctx.quadraticCurveTo(a[0] * r.width, a[1] * r.height, mx * r.width, my * r.height);
+      for (var i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], b = pts[i];
+        var pr = (a[2] != null && b[2] != null) ? (a[2] + b[2]) / 2 : (b[2] != null ? b[2] : a[2]);
+        ctx.lineWidth = penWidth(pr);
+        // ponto de partida = média com o ponto anterior (suaviza junções)
+        var prev = pts[i - 2] || a;
+        var m1x = (prev[0] + a[0]) / 2, m1y = (prev[1] + a[1]) / 2;
+        var m2x = (a[0] + b[0]) / 2, m2y = (a[1] + b[1]) / 2;
+        ctx.beginPath();
+        ctx.moveTo(m1x * r.width, m1y * r.height);
+        ctx.quadraticCurveTo(a[0] * r.width, a[1] * r.height, m2x * r.width, m2y * r.height);
+        ctx.stroke();
       }
-      var last = s.pts[s.pts.length - 1];
-      ctx.lineTo(last[0] * r.width, last[1] * r.height);
-      ctx.stroke();
     }
 
     function penWidth(pressure) {
@@ -711,12 +712,11 @@
       if (activePointerId != null && e.pointerId !== activePointerId) return;
 
       e.preventDefault();
-      lockScroll();
       activePointerId = e.pointerId;
 
       if (e.pointerType === "pen") { penIsActive = true; lastPenAt = Date.now(); }
 
-      canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId);
+      try { canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId); } catch (err) {}
 
       var p = pos(e);
       var toolAgora = isEraserTip(e) ? "borracha" : cor;
@@ -753,7 +753,6 @@
       if (e && e.pointerId !== activePointerId) return;
       if (e && e.pointerType === "pen") { penIsActive = false; lastPenAt = Date.now(); }
       activePointerId = null;
-      unlockScroll();
       if (!drawing) return;
       drawing = false; cur = null;
       persist();
@@ -826,9 +825,8 @@
       }
       modal.classList.remove("on");
       modal.setAttribute("aria-hidden", "true");
-      penIsActive = false;
+      penIsActive = false; drawing = false; cur = null; activePointerId = null;
       qref = null; btnRef = null;
-      unlockScroll();
     }
 
     window.addEventListener("resize", function () {
