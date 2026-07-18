@@ -1,0 +1,240 @@
+name: Apply deep Cinemática once
+
+on:
+  push:
+    branches:
+      - claude/enem-cn-non-regular-9fawlh
+    paths:
+      - .github/workflows/apply-deep-cinematica-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-cinematica:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: claude/enem-cn-non-regular-9fawlh
+          fetch-depth: 0
+
+      - name: Apply aprofundamento de Cinemática
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, collections
+
+          p = 'data/modelos_fisica_conteudo.json'
+          with open(p, encoding='utf-8') as f:
+              d = json.load(f, object_pairs_hook=collections.OrderedDict)
+
+          A = "Cinemática"
+
+          d["Movimento uniforme"] = {
+              "aula": A,
+              "teoria": [
+                  "Movimento uniforme (MU), também chamado de deslocamento uniforme, é aquele em que a VELOCIDADE é CONSTANTE — ela não muda ao longo do tempo. Justamente por isso a aceleração é NULA (aceleração, em m/s², mede quanto a velocidade varia a cada segundo; se a velocidade não varia, não há aceleração).",
+                  "A consequência prática mais importante: distâncias iguais são percorridas em tempos iguais. Se você anda a velocidade constante e vai de 0 a 10 km, depois de 10 a 20 km, depois de 20 a 30 km, os intervalos de tempo entre esses trechos são exatamente iguais. É isso que permite a aproximação intuitiva do ensino médio: se dou 10 passos por minuto e preciso dar 100 passos, vou gastar 10 minutos — a velocidade constante deixa relacionar espaço e tempo diretamente, sem se preocupar com aceleração.",
+                  "A relação fundamental é a velocidade média: v = ΔS/Δt (espaço percorrido dividido pelo tempo gasto). No SI, espaço em metros, tempo em segundos, velocidade em m/s. Se gastei 10 s para andar 20 m, minha velocidade é 20/10 = 2 m/s. Da mesma fórmula sai o deslocamento: ΔS = v·t — andar 1 hora a 100 km/h dá 100 km; andar 10 s a 20 m/s dá 200 m. É o 'jogo das três grandezas': o enunciado dá duas e pede a terceira (pode pedir tempo, distância ou velocidade).",
+                  "Há uma variação mais difícil: DOIS móveis (ou dois sinais) com velocidades diferentes, ambas constantes. O truque é pensar na TAXA DE AFASTAMENTO: a cada segundo, os dois se distanciam por um valor igual à DIFERENÇA das velocidades. Se eu ando 100 m/min e um amigo anda 200 m/min, a cada minuto ele se afasta 100 m de mim; após 4 minutos ele está 400 m à frente. Invertendo o raciocínio, se sei a diferença de posição e a taxa de afastamento, descubro o tempo — e daí qualquer outra grandeza."
+              ],
+              "como_cai": "Duas formas: (1) aplicação direta de v = ΔS/Δt, em que o enunciado dá duas grandezas e pede a terceira; (2) dois móveis/sinais com velocidades constantes diferentes, em que a diferença de velocidade e a diferença de tempo (ou de posição acumulada) revelam a distância procurada.",
+              "questoes_resolvidas": [
+                  {
+                      "enunciado": "No momento de máxima aproximação, a sonda New Horizons estava a ~5 bilhões de km de Plutão/Terra. Sabendo que a velocidade da luz é 3×10⁸ m/s, qual o tempo decorrido entre o envio de uma imagem pela sonda e sua recepção na Terra?",
+                      "resolucao": [
+                          "A informação viaja na velocidade da luz (movimento uniforme), então v = ΔS/Δt → Δt = ΔS/v.",
+                          "Converter a distância: 5 bilhões de km = 5×10⁹ km; para metros, ×10³ → 5×10¹² m.",
+                          "Δt = 5×10¹² / 3×10⁸ ≈ 1,7×10⁴ s.",
+                          "Resposta: aproximadamente 1,7×10⁴ s (letra D). Poderia dar velocidade e tempo e pedir distância — é o mesmo jogo de três grandezas."
+                      ]
+                  },
+                  {
+                      "enunciado": "O som da queda de gelo é detectado por dois sensores no barco: A imerso na água (v = 1540 m/s) e B no ar (v = 340 m/s). Comparando o mesmo ponto do sinal, ele chega 12 s antes na água. Qual a distância L entre o barco e a geleira?",
+                      "resolucao": [
+                          "Os dois sons partem juntos da geleira; o da água é mais rápido, então 'ganha' distância a cada segundo.",
+                          "Taxa de afastamento = diferença das velocidades = 1540 − 340 = 1200 m por segundo.",
+                          "O som na água chegou 12 s ANTES; nesse intervalo o som no ar ainda percorreria 340 × 12 = 4080 m — essa é a vantagem acumulada em distância quando o som da água chegou.",
+                          "Tempo de percurso do som na água = vantagem acumulada / taxa de afastamento = 4080 / 1200 = 3,4 s.",
+                          "L = velocidade na água × tempo = 1540 × 3,4 ≈ 5236 m (mais próximo de ~5240 m). O foco é o RACIOCÍNIO da taxa de afastamento, não a conta."
+                      ]
+                  }
+              ],
+              "pegadinha": "No caso de dois móveis, a taxa de afastamento é a DIFERENÇA das velocidades (não a soma, quando vão no mesmo sentido). E cuidado com a conversão de unidades (km→m, bilhões = 10⁹).",
+              "atalho": "v = ΔS/Δt (dá duas, acha a terceira). Dois móveis no mesmo sentido: afastam-se pela DIFERENÇA das velocidades a cada segundo.",
+              "formulas": [
+                  {"rotulo": "Velocidade média", "latex": "v=\\dfrac{\\Delta S}{\\Delta t}"},
+                  {"rotulo": "Deslocamento", "latex": "\\Delta S=v\\cdot t"}
+              ]
+          }
+
+          d["Movimento acelerado e frenagem"] = {
+              "aula": A,
+              "teoria": [
+                  "Quando a velocidade NÃO é constante, entra a aceleração. No movimento uniformemente variado (MUV), a aceleração é constante. Aceleração de 2 m/s² significa que a cada segundo a velocidade varia 2 m/s: partindo do repouso, no 1º s a velocidade é 2 m/s, no 2º s é 4 m/s, no 3º s é 6 m/s, e assim por diante.",
+                  "Três fórmulas resolvem praticamente tudo. (1) Equação horária (o 'sorvetão'): S = S₀ + v₀t + ½at² — a posição final é a inicial mais o termo da velocidade inicial mais metade da aceleração vezes o tempo ao quadrado. (2) v = v₀ + at — a velocidade final é a inicial mais a aceleração vezes o tempo (faz sentido: acelerando 2 m/s² por 3 s a partir do repouso, chega-se a 6 m/s). (3) Equação de Torricelli: v² = v₀² + 2·a·ΔS — use-a quando NÃO se tem o tempo.",
+                  "O contexto mais recorrente é a FRENAGEM: o motorista pisa no freio para parar (velocidade final = 0) e a aceleração é NEGATIVA (desaceleração). Em problemas de frenagem sem o tempo, Torricelli é a fórmula certa.",
+                  "Um subtipo clássico compara dois motoristas: um ATENTO e um DESATENTO (que demora mais para reagir, por exemplo por usar o celular). O procedimento-padrão, que evita quase todas as pegadinhas: primeiro calcule quanto o motorista atento anda até parar. Depois, para o desatento, some duas coisas: (a) o quanto ele ainda ANDA durante o tempo extra de reação — em que o carro continua acelerando — e (b) a frenagem a partir da velocidade JÁ AUMENTADA por essa aceleração no tempo de reação. A diferença entre os dois totais é a resposta."
+              ],
+              "como_cai": "Frenagem (parar o carro, v final = 0, a negativa) e, sobretudo, a comparação motorista atento × desatento, em que o desatento reage mais tarde e, ao frear, já está mais rápido.",
+              "questoes_resolvidas": [
+                  {
+                      "enunciado": "Dois motoristas aceleram inicialmente a 1 m/s² e freiam a 5 m/s². O atento aciona o freio a 14 m/s; o desatento leva 1 s a mais para começar a frear. Quanto o desatento percorre a MAIS até parar?",
+                      "resolucao": [
+                          "Motorista atento (frenagem, tem-se velocidades mas não o tempo → Torricelli): 0 = 14² − 2·5·S → 10S = 196 → S = 19,6 m.",
+                          "Desatento — no 1 s extra de reação o carro AINDA acelera a 1 m/s²: ΔS = v₀t + ½at² = 14·1 + ½·1·1² = 14,5 m. E a velocidade sobe de 14 para 15 m/s.",
+                          "Frenagem do desatento a partir de 15 m/s (Torricelli): 0 = 15² − 2·5·S → 10S = 225 → S = 22,5 m.",
+                          "Total do desatento = 14,5 + 22,5 = 37 m. Diferença: 37 − 19,6 = 17,4 m (letra E)."
+                      ]
+                  }
+              ],
+              "pegadinha": "Ao começar a frear, a velocidade do desatento NÃO é a inicial do enunciado (14) — é ela somada à aceleração ganha no tempo de reação (vira 15). Esquecer isso é o erro que a questão arma.",
+              "atalho": "Sem o tempo → Torricelli. Comparativa: calcule o atento; para o desatento some o trecho do tempo de reação e use a velocidade JÁ aumentada na frenagem.",
+              "formulas": [
+                  {"rotulo": "Equação horária (sorvetão)", "latex": "S=S_0+v_0t+\\tfrac{1}{2}at^2"},
+                  {"rotulo": "Velocidade", "latex": "v=v_0+at"},
+                  {"rotulo": "Torricelli (sem o tempo)", "latex": "v^2=v_0^2+2a\\,\\Delta S"}
+              ]
+          }
+
+          d["Gráfico posição × tempo"] = {
+              "aula": A,
+              "teoria": [
+                  "Num gráfico de POSIÇÃO (eixo y) por TEMPO (eixo x), a velocidade em cada instante é numericamente igual à INCLINAÇÃO (tangente) da curva naquele ponto. Isso decorre da própria definição: velocidade é espaço dividido por tempo, ou seja, o quanto o y (posição) varia em relação ao x (tempo).",
+                  "Interpretando a inclinação: uma reta mais inclinada ('mais em pé') significa andar MUITO em POUCO tempo → maior velocidade. Uma reta menos inclinada ('mais deitada') significa andar pouco em muito tempo → menor velocidade. Para achar os pontos de maior e menor velocidade, traça-se a tangente à curva em cada ponto pedido e compara-se a inclinação."
+              ],
+              "como_cai": "Pedem os pontos de MAIOR e MENOR velocidade num gráfico posição×tempo (movimento com velocidade variável). Traça-se a tangente em cada ponto e compara-se quão 'em pé' ela está.",
+              "questoes_resolvidas": [
+                  {
+                      "enunciado": "Um piloto testa um carro numa reta longa; a posição em função do tempo está no gráfico. Os pontos em que a velocidade é menor e maior são, respectivamente?",
+                      "resolucao": [
+                          "A velocidade em cada ponto = inclinação da tangente à curva ali.",
+                          "Trace a tangente em cada ponto (K, L, M, N...): a mais inclinada indica a MAIOR velocidade; a menos inclinada, a MENOR.",
+                          "O ponto de tangente mais 'em pé' é o L (maior velocidade); o de tangente mais 'deitada' é o M (menor).",
+                          "Menor e maior, respectivamente: M e L (letra C)."
+                      ]
+                  }
+              ],
+              "pegadinha": "Não confunda o VALOR da posição (altura do ponto no gráfico) com a velocidade: a velocidade é a INCLINAÇÃO da tangente, não a altura.",
+              "atalho": "Posição×tempo: velocidade = inclinação da tangente. Mais 'em pé' = mais rápido; mais 'deitada' = mais devagar.",
+              "formulas": [
+                  {"rotulo": "Velocidade no gráfico s×t", "latex": "v=\\tan\\theta=\\dfrac{\\Delta S}{\\Delta t}"}
+              ]
+          }
+
+          d["Composição de movimentos e trajetória"] = {
+              "aula": A,
+              "teoria": [
+                  "Um movimento pode ser a COMPOSIÇÃO de dois movimentos em eixos diferentes (por exemplo, para a frente e para o lado). Andar na diagonal de uma sala, indo para a porta e para a janela ao mesmo tempo, é a soma de dois movimentos independentes; a trajetória resultante é a soma vetorial dos dois.",
+                  "Ponto central: quase nunca essa composição é 'igual' nos dois eixos. Há infinitas diagonais possíveis, cada uma com uma proporção diferente entre o quanto se anda em cada eixo. Em geral, um eixo tem movimento uniforme e o outro, movimento variado — por isso a trajetória costuma ser uma CURVA, não uma diagonal reta simétrica.",
+                  "No lançamento de uma bolinha, o eixo horizontal (X) tem velocidade CONSTANTE (movimento uniforme), enquanto o eixo vertical (Y) sofre a gravidade (queda livre, velocidade crescente). Espaços iguais em X por intervalo de tempo, mas espaços cada vez maiores em Y → o resultado é uma curva (parábola) que desce cada vez mais rápido."
+              ],
+              "como_cai": "Identificar a trajetória correta a partir de uma descrição: barco atravessando correnteza de velocidade variável; bolinha lançada da mesa; e reconhecer que composições de movimentos costumam ser desiguais (um eixo uniforme, outro variado).",
+              "questoes_resolvidas": [
+                  {
+                      "enunciado": "Um barco atravessa um rio mantendo o motor sempre perpendicular à correnteza, que é fraca junto à margem e máxima no meio. Qual trajetória representa o movimento do barco?",
+                      "resolucao": [
+                          "Em Y (perpendicular à correnteza) o barco tem velocidade constante pelo motor; em X a correnteza o arrasta, e ela VARIA (fraca na margem, forte no meio).",
+                          "Perto da margem: anda muito para a frente e pouco para o lado (correnteza fraca). No meio: anda muito para o lado e pouco para a frente (correnteza forte).",
+                          "A trajetória é uma curva com arrasto lateral CRESCENTE — não a diagonal reta simétrica.",
+                          "Resposta: a curva com deslocamento lateral desigual (letra D)."
+                      ]
+                  },
+                  {
+                      "enunciado": "Uma bolinha é lançada horizontalmente da beira de uma mesa. Qual figura representa a trajetória de queda?",
+                      "resolucao": [
+                          "Em X a velocidade é constante (movimento uniforme): espaços iguais em intervalos iguais.",
+                          "Em Y age a gravidade (queda livre): a velocidade cresce, então os espaços verticais aumentam a cada intervalo.",
+                          "Cruzando os dois, forma-se uma curva (parábola) que desce cada vez mais rápido — não os 'passos no vazio' dos desenhos animados nem uma reta.",
+                          "Resposta: a trajetória curva/parabólica (letra D)."
+                      ]
+                  }
+              ],
+              "pegadinha": "A trajetória da bolinha lançada é curva (parábola), não a queda vertical 'de desenho animado' nem uma diagonal reta. E a composição raramente é simétrica: um eixo é uniforme, o outro variado.",
+              "atalho": "Composição = X uniforme + Y variado (queda livre). Resultado quase sempre curvo, com um eixo 'ganhando' do outro."
+          }
+
+          d["Queda livre"] = {
+              "aula": A,
+              "teoria": [
+                  "Queda livre é apenas um movimento uniformemente variado (MUV) cuja aceleração é a da GRAVIDADE (g). É o mesmo movimento acelerado já visto, só que a aceleração não vem de um motor ou pedal — vem da gravidade, que age sempre sobre um corpo solto no ar.",
+                  "A consequência mais cobrada: sem resistência do ar, a queda NÃO depende da massa. Dois corpos de massas diferentes, soltos juntos da mesma altura, chegam ao chão ao MESMO tempo, porque a única aceleração vertical é g, igual para os dois. O que importa é a mesma aceleração (g), a mesma velocidade inicial e o mesmo tempo — a massa não entra."
+              ],
+              "como_cai": "Explicar por que dois corpos de massas diferentes caem simultaneamente (na ausência de ar). A resposta aponta para a aceleração comum (g), não para força, inércia ou quantidade de movimento.",
+              "questoes_resolvidas": [
+                  {
+                      "enunciado": "Duas motos (uma com massa 3 vezes a da outra) deixam a pista horizontalmente ao mesmo tempo; os pilotos as abandonam e elas caem praticamente sem resistência do ar. Por que atingem o solo simultaneamente?",
+                      "resolucao": [
+                          "Sem ar, a única aceleração vertical é g, igual para as duas, independentemente da massa.",
+                          "Mesma altura, mesma velocidade inicial vertical (zero, pois saíram na horizontal) e mesma aceleração → mesmo tempo de queda.",
+                          "Não é 'mesma força' (os pesos são diferentes: P = m·g), nem 'mesma inércia', nem 'mesma quantidade de movimento'.",
+                          "Resposta: adquirem a mesma aceleração durante a queda."
+                      ]
+                  }
+              ],
+              "pegadinha": "Elas NÃO têm a mesma força-peso nem a mesma inércia (as massas diferem); têm a mesma ACELERAÇÃO (g). Alternativas com 'mesma força' ou 'mesma inércia' são as armadilhas.",
+              "atalho": "Sem ar, a queda independe da massa: mesma g → caem juntas.",
+              "formulas": [
+                  {"rotulo": "Aceleração da queda", "latex": "a=g\\;\\;(\\text{independe da massa } m)"}
+              ]
+          }
+
+          d["Lançamentos"] = {
+              "aula": A,
+              "teoria": [
+                  "Lançamentos são composições de dois movimentos: em X, movimento uniforme (velocidade constante); em Y, queda livre / MUV com a gravidade. Há três tipos. LANÇAMENTO HORIZONTAL: a bolinha sai reta, sem velocidade vertical inicial → em X é movimento uniforme e em Y é queda livre (como soltar a bolinha). LANÇAMENTO VERTICAL: joga-se para cima → sobe em MUV desacelerando por g (a velocidade diminui até zerar no ponto mais alto) e depois desce em queda livre. LANÇAMENTO OBLÍQUO: junta tudo — sobe/desce em Y (MUV com g) e avança em X (uniforme).",
+                  "O que importa é identificar o movimento em cada eixo e saber decompor as velocidades: às vezes só há velocidade em X (lançamento horizontal, v_y inicial = 0), às vezes só em Y (vertical), às vezes nas duas (oblíquo).",
+                  "Um resultado-chave: o ALCANCE horizontal cresce quando a gravidade é MENOR. Com g menor, o corpo demora muito mais para desacelerar em Y na subida e para acelerar na descida; como em X a velocidade é constante, durante esse tempo maior ele percorre muito mais distância. Por isso um salto na Lua (g = 1/6 da terrestre) tem alcance muito maior."
+              ],
+              "como_cai": "Comparar alcance (Lua × Terra) e resolver lançamentos horizontais (jato de água, bolinha da mesa), usando que em Y a velocidade inicial é zero e o tempo de queda liga os dois eixos.",
+              "questoes_resolvidas": [
+                  {
+                      "enunciado": "A gravidade na Lua é 1/6 da terrestre. Em relação à Terra, um salto oblíquo na Lua teria alcance?",
+                      "resolucao": [
+                          "Em Y, com g seis vezes menor, o corpo leva muito mais tempo para subir (desacelerar até zerar) e depois cair.",
+                          "Em X a velocidade é constante; durante esse tempo maior, percorre muito mais distância horizontal.",
+                          "Resposta: alcance muito maior (letra D)."
+                      ]
+                  },
+                  {
+                      "enunciado": "Uma mangueira na horizontal, a 1 m do chão, lança água que atinge o solo a 3 m de distância (g = 10). Qual seria o alcance vertical se ela fosse apontada totalmente para cima?",
+                      "resolucao": [
+                          "Queda em Y (lançamento horizontal, v_y inicial = 0): 1 = ½·10·t² → t² = 1/5 → t = 1/√5 s.",
+                          "Velocidade de saída da água = distância horizontal / tempo = 3 / (1/√5) = 3√5 m/s.",
+                          "Apontando para cima, toda a velocidade vai para Y; no ponto mais alto v = 0. Torricelli: 0 = (3√5)² − 2·10·h → 45 = 20h → h = 2,25 m (letra B)."
+                      ]
+                  }
+              ],
+              "pegadinha": "No lançamento horizontal, a velocidade vertical INICIAL é zero (a bolinha só tem velocidade em X ao sair). E menor gravidade significa MAIOR alcance (mais tempo no ar), não menor.",
+              "atalho": "X sempre uniforme; Y é queda livre/MUV. Horizontal: v_y inicial = 0. Menor gravidade → maior alcance.",
+              "formulas": [
+                  {"rotulo": "Lançamento horizontal", "latex": "h=\\tfrac{1}{2}g\\,t^2\\;;\\;v_x=\\dfrac{\\Delta x}{t}"}
+              ]
+          }
+
+          with open(p, 'w', encoding='utf-8') as f:
+              json.dump(d, f, ensure_ascii=False, indent=2)
+              f.write('\n')
+
+          print('Cinemática aprofundada. Total modelos:', len([k for k in d if not k.startswith('_')]))
+          PY
+
+      - name: Validar e regenerar arquivos derivados
+        shell: bash
+        run: |
+          python3 -m json.tool data/modelos_fisica_conteudo.json >/dev/null
+          python3 scripts/build_modelos.py
+          python3 -m unittest tests/test_build_modelos.py
+          git diff --check
+
+      - name: Commit da alteração e remoção deste workflow temporário
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-deep-cinematica-once.yml
+          git add data/modelos_fisica_conteudo.json docs/api/modelos_cn.json docs/assets/modelos.js
+          git commit -m "Aprofunda os modelos de Cinemática"
+          git push origin HEAD:claude/enem-cn-non-regular-9fawlh
