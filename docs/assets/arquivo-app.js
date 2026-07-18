@@ -594,9 +594,9 @@
     var lastPenAt = 0;          // timestamp do último evento pointerType==='pen'
     var penIsActive = false;    // true enquanto o lápis está em contato
 
-    var BASE_W    = 3.0;        // espessura base (px lógicos) — mouse/toque
-    var PEN_MIN   = 0.4;        // fator mínimo de pressão para o Pencil
-    var PEN_MAX   = 2.2;        // fator máximo de pressão para o Pencil
+    var BASE_W    = 1.6;        // espessura base (px lógicos) — mouse/toque; fina para caligrafia
+    var PEN_MIN   = 0.5;        // fator mínimo de pressão para o Pencil (~0,8 px)
+    var PEN_MAX   = 1.6;        // fator máximo de pressão para o Pencil (~2,6 px)
     var PALM_HOLD = 800;        // ms de bloqueio de toque após evento de caneta
 
     var COLORS = { preto: "#0a0a0a", azul: "#002FA7", vermelho: "#c0182b" };
