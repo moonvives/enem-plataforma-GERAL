@@ -80,7 +80,9 @@
     body.textContent = q.enunciado || "";
     c.appendChild(body);
 
-    if (q.imagem) {
+    // Nota: os recortes por questão do banco Regular não acompanham este
+    // arquivo; quando presentes em assets/img/modelos/, são carregados aqui.
+    if (q.imagem && window.ARQUIVO_IMAGENS) {
       var img = new Image();
       img.src = q.imagem;
       img.alt = "Figura oficial da questão";
