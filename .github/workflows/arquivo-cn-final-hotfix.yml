@@ -1,0 +1,103 @@
+name: Arquivo CN final hotfix
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/arquivo-cn-final-hotfix.trigger]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/enem-cn-non-regular-9fawlh
+          fetch-depth: 0
+
+      - name: Apply surgical fixes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('docs/assets/arquivo-app.js')
+          s=p.read_text(encoding='utf-8')
+          def one(old,new,label):
+              global s
+              if old not in s:
+                  raise SystemExit('missing pattern: '+label)
+              s=s.replace(old,new,1)
+
+          one('if (answered || !q.gabarito || q.anulada) { showGab(q, revOut); rev.style.display = "none"; }',
+              'if (q.anulada) { rev.style.display = "none"; revOut.appendChild(el("span", "g", "Questão anulada pelo INEP — sem gabarito válido.")); } else if (answered || !q.gabarito) { showGab(q, revOut); rev.style.display = "none"; }',
+              'annulled answer')
+
+          one('var all = Q.filter(function (q) { return q.materia === m; });',
+              'var all = Q.filter(function (q) { return q.materia === m && q.gabarito && !q.anulada; });',
+              'subject denominator')
+
+          one('var all = Q.filter(function (q) { return q.banco === bk; });',
+              'var all = Q.filter(function (q) { return q.banco === bk && q.gabarito && !q.anulada; });',
+              'bank denominator')
+
+          one('bb.appendChild(barRow(bk + " (" + all.length + ")", d, all.length));',
+              'bb.appendChild(barRow(bk + " (" + all.length + " respondíveis)", d, all.length));',
+              'bank label')
+
+          one('''      // Ignorar toque de dedo durante/após uso da caneta (palm rejection)
+      if (e.pointerType === "touch" && (penIsActive || Date.now() - lastPenAt < PALM_HOLD)) return;
+      // Só um ponteiro ativo por vez''',
+              '''      if (e.pointerType === "touch") {
+        if (penIsActive || Date.now() - lastPenAt < PALM_HOLD) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        return;
+      }
+      // Só um ponteiro ativo por vez''',
+              'finger scroll')
+
+          old='''      // Interpolação quadrática: suaviza zigue-zagues de alta frequência
+      ctx.beginPath();
+      var first = s.pts[0];
+      ctx.moveTo(first[0] * r.width, first[1] * r.height);
+      for (var i = 1; i < s.pts.length - 1; i++) {
+        var a = s.pts[i], b = s.pts[i + 1];
+        var mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+        ctx.lineWidth = penWidth(a[2]);
+        ctx.quadraticCurveTo(a[0] * r.width, a[1] * r.height, mx * r.width, my * r.height);
+      }
+      var last = s.pts[s.pts.length - 1];
+      ctx.lineTo(last[0] * r.width, last[1] * r.height);
+      ctx.stroke();'''
+          new='''      var startX = s.pts[0][0] * r.width;
+      var startY = s.pts[0][1] * r.height;
+      for (var i = 1; i < s.pts.length; i++) {
+        var current = s.pts[i];
+        var next = s.pts[i + 1] || current;
+        var endX = (i < s.pts.length - 1 ? (current[0] + next[0]) / 2 : current[0]) * r.width;
+        var endY = (i < s.pts.length - 1 ? (current[1] + next[1]) / 2 : current[1]) * r.height;
+        var pressure = current[2] != null ? current[2] : s.pts[i - 1][2];
+        ctx.beginPath();
+        ctx.lineWidth = penWidth(pressure);
+        ctx.moveTo(startX, startY);
+        ctx.quadraticCurveTo(current[0] * r.width, current[1] * r.height, endX, endY);
+        ctx.stroke();
+        startX = endX;
+        startY = endY;
+      }'''
+          one(old,new,'pressure smoothing')
+
+          s=s.replace('/* ── detecção de ponta traseira do Pencil (eraser button, buttons===32) ── */','/* ── suporte genérico a botão de borracha de stylus (buttons===32) ── */')
+          p.write_text(s,encoding='utf-8')
+          PY
+
+          node --check docs/assets/arquivo-app.js
+          git config user.name "OpenAI Codex"
+          git config user.email "codex@openai.com"
+          git add docs/assets/arquivo-app.js
+          git rm -r --ignore-unmatch .hotfix
+          git commit -m "fix: Apple Pencil, annulled items and progress denominators"
+          git push origin HEAD:claude/enem-cn-non-regular-9fawlh
