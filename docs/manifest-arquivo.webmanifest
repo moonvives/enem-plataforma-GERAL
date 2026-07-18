@@ -1,0 +1,16 @@
+{
+  "name": "Arquivo CN — 1.027 questões oficiais",
+  "short_name": "Arquivo CN",
+  "description": "Acervo completo de Ciências da Natureza do ENEM (Biologia, Química e Física) com banco filtrável, modo estudo, explicação ativa por Apple Pencil e progresso salvo no dispositivo.",
+  "lang": "pt-BR",
+  "start_url": "arquivo.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#002FA7",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
