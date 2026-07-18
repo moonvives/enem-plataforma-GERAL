@@ -128,6 +128,8 @@
     border:0;background:var(--paper);color:var(--mut);padding:14px 10px;cursor:pointer;border-right:1px solid var(--line)}
   .draw-tool:last-child{border-right:0}
   .draw-tool.on{background:var(--klein);color:#fff}
+  .draw-tool[data-tool="preto"].on{background:var(--ink)}
+  .draw-tool[data-tool="vermelho"].on{background:var(--err)}
   .draw-wrap{flex:1;position:relative;overflow:hidden;background:
     linear-gradient(#eef0f6 1px,transparent 1px),linear-gradient(90deg,#eef0f6 1px,transparent 1px);
     background-size:28px 28px;margin:14px 22px;border:1px solid var(--line);border-radius:6px}
@@ -272,6 +274,7 @@
   <div class="draw-tools">
     <button class="draw-tool on" data-tool="preto">Traço preto</button>
     <button class="draw-tool" data-tool="azul">Traço azul</button>
+    <button class="draw-tool" data-tool="vermelho">Traço vermelho</button>
     <button class="draw-tool" data-tool="borracha">Borracha</button>
     <button class="draw-tool" data-tool="desfazer">Desfazer</button>
     <button class="draw-tool" data-tool="limpar">Limpar</button>
