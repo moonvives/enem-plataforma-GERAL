@@ -28,11 +28,27 @@
     padding:10px 14px;cursor:pointer;border-bottom:3px solid transparent;letter-spacing:.01em}
   nav.tabs button.on{color:var(--klein);border-bottom-color:var(--klein)}
   nav.tabs button:hover{color:var(--ink)}
-  main{padding:26px 0 80px}
+  main{padding:0 0 80px}
   .view{display:none}
   .view.on{display:block}
   h1.vt{font-size:24px;margin:0 0 4px;letter-spacing:-.01em}
   .vlead{color:var(--mut);margin:0 0 22px;font-size:14px}
+  /* capa editorial do Painel */
+  .cover{border-bottom:2px solid var(--ink);padding:36px 0 30px;margin-bottom:34px}
+  .cover-eyebrow{display:flex;align-items:center;gap:10px;color:var(--klein);font-size:12px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+  .cover-eyebrow .rule{flex:1;height:1px;background:var(--line)}
+  .cover-num{font-size:clamp(64px,10vw,132px);font-weight:700;letter-spacing:-.035em;line-height:.92;margin:0}
+  .cover-num small{font-size:.32em;font-weight:600;letter-spacing:-.01em;color:var(--mut);vertical-align:2%}
+  .cover-sub{font-size:clamp(15px,1.6vw,19px);color:var(--ink);max-width:640px;margin:18px 0 0;line-height:1.5}
+  .cover-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:28px;border-top:1px solid var(--line)}
+  .cover-stat{flex:1;min-width:130px;padding:16px 20px 0;border-right:1px solid var(--line)}
+  .cover-stat:last-child{border-right:0}
+  .cover-stat .n{font-size:26px;font-weight:700;letter-spacing:-.02em}
+  .cover-stat .l{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+  .section-title{display:flex;align-items:baseline;gap:10px;margin:0 0 16px}
+  .section-title .idx{color:var(--klein);font-weight:700;font-size:12px;letter-spacing:.08em}
+  .section-title h3{margin:0;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:700}
   /* dashboard */
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
   .kpi{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:var(--paper)}
@@ -136,6 +152,7 @@
     .grid2{grid-template-columns:1fr}
     .filters{grid-template-columns:1fr 1fr}
     .bar .lab{width:110px}
+    .cover-stat{flex:1 1 50%;border-bottom:1px solid var(--line);padding-bottom:14px}
   }
   @media(max-width:520px){ .filters{grid-template-columns:1fr} .kpis{grid-template-columns:1fr 1fr} }
 </style>
@@ -160,7 +177,12 @@
 <main class="wrap">
   <!-- PAINEL -->
   <section class="view on" id="v-painel">
-    <h1 class="vt">Painel de desempenho</h1>
+    <div class="cover">
+      <div class="cover-eyebrow"><span>Arquivo CN</span><span class="rule"></span><span>Ciências da Natureza · ENEM 2009–2024</span></div>
+      <p class="cover-num">1.027 <small>questões oficiais</small></p>
+      <p class="cover-sub">O acervo completo de Biologia, Química e Física reunido dos cadernos oficiais do INEP — bancos Regular e PPL — com enunciado, alternativas e gabarito verbatim, recorte fiel das figuras originais e explicação ativa por escrita.</p>
+      <div class="cover-stats" id="cover-stats"></div>
+    </div>
     <p class="vlead">Seu progresso é salvo apenas neste navegador (localStorage). Nada é enviado para servidores.</p>
     <div class="kpis" id="kpis"></div>
     <div class="grid2">

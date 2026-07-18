@@ -108,16 +108,17 @@
     }
     c.appendChild(body);
 
-    // Recorte fiel da questão (banco Regular): assets/img/modelos/qNNN.webp.
-    if (q.imagem) {
+    // Apenas a(s) figura(s) oficial(is) da questão (gráfico, tabela, imagem) —
+    // não o recorte de página inteira, cujo texto já está no corpo acima.
+    (q.imagens || []).forEach(function (src, i) {
       var img = new Image();
       img.className = "qfig";
       img.loading = "lazy";
-      img.src = q.imagem;
-      img.alt = "Figura oficial da questão " + (q.ano || "");
+      img.src = src;
+      img.alt = "Figura oficial " + (i + 1) + " da questão" + (q.ano ? " · ENEM " + q.ano : "");
       img.onerror = function () { img.remove(); };
       c.appendChild(img);
-    }
+    });
 
     var answered = S.respostas[q.id];
     var podeResponder = !!q.gabarito && !q.anulada;
@@ -284,6 +285,18 @@
 
   /* ---------- PAINEL ---------- */
   function renderPainel() {
+    var cs = document.getElementById("cover-stats");
+    if (cs && !cs.childElementCount) {
+      var mats = ["Biologia", "Química", "Física"];
+      mats.forEach(function (m) {
+        var n = Q.filter(function (q) { return q.materia === m; }).length;
+        var box = el("div", "cover-stat"); box.appendChild(el("div", "n", String(n))); box.appendChild(el("div", "l", m)); cs.appendChild(box);
+      });
+      [["Regular", Q.filter(function (q) { return q.banco === "Regular"; }).length],
+       ["PPL", Q.filter(function (q) { return q.banco === "PPL"; }).length]].forEach(function (pr) {
+        var box = el("div", "cover-stat"); box.appendChild(el("div", "n", String(pr[1]))); box.appendChild(el("div", "l", "Banco " + pr[0])); cs.appendChild(box);
+      });
+    }
     var respIds = Object.keys(S.respostas);
     var total = Q.length;
     // Completion is measured against answerable items only (annulled items and
@@ -563,6 +576,8 @@
     var cor = "preto", strokes = [], cur = null, drawing = false, qref = null, btnRef = null;
     var COLORS = { preto: "#0a0a0a", azul: "#002FA7" };
     var openedAt = 0;
+    var activePointerId = null, lastPenAt = 0;
+    var BASE_W = 2.4; // largura base do traço (mouse/toque); Apple Pencil varia com a pressão
 
     function fit() {
       var r = canvas.parentNode.getBoundingClientRect();
@@ -580,20 +595,34 @@
     }
     function paint(s, r) {
       if (!s.pts.length) return;
-      ctx.beginPath();
       ctx.lineJoin = ctx.lineCap = "round";
       ctx.strokeStyle = COLORS[s.cor] || "#0a0a0a";
-      ctx.lineWidth = 2.4;
-      s.pts.forEach(function (p, i) {
-        var x = p[0] * r.width, y = p[1] * r.height;
-        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-      });
-      ctx.stroke();
+      // Traço com Apple Pencil varia a espessura com a pressão real reportada
+      // pelo dispositivo (p[2]); mouse/toque usam a espessura base fixa.
+      if (s.pts.length === 1) {
+        var only = s.pts[0];
+        ctx.beginPath();
+        ctx.lineWidth = BASE_W * (only[2] != null ? (0.6 + only[2] * 1.2) : 1);
+        ctx.arc(only[0] * r.width, only[1] * r.height, ctx.lineWidth / 2, 0, Math.PI * 2);
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
+        return;
+      }
+      for (var i = 1; i < s.pts.length; i++) {
+        var a = s.pts[i - 1], b = s.pts[i];
+        var pr = b[2] != null ? b[2] : (a[2] != null ? a[2] : 0.5);
+        ctx.beginPath();
+        ctx.lineWidth = BASE_W * (b[2] != null ? (0.6 + pr * 1.2) : 1);
+        ctx.moveTo(a[0] * r.width, a[1] * r.height);
+        ctx.lineTo(b[0] * r.width, b[1] * r.height);
+        ctx.stroke();
+      }
     }
+    // pos() devolve [xNorm, yNorm, pressao] — pressao só é confiável para pointerType 'pen'.
     function pos(e) {
       var r = canvas.getBoundingClientRect();
-      var t = e.touches ? e.touches[0] : e;
-      return [(t.clientX - r.left) / r.width, (t.clientY - r.top) / r.height];
+      var pressao = (e.pointerType === "pen" && e.pressure > 0) ? e.pressure : null;
+      return [(e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, pressao];
     }
     function hitErase(p) {
       // remove strokes passing near the point
@@ -604,18 +633,36 @@
       if (strokes.length !== before) redraw();
     }
     function start(e) {
+      // Rejeição de palma: com Apple Pencil, ignora toques do dedo que
+      // cheguem durante ou logo após um traço de caneta.
+      if (e.pointerType === "touch" && Date.now() - lastPenAt < 700) return;
+      if (activePointerId != null && e.pointerId !== activePointerId) return;
       e.preventDefault();
+      activePointerId = e.pointerId;
+      if (e.pointerType === "pen") lastPenAt = Date.now();
+      canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId);
       var p = pos(e);
       if (cor === "borracha") { drawing = true; hitErase(p); return; }
       drawing = true; cur = { cor: cor, pts: [p] }; strokes.push(cur);
     }
     function move(e) {
-      if (!drawing) return; e.preventDefault();
-      var p = pos(e);
-      if (cor === "borracha") { hitErase(p); return; }
-      cur.pts.push(p); redraw();
+      if (!drawing || e.pointerId !== activePointerId) return;
+      e.preventDefault();
+      if (e.pointerType === "pen") lastPenAt = Date.now();
+      // getCoalescedEvents() pode devolver [] (não apenas ser ausente) quando não
+      // há eventos coalescidos — nesse caso o próprio evento precisa ser usado,
+      // senão o ponto do movimento é perdido silenciosamente.
+      var coalesced = e.getCoalescedEvents && e.getCoalescedEvents();
+      var pts = (coalesced && coalesced.length) ? coalesced : [e];
+      pts.forEach(function (ev) {
+        var p = pos(ev);
+        if (cor === "borracha") { hitErase(p); } else { cur.pts.push(p); }
+      });
+      redraw();
     }
-    function end() {
+    function end(e) {
+      if (e && e.pointerId !== activePointerId) return;
+      activePointerId = null;
       if (!drawing) return; drawing = false; cur = null; persist();
     }
     function persist() {
@@ -639,6 +686,7 @@
     canvas.addEventListener("pointerdown", start);
     canvas.addEventListener("pointermove", move);
     window.addEventListener("pointerup", end);
+    window.addEventListener("pointercancel", end);
 
     function open(q, btn) {
       qref = q; btnRef = btn; openedAt = Date.now();
