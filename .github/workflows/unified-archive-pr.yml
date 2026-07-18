@@ -1,0 +1,62 @@
+name: Validate unified sciences archive
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inspect source datasets
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          sources = [
+              Path('data/questions_regular.json'),
+              Path('data/questions.json'),
+              Path('data/ocr/nat720/questoes.json'),
+              Path('docs/api/modelos_cn.json'),
+          ]
+          report = {}
+          for path in sources:
+              data = json.loads(path.read_text(encoding='utf-8'))
+              arrays = {}
+              if isinstance(data, list):
+                  arrays['root'] = data
+              elif isinstance(data, dict):
+                  arrays = {k:v for k,v in data.items() if isinstance(v, list)}
+              report[str(path)] = {
+                  'top_type': type(data).__name__,
+                  'top_keys': list(data) if isinstance(data, dict) else None,
+                  'array_lengths': {k: len(v) for k,v in arrays.items()},
+                  'first_item_keys': {
+                      k: (list(v[0]) if v and isinstance(v[0], dict) else None)
+                      for k,v in arrays.items()
+                  },
+                  'first_items': {k: (v[0] if v else None) for k,v in arrays.items()},
+              }
+          out = Path('artifacts/unified-inspection.json')
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
+          print(out.read_text(encoding='utf-8'))
+          PY
+
+      - name: Build archive when generator exists
+        run: |
+          if [ -f scripts/build_unified_archive.py ]; then
+            python scripts/build_unified_archive.py
+          fi
+
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: unified-sciences-archive
+          path: artifacts/
