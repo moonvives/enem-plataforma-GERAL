@@ -223,8 +223,16 @@
 
   function showGab(q, out) {
     out.innerHTML = "";
+    if (q.anulada) {
+      out.appendChild(el("span", "g", "Questão anulada pelo INEP — sem gabarito válido."));
+      return;
+    }
+    if (!q.gabarito) {
+      out.appendChild(el("span", "g", "Gabarito oficial não disponível."));
+      return;
+    }
     out.appendChild(document.createTextNode("Gabarito oficial: "));
-    out.appendChild(el("span", "g", q.gabarito || "—"));
+    out.appendChild(el("span", "g", q.gabarito));
     if (q.nivel) out.appendChild(document.createTextNode("  ·  " + q.nivel));
   }
 
@@ -268,14 +276,17 @@
   function renderPainel() {
     var respIds = Object.keys(S.respostas);
     var total = Q.length;
+    // Completion is measured against answerable items only (annulled items and
+    // items without an official A–E gabarito can never be recorded).
+    var respondiveis = Q.filter(function (q) { return q.gabarito && !q.anulada; }).length;
     var done = respIds.length;
     var acertos = respIds.filter(function (id) { return S.respostas[id].correta; }).length;
     var favs = Object.keys(S.favoritos).length;
 
     var kpis = document.getElementById("kpis");
     kpis.innerHTML = "";
-    kpis.appendChild(kpi(done + " / " + total, "questões respondidas", true));
-    kpis.appendChild(kpi(pct(done, total) + "%", "do arquivo concluído"));
+    kpis.appendChild(kpi(done + " / " + respondiveis, "questões respondidas", true));
+    kpis.appendChild(kpi(pct(done, respondiveis) + "%", "do arquivo concluído"));
     kpis.appendChild(kpi(done ? pct(acertos, done) + "%" : "—", "taxa de acerto"));
     kpis.appendChild(kpi(String(favs), "favoritadas"));
 
