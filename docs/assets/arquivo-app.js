@@ -42,6 +42,25 @@
   }
   var DIF_ORDER = ["Muito fácil", "Fácil", "Médio", "Difícil", "Muito difícil", "Sem TRI"];
 
+  // Render text into `node`, rendering $...$ / $$...$$ segments with KaTeX.
+  // Official enunciados have no math delimiters, so they fall through as plain
+  // text (preserving line breaks via the pre-wrap container).
+  function mathify(node, text) {
+    node.textContent = "";
+    if (!text) return;
+    if (!window.katex || text.indexOf("$") < 0) { node.textContent = text; return; }
+    var re = /\$\$([^$]+)\$\$|\$([^$]+)\$/g, last = 0, m;
+    while ((m = re.exec(text))) {
+      if (m.index > last) node.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var span = document.createElement("span");
+      try { katex.render(m[1] || m[2], span, { throwOnError: false, displayMode: !!m[1] }); }
+      catch (e) { span.textContent = m[0]; }
+      node.appendChild(span);
+      last = re.lastIndex;
+    }
+    if (last < text.length) node.appendChild(document.createTextNode(text.slice(last)));
+  }
+
   /* ---------- navigation ---------- */
   var views = {};
   document.querySelectorAll(".view").forEach(function (v) { views[v.id.replace("v-", "")] = v; });
@@ -51,6 +70,7 @@
     Object.keys(views).forEach(function (k) { views[k].classList.toggle("on", k === name); });
     if (name === "painel") renderPainel();
     if (name === "banco") renderBanco();
+    if (name === "estudar") renderStudy();
     if (name === "erros") renderErros();
     if (name === "favoritos") renderFav();
     window.scrollTo(0, 0);
@@ -78,54 +98,84 @@
 
     var body = el("div", "qbody");
     if (q.enunciado && q.enunciado.trim()) {
-      body.textContent = q.enunciado;
+      mathify(body, q.enunciado);
     } else {
       body.className = "qbody vazio";
       body.textContent = "Enunciado não disponível neste banco — item oficial sem texto extraído. Metadados e gabarito abaixo.";
     }
     c.appendChild(body);
 
-    // Nota: os recortes por questão do banco Regular não acompanham este
-    // arquivo; quando presentes em assets/img/modelos/, são carregados aqui.
-    if (q.imagem && window.ARQUIVO_IMAGENS) {
+    // Recorte fiel da questão (banco Regular): assets/img/modelos/qNNN.webp.
+    if (q.imagem) {
       var img = new Image();
+      img.className = "qfig";
+      img.loading = "lazy";
       img.src = q.imagem;
-      img.alt = "Figura oficial da questão";
+      img.alt = "Figura oficial da questão " + (q.ano || "");
       img.onerror = function () { img.remove(); };
       c.appendChild(img);
     }
 
     var answered = S.respostas[q.id];
+    var podeResponder = !!q.gabarito && !q.anulada;
+    var foot;
+
     if (q.banco === "Regular" && q.alternativas && q.alternativas.length) {
       var ul = el("ul", "alts");
       q.alternativas.forEach(function (a) {
         var li = el("li");
         li.dataset.letra = a.letra;
         li.appendChild(el("span", "lt", a.letra));
-        li.appendChild(el("span", "tx", a.texto));
+        var tx = el("span", "tx"); mathify(tx, a.texto); li.appendChild(tx);
         ul.appendChild(li);
-        li.addEventListener("click", function () {
-          if (li.classList.contains("locked")) return;
-          answer(q, a.letra, ul, foot, opts);
-        });
+        if (podeResponder) {
+          li.addEventListener("click", function () {
+            if (li.classList.contains("locked")) return;
+            record(q, a.letra, opts, function (esc) { lockAlts(q, ul, esc); }, foot);
+          });
+        } else {
+          li.classList.add("locked");
+        }
       });
       c.appendChild(ul);
-      var foot = qfoot(q, opts);
+      foot = qfoot(q, opts, function () { rerenderCard(c, q, opts); });
       c.appendChild(foot);
       if (answered) lockAlts(q, ul, answered.escolha);
     } else {
-      // PPL — alternatives are embedded in the enunciado text
-      var ppl = el("div", "ppl-alts", "Banco PPL: as alternativas aparecem ao final do enunciado acima (o banco não as separa). Gabarito oficial abaixo.");
-      c.appendChild(ppl);
-      var foot2 = qfoot(q, opts);
-      c.appendChild(foot2);
+      // PPL — alternatives are embedded in the enunciado text; offer letter choice.
+      var msg = podeResponder
+        ? "Banco PPL: as alternativas aparecem ao final do enunciado acima. Escolha a letra correspondente para responder."
+        : (q.anulada ? "Questão anulada — sem resposta a registrar." : "Item sem gabarito oficial disponível.");
+      c.appendChild(el("div", "ppl-alts", msg));
+      var lr = el("div", "letters");
+      ["A", "B", "C", "D", "E"].forEach(function (L) {
+        var bt = el("button", "letter", L);
+        bt.dataset.letra = L;
+        lr.appendChild(bt);
+        if (podeResponder) {
+          bt.addEventListener("click", function () {
+            if (lr.classList.contains("locked")) return;
+            record(q, L, opts, function (esc) { lockLetters(q, lr, esc); }, foot);
+          });
+        }
+      });
+      if (!podeResponder) lr.classList.add("locked");
+      c.appendChild(lr);
+      foot = qfoot(q, opts, function () { rerenderCard(c, q, opts); });
+      c.appendChild(foot);
+      if (answered) lockLetters(q, lr, answered.escolha);
     }
     return c;
   }
 
+  function rerenderCard(oldCard, q, opts) {
+    var fresh = card(q, opts);
+    if (oldCard.parentNode) oldCard.parentNode.replaceChild(fresh, oldCard);
+  }
+
   function tag(txt, cls) { var t = el("span", "tag" + (cls ? " " + cls : ""), txt); return t; }
 
-  function qfoot(q, opts) {
+  function qfoot(q, opts, onRetry) {
     var f = el("div", "qfoot");
     var star = el("button", "star" + (S.favoritos[q.id] ? " on" : ""), (S.favoritos[q.id] ? "★ favorito" : "☆ favoritar"));
     star.addEventListener("click", function () {
@@ -138,10 +188,19 @@
     var rev = el("button", "btn sm ghost", "Ver gabarito");
     var revOut = el("span", "reveal");
     var answered = S.respostas[q.id];
-    if (q.banco === "PPL" || answered) { showGab(q, revOut); rev.style.display = "none"; }
+    if (answered || !q.gabarito || q.anulada) { showGab(q, revOut); rev.style.display = "none"; }
     rev.addEventListener("click", function () { showGab(q, revOut); rev.style.display = "none"; });
     f.appendChild(rev);
     f.appendChild(revOut);
+
+    // Responder novamente: limpa o registro para tentar de novo (usado na revisão de erros).
+    if (answered && onRetry) {
+      var retry = el("button", "btn sm ghost", "Responder novamente");
+      retry.addEventListener("click", function () {
+        delete S.respostas[q.id]; save(); onRetry();
+      });
+      f.appendChild(retry);
+    }
 
     var noteBtn = el("button", "btn sm ghost", S.notas[q.id] ? "Editar anotação" : "Anotar");
     var noteBox = el("textarea", "note");
@@ -178,15 +237,30 @@
     });
   }
 
-  function answer(q, letra, ul, foot, opts) {
+  function lockLetters(q, lr, escolha) {
+    lr.classList.add("locked");
+    lr.querySelectorAll(".letter").forEach(function (bt) {
+      var L = bt.dataset.letra;
+      if (L === q.gabarito) bt.classList.add("correct");
+      else if (L === escolha) bt.classList.add("wrong");
+    });
+  }
+
+  // Records an answer. Guards annulled items and items without an official
+  // A–E gabarito so they never enter accuracy/error stats. `lockFn` freezes
+  // the chosen UI (alternatives or letter buttons).
+  function record(q, letra, opts, lockFn, foot) {
+    if (!q.gabarito || q.anulada) return;
     var correta = letra === q.gabarito;
     S.respostas[q.id] = { escolha: letra, correta: correta, ts: Date.now() };
     save();
-    lockAlts(q, ul, letra);
-    var rev = foot.querySelector(".reveal");
-    if (rev) showGab(q, rev);
-    var rb = foot.querySelector(".btn.ghost");
-    if (rb && rb.textContent === "Ver gabarito") rb.style.display = "none";
+    lockFn(letra);
+    if (foot) {
+      var rev = foot.querySelector(".reveal");
+      if (rev) showGab(q, rev);
+      var rb = foot.querySelector(".btn.ghost");
+      if (rb && rb.textContent === "Ver gabarito") rb.style.display = "none";
+    }
     if (opts.onAnswer) opts.onAnswer(correta);
   }
 

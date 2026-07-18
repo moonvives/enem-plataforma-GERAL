@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arquivo CN — 1.027 questões oficiais · ENEM</title>
 <link rel="icon" href="assets/icon-192.png">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
 <style>
   :root{
     --klein:#002FA7; --klein-d:#00227a; --ink:#0a0a0a; --paper:#ffffff;
@@ -84,6 +85,14 @@
   .alts li.wrong .lt{color:var(--err)}
   .alts li.locked{cursor:default}
   .ppl-alts{margin-top:14px;padding:12px 14px;background:var(--soft);border-radius:9px;font-size:14px;color:var(--mut)}
+  .letters{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .letter{font-family:inherit;font-size:16px;font-weight:700;width:46px;height:46px;border:1px solid var(--line);
+    border-radius:10px;background:var(--paper);color:var(--klein);cursor:pointer;transition:background .12s,border-color .12s}
+  .letter:hover{background:var(--soft)}
+  .letters.locked .letter{cursor:default}
+  .letter.correct{border-color:var(--ok);background:#eef8f1;color:var(--ok)}
+  .letter.wrong{border-color:var(--err);background:#fbeef0;color:var(--err)}
+  .qfig{max-width:100%;height:auto;display:block;margin:14px 0;border:1px solid var(--line);border-radius:8px}
   .qfoot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
   .reveal{font-size:14px;font-weight:600}
   .reveal .g{color:var(--ok)}
@@ -198,6 +207,7 @@
 <footer><div class="wrap">Arquivo CN · dados oficiais INEP (bancos Regular 720 e PPL 540, recorte de Ciências da Natureza) · uso educacional.</div></footer>
 
 <script src="assets/arquivo.js"></script>
+<script src="assets/vendor/katex/katex.min.js"></script>
 <script src="assets/arquivo-app.js"></script>
 </body>
 </html>
