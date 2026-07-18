@@ -578,6 +578,8 @@
     var openedAt = 0;
     var activePointerId = null, lastPenAt = 0;
     var BASE_W = 2.4; // largura base do traço (mouse/toque); Apple Pencil varia com a pressão
+    var bgImg = null;        // figura oficial da questão (fundo para anotar por cima)
+    var bgRect = null;       // retângulo (contain) onde a figura foi desenhada
 
     function fit() {
       var r = canvas.parentNode.getBoundingClientRect();
@@ -590,6 +592,18 @@
     function redraw() {
       var r = canvas.parentNode.getBoundingClientRect();
       ctx.clearRect(0, 0, r.width, r.height);
+      // Fundo: a figura oficial da questão (desenhada em 'contain' e centrada),
+      // para o aluno anotar por cima com a Apple Pencil. Sem figura, fica em branco.
+      if (bgImg && bgImg.complete && bgImg.naturalWidth) {
+        var iw = bgImg.naturalWidth, ih = bgImg.naturalHeight;
+        var scale = Math.min(r.width / iw, r.height / ih) * 0.94;
+        var w = iw * scale, h = ih * scale;
+        var x = (r.width - w) / 2, y = (r.height - h) / 2;
+        bgRect = { x: x, y: y, w: w, h: h };
+        ctx.drawImage(bgImg, x, y, w, h);
+      } else {
+        bgRect = null;
+      }
       strokes.forEach(function (s) { paint(s, r); });
       countEl.textContent = strokes.length + (strokes.length === 1 ? " traço" : " traços");
     }
@@ -693,8 +707,19 @@
       titleEl.textContent = (q.numero_disciplina ? "Nº " + q.numero_disciplina + " · " : "") + q.materia + " · ENEM " + (q.ano || "");
       strokes = (S.desenhos[q.id] ? S.desenhos[q.id].slice() : []);
       cor = "preto"; setTool("preto");
+      // Carrega a figura oficial da questão como fundo da lousa (só a imagem).
+      // Sem figura, a lousa fica em branco (rascunho livre).
+      bgImg = null; bgRect = null;
+      var src = (q.imagens && q.imagens.length) ? q.imagens[0] : null;
+      modal.classList.toggle("has-fig", !!src);
       modal.classList.add("on"); modal.setAttribute("aria-hidden", "false");
       fit();
+      if (src) {
+        var im = new Image();
+        im.onload = function () { if (qref === q) { bgImg = im; redraw(); } };
+        im.onerror = function () { modal.classList.remove("has-fig"); };
+        im.src = src;
+      }
     }
     function close() {
       // conta o tempo da lousa no tempo total da questão
