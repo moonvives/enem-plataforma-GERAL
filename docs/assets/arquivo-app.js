@@ -15,13 +15,15 @@
       var raw = localStorage.getItem(KEY);
       if (raw) return migrate(JSON.parse(raw));
     } catch (e) {}
-    return { respostas: {}, favoritos: {}, notas: {}, sessoes: [] };
+    return { respostas: {}, favoritos: {}, notas: {}, sessoes: [], tempos: {}, desenhos: {} };
   }
   function migrate(s) {
     s.respostas = s.respostas || {};
     s.favoritos = s.favoritos || {};
     s.notas = s.notas || {};
     s.sessoes = s.sessoes || [];
+    s.tempos = s.tempos || {};     // { id: segundos acumulados }
+    s.desenhos = s.desenhos || {}; // { id: [ {cor, pts:[[x,y],...]} ] }  (coords normalizadas 0..1)
     return s;
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
@@ -84,6 +86,7 @@
     c.dataset.id = q.id;
 
     var meta = el("div", "qmeta");
+    if (q.numero_disciplina) meta.appendChild(el("span", "qnum", "Nº " + q.numero_disciplina));
     meta.appendChild(tag(q.materia, "klein"));
     meta.appendChild(tag(q.banco === "PPL" ? "PPL" : "Regular", q.banco === "PPL" ? "ppl" : ""));
     if (q.ano) meta.appendChild(tag("ENEM " + q.ano));
@@ -217,6 +220,13 @@
       noteBtn.textContent = S.notas[q.id] ? "Editar anotação" : "Anotar";
     });
     f.appendChild(noteBtn);
+
+    // Explicação ativa da questão — abre a lousa (Apple Pencil / mouse / toque).
+    var temDesenho = S.desenhos[q.id] && S.desenhos[q.id].length;
+    var drawBtn = el("button", "btn-draw" + (temDesenho ? " has" : ""), (temDesenho ? "✎ Explicação ativa" : "✎ Explicação ativa"));
+    drawBtn.addEventListener("click", function () { openDraw(q, drawBtn); });
+    f.insertBefore(drawBtn, noteBtn.nextSibling);
+
     f.appendChild(noteBox);
     return f;
   }
@@ -341,19 +351,45 @@
 
   document.getElementById("exp-csv").addEventListener("click", exportCsv);
   document.getElementById("reset-all").addEventListener("click", function () {
-    if (confirm("Zerar TODO o progresso (respostas, favoritos, anotações e sessões)?")) {
-      S = { respostas: {}, favoritos: {}, notas: {}, sessoes: [] }; save(); renderPainel();
+    if (confirm("Zerar TODO o progresso (respostas, favoritos, anotações, tempos, lousas e sessões)?")) {
+      S = { respostas: {}, favoritos: {}, notas: {}, sessoes: [], tempos: {}, desenhos: {} }; save(); renderPainel();
     }
   });
+  // Exporta as 1.027 linhas no mesmo esquema de progresso_ciencias_da_natureza.csv
+  var CSV_COLS = ["disciplina", "numero_arquivo", "numero_disciplina", "id_inep", "ano", "aplicacao",
+    "banco", "area", "modelo", "competencia", "habilidade", "tri", "nivel",
+    "resposta_marcada", "gabarito", "resultado", "tempo_segundos", "favorita", "nota"];
   function exportCsv() {
-    var rows = [["id", "materia", "banco", "ano", "aplicacao", "habilidade", "competencia", "tri_b", "gabarito", "sua_resposta", "correta", "data"]];
-    Object.keys(S.respostas).forEach(function (id) {
-      var q = byId[id]; if (!q) return; var r = S.respostas[id];
-      rows.push([id, q.materia, q.banco, q.ano, q.aplicacao, q.habilidade, q.competencia, fmtB(q.b), q.gabarito, r.escolha, r.correta ? "1" : "0", new Date(r.ts).toISOString()]);
+    var qs = Q.slice().sort(function (a, b) { return (a.numero_arquivo || 0) - (b.numero_arquivo || 0); });
+    var rows = [CSV_COLS];
+    qs.forEach(function (q) {
+      var r = S.respostas[q.id];
+      var idinep = (q.id.split("-").pop() || "");
+      rows.push([
+        q.materia, q.numero_arquivo || "", q.numero_disciplina || "", idinep, q.ano || "", q.aplicacao || "",
+        q.banco || "", q.aula || "", q.modelo || "",
+        q.competencia ? "C" + q.competencia : "", q.habilidade ? "H" + q.habilidade : "",
+        fmtBcomma(q.b), nivelNumero(q),
+        r ? r.escolha : "", q.gabarito || "",
+        r ? (r.correta ? "Acertou" : "Errou") : "",
+        S.tempos[q.id] != null ? S.tempos[q.id] : "",
+        S.favoritos[q.id] ? "sim" : "não",
+        S.notas[q.id] || ""
+      ]);
     });
-    var csv = rows.map(function (r) { return r.map(function (c) { c = String(c == null ? "" : c); return /[",;\n]/.test(c) ? '"' + c.replace(/"/g, '""') + '"' : c; }).join(";"); }).join("\n");
+    var csv = rows.map(function (r) {
+      return r.map(function (c) { c = String(c == null ? "" : c); return '"' + c.replace(/"/g, '""') + '"'; }).join(",");
+    }).join("\r\n");
     var blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
-    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "arquivo-cn-respostas.csv"; a.click();
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+    a.download = "progresso_ciencias_da_natureza.csv"; a.click();
+  }
+  function fmtBcomma(b) { if (b == null || b === "") return ""; var n = parseFloat(b); return isNaN(n) ? "" : n.toFixed(1).replace(".", ","); }
+  var NIVEL_MAP = { "Muito fácil": 1, "Fácil": 2, "Médio": 3, "Difícil": 4, "Muito difícil": 5 };
+  function nivelNumero(q) {
+    if (q.nivel && NIVEL_MAP[q.nivel]) return NIVEL_MAP[q.nivel];
+    var n = parseFloat(q.b); if (isNaN(n)) return "";
+    if (n < 550) return 1; if (n < 650) return 2; if (n < 750) return 3; if (n < 850) return 4; return 5;
   }
 
   /* ---------- BANCO ---------- */
@@ -456,9 +492,13 @@
     body.appendChild(hd);
 
     var answeredThis = { done: false };
+    var tStart = Date.now();
     body.appendChild(card(q, {
       onAnswer: function (correta) {
         if (answeredThis.done) return; answeredThis.done = true;
+        var secs = Math.round((Date.now() - tStart) / 1000);
+        S.tempos[q.id] = (S.tempos[q.id] || 0) + secs;
+        save();
         study.respondidas++; if (correta) study.acertos++;
         nextBtn.textContent = "Próxima questão ›"; nextBtn.classList.add("solid");
       }
@@ -510,6 +550,114 @@
     if (!ids.length) { box.appendChild(el("div", "empty", "Nenhuma questão favoritada. Use a estrela em qualquer questão.")); return; }
     ids.map(function (id) { return byId[id]; }).forEach(function (q) { box.appendChild(card(q, {})); });
   }
+
+  /* ---------- EXPLICAÇÃO ATIVA (lousa Apple Pencil / mouse / toque) ---------- */
+  var draw = (function () {
+    var modal = document.getElementById("draw-modal");
+    var canvas = document.getElementById("draw-canvas");
+    var ctx = canvas.getContext("2d");
+    var titleEl = document.getElementById("draw-title");
+    var countEl = document.getElementById("draw-count");
+    var savedEl = document.getElementById("draw-saved");
+    var tools = modal.querySelectorAll(".draw-tool[data-tool='preto'],.draw-tool[data-tool='azul'],.draw-tool[data-tool='borracha']");
+    var cor = "preto", strokes = [], cur = null, drawing = false, qref = null, btnRef = null;
+    var COLORS = { preto: "#0a0a0a", azul: "#002FA7" };
+    var openedAt = 0;
+
+    function fit() {
+      var r = canvas.parentNode.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(r.width * dpr));
+      canvas.height = Math.max(1, Math.round(r.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      redraw();
+    }
+    function redraw() {
+      var r = canvas.parentNode.getBoundingClientRect();
+      ctx.clearRect(0, 0, r.width, r.height);
+      strokes.forEach(function (s) { paint(s, r); });
+      countEl.textContent = strokes.length + (strokes.length === 1 ? " traço" : " traços");
+    }
+    function paint(s, r) {
+      if (!s.pts.length) return;
+      ctx.beginPath();
+      ctx.lineJoin = ctx.lineCap = "round";
+      ctx.strokeStyle = COLORS[s.cor] || "#0a0a0a";
+      ctx.lineWidth = 2.4;
+      s.pts.forEach(function (p, i) {
+        var x = p[0] * r.width, y = p[1] * r.height;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+    }
+    function pos(e) {
+      var r = canvas.getBoundingClientRect();
+      var t = e.touches ? e.touches[0] : e;
+      return [(t.clientX - r.left) / r.width, (t.clientY - r.top) / r.height];
+    }
+    function hitErase(p) {
+      // remove strokes passing near the point
+      var before = strokes.length;
+      strokes = strokes.filter(function (s) {
+        return !s.pts.some(function (q2) { return Math.hypot(q2[0] - p[0], q2[1] - p[1]) < 0.02; });
+      });
+      if (strokes.length !== before) redraw();
+    }
+    function start(e) {
+      e.preventDefault();
+      var p = pos(e);
+      if (cor === "borracha") { drawing = true; hitErase(p); return; }
+      drawing = true; cur = { cor: cor, pts: [p] }; strokes.push(cur);
+    }
+    function move(e) {
+      if (!drawing) return; e.preventDefault();
+      var p = pos(e);
+      if (cor === "borracha") { hitErase(p); return; }
+      cur.pts.push(p); redraw();
+    }
+    function end() {
+      if (!drawing) return; drawing = false; cur = null; persist();
+    }
+    function persist() {
+      if (!qref) return;
+      if (strokes.length) S.desenhos[qref.id] = strokes; else delete S.desenhos[qref.id];
+      save();
+      savedEl.textContent = "Salvo";
+      if (btnRef) btnRef.classList.toggle("has", !!strokes.length);
+      setTimeout(function () { savedEl.textContent = ""; }, 1200);
+    }
+    function setTool(t) {
+      if (t === "desfazer") { strokes.pop(); redraw(); persist(); return; }
+      if (t === "limpar") { strokes = []; redraw(); persist(); return; }
+      cor = t;
+      tools.forEach(function (b) { b.classList.toggle("on", b.dataset.tool === t); });
+    }
+    modal.querySelectorAll(".draw-tool").forEach(function (b) {
+      b.addEventListener("click", function () { setTool(b.dataset.tool); });
+    });
+    document.getElementById("draw-close").addEventListener("click", close);
+    canvas.addEventListener("pointerdown", start);
+    canvas.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", end);
+
+    function open(q, btn) {
+      qref = q; btnRef = btn; openedAt = Date.now();
+      titleEl.textContent = (q.numero_disciplina ? "Nº " + q.numero_disciplina + " · " : "") + q.materia + " · ENEM " + (q.ano || "");
+      strokes = (S.desenhos[q.id] ? S.desenhos[q.id].slice() : []);
+      cor = "preto"; setTool("preto");
+      modal.classList.add("on"); modal.setAttribute("aria-hidden", "false");
+      fit();
+    }
+    function close() {
+      // conta o tempo da lousa no tempo total da questão
+      if (qref) { S.tempos[qref.id] = (S.tempos[qref.id] || 0) + Math.round((Date.now() - openedAt) / 1000); save(); }
+      modal.classList.remove("on"); modal.setAttribute("aria-hidden", "true");
+      qref = null; btnRef = null;
+    }
+    window.addEventListener("resize", function () { if (modal.classList.contains("on")) fit(); });
+    return { open: open };
+  })();
+  function openDraw(q, btn) { draw.open(q, btn); }
 
   /* ---------- boot ---------- */
   renderPainel();

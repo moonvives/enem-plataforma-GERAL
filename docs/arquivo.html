@@ -93,6 +93,28 @@
   .letter.correct{border-color:var(--ok);background:#eef8f1;color:var(--ok)}
   .letter.wrong{border-color:var(--err);background:#fbeef0;color:var(--err)}
   .qfig{max-width:100%;height:auto;display:block;margin:14px 0;border:1px solid var(--line);border-radius:8px}
+  /* explicação ativa — Apple Pencil / desenho */
+  .draw-modal{position:fixed;inset:0;background:var(--paper);z-index:60;display:none;flex-direction:column;padding:0}
+  .draw-modal.on{display:flex}
+  .draw-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:18px 22px;border-bottom:2px solid var(--ink)}
+  .draw-head .eyebrow{color:var(--klein);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .draw-head h2{margin:4px 0 0;font-size:22px;letter-spacing:-.01em}
+  .draw-tools{display:flex;gap:2px;border-bottom:1px solid var(--line)}
+  .draw-tool{flex:1;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    border:0;background:var(--paper);color:var(--mut);padding:14px 10px;cursor:pointer;border-right:1px solid var(--line)}
+  .draw-tool:last-child{border-right:0}
+  .draw-tool.on{background:var(--klein);color:#fff}
+  .draw-wrap{flex:1;position:relative;overflow:hidden;background:
+    linear-gradient(#eef0f6 1px,transparent 1px),linear-gradient(90deg,#eef0f6 1px,transparent 1px);
+    background-size:28px 28px;margin:14px 22px;border:1px solid var(--line);border-radius:6px}
+  .draw-wrap canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+  .draw-status{display:flex;justify-content:space-between;align-items:center;padding:0 24px 18px;color:var(--mut);font-size:12px;
+    text-transform:uppercase;letter-spacing:.06em}
+  .draw-status .saved{color:var(--ok);font-weight:700}
+  .btn-draw{font-family:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);color:var(--mut);
+    background:var(--paper);padding:5px 11px;border-radius:8px;cursor:pointer}
+  .btn-draw.has{border-color:var(--klein);color:var(--klein);background:var(--soft)}
+  .qnum{color:var(--mut);font-weight:700;margin-right:2px}
   .qfoot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
   .reveal{font-size:14px;font-weight:600}
   .reveal .g{color:var(--ok)}
@@ -205,6 +227,26 @@
 </main>
 
 <footer><div class="wrap">Arquivo CN · dados oficiais INEP (bancos Regular 720 e PPL 540, recorte de Ciências da Natureza) · uso educacional.</div></footer>
+
+<!-- Explicação ativa da questão — escrita com Apple Pencil / mouse / toque -->
+<div class="draw-modal" id="draw-modal" aria-hidden="true">
+  <div class="draw-head">
+    <div>
+      <div class="eyebrow">Explicação ativa da questão</div>
+      <h2 id="draw-title">Escrita com Apple Pencil</h2>
+    </div>
+    <button class="btn" id="draw-close">Fechar</button>
+  </div>
+  <div class="draw-tools">
+    <button class="draw-tool on" data-tool="preto">Traço preto</button>
+    <button class="draw-tool" data-tool="azul">Traço azul</button>
+    <button class="draw-tool" data-tool="borracha">Borracha</button>
+    <button class="draw-tool" data-tool="desfazer">Desfazer</button>
+    <button class="draw-tool" data-tool="limpar">Limpar</button>
+  </div>
+  <div class="draw-wrap"><canvas id="draw-canvas"></canvas></div>
+  <div class="draw-status"><span id="draw-count">0 traços</span><span class="saved" id="draw-saved"></span></div>
+</div>
 
 <script src="assets/arquivo.js"></script>
 <script src="assets/vendor/katex/katex.min.js"></script>
