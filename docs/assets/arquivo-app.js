@@ -324,7 +324,7 @@
     });
 
     var ss = document.getElementById("sessoes"); ss.innerHTML = "";
-    if (!S.sessoes.length) { ss.appendChild(el("div", "count", "Nenhuma sessão ainda. Use "Estudar estes" no Banco.")); }
+    if (!S.sessoes.length) { ss.appendChild(el("div", "count", "Nenhuma sessão ainda. Use \"Estudar estes\" no Banco.")); }
     else {
       S.sessoes.slice(-6).reverse().forEach(function (s) {
         var line = el("div", "bar");
@@ -476,7 +476,7 @@
   }
   function renderStudy() {
     var body = document.getElementById("study-body"); body.innerHTML = "";
-    if (!study) { body.appendChild(el("div", "empty", "Vá ao Banco, filtre as questões e clique em "Estudar estes".")); return; }
+    if (!study) { body.appendChild(el("div", "empty", "Vá ao Banco, filtre as questões e clique em \"Estudar estes\".")); return; }
     if (study.i >= study.list.length) { finishStudy(body); return; }
     var q = study.list[study.i];
 
@@ -567,7 +567,21 @@
     var titleEl  = document.getElementById("draw-title");
     var countEl  = document.getElementById("draw-count");
     var savedEl  = document.getElementById("draw-saved");
-    var toolBtns = modal.querySelectorAll(".draw-tool[data-tool='preto'],.draw-tool[data-tool='azul'],.draw-tool[data-tool='borracha']");
+    // Insere a caneta vermelha sem exigir alteração no HTML legado/PWA.
+    var azulBtn = modal.querySelector(".draw-tool[data-tool='azul']");
+    if (azulBtn && !modal.querySelector(".draw-tool[data-tool='vermelho']")) {
+      var vermelhoBtn = document.createElement("button");
+      vermelhoBtn.className = "draw-tool";
+      vermelhoBtn.dataset.tool = "vermelho";
+      vermelhoBtn.textContent = "Traço vermelho";
+      azulBtn.insertAdjacentElement("afterend", vermelhoBtn);
+
+      var vermelhoCss = document.createElement("style");
+      vermelhoCss.textContent = ".draw-tool[data-tool='vermelho']{color:#c0182b}.draw-tool[data-tool='vermelho'].on{background:#c0182b;color:#fff}";
+      document.head.appendChild(vermelhoCss);
+    }
+
+    var toolBtns = modal.querySelectorAll(".draw-tool[data-tool='preto'],.draw-tool[data-tool='azul'],.draw-tool[data-tool='vermelho'],.draw-tool[data-tool='borracha']");
 
     // will-change evita re-composite do resto da página a cada frame de desenho
     canvas.style.willChange = "transform";
@@ -583,7 +597,7 @@
     var PEN_MAX   = 2.2;        // fator máximo de pressão para o Pencil
     var PALM_HOLD = 800;        // ms de bloqueio de toque após evento de caneta
 
-    var COLORS = { preto: "#0a0a0a", azul: "#002FA7" };
+    var COLORS = { preto: "#0a0a0a", azul: "#002FA7", vermelho: "#c0182b" };
 
     var bgImg  = null;  // figura oficial como fundo
     var bgRect = null;
