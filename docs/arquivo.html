@@ -112,24 +112,40 @@
   .qbody.vazio{color:var(--mut);font-style:italic;font-size:14px;background:var(--soft);padding:12px 14px;border-radius:8px}
   .qbody img{max-width:100%;height:auto;display:block;margin:12px 0;border:1px solid var(--line);border-radius:6px}
   .alts{list-style:none;margin:16px 0 0;padding:0}
-  .alts li{display:flex;gap:12px;padding:11px 13px;border:1px solid var(--line);border-radius:9px;margin-bottom:8px;
+  .alts li{display:flex;gap:13px;align-items:flex-start;padding:11px 13px;border:1px solid var(--line);border-radius:9px;margin-bottom:8px;
     cursor:pointer;font-size:15px;transition:background .12s,border-color .12s}
   .alts li:hover{background:var(--soft)}
-  .alts .lt{font-weight:700;color:var(--klein);flex:none;width:20px}
+  /* marcador circular A–E inspirado no caderno oficial impresso */
+  .alts .lt{flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:var(--ink);margin-top:1px}
+  .alts li:hover .lt{border-color:var(--klein);color:var(--klein)}
+  .alts .tx{flex:1;padding-top:2px}
   .alts li.correct{border-color:var(--ok);background:#eef8f1}
-  .alts li.correct .lt{color:var(--ok)}
+  .alts li.correct .lt{border-color:var(--ok);background:var(--ok);color:#fff}
   .alts li.wrong{border-color:var(--err);background:#fbeef0}
-  .alts li.wrong .lt{color:var(--err)}
+  .alts li.wrong .lt{border-color:var(--err);background:var(--err);color:#fff}
   .alts li.locked{cursor:default}
+  /* cabeçalho e fonte estilo caderno */
+  .q-caderno{display:flex;align-items:center;gap:12px;margin:2px 0 12px}
+  .q-caderno .qh{font-weight:700;font-size:15px;letter-spacing:.04em}
+  .q-caderno .rule{flex:1;height:2px;background:var(--ink)}
+  .fonte-oficial{margin-top:12px;font-size:12px;color:var(--mut);border-left:3px solid var(--klein);padding:2px 0 2px 10px}
+  .fonte-oficial b{color:var(--ink);font-weight:700}
   .ppl-alts{margin-top:14px;padding:12px 14px;background:var(--soft);border-radius:9px;font-size:14px;color:var(--mut)}
   .letters{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .letter{font-family:inherit;font-size:16px;font-weight:700;width:46px;height:46px;border:1px solid var(--line);
-    border-radius:10px;background:var(--paper);color:var(--klein);cursor:pointer;transition:background .12s,border-color .12s}
+  .letter{font-family:inherit;font-size:16px;font-weight:700;width:46px;height:46px;border:1.5px solid var(--ink);
+    border-radius:50%;background:var(--paper);color:var(--ink);cursor:pointer;transition:background .12s,border-color .12s}
   .letter:hover{background:var(--soft)}
   .letters.locked .letter{cursor:default}
   .letter.correct{border-color:var(--ok);background:#eef8f1;color:var(--ok)}
   .letter.wrong{border-color:var(--err);background:#fbeef0;color:var(--err)}
   .qfig{max-width:100%;height:auto;display:block;margin:14px 0;border:1px solid var(--line);border-radius:8px}
+  .qfig-det{margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--soft)}
+  .qfig-det summary{cursor:pointer;padding:10px 14px;font-size:13px;font-weight:600;color:var(--klein);list-style:none}
+  .qfig-det summary::-webkit-details-marker{display:none}
+  .qfig-det summary::before{content:"⊕ ";font-weight:700}
+  .qfig-det[open] summary::before{content:"⊖ "}
+  .qfig-det .qfig{margin:0 12px 12px}
   /* explicação ativa — Apple Pencil 2 exclusiva */
   .draw-modal{position:fixed;inset:0;background:var(--paper);z-index:60;display:none;flex-direction:column;padding:0}
   .draw-modal.on{display:flex}
@@ -274,7 +290,10 @@
   </section>
 </main>
 
-<footer><div class="wrap">Arquivo CN · dados oficiais INEP (bancos Regular 720 e PPL 540, recorte de Ciências da Natureza) · uso educacional.</div></footer>
+<footer><div class="wrap">
+  <p style="margin:0 0 8px"><b>Plataforma educacional independente.</b> Não é afiliada, mantida nem endossada pelo INEP ou pelo Ministério da Educação. As questões, imagens e gabaritos são de autoria do INEP e reproduzidos aqui para fins educacionais; as marcas “ENEM” e “INEP” pertencem a seus titulares.</p>
+  Arquivo CN · dados oficiais INEP (bancos Regular 720 e PPL 540, recorte de Ciências da Natureza) · uso educacional.
+</div></footer>
 
 <!-- Explicação ativa da questão — escrita exclusiva com Apple Pencil 2 -->
 <div class="draw-modal" id="draw-modal" role="dialog" aria-modal="true" aria-labelledby="draw-title" aria-hidden="true">

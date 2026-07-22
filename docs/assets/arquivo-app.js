@@ -97,6 +97,12 @@
     if (q.resolvida_aula) meta.appendChild(tag("resolvida na aula", "klein"));
     c.appendChild(meta);
 
+    // Cabeçalho estilo caderno oficial: QUESTÃO + régua horizontal.
+    var head = el("div", "q-caderno");
+    head.appendChild(el("span", "qh", "QUESTÃO" + (q.numero_disciplina ? " " + q.numero_disciplina : "")));
+    head.appendChild(el("span", "rule"));
+    c.appendChild(head);
+
     var body = el("div", "qbody");
     if (q.enunciado && q.enunciado.trim()) {
       mathify(body, q.enunciado);
@@ -111,10 +117,28 @@
       img.className = "qfig";
       img.loading = "lazy";
       img.src = src;
-      img.alt = "Figura oficial " + (i + 1) + " da questão" + (q.ano ? " · ENEM " + q.ano : "");
-      img.onerror = function () { img.remove(); };
-      c.appendChild(img);
+      img.alt = "Imagem oficial " + (i + 1) + " da questão" + (q.ano ? " · ENEM " + q.ano : "");
+      img.onerror = function () { img.remove(); var d = img.closest && img.closest("details"); if (d) d.remove(); };
+      if (q.imagem_pagina) {
+        // Recorte da página inteira do caderno (contém enunciado+alternativas):
+        // fica recolhido para não duplicar o texto já exibido, mas disponível.
+        var det = el("details", "qfig-det");
+        var sum = el("summary", null, "Ver imagem oficial da questão (página do caderno)");
+        det.appendChild(sum); det.appendChild(img);
+        c.appendChild(det);
+      } else {
+        c.appendChild(img); // recorte fiel só da figura → inline
+      }
     });
+
+    // Selo de fonte oficial (somente dados verdadeiros: INEP + ano + aplicação/banco).
+    var fonte = el("div", "fonte-oficial");
+    var partes = ["Fonte oficial: <b>INEP</b>"];
+    if (q.ano) partes.push("ENEM " + q.ano);
+    partes.push("Aplicação: " + (q.aplicacao || q.banco || "—"));
+    if (q.componente || q.materia) partes.push("Componente: " + (q.componente || q.materia));
+    fonte.innerHTML = partes.join(" · ") + " · Ciências da Natureza";
+    c.appendChild(fonte);
 
     var answered = S.respostas[q.id];
     var podeResponder = !!q.gabarito && !q.anulada;
