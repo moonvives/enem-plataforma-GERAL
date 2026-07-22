@@ -131,6 +131,33 @@
   .q-caderno .rule{flex:1;height:2px;background:var(--ink)}
   .fonte-oficial{margin-top:12px;font-size:12px;color:var(--mut);border-left:3px solid var(--klein);padding:2px 0 2px 10px}
   .fonte-oficial b{color:var(--ink);font-weight:700}
+  /* solução comentada */
+  .solucao{margin-top:14px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .solucao>summary{cursor:pointer;list-style:none;padding:12px 16px;background:var(--soft);font-weight:700;font-size:14px;color:var(--klein)}
+  .solucao>summary::-webkit-details-marker{display:none}
+  .solucao .sc{padding:16px 18px;font-size:14.5px;line-height:1.6}
+  .solucao .sc h4{margin:16px 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+  .solucao .sc h4:first-child{margin-top:0}
+  .solucao .sc .resp{font-size:15px;font-weight:700}
+  .solucao .sc .resp .g{color:var(--ok)}
+  .solucao .sc ul.abcde{list-style:none;margin:6px 0;padding:0}
+  .solucao .sc ul.abcde li{padding:6px 0;border-top:1px dashed var(--line)}
+  .solucao .sc ul.abcde li b{color:var(--klein)}
+  .solucao .selo-ed{margin-top:14px;font-size:11.5px;color:var(--mut);background:#fff7e6;border:1px solid #f0e0b0;border-radius:6px;padding:8px 10px}
+  .solucao .prep{color:var(--mut);font-style:italic}
+  /* simulado */
+  .sim-setup{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:720px}
+  .sim-run-hd{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;position:sticky;top:64px;background:var(--paper);z-index:10}
+  .sim-timer{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  .sim-timer.low{color:var(--err)}
+  .sim-grid{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}
+  .sim-cell{width:34px;height:34px;border:1px solid var(--line);border-radius:7px;font-size:13px;font-weight:600;
+    background:var(--paper);color:var(--ink);cursor:pointer}
+  .sim-cell.done{background:var(--klein);color:#fff;border-color:var(--klein)}
+  .sim-cell.cur{outline:2px solid var(--klein);outline-offset:1px}
+  .alts li.sel{border-color:var(--klein);background:#eaf0ff}
+  .alts li.sel .lt{border-color:var(--klein);background:var(--klein);color:#fff}
+  .letter.sel{border-color:var(--klein);background:var(--klein);color:#fff}
   .ppl-alts{margin-top:14px;padding:12px 14px;background:var(--soft);border-radius:9px;font-size:14px;color:var(--mut)}
   .letters{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
   .letter{font-family:inherit;font-size:16px;font-weight:700;width:46px;height:46px;border:1.5px solid var(--ink);
@@ -143,8 +170,6 @@
   .qfig-det{margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--soft)}
   .qfig-det summary{cursor:pointer;padding:10px 14px;font-size:13px;font-weight:600;color:var(--klein);list-style:none}
   .qfig-det summary::-webkit-details-marker{display:none}
-  .qfig-det summary::before{content:"⊕ ";font-weight:700}
-  .qfig-det[open] summary::before{content:"⊖ "}
   .qfig-det .qfig{margin:0 12px 12px}
   /* explicação ativa — Apple Pencil 2 exclusiva */
   .draw-modal{position:fixed;inset:0;background:var(--paper);z-index:60;display:none;flex-direction:column;padding:0}
@@ -210,6 +235,7 @@
       <button data-v="painel" class="on">Painel</button>
       <button data-v="banco">Banco</button>
       <button data-v="estudar">Estudar</button>
+      <button data-v="simulado">Simulado</button>
       <button data-v="erros">Erros</button>
       <button data-v="favoritos">Favoritos</button>
     </nav>
@@ -275,6 +301,13 @@
     <div id="study-body"></div>
   </section>
 
+  <!-- SIMULADO -->
+  <section class="view" id="v-simulado">
+    <h1 class="vt">Modo simulado</h1>
+    <p class="vlead">Prova cronometrada, sem correção durante a resolução — como no exame. Ao final, relatório de desempenho por matéria.</p>
+    <div id="simulado-body"></div>
+  </section>
+
   <!-- ERROS -->
   <section class="view" id="v-erros">
     <h1 class="vt">Questões que você errou</h1>
@@ -300,7 +333,7 @@
   <div class="draw-head">
     <div>
       <div class="eyebrow">Explicação ativa da questão</div>
-      <h2 id="draw-title">Escrita com Apple Pencil 2</h2>
+      <h2 id="draw-title">Explicação ativa</h2>
     </div>
     <button class="btn" id="draw-close" type="button">Fechar</button>
   </div>
@@ -312,8 +345,8 @@
     <button class="draw-tool" data-tool="desfazer" type="button">Desfazer</button>
     <button class="draw-tool" data-tool="limpar" type="button">Limpar</button>
   </div>
-  <div class="draw-wrap"><canvas id="draw-canvas" aria-label="Caderno exclusivo para escrita com Apple Pencil 2"></canvas></div>
-  <div class="draw-status"><span id="draw-count">Apple Pencil 2 · dedo bloqueado · 0 traços</span><span class="saved" id="draw-saved" aria-live="polite"></span></div>
+  <div class="draw-wrap"><canvas id="draw-canvas" aria-label="Área de escrita da questão"></canvas></div>
+  <div class="draw-status"><span id="draw-count">0 traços</span><span class="saved" id="draw-saved" aria-live="polite"></span></div>
 </div>
 
 <script src="assets/arquivo.js"></script>

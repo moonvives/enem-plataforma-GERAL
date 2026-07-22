@@ -44,6 +44,37 @@
   }
   var DIF_ORDER = ["Muito fácil", "Fácil", "Médio", "Difícil", "Muito difícil", "Sem TRI"];
 
+  // Soluções comentadas editoriais (autorais, para estudo). Chave = id da questão.
+  // Somente conteúdo verificado; o gabarito é sempre o oficial do INEP.
+  var SOLUCOES = {
+    "bio-regular-q268": {
+      conceito: "Reprodução das plantas e variabilidade genética. A diversidade genética de uma população depende da recombinação de genes entre indivíduos diferentes — o que ocorre, sobretudo, pela fecundação cruzada.",
+      conclusao: "Entre as estruturas citadas, os grãos de pólen são os que permitem a polinização cruzada (transporte de gametas masculinos de uma planta para outra). Essa troca de material genético entre indivíduos recombina os genes e aumenta a diversidade genética da população.",
+      abcde: {
+        A: "As sementes aladas favorecem a dispersão no espaço (colonização de novos ambientes), não a variabilidade genética.",
+        B: "Os arquegônios protegem o embrião — é uma vantagem de proteção, não de recombinação gênica.",
+        C: "Correta. Os grãos de pólen viabilizam a polinização cruzada, recombinando genes de indivíduos diferentes e ampliando a diversidade genética.",
+        D: "Os frutos protegem e ajudam a dispersar as sementes (eficiência reprodutiva), mas não geram, por si, maior variabilidade genética.",
+        E: "Os vasos condutores permitiram a conquista do ambiente terrestre (transporte de seiva), sem relação direta com diversidade genética."
+      },
+      pegadinha: "Confundir eficiência ou dispersão reprodutiva (frutos, sementes aladas) com aumento de variabilidade genética. Diversidade genética exige TROCA de genes entre indivíduos.",
+      atalho: "Palavra-chave: 'diversidade genética'. Procure a estrutura que promove cruzamento entre indivíduos diferentes — polinização cruzada = grãos de pólen."
+    },
+    "bio-regular-q605": {
+      conceito: "Lamarckismo: lei do uso e desuso + herança dos caracteres adquiridos. Para Lamarck, órgãos pouco usados atrofiam ao longo da vida e essa modificação seria transmitida aos descendentes.",
+      conclusao: "Sob a ótica de Lamarck, a ausência de olhos em animais subterrâneos seria explicada pela falta de uso desses órgãos (lei do uso e desuso), com a característica sendo transmitida à descendência.",
+      abcde: {
+        A: "Seleção natural é o mecanismo de Darwin, não de Lamarck; está fora do ponto de vista pedido.",
+        B: "Correta. Descreve exatamente a lei do uso e desuso de Lamarck aplicada à perda dos olhos.",
+        C: "Contraria o próprio lamarckismo, que prevê a transmissão do caráter adquirido às gerações seguintes, e não só à primeira.",
+        D: "Mistura anacrônica: fala em 'incorporação ao patrimônio genético', conceito da genética posterior a Lamarck; não corresponde à explicação lamarckista pura.",
+        E: "Descreve mutação + seleção natural (visão moderna/darwinista), não o pensamento de Lamarck."
+      },
+      pegadinha: "A alternativa D também 'parece' lamarckista, mas insere 'patrimônio genético' — conceito que Lamarck não tinha. A questão pede a explicação de Lamarck, então a resposta é a formulação pura do uso e desuso (B).",
+      atalho: "Lamarck = uso e desuso + herança do adquirido, SEM genética. Elimine tudo que fala em seleção natural (A, E) ou em genes/patrimônio genético (D)."
+    }
+  };
+
   // Render text into `node`, rendering $...$ / $$...$$ segments with KaTeX.
   function mathify(node, text) {
     node.textContent = "";
@@ -71,6 +102,7 @@
     if (name === "painel") renderPainel();
     if (name === "banco") renderBanco();
     if (name === "estudar") renderStudy();
+    if (name === "simulado") renderSimulado();
     if (name === "erros") renderErros();
     if (name === "favoritos") renderFav();
     window.scrollTo(0, 0);
@@ -127,7 +159,7 @@
         det.appendChild(sum); det.appendChild(img);
         c.appendChild(det);
       } else {
-        c.appendChild(img); // recorte fiel só da figura → inline
+        c.appendChild(img); // recorte fiel so da figura (inline)
       }
     });
 
@@ -135,12 +167,13 @@
     var fonte = el("div", "fonte-oficial");
     var partes = ["Fonte oficial: <b>INEP</b>"];
     if (q.ano) partes.push("ENEM " + q.ano);
-    partes.push("Aplicação: " + (q.aplicacao || q.banco || "—"));
-    if (q.componente || q.materia) partes.push("Componente: " + (q.componente || q.materia));
-    fonte.innerHTML = partes.join(" · ") + " · Ciências da Natureza";
+    partes.push(q.aplicacao || q.banco || "—");
+    fonte.innerHTML = partes.join(" · ");
     c.appendChild(fonte);
 
     var answered = S.respostas[q.id];
+    // guarda a solução para inserir DEPOIS das alternativas/rodapé
+    var solucaoPend = opts.hideSolution ? null : q;
     var podeResponder = !!q.gabarito && !q.anulada;
     var foot;
 
@@ -188,8 +221,61 @@
       c.appendChild(foot);
       if (answered) lockLetters(q, lr, answered.escolha);
     }
+    if (solucaoPend) c.appendChild(solucaoPanel(solucaoPend));
     return c;
   }
+
+  /* ---------- SOLUÇÃO COMENTADA (editorial, opt-in) ---------- */
+  // Ao abrir, revela o gabarito — por isso fica recolhida e não é inserida no
+  // modo simulado (opts.hideSolution). Conteúdo autoral marcado como editorial;
+  // nunca apresentado como explicação oficial do INEP.
+  function solucaoPanel(q) {
+    var det = el("details", "solucao");
+    var sum = el("summary", null, "Solução comentada");
+    det.appendChild(sum);
+    var sc = el("div", "sc");
+    var s = SOLUCOES[q.id];
+
+    // Resposta oficial (dado verdadeiro do gabarito INEP).
+    var resp = el("p", "resp");
+    if (q.anulada) { resp.textContent = "Questão anulada pelo INEP — sem gabarito válido."; }
+    else if (q.gabarito) { resp.innerHTML = "Resposta oficial: <span class='g'>" + q.gabarito + "</span>"; }
+    else { resp.textContent = "Gabarito oficial não disponível."; }
+    sc.appendChild(resp);
+
+    if (s) {
+      if (s.conceito) { sc.appendChild(h4("Conceito central")); sc.appendChild(para(s.conceito)); }
+      if (s.conclusao) { sc.appendChild(h4("Por que essa é a resposta")); sc.appendChild(para(s.conclusao)); }
+      if (s.abcde) {
+        sc.appendChild(h4("Análise alternativa por alternativa"));
+        var ul = el("ul", "abcde");
+        ["A", "B", "C", "D", "E"].forEach(function (L) {
+          if (!s.abcde[L]) return;
+          var li = el("li");
+          li.innerHTML = "<b>" + L + ")</b> ";
+          var span = el("span"); mathify(span, s.abcde[L]); li.appendChild(span);
+          ul.appendChild(li);
+        });
+        sc.appendChild(ul);
+      }
+      if (s.pegadinha) { sc.appendChild(h4("Pegadinha")); sc.appendChild(para(s.pegadinha)); }
+      if (s.atalho) { sc.appendChild(h4("Atalho no ENEM")); sc.appendChild(para(s.atalho)); }
+    } else {
+      // Sem solução autoral ainda — honesto, sem inventar explicações.
+      var tema = q.aula || q.modelo;
+      if (tema) { sc.appendChild(h4("Tema")); sc.appendChild(para(tema + (q.habilidade ? " · habilidade H" + q.habilidade : ""))); }
+      sc.appendChild(para0("Solução comentada detalhada em preparação para esta questão. O gabarito acima é o oficial do INEP.", "prep"));
+    }
+
+    var selo = el("div", "selo-ed",
+      "Solução editorial da plataforma (elaborada para fins de estudo). NÃO é a explicação oficial do INEP — o INEP publica apenas o gabarito, exibido acima.");
+    sc.appendChild(selo);
+    det.appendChild(sc);
+    return det;
+  }
+  function h4(t) { return el("h4", null, t); }
+  function para(t) { var p = el("p"); mathify(p, t); p.style.margin = "0 0 4px"; return p; }
+  function para0(t, cls) { var p = el("p", cls); p.textContent = t; p.style.margin = "0"; return p; }
 
   function rerenderCard(oldCard, q, opts) {
     var fresh = card(q, opts);
@@ -200,11 +286,11 @@
 
   function qfoot(q, opts, onRetry) {
     var f = el("div", "qfoot");
-    var star = el("button", "star" + (S.favoritos[q.id] ? " on" : ""), (S.favoritos[q.id] ? "★ favorito" : "☆ favoritar"));
+    var star = el("button", "star" + (S.favoritos[q.id] ? " on" : ""), (S.favoritos[q.id] ? "Favorita" : "Favoritar"));
     star.addEventListener("click", function () {
       if (S.favoritos[q.id]) delete S.favoritos[q.id]; else S.favoritos[q.id] = 1;
       save();
-      star.classList.toggle("on"); star.textContent = S.favoritos[q.id] ? "★ favorito" : "☆ favoritar";
+      star.classList.toggle("on"); star.textContent = S.favoritos[q.id] ? "Favorita" : "Favoritar";
     });
     f.appendChild(star);
 
@@ -241,7 +327,7 @@
     f.appendChild(noteBtn);
 
     var temDesenho = S.desenhos[q.id] && S.desenhos[q.id].length;
-    var drawBtn = el("button", "btn-draw" + (temDesenho ? " has" : ""), "✎ Explicação ativa");
+    var drawBtn = el("button", "btn-draw" + (temDesenho ? " has" : ""), "Explicação ativa");
     drawBtn.addEventListener("click", function () { openDraw(q, drawBtn); });
     f.insertBefore(drawBtn, noteBtn.nextSibling);
 
@@ -483,10 +569,10 @@
     var pager = document.getElementById("banco-pager"); pager.innerHTML = "";
     var pages = Math.ceil(list.length / PAGE);
     if (pages > 1) {
-      var prev = el("button", "btn sm ghost", "‹ anterior"); prev.disabled = page === 0;
+      var prev = el("button", "btn sm ghost", "Anterior"); prev.disabled = page === 0;
       prev.addEventListener("click", function () { if (page > 0) { page--; renderBancoList(); window.scrollTo(0, 0); } });
       var info = el("span", "count", "página " + (page + 1) + " / " + pages);
-      var next = el("button", "btn sm ghost", "próxima ›"); next.disabled = page >= pages - 1;
+      var next = el("button", "btn sm ghost", "Próxima"); next.disabled = page >= pages - 1;
       next.addEventListener("click", function () { if (page < pages - 1) { page++; renderBancoList(); window.scrollTo(0, 0); } });
       pager.appendChild(prev); pager.appendChild(info); pager.appendChild(next);
     }
@@ -520,14 +606,14 @@
         S.tempos[q.id] = (S.tempos[q.id] || 0) + secs;
         save();
         study.respondidas++; if (correta) study.acertos++;
-        nextBtn.textContent = "Próxima questão ›"; nextBtn.classList.add("solid");
+        nextBtn.textContent = "Próxima questão"; nextBtn.classList.add("solid");
       }
     }));
 
     var pager = el("div", "pager");
     var skip = el("button", "btn sm ghost", "Pular");
     skip.addEventListener("click", advance);
-    var nextBtn = el("button", "btn sm", "Próxima questão ›");
+    var nextBtn = el("button", "btn sm", "Próxima questão");
     if (study.list[study.i].banco === "PPL") nextBtn.classList.add("solid");
     nextBtn.addEventListener("click", advance);
     pager.appendChild(skip); pager.appendChild(nextBtn);
@@ -655,8 +741,7 @@
     }
 
     function updateCount() {
-      countEl.textContent = "Apple Pencil 2 · dedo bloqueado · " + strokes.length +
-        (strokes.length === 1 ? " traço" : " traços");
+      countEl.textContent = strokes.length + (strokes.length === 1 ? " traço" : " traços");
     }
 
     function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
@@ -787,8 +872,9 @@
 
     /* ── handlers de pointer ── */
     function start(e) {
-      // Rejeição absoluta de dedo, palma e mouse: esta área é Pencil-only.
-      if (e.pointerType !== "pen") return;
+      // Bloqueia dedo/palma (touch): a escrita é da Apple Pencil (no iPad) — o
+      // mouse é aceito só para uso em desktop, onde não há caneta nem toque.
+      if (e.pointerType === "touch") return;
       // Só um ponteiro ativo por vez
       if (activePointerId != null && e.pointerId !== activePointerId) return;
 
@@ -813,7 +899,7 @@
     }
 
     function move(e) {
-      if (e.pointerType !== "pen" || !drawing || e.pointerId !== activePointerId) return;
+      if (e.pointerType === "touch" || !drawing || e.pointerId !== activePointerId) return;
       e.preventDefault();
       var toolAgora = isEraserTip(e) ? "borracha" : cor;
       var r = canvas.getBoundingClientRect();
@@ -932,6 +1018,207 @@
   })();
 
   function openDraw(q, btn) { draw.open(q, btn); }
+
+  /* ---------- SIMULADO (prova cronometrada, sem correção durante) ---------- */
+  var sim = null, simTimer = null;
+  function renderSimulado() {
+    var body = document.getElementById("simulado-body");
+    if (sim && sim.running) { renderSimQuestion(); return; }
+    if (sim && sim.done) { renderSimReport(); return; }
+    body.innerHTML = "";
+    var setup = el("div", "sim-setup");
+    setup.appendChild(field("Matéria", selectEl("sim-mat", ["Todas", "Biologia", "Química", "Física"])));
+    setup.appendChild(field("Banco", selectEl("sim-banco", ["Todos", "Regular", "PPL"])));
+    setup.appendChild(field("Nº de questões", selectEl("sim-n", ["5", "10", "20", "45"], "10")));
+    setup.appendChild(field("Tempo (min)", selectEl("sim-tempo", ["Sem tempo", "10", "20", "45", "90"], "20")));
+    body.appendChild(setup);
+    var start = el("button", "btn solid", "Iniciar simulado");
+    start.style.marginTop = "18px";
+    start.addEventListener("click", startSimulado);
+    body.appendChild(start);
+    var nota = el("p", "vlead");
+    nota.style.marginTop = "16px";
+    nota.textContent = "Todas as questões são oficiais do INEP, já aplicadas no ENEM. Durante a prova não há correção; o gabarito e a solução comentada aparecem só no relatório final.";
+    body.appendChild(nota);
+  }
+  function field(label, control) {
+    var f = el("div", "f");
+    f.appendChild(el("label", null, label));
+    f.appendChild(control);
+    return f;
+  }
+  function selectEl(id, opts, def) {
+    var s = document.createElement("select"); s.id = id;
+    opts.forEach(function (o) { var op = new Option(o, o); if (o === def) op.selected = true; s.appendChild(op); });
+    return s;
+  }
+  function startSimulado() {
+    var mat = document.getElementById("sim-mat").value;
+    var banco = document.getElementById("sim-banco").value;
+    var n = parseInt(document.getElementById("sim-n").value, 10);
+    var tempo = document.getElementById("sim-tempo").value;
+    var pool = Q.filter(function (q) {
+      if (q.anulada || !q.gabarito) return false;             // só respondíveis
+      if (mat !== "Todas" && q.materia !== mat) return false;
+      if (banco !== "Todos" && q.banco !== banco) return false;
+      return true;
+    });
+    if (pool.length < n) n = pool.length;
+    if (!n) { alert("Nenhuma questão disponível para esses filtros."); return; }
+    // embaralha e corta
+    for (var i = pool.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
+    var lista = pool.slice(0, n);
+    sim = { running: true, done: false, lista: lista, i: 0, respostas: {}, inicio: Date.now(), dur: (tempo === "Sem tempo" ? 0 : parseInt(tempo, 10) * 60) };
+    if (sim.dur) sim.endsAt = Date.now() + sim.dur * 1000;
+    renderSimQuestion();
+  }
+  function fmtClock(secs) {
+    if (secs < 0) secs = 0;
+    var m = Math.floor(secs / 60), s = secs % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+  }
+  function renderSimQuestion() {
+    var body = document.getElementById("simulado-body"); body.innerHTML = "";
+    var q = sim.lista[sim.i];
+
+    var hd = el("div", "sim-run-hd");
+    var pos = el("div", "scoreline", "Questão " + (sim.i + 1) + " de " + sim.lista.length);
+    hd.appendChild(pos);
+    var timer = el("div", "sim-timer"); timer.id = "sim-timer";
+    hd.appendChild(timer);
+    var fin = el("button", "btn sm solid", "Finalizar e corrigir");
+    fin.addEventListener("click", finishSimulado);
+    hd.appendChild(fin);
+    body.appendChild(hd);
+    tickTimer();
+
+    // grade de navegação
+    var grid = el("div", "sim-grid");
+    sim.lista.forEach(function (qq, idx) {
+      var cell = el("button", "sim-cell" + (sim.respostas[qq.id] ? " done" : "") + (idx === sim.i ? " cur" : ""), String(idx + 1));
+      cell.addEventListener("click", function () { sim.i = idx; renderSimQuestion(); });
+      grid.appendChild(cell);
+    });
+    body.appendChild(grid);
+
+    // questão SEM correção (não revela gabarito)
+    var c = el("div", "qcard");
+    var meta = el("div", "qmeta");
+    if (q.numero_disciplina) meta.appendChild(el("span", "qnum", "Nº " + q.numero_disciplina));
+    meta.appendChild(tag(q.materia, "klein"));
+    meta.appendChild(tag(q.banco === "PPL" ? "PPL" : "Regular", q.banco === "PPL" ? "ppl" : ""));
+    if (q.ano) meta.appendChild(tag("ENEM " + q.ano));
+    c.appendChild(meta);
+    var hq = el("div", "q-caderno"); hq.appendChild(el("span", "qh", "QUESTÃO " + (sim.i + 1))); hq.appendChild(el("span", "rule")); c.appendChild(hq);
+    var body2 = el("div", "qbody"); mathify(body2, q.enunciado || "(enunciado indisponível)"); c.appendChild(body2);
+    (q.imagens || []).forEach(function (src) {
+      var img = new Image(); img.className = "qfig"; img.loading = "lazy"; img.src = src;
+      img.alt = "Imagem oficial da questão"; img.onerror = function () { img.remove(); };
+      c.appendChild(img);
+    });
+
+    var sel = sim.respostas[q.id];
+    if (q.banco === "Regular" && q.alternativas && q.alternativas.length) {
+      var ul = el("ul", "alts");
+      q.alternativas.forEach(function (a) {
+        var li = el("li"); li.dataset.letra = a.letra;
+        if (sel === a.letra) li.classList.add("sel");
+        li.appendChild(el("span", "lt", a.letra));
+        var tx = el("span", "tx"); mathify(tx, a.texto); li.appendChild(tx);
+        li.addEventListener("click", function () { sim.respostas[q.id] = a.letra; renderSimQuestion(); });
+        ul.appendChild(li);
+      });
+      c.appendChild(ul);
+    } else {
+      c.appendChild(el("div", "ppl-alts", "Banco PPL: as alternativas aparecem ao final do enunciado. Escolha a letra."));
+      var lr = el("div", "letters");
+      ["A", "B", "C", "D", "E"].forEach(function (L) {
+        var bt = el("button", "letter" + (sel === L ? " sel" : ""), L);
+        bt.addEventListener("click", function () { sim.respostas[q.id] = L; renderSimQuestion(); });
+        lr.appendChild(bt);
+      });
+      c.appendChild(lr);
+    }
+    body.appendChild(c);
+
+    var pager = el("div", "pager");
+    var prev = el("button", "btn sm ghost", "Anterior"); prev.disabled = sim.i === 0;
+    prev.addEventListener("click", function () { if (sim.i > 0) { sim.i--; renderSimQuestion(); } });
+    var next = el("button", "btn sm", sim.i < sim.lista.length - 1 ? "Próxima" : "Ir para a correção");
+    next.addEventListener("click", function () { if (sim.i < sim.lista.length - 1) { sim.i++; renderSimQuestion(); } else finishSimulado(); });
+    pager.appendChild(prev); pager.appendChild(next);
+    body.appendChild(pager);
+  }
+  function tickTimer() {
+    if (simTimer) { clearInterval(simTimer); simTimer = null; }
+    var el0 = document.getElementById("sim-timer");
+    if (!sim || !sim.running) return;
+    function upd() {
+      var t = document.getElementById("sim-timer"); if (!t) { clearInterval(simTimer); return; }
+      if (sim.dur) {
+        var rem = Math.round((sim.endsAt - Date.now()) / 1000);
+        t.textContent = "Tempo: " + fmtClock(rem);
+        t.classList.toggle("low", rem <= 60);
+        if (rem <= 0) { finishSimulado(); }
+      } else {
+        t.textContent = "Tempo: " + fmtClock(Math.round((Date.now() - sim.inicio) / 1000));
+      }
+    }
+    upd(); simTimer = setInterval(upd, 1000);
+  }
+  function finishSimulado() {
+    if (simTimer) { clearInterval(simTimer); simTimer = null; }
+    sim.running = false; sim.done = true; sim.fim = Date.now();
+    // grava as respostas no progresso geral (banco/erros/painel)
+    sim.lista.forEach(function (q) {
+      var esc = sim.respostas[q.id];
+      if (esc) { S.respostas[q.id] = { escolha: esc, correta: esc === q.gabarito, ts: Date.now() }; }
+    });
+    var dur = Math.round((sim.fim - sim.inicio) / 1000);
+    S.sessoes.push({ inicio: sim.inicio, fim: sim.fim, total: Object.keys(sim.respostas).length, acertos: sim.lista.filter(function (q) { return sim.respostas[q.id] === q.gabarito; }).length, simulado: true });
+    save();
+    renderSimReport(dur);
+  }
+  function renderSimReport(dur) {
+    var body = document.getElementById("simulado-body"); body.innerHTML = "";
+    var total = sim.lista.length;
+    var respondidas = Object.keys(sim.respostas).length;
+    var acertos = sim.lista.filter(function (q) { return sim.respostas[q.id] === q.gabarito; }).length;
+
+    var kpis = el("div", "kpis");
+    kpis.appendChild(kpi(acertos + " / " + total, "acertos", true));
+    kpis.appendChild(kpi(pct(acertos, total) + "%", "aproveitamento"));
+    kpis.appendChild(kpi(respondidas + " / " + total, "respondidas"));
+    kpis.appendChild(kpi(fmtClock(dur || Math.round((sim.fim - sim.inicio) / 1000)), "tempo total"));
+    body.appendChild(kpis);
+
+    // por matéria
+    var pm = el("div", "panel"); pm.appendChild(el("h3", null, "Desempenho por matéria"));
+    ["Biologia", "Química", "Física"].forEach(function (m) {
+      var qs = sim.lista.filter(function (q) { return q.materia === m; });
+      if (!qs.length) return;
+      var ac = qs.filter(function (q) { return sim.respostas[q.id] === q.gabarito; }).length;
+      pm.appendChild(barRow(m, ac, qs.length, ac + "/" + qs.length + " · " + pct(ac, qs.length) + "%"));
+    });
+    body.appendChild(pm);
+
+    var acts = el("div", "pager"); acts.style.margin = "18px 0";
+    var review = el("button", "btn solid", "Revisar questões com solução");
+    review.addEventListener("click", function () { renderSimRevisao(); });
+    var novo = el("button", "btn ghost", "Novo simulado");
+    novo.addEventListener("click", function () { sim = null; renderSimulado(); });
+    acts.appendChild(review); acts.appendChild(novo);
+    body.appendChild(acts);
+  }
+  function renderSimRevisao() {
+    var body = document.getElementById("simulado-body"); body.innerHTML = "";
+    var back = el("button", "btn sm ghost", "Voltar ao relatório");
+    back.addEventListener("click", function () { renderSimReport(); });
+    back.style.marginBottom = "14px";
+    body.appendChild(back);
+    // mostra cada questão já respondida (card revela gabarito + solução comentada)
+    sim.lista.forEach(function (q) { body.appendChild(card(q, {})); });
+  }
 
   /* ---------- boot ---------- */
   renderPainel();
