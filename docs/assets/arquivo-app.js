@@ -922,7 +922,7 @@
 
     function end(e) {
       if (e && e.pointerId !== activePointerId) return;
-      if (e && e.pointerType !== "pen") return;
+      if (e && e.pointerType === "touch") return;
 
       if (drawing && cur) {
         var r = canvas.getBoundingClientRect();
