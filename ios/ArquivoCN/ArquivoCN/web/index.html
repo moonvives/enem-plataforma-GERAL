@@ -590,7 +590,8 @@
     var mats = ["Biologia", "Química", "Física"];
     var bm = document.getElementById("by-materia"); bm.innerHTML = "";
     mats.forEach(function (m) {
-      var all = Q.filter(function (q) { return q.materia === m; });
+      // denominador = itens respondíveis (exclui anuladas/sem gabarito) p/ chegar a 100%
+      var all = Q.filter(function (q) { return q.materia === m && q.gabarito && !q.anulada; });
       var d = all.filter(function (q) { return S.respostas[q.id]; }).length;
       bm.appendChild(barRow(m, d, all.length));
     });
@@ -605,9 +606,9 @@
 
     var bb = document.getElementById("by-banco"); bb.innerHTML = "";
     ["Regular", "PPL"].forEach(function (bk) {
-      var all = Q.filter(function (q) { return q.banco === bk; });
+      var all = Q.filter(function (q) { return q.banco === bk && q.gabarito && !q.anulada; });
       var d = all.filter(function (q) { return S.respostas[q.id]; }).length;
-      bb.appendChild(barRow(bk + " (" + all.length + ")", d, all.length));
+      bb.appendChild(barRow(bk + " (" + all.length + " respondíveis)", d, all.length));
     });
 
     var ss = document.getElementById("sessoes"); ss.innerHTML = "";
