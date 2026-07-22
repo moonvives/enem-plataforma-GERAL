@@ -171,10 +171,15 @@
     fonte.innerHTML = partes.join(" · ");
     c.appendChild(fonte);
 
-    var answered = S.respostas[q.id];
+    // opts.respMap: usa um mapa de respostas próprio (ex.: revisão de simulado)
+    // em vez do progresso global — evita revelar respostas antigas/estranhas.
+    var answered = opts.respMap
+      ? (opts.respMap[q.id] ? { escolha: opts.respMap[q.id], correta: opts.respMap[q.id] === q.gabarito } : null)
+      : S.respostas[q.id];
     // guarda a solução para inserir DEPOIS das alternativas/rodapé
     var solucaoPend = opts.hideSolution ? null : q;
-    var podeResponder = !!q.gabarito && !q.anulada;
+    var podeResponder = !!q.gabarito && !q.anulada && !opts.readonly;
+    var onRetry = (opts.noRetry || opts.readonly) ? null : function () { rerenderCard(c, q, opts); };
     var foot;
 
     if (q.banco === "Regular" && q.alternativas && q.alternativas.length) {
@@ -195,7 +200,7 @@
         }
       });
       c.appendChild(ul);
-      foot = qfoot(q, opts, function () { rerenderCard(c, q, opts); });
+      foot = qfoot(q, opts, onRetry);
       c.appendChild(foot);
       if (answered) lockAlts(q, ul, answered.escolha);
     } else {
@@ -217,7 +222,7 @@
       });
       if (!podeResponder) lr.classList.add("locked");
       c.appendChild(lr);
-      foot = qfoot(q, opts, function () { rerenderCard(c, q, opts); });
+      foot = qfoot(q, opts, onRetry);
       c.appendChild(foot);
       if (answered) lockLetters(q, lr, answered.escolha);
     }
@@ -600,6 +605,7 @@
     var answeredThis = { done: false };
     var tStart = Date.now();
     body.appendChild(card(q, {
+      noRetry: true, // fluxo do estudo é para a frente; sem "responder novamente" aqui
       onAnswer: function (correta) {
         if (answeredThis.done) return; answeredThis.done = true;
         var secs = Math.round((Date.now() - tStart) / 1000);
@@ -623,7 +629,9 @@
     function advance() { study.i++; renderStudy(); }
   }
   function finishStudy(body) {
-    if (study && study.respondidas > 0) {
+    // registra a sessão UMA vez, mesmo que o usuário reabra a aba Estudar.
+    if (study && !study.recorded && study.respondidas > 0) {
+      study.recorded = true;
       S.sessoes.push({ inicio: study.inicio, fim: Date.now(), total: study.respondidas, acertos: study.acertos });
       save();
     }
@@ -1216,8 +1224,9 @@
     back.addEventListener("click", function () { renderSimReport(); });
     back.style.marginBottom = "14px";
     body.appendChild(back);
-    // mostra cada questão já respondida (card revela gabarito + solução comentada)
-    sim.lista.forEach(function (q) { body.appendChild(card(q, {})); });
+    // revisão reflete ESTE simulado (sim.respostas), não o progresso global,
+    // e é somente leitura (readonly) para não reabrir/regravar respostas.
+    sim.lista.forEach(function (q) { body.appendChild(card(q, { respMap: sim.respostas, readonly: true })); });
   }
 
   /* ---------- boot ---------- */
