@@ -500,17 +500,9 @@
       img.loading = "lazy";
       img.src = src;
       img.alt = "Imagem oficial " + (i + 1) + " da questão" + (q.ano ? " · ENEM " + q.ano : "");
-      img.onerror = function () { img.remove(); var d = img.closest && img.closest("details"); if (d) d.remove(); };
-      if (q.imagem_pagina) {
-        // Recorte da página inteira do caderno (contém enunciado+alternativas):
-        // fica recolhido para não duplicar o texto já exibido, mas disponível.
-        var det = el("details", "qfig-det");
-        var sum = el("summary", null, "Ver imagem oficial da questão (página do caderno)");
-        det.appendChild(sum); det.appendChild(img);
-        c.appendChild(det);
-      } else {
-        c.appendChild(img); // recorte fiel so da figura (inline)
-      }
+      img.onerror = function () { img.remove(); };
+      // A imagem oficial da questão fica embutida (visível) direto no card.
+      c.appendChild(img);
     });
 
     // Selo de fonte oficial (somente dados verdadeiros: INEP + ano + aplicação/banco).
