@@ -15,10 +15,21 @@
 <link rel="apple-touch-icon" sizes="512x512" href="assets/icon-512.png">
 <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
 <style>
+  /* Fonte oficial (padrão INEP) — Source Sans 3 auto-hospedada, aplicada ao
+     enunciado e às alternativas das questões. */
+  @font-face{font-family:'Source Sans 3';font-style:italic;font-weight:400;font-display:swap;src:url(assets/vendor/fonts/SourceSans3-italic-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Source Sans 3';font-style:italic;font-weight:400;font-display:swap;src:url(assets/vendor/fonts/SourceSans3-italic-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url(assets/vendor/fonts/SourceSans3-normal-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url(assets/vendor/fonts/SourceSans3-normal-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:600;font-display:swap;src:url(assets/vendor/fonts/SourceSans3-normal-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:600;font-display:swap;src:url(assets/vendor/fonts/SourceSans3-normal-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:swap;src:url(assets/vendor/fonts/SourceSans3-normal-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:swap;src:url(assets/vendor/fonts/SourceSans3-normal-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
   :root{
     --klein:#002FA7; --klein-d:#00227a; --ink:#0a0a0a; --paper:#ffffff;
     --line:#e4e6ee; --mut:#5b6070; --soft:#f4f5fa; --ok:#0a7d34; --err:#c0182b;
-    --sans:"Source Sans 3","Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --inep:"Source Sans 3","Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box}
   html,body{margin:0}
@@ -96,6 +107,8 @@
   .tag.klein{background:var(--klein);color:#fff;border-color:var(--klein)}
   .tag.ppl{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
   .qbody{font-size:16px;white-space:pre-wrap;word-break:break-word}
+  /* fonte oficial nas questões */
+  .qbody,.qbody.vazio,.alts li,.alts .lt{font-family:var(--inep)}
   .qbody.vazio{color:var(--mut);font-style:italic;font-size:14px;background:var(--soft);padding:12px 14px;border-radius:8px}
   .qbody img{max-width:100%;height:auto;display:block;margin:12px 0;border:1px solid var(--line);border-radius:6px}
   .alts{list-style:none;margin:16px 0 0;padding:0}
