@@ -548,17 +548,10 @@
   }
 
   /* ==========================================================================
-     EXPLICAÇÃO ATIVA — Apple Pencil / mouse / toque
-     Melhorias v2:
-       1. touch-action seletivo: dedo faz scroll; só caneta (pen) ou mouse desenha
-       2. desynchronized:true no contexto 2d → latência mínima (sem esperar vsync)
-       3. Pressão real do Apple Pencil via e.pressure (PointerEvents)
-       4. Largura base maior (3px) + curva de pressão mais expressiva
-       5. Palm rejection reforçada: window on touchstart cancela toque de dedo
-          enquanto caneta está ativa ou nos 800 ms seguintes
-       6. Borracha ativa na ponta traseira do Pencil (pointerType==='pen' && buttons===32)
-       7. Interpolação quadrática dos pontos para traço mais suave
-       8. willReadFrequently:false e will-change:transform via JS no canvas
+     EXPLICAÇÃO ATIVA — tinta exclusiva para Apple Pencil 2
+     O dedo e o mouse nunca criam traços. Cada contato da Pencil gera exatamente
+     um stroke; os pontos coalescidos do Safari são pintados incrementalmente para
+     evitar lacunas e o custo de redesenhar o canvas Retina a cada movimento.
      ========================================================================== */
   var draw = (function () {
     var modal    = document.getElementById("draw-modal");
@@ -586,19 +579,17 @@
 
     var toolBtns = modal.querySelectorAll(".draw-tool[data-tool='preto'],.draw-tool[data-tool='azul'],.draw-tool[data-tool='vermelho'],.draw-tool[data-tool='borracha']");
 
-    // will-change evita re-composite do resto da página a cada frame de desenho
-    canvas.style.willChange = "transform";
-
     var cor = "preto", strokes = [], cur = null, drawing = false;
     var qref = null, btnRef = null, openedAt = 0;
     var activePointerId = null;
-    var lastPenAt = 0;          // timestamp do último evento pointerType==='pen'
-    var penIsActive = false;    // true enquanto o lápis está em contato
 
-    var BASE_W    = 1.6;        // espessura base (px lógicos) — mouse/toque; fina para caligrafia
-    var PEN_MIN   = 0.5;        // fator mínimo de pressão para o Pencil (~0,8 px)
-    var PEN_MAX   = 1.6;        // fator máximo de pressão para o Pencil (~2,6 px)
-    var PALM_HOLD = 800;        // ms de bloqueio de toque após evento de caneta
+    // Espessura em pixels CSS. A variação é deliberadamente curta: aparência de
+    // caneta 0,5, sem engrossar e embolar letras sob pressão alta.
+    var PEN_MIN_W = 0.9;
+    var PEN_MAX_W = 1.75;
+    var PEN_DEFAULT_PRESSURE = 0.35;
+    var MIN_POINT_DISTANCE = 0.32;
+    var ERASER_RADIUS = 20;
 
     var COLORS = { preto: "#0a0a0a", azul: "#002FA7", vermelho: "#c0182b" };
 
@@ -635,137 +626,216 @@
       } else {
         bgRect = null;
       }
-      strokes.forEach(function (s) { paint(s, r); });
-      countEl.textContent = strokes.length + (strokes.length === 1 ? " traço" : " traços");
+      strokes.forEach(function (s) { paint(s, r, true); });
+      updateCount();
     }
 
-    /* ── paint ──
-       Cada segmento é traçado separadamente (beginPath/stroke próprios) porque
-       ctx.lineWidth só é aplicado no momento do stroke() — variar a largura DENTRO
-       de um único path não funciona. Assim a pressão da Apple Pencil realmente
-       muda a espessura ponto a ponto. Curva quadrática pelos pontos médios suaviza. */
-    function paint(s, r) {
-      var pts = s.pts;
-      if (!pts.length) return;
-      ctx.lineJoin = ctx.lineCap = "round";
-      ctx.strokeStyle = COLORS[s.cor] || "#0a0a0a";
-      ctx.fillStyle = ctx.strokeStyle;
-
-      if (pts.length === 1) {
-        var o = pts[0], pw = penWidth(o[2]);
-        ctx.beginPath();
-        ctx.arc(o[0] * r.width, o[1] * r.height, pw / 2, 0, Math.PI * 2);
-        ctx.fill();
-        return;
-      }
-      for (var i = 1; i < pts.length; i++) {
-        var a = pts[i - 1], b = pts[i];
-        var pr = (a[2] != null && b[2] != null) ? (a[2] + b[2]) / 2 : (b[2] != null ? b[2] : a[2]);
-        ctx.lineWidth = penWidth(pr);
-        // ponto de partida = média com o ponto anterior (suaviza junções)
-        var prev = pts[i - 2] || a;
-        var m1x = (prev[0] + a[0]) / 2, m1y = (prev[1] + a[1]) / 2;
-        var m2x = (a[0] + b[0]) / 2, m2y = (a[1] + b[1]) / 2;
-        ctx.beginPath();
-        ctx.moveTo(m1x * r.width, m1y * r.height);
-        ctx.quadraticCurveTo(a[0] * r.width, a[1] * r.height, m2x * r.width, m2y * r.height);
-        ctx.stroke();
-      }
+    function updateCount() {
+      countEl.textContent = "Apple Pencil 2 · dedo bloqueado · " + strokes.length +
+        (strokes.length === 1 ? " traço" : " traços");
     }
+
+    function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
 
     function penWidth(pressure) {
-      if (pressure != null && pressure > 0) {
-        // curva de pressão: raiz quadrada suaviza extremos
-        return BASE_W * (PEN_MIN + (PEN_MAX - PEN_MIN) * Math.sqrt(pressure));
-      }
-      return BASE_W;
+      var p = Number(pressure);
+      if (!isFinite(p) || p <= 0) p = PEN_DEFAULT_PRESSURE;
+      p = clamp(p, 0.02, 1);
+      return PEN_MIN_W + (PEN_MAX_W - PEN_MIN_W) * Math.pow(p, 0.72);
     }
 
-    /* ── pos(): normaliza coordenada e lê pressão ── */
-    function pos(e) {
-      var r   = canvas.getBoundingClientRect();
-      // pressure > 0 só é confiável para pointerType 'pen'
-      var pr  = (e.pointerType === "pen" && e.pressure > 0) ? e.pressure : null;
-      return [(e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, pr];
+    function midpoint(a, b) {
+      return [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2];
+    }
+
+    function setInk(s, pressure) {
+      ctx.lineJoin = ctx.lineCap = "round";
+      ctx.strokeStyle = COLORS[s.cor] || COLORS.preto;
+      ctx.fillStyle = ctx.strokeStyle;
+      ctx.lineWidth = penWidth(pressure);
+    }
+
+    function paintDot(s, p, r) {
+      setInk(s, p[2]);
+      ctx.beginPath();
+      ctx.arc(p[0] * r.width, p[1] * r.height, ctx.lineWidth / 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Desenha somente o trecho confirmado pelo ponto de índice i. Essa tinta
+    // incremental preserva todos os pontos coalescidos sem limpar milhões de
+    // pixels do canvas Retina em cada pointermove.
+    function paintSegment(s, i, r) {
+      var pts = s.pts;
+      if (i < 1 || i >= pts.length) return;
+
+      var start, control, finish, pressure;
+      if (i === 1) {
+        start = pts[0];
+        control = pts[0];
+        finish = midpoint(pts[0], pts[1]);
+        pressure = (pts[0][2] + pts[1][2]) / 2;
+      } else {
+        start = midpoint(pts[i - 2], pts[i - 1]);
+        control = pts[i - 1];
+        finish = midpoint(pts[i - 1], pts[i]);
+        pressure = (pts[i - 1][2] + pts[i][2]) / 2;
+      }
+
+      setInk(s, pressure);
+      ctx.beginPath();
+      ctx.moveTo(start[0] * r.width, start[1] * r.height);
+      ctx.quadraticCurveTo(
+        control[0] * r.width, control[1] * r.height,
+        finish[0] * r.width, finish[1] * r.height
+      );
+      ctx.stroke();
+    }
+
+    function paintTail(s, r) {
+      var pts = s.pts;
+      if (pts.length < 2) return;
+      var a = pts[pts.length - 2], b = pts[pts.length - 1];
+      var start = midpoint(a, b);
+      setInk(s, b[2]);
+      ctx.beginPath();
+      ctx.moveTo(start[0] * r.width, start[1] * r.height);
+      ctx.quadraticCurveTo(
+        b[0] * r.width, b[1] * r.height,
+        b[0] * r.width, b[1] * r.height
+      );
+      ctx.stroke();
+    }
+
+    function paint(s, r, complete) {
+      if (!s.pts || !s.pts.length) return;
+      paintDot(s, s.pts[0], r);
+      for (var i = 1; i < s.pts.length; i++) paintSegment(s, i, r);
+      if (complete) paintTail(s, r);
+    }
+
+    /* ── pos(): normaliza coordenada e estabiliza pressão da Pencil ── */
+    function pos(e, r) {
+      var pressure = Number(e.pressure);
+      if (!isFinite(pressure) || pressure <= 0) pressure = PEN_DEFAULT_PRESSURE;
+      pressure = clamp(pressure, 0.02, 1);
+      if (cur && cur.pts.length) {
+        pressure = cur.pts[cur.pts.length - 1][2] * 0.68 + pressure * 0.32;
+      }
+      return [
+        clamp((e.clientX - r.left) / r.width, 0, 1),
+        clamp((e.clientY - r.top) / r.height, 0, 1),
+        pressure
+      ];
+    }
+
+    function appendPoint(p, r) {
+      if (!cur) return false;
+      var last = cur.pts[cur.pts.length - 1];
+      var distance = Math.hypot(
+        (p[0] - last[0]) * r.width,
+        (p[1] - last[1]) * r.height
+      );
+      if (distance < MIN_POINT_DISTANCE) return false;
+      cur.pts.push(p);
+      paintSegment(cur, cur.pts.length - 1, r);
+      return true;
     }
 
     /* ── borracha ── */
-    function hitErase(p) {
+    function hitErase(p, r) {
       var before = strokes.length;
       strokes = strokes.filter(function (s) {
         return !s.pts.some(function (pt) {
-          return Math.hypot(pt[0] - p[0], pt[1] - p[1]) < 0.025;
+          return Math.hypot(
+            (pt[0] - p[0]) * r.width,
+            (pt[1] - p[1]) * r.height
+          ) < ERASER_RADIUS;
         });
       });
-      if (strokes.length !== before) redraw();
+      return strokes.length !== before;
     }
 
-    /* ── detecção de ponta traseira do Pencil (eraser button, buttons===32) ── */
+    /* Flag de borracha do padrão Pointer Events (para stylus compatível). */
     function isEraserTip(e) {
       return e.pointerType === "pen" && (e.buttons & 32) !== 0;
     }
 
     /* ── handlers de pointer ── */
     function start(e) {
-      // Ignorar toque de dedo durante/após uso da caneta (palm rejection)
-      if (e.pointerType === "touch" && (penIsActive || Date.now() - lastPenAt < PALM_HOLD)) return;
+      // Rejeição absoluta de dedo, palma e mouse: esta área é Pencil-only.
+      if (e.pointerType !== "pen") return;
       // Só um ponteiro ativo por vez
       if (activePointerId != null && e.pointerId !== activePointerId) return;
 
       e.preventDefault();
       activePointerId = e.pointerId;
-
-      if (e.pointerType === "pen") { penIsActive = true; lastPenAt = Date.now(); }
-
       try { canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId); } catch (err) {}
 
-      var p = pos(e);
+      var r = canvas.getBoundingClientRect();
+      var p = pos(e, r);
       var toolAgora = isEraserTip(e) ? "borracha" : cor;
 
       if (toolAgora === "borracha") {
-        drawing = true; hitErase(p); return;
+        drawing = true;
+        if (hitErase(p, r)) redraw();
+        return;
       }
       drawing = true;
-      cur = { cor: cor, pts: [p] };
+      cur = { cor: cor, pts: [p], input: "apple-pencil-2" };
       strokes.push(cur);
+      paintDot(cur, p, r);
+      updateCount();
     }
 
     function move(e) {
-      if (!drawing || e.pointerId !== activePointerId) return;
+      if (e.pointerType !== "pen" || !drawing || e.pointerId !== activePointerId) return;
       e.preventDefault();
-      if (e.pointerType === "pen") lastPenAt = Date.now();
-
       var toolAgora = isEraserTip(e) ? "borracha" : cor;
+      var r = canvas.getBoundingClientRect();
 
       // getCoalescedEvents entrega todos os pontos intermediários desde o último
       // frame — essencial para traços suaves com o Pencil em alta velocidade
       var coalesced = e.getCoalescedEvents && e.getCoalescedEvents();
-      var pts = (coalesced && coalesced.length) ? coalesced : [e];
+      var events = (coalesced && coalesced.length) ? Array.prototype.slice.call(coalesced) : [];
+      var lastEvent = events[events.length - 1];
+      if (!lastEvent || lastEvent.clientX !== e.clientX || lastEvent.clientY !== e.clientY) events.push(e);
 
-      pts.forEach(function (ev) {
-        var p = pos(ev);
-        if (toolAgora === "borracha") { hitErase(p); }
-        else if (cur) { cur.pts.push(p); }
+      var erased = false;
+      events.forEach(function (ev) {
+        var p = pos(ev, r);
+        if (toolAgora === "borracha") erased = hitErase(p, r) || erased;
+        else appendPoint(p, r);
       });
-      redraw();
+      if (erased) redraw();
     }
 
     function end(e) {
       if (e && e.pointerId !== activePointerId) return;
-      if (e && e.pointerType === "pen") { penIsActive = false; lastPenAt = Date.now(); }
+      if (e && e.pointerType !== "pen") return;
+
+      if (drawing && cur) {
+        var r = canvas.getBoundingClientRect();
+        if (e && e.type === "pointerup") appendPoint(pos(e, r), r);
+        paintTail(cur, r);
+      }
+      if (e) {
+        try { canvas.releasePointerCapture && canvas.releasePointerCapture(e.pointerId); } catch (err) {}
+      }
       activePointerId = null;
       if (!drawing) return;
       drawing = false; cur = null;
       persist();
     }
 
-    /* ── palm rejection extra: cancela touchstart de dedo durante caneta ── */
-    canvas.addEventListener("touchstart", function (e) {
-      if (penIsActive || Date.now() - lastPenAt < PALM_HOLD) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    }, { passive: false });
+    /* Safari: a palma não desenha nem inicia seleção/zoom dentro do caderno. */
+    function blockDirectTouch(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    canvas.addEventListener("touchstart", blockDirectTouch, { passive: false });
+    canvas.addEventListener("touchmove", blockDirectTouch, { passive: false });
+    canvas.addEventListener("contextmenu", blockDirectTouch);
 
     /* ── persist / save ── */
     function persist() {
@@ -790,8 +860,8 @@
 
     /* ── event listeners ── */
     document.getElementById("draw-close").addEventListener("click", close);
-    canvas.addEventListener("pointerdown",   start);
-    canvas.addEventListener("pointermove",   move);
+    canvas.addEventListener("pointerdown",   start, { passive: false });
+    canvas.addEventListener("pointermove",   move,  { passive: false });
     window.addEventListener("pointerup",     end);
     window.addEventListener("pointercancel", end);
 
@@ -826,7 +896,7 @@
       }
       modal.classList.remove("on");
       modal.setAttribute("aria-hidden", "true");
-      penIsActive = false; drawing = false; cur = null; activePointerId = null;
+      drawing = false; cur = null; activePointerId = null;
       qref = null; btnRef = null;
     }
 
