@@ -3,11 +3,15 @@ const A={CH:'Humanas',CN:'Natureza',LC:'Linguagens',MT:'Matemática'};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const api=async p=>{const r=await fetch(p,{cache:'no-store'});if(!r.ok)throw Error('Dados indisponíveis');return r.json()};
 async function dropOfflineCaches(){
+  // Restringe a limpeza ao escopo DESTE app: em origens compartilhadas
+  // (ex.: user.github.io com vários projetos) não desregistrar o service
+  // worker de apps alheios nem apagar caches que não sejam nossos.
+  const appScope=new URL('./',location.href).href;
   if('serviceWorker'in navigator){
-    try{const registrations=await navigator.serviceWorker.getRegistrations();await Promise.all(registrations.map(r=>r.unregister()))}catch(_e){}
+    try{const registrations=await navigator.serviceWorker.getRegistrations();await Promise.all(registrations.filter(r=>r.scope&&r.scope.indexOf(appScope)===0).map(r=>r.unregister()))}catch(_e){}
   }
   if('caches'in window){
-    try{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('enem-')).map(k=>caches.delete(k)))}catch(_e){}
+    try{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.indexOf('enem')===0).map(k=>caches.delete(k)))}catch(_e){}
   }
 }
 window.getPadroes=()=>api('api/padroes.json');window.getItens=()=>api('api/itens.json');
